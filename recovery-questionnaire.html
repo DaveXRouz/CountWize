@@ -10,7 +10,7 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/countwize-test.webflow.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="css/responsive-fixes.css" rel="stylesheet" type="text/css">  <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Be Vietnam Pro:regular,500,600,700","Poppins:300,regular,500,600,700"]  }});</script>
@@ -808,7 +808,7 @@ document.addEventListener("DOMContentLoaded", function () {
       label.style.gap = "20px";
       label.style.cursor = "pointer";
       const icon = document.createElement("img");
-      icon.src = "https://cdn.prod.website-files.com/6757da2d0bddf4e7ffe6a430/67e5168f4d2b51c86611ce1c_svgviewer-output%20(19).svg";
+      icon.src = "images/recovery-questionnaire-icon.svg";
       icon.alt = "icon";
       icon.className = "upload-icon";
       const text = document.createElement("div");
@@ -1059,7 +1059,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     })
     .catch(err => {
-      console.error("Failed to load country list:", err);
+      // Failed to load country list
       select.innerHTML = `<option disabled selected>Error loading countries</option>`;
     });
 });
@@ -1895,7 +1895,7 @@ document.addEventListener("ipDataReady", function (e) {
   const input = document.querySelector("#Phone"),
         dialCode = document.querySelector(".dialCode"),
         errorMsg = document.querySelector("#error-msg"),
-        form = document.querySelector("#contact-form");
+        form = document.querySelector("#webflow-form");
   const iti = intlTelInput(input, {
     initialCountry: userCountry,
     placeholderNumberType: 'FIXED_LINE',
@@ -1976,7 +1976,7 @@ document.addEventListener("DOMContentLoaded", generateCaseID);
   <script>
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("#webflow-form");
-  if (!form) return console.error("❌ Форма не знайдена");
+  if (!form) return;
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     const formData = new FormData(form);
@@ -2094,9 +2094,9 @@ document.addEventListener("DOMContentLoaded", function () {
           files: encodedFiles
         })
       });
-      console.log("✅ Надіслано через Vercel");
+      // Form submitted successfully
     } catch (err) {
-      console.error("❌ Помилка відправки:", err);
+      // Error submitting form
     }
     form.style.display = "none";
     const success = form.parentElement.querySelector(".w-form-done");

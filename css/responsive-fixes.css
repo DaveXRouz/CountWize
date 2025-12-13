@@ -1,0 +1,212 @@
+/* Global Responsive Fixes for CountWize
+   Ensures all elements are visible and properly positioned across all screen sizes */
+
+/* ============================================
+   BUTTON VISIBILITY FIXES
+   ============================================ */
+
+/* Hero button fixes */
+.hero-header-wrapper .hero-button-wrapper {
+  margin-top: 30px;
+  align-self: center;
+  opacity: 1 !important;
+  position: static !important;
+  inset: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  display: flex !important;
+  width: auto;
+  max-width: 100%;
+  transform: none !important;
+}
+
+/* Tablet and below */
+@media screen and (max-width: 991px) {
+  .hero-header-wrapper .hero-button-wrapper {
+    display: flex !important;
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+    width: auto;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  /* Ensure all buttons are visible on mobile */
+  .hero-button-wrapper,
+  .button,
+  .cta-button,
+  .crypto-easy-button-wrapper,
+  .navbar-contact-button,
+  .hero-alternative-button {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+  }
+  
+  .hero-header-wrapper .hero-button-wrapper {
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    padding: 10px 24px;
+    height: auto;
+    min-height: 50px;
+  }
+  
+  /* Fix text overflow */
+  .hero-heading,
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+  
+  /* Ensure forms are visible */
+  .hero-form-wrapper,
+  .form-block,
+  .w-form,
+  .contact-page-form {
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  /* Fix container overflow */
+  .container-large,
+  .w-container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Tablet fixes */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .hero-button-wrapper,
+  .button,
+  .cta-button,
+  .crypto-easy-button-wrapper {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+  }
+}
+
+/* Large screen fixes - prevent elements from being positioned off-screen */
+@media screen and (min-width: 1440px) {
+  .hero-button-wrapper,
+  .hero-header-wrapper .hero-button-wrapper {
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    inset: auto !important;
+    display: flex !important;
+  }
+}
+
+/* Extra large screens (1920px+) */
+@media screen and (min-width: 1920px) {
+  .hero-header-wrapper .hero-button-wrapper {
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    inset: auto !important;
+    display: flex !important;
+  }
+}
+
+/* ============================================
+   TEXT AND CONTENT FIXES
+   ============================================ */
+
+/* Prevent text from being cut off */
+@media screen and (max-width: 767px) {
+  p, .text-size-regular, .text-size-small {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  /* Fix image responsiveness */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ============================================
+   NAVIGATION FIXES
+   ============================================ */
+
+@media screen and (max-width: 767px) {
+  .navbar-menu,
+  .nav-menu {
+    display: block !important;
+  }
+  
+  .navbar-contact-button {
+    display: flex !important;
+    visibility: visible !important;
+  }
+}
+
+/* ============================================
+   FORM FIXES
+   ============================================ */
+
+@media screen and (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .hero-form-field-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   GENERAL LAYOUT FIXES
+   ============================================ */
+
+/* Ensure no elements are positioned off-screen */
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 991px) {
+  /* Prevent horizontal scroll */
+  body, html {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  /* Fix flex containers */
+  .hero-wrapper,
+  .hero-header-wrapper,
+  .hero-content-wrapper {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+}
+

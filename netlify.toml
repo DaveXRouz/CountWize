@@ -25,6 +25,11 @@
   status = 200
 
 [[redirects]]
+  from = "/contact"
+  to = "/contact-us.html"
+  status = 200
+
+[[redirects]]
   from = "/crypto-education"
   to = "/crypto-education.html"
   status = 200
