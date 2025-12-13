@@ -1,0 +1,113 @@
+[build]
+  # Static site - no build command needed
+  publish = "."
+
+# URL redirects to match live site structure
+# These ensure URLs like /crypto-recovery work correctly
+[[redirects]]
+  from = "/crypto-recovery"
+  to = "/recovery.html"
+  status = 200
+
+[[redirects]]
+  from = "/recovery"
+  to = "/recovery.html"
+  status = 200
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact-us.html"
+  status = 200
+
+[[redirects]]
+  from = "/crypto-education"
+  to = "/crypto-education.html"
+  status = 200
+
+[[redirects]]
+  from = "/crypto-recovery-guide"
+  to = "/crypto-recovery-guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq-crypto-recovery"
+  to = "/faq-crypto-recovery.html"
+  status = 200
+
+[[redirects]]
+  from = "/crypto-insights"
+  to = "/crypto-insights.html"
+  status = 200
+
+[[redirects]]
+  from = "/recovery-questionnaire"
+  to = "/recovery-questionnaire.html"
+  status = 200
+
+[[redirects]]
+  from = "/crypto-tax"
+  to = "/crypto-tax.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/team"
+  to = "/team.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal"
+  to = "/legal.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+  status = 200
+
+[[redirects]]
+  from = "/cookie-policy"
+  to = "/cookie-policy.html"
+  status = 200
+
+# Custom 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Security headers for better protection
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
