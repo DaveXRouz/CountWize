@@ -1139,6 +1139,169 @@ body .section.gray.etr-2,
 }
 
 /* ============================================
+   HIDE PLACEHOLDER IMAGES
+   Temporarily hide placeholder images for professional look
+   ============================================ */
+
+/* Hide placeholder SVG images - replace with actual content later */
+img[src*="placeholder.60f9b1840c.svg"] {
+  display: none !important;
+}
+
+/* Hide parent containers if they only contain placeholders */
+/* This prevents empty boxes from showing */
+.source-logo-new:has(img[src*="placeholder"]) {
+  display: none !important;
+}
+
+/* ============================================
+   NON-FUNCTIONAL LINK FIX
+   Style links with href="#" to look disabled
+   ============================================ */
+
+/* Make non-functional links look disabled instead of clickable */
+a.link-doc[href="#"] {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  filter: grayscale(40%) !important;
+}
+
+/* Add "Coming Soon" indicator to non-functional document links */
+a.link-doc[href="#"]::after {
+  content: " (Coming Soon)" !important;
+  font-size: 12px !important;
+  color: rgba(163, 220, 173, 0.7) !important;
+  font-style: italic !important;
+  margin-left: 8px !important;
+}
+
+/* ============================================
+   PROFESSIONAL BUTTON ENHANCEMENTS
+   Smooth, polished button interactions
+   ============================================ */
+
+/* Ensure all buttons have smooth transitions */
+.hero-alternative-button,
+.navbar-contact-button,
+.submit-button-2,
+.pricing-card-button,
+.crypto-easy-button-wrapper a,
+button,
+.w-button {
+  transition: all 0.3s ease !important;
+}
+
+/* Improve button hover states for better UX */
+.hero-alternative-button:hover,
+.navbar-contact-button:hover,
+.pricing-card-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(163, 220, 173, 0.3) !important;
+}
+
+/* Button active/pressed state for tactile feedback */
+.hero-alternative-button:active,
+.navbar-contact-button:active,
+.pricing-card-button:active {
+  transform: translateY(0px) !important;
+  box-shadow: 0 2px 6px rgba(163, 220, 173, 0.2) !important;
+}
+
+/* ============================================
+   PROFESSIONAL CARD IMPROVEMENTS
+   Consistent, polished card styling
+   ============================================ */
+
+/* Smooth card hover effects */
+.card,
+.pricing-card,
+.team-member-card,
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover,
+.pricing-card:hover,
+.team-member-card:hover,
+.service-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ============================================
+   TYPOGRAPHY REFINEMENTS
+   Better readability and hierarchy
+   ============================================ */
+
+/* Improve line height for better readability */
+p, .card-description, .crypto-recovery-paragraph, .overview-description-paragraph {
+  line-height: 1.7 !important;
+}
+
+/* Ensure headings have proper spacing */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem !important;
+}
+
+/* Better link styling */
+a:not(.w-button):not(.w-inline-block) {
+  transition: color 0.2s ease !important;
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   Better focus states for keyboard navigation
+   ============================================ */
+
+/* Visible focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid rgba(163, 220, 173, 0.6) !important;
+  outline-offset: 2px !important;
+}
+
+/* Remove default focus outline only when replacing with custom */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* Enhanced focus-visible for modern browsers */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(163, 220, 173, 0.8) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(163, 220, 173, 0.2) !important;
+}
+
+/* ============================================
+   SMOOTH SCROLLING
+   Better user experience for anchor links
+   ============================================ */
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* ============================================
+   IMAGE QUALITY IMPROVEMENTS
+   Crisp, professional image rendering
+   ============================================ */
+
+img {
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ============================================
    END OF MINIMAL FIXES
    All other design elements use original Webflow CSS
    ============================================ */
