@@ -1,212 +1,1144 @@
-/* Global Responsive Fixes for CountWize
-   Ensures all elements are visible and properly positioned across all screen sizes */
-
 /* ============================================
-   BUTTON VISIBILITY FIXES
+   MINIMAL RESPONSIVE FIXES FOR COUNTWIZE
+   Preserves original design while fixing critical issues
    ============================================ */
 
-/* Hero button fixes */
+/* ============================================
+   CRITICAL: PREVENT HORIZONTAL SCROLL
+   ============================================ */
+
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+.wrapper-page,
+.main-wrapper,
+.page-wrapper {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* ============================================
+   CRITICAL: BUTTON VISIBILITY FIX
+   ============================================ */
+
+/* Ensure hero button is visible and centered */
 .hero-header-wrapper .hero-button-wrapper {
-  margin-top: 30px;
-  align-self: center;
   opacity: 1 !important;
   position: static !important;
-  inset: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  left: auto !important;
   display: flex !important;
-  width: auto;
-  max-width: 100%;
-  transform: none !important;
+  margin: 30px auto 0;
 }
 
-/* Tablet and below */
 @media screen and (max-width: 991px) {
   .hero-header-wrapper .hero-button-wrapper {
-    display: flex !important;
-    position: static !important;
-    right: auto !important;
-    bottom: auto !important;
-    inset: auto !important;
-    width: auto;
     max-width: 340px;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-/* Mobile */
-@media screen and (max-width: 767px) {
-  /* Ensure all buttons are visible on mobile */
-  .hero-button-wrapper,
-  .button,
-  .cta-button,
-  .crypto-easy-button-wrapper,
-  .navbar-contact-button,
-  .hero-alternative-button {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: static !important;
-    right: auto !important;
-    bottom: auto !important;
-    inset: auto !important;
-  }
-  
-  .hero-header-wrapper .hero-button-wrapper {
-    width: 100%;
-    max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 15px;
-    padding: 10px 24px;
-    height: auto;
-    min-height: 50px;
-  }
-  
-  /* Fix text overflow */
+/* ============================================
+   CRITICAL: SKIP LINK ACCESSIBILITY
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   MINIMAL: TEXT OVERFLOW PREVENTION
+   Only for very small screens where text breaks
+   ============================================ */
+
+@media screen and (max-width: 479px) {
+  /* Only prevent text from breaking mid-word on very small screens */
   .hero-heading,
-  h1, h2, h3, h4, h5, h6 {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    max-width: 100%;
+  .section-heading {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
   
-  /* Ensure forms are visible */
-  .hero-form-wrapper,
-  .form-block,
-  .w-form,
-  .contact-page-form {
-    display: block !important;
-    visibility: visible !important;
-  }
-  
-  /* Fix container overflow */
-  .container-large,
-  .w-container {
-    max-width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-/* Tablet fixes */
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .hero-button-wrapper,
-  .button,
-  .cta-button,
-  .crypto-easy-button-wrapper {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: static !important;
-  }
-}
-
-/* Large screen fixes - prevent elements from being positioned off-screen */
-@media screen and (min-width: 1440px) {
-  .hero-button-wrapper,
-  .hero-header-wrapper .hero-button-wrapper {
-    position: static !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    inset: auto !important;
-    display: flex !important;
-  }
-}
-
-/* Extra large screens (1920px+) */
-@media screen and (min-width: 1920px) {
-  .hero-header-wrapper .hero-button-wrapper {
-    position: static !important;
-    right: auto !important;
-    bottom: auto !important;
-    inset: auto !important;
-    display: flex !important;
+  /* Ensure containers don't overflow */
+  .w-container,
+  .container-23,
+  .container-24 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
 
 /* ============================================
-   TEXT AND CONTENT FIXES
+   MINIMAL: FORM RESPONSIVENESS
+   Only stack forms on mobile
    ============================================ */
 
-/* Prevent text from being cut off */
 @media screen and (max-width: 767px) {
-  p, .text-size-regular, .text-size-small {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    max-width: 100%;
-  }
-  
-  /* Fix image responsiveness */
-  img {
-    max-width: 100%;
-    height: auto;
+  .hero-form-row {
+    grid-template-columns: 1fr !important;
   }
 }
 
 /* ============================================
-   NAVIGATION FIXES
+   PROFESSIONAL FORM IMPROVEMENTS
    ============================================ */
 
-@media screen and (max-width: 767px) {
-  .navbar-menu,
-  .nav-menu {
-    display: block !important;
-  }
-  
-  .navbar-contact-button {
-    display: flex !important;
-    visibility: visible !important;
-  }
+/* Make placeholder text more subtle and professional */
+.hero-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important; /* Changed from full white to 50% opacity */
+  opacity: 0.6 !important;
+  font-size: 14px;
 }
 
-/* ============================================
-   FORM FIXES
-   ============================================ */
+/* Keep labels accessible but hide visually for clean layout */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
 
-@media screen and (max-width: 767px) {
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  textarea,
-  select {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+/* Improve form field spacing for professional look */
+.hero-form-row {
+  grid-column-gap: 20px !important; /* Increased from 15px */
+  grid-row-gap: 20px !important; /* Increased from 15px */
+}
+
+/* Ensure form maintains 2-column layout on desktop - professional layout */
+@media screen and (min-width: 768px) {
+  .hero-form-row {
+    grid-template-columns: 1fr 1fr !important;
+    display: grid !important;
+    grid-column-gap: 20px !important;
+    grid-row-gap: 20px !important;
   }
   
+  /* Ensure form fields don't stack on desktop */
   .hero-form-field-wrapper {
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 }
 
+/* On larger screens, ensure proper spacing */
+@media screen and (min-width: 992px) {
+  .hero-form-row {
+    grid-column-gap: 24px !important;
+  }
+}
+
+/* Better form field appearance */
+.hero-form-field-wrapper {
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-form-field-wrapper:focus-within {
+  border-color: rgba(187, 238, 196, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
 /* ============================================
-   GENERAL LAYOUT FIXES
+   VIDEO LOGO FIXES
    ============================================ */
 
-/* Ensure no elements are positioned off-screen */
-* {
-  box-sizing: border-box;
+/* Make video player logo background transparent */
+.video-wrapper .vimeo-logo,
+.video-wrapper .embedly-logo,
+.video-wrapper iframe[src*="vimeo"] + *,
+.code-embed-5 .w-embed iframe + * {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Hide duplicate logo/branding in video player */
+.video-wrapper .vimeo-branding,
+.video-wrapper .embedly-branding,
+.video-wrapper .player-logo,
+.video-wrapper .vimeo-watermark,
+.video-wrapper .embedly-watermark {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Hide Vimeo logo/branding overlay */
+.video-wrapper iframe[src*="vimeo"]::after,
+.code-embed-5 iframe[src*="vimeo"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Ensure video iframe has transparent background */
+.video-wrapper iframe,
+.code-embed-5 iframe,
+.w-embed iframe {
+  background-color: transparent !important;
+}
+
+/* Hide any overlay elements in video containers */
+.video-wrapper > *:not(iframe),
+.code-embed-5 > *:not(iframe) {
+  background-color: transparent !important;
+}
+
+/* Specific fix for Vimeo embed branding */
+.embedly-embed,
+.embedly-embed * {
+  background-color: transparent !important;
+}
+
+.embedly-embed .embedly-card,
+.embedly-embed .embedly-card-hug {
+  background: transparent !important;
+}
+
+/* ============================================
+   VIDEO LIGHTBOX BLACK BACKGROUND FIX
+   Remove black background from video lightbox/embedly
+   ============================================ */
+
+/* Fix black background in video lightbox */
+.w-lightbox-backdrop {
+  background-color: rgba(0, 0, 0, 0.85) !important; /* Semi-transparent dark overlay */
+}
+
+.w-lightbox-view {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.w-lightbox-content {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix embedly card black background */
+.embedly-embed,
+.embedly-embed iframe,
+.embedly-card,
+.embedly-card-hug,
+.embedly-card-hug * {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix any black backgrounds in video containers */
+.video-wrapper,
+.code-embed-5,
+.w-embed,
+.w-embed iframe,
+.w-iframe {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix div-block-292 (video play button container) black background */
+.div-block-292 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix div-block-291 (video text container) black background */
+.div-block-291 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix hero-alternative-heading-wrapper black background */
+.hero-alternative-heading-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix any black backgrounds in hero form wrapper */
+.hero-form-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix video play button images - ensure no black backgrounds */
+.image-98,
+.image-99 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix w-lightbox link container */
+.w-lightbox,
+a.w-lightbox,
+a.w-inline-block.w-lightbox {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix any parent containers that might have black backgrounds */
+.hero-content-wrapper,
+.hero-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* ============================================
+   VIDEO SECTION - FIX LIGHT CUTTING
+   Prevent circle-wrapper from cutting into video
+   ============================================ */
+
+/* Hide circle-wrapper before video section to prevent cutting */
+/* Using :has() selector for modern browsers */
+.section:has(.crypto-asset-recovery-wrapper) .circle-wrapper,
+.section .crypto-asset-recovery-wrapper ~ .circle-wrapper {
+  display: none !important; /* Hide if causing light cutting */
+}
+
+/* Fallback: Direct targeting - hide circle-wrapper that comes before video section */
+.crypto-asset-recovery-wrapper ~ .circle-wrapper,
+.section > .circle-wrapper._220 {
+  display: none !important;
+}
+
+/* Ensure video wrapper doesn't get cut by light */
+.video-wrapper,
+.crypto-asset-recovery-wrapper {
+  position: relative !important;
+  z-index: 1 !important;
+  overflow: visible !important;
+}
+
+/* ============================================
+   RECOVERY TEAM SECTION - FIX EMPTY LIGHT SECTION
+   Remove empty light section between team and next section
+   ============================================ */
+
+/* Remove empty light section between team and next section */
+/* Using :has() selector for modern browsers */
+.section:has(.team-members-wrapper) .circle-wrapper:last-of-type,
+.section:has(.experts-team-wrapper) .circle-wrapper:last-of-type,
+.section:has(.team-members-wrapper) ~ .circle-wrapper,
+.section:has(.experts-team-wrapper) ~ .circle-wrapper {
+  display: none !important; /* Hide the empty light section */
+}
+
+/* Fallback: Direct targeting - hide circle-wrapper after team section */
+.experts-team-wrapper ~ .circle-wrapper,
+.team-members-wrapper ~ .circle-wrapper,
+.section .experts-team-wrapper + * + .circle-wrapper {
+  display: none !important;
+}
+
+/* Ensure smooth transition from team to next section */
+.section:has(.team-members-wrapper),
+.section:has(.experts-team-wrapper) {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.section:has(.team-members-wrapper) + .section,
+.section:has(.experts-team-wrapper) + .section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ============================================
+   BACKGROUND HARMONY: PERFECT BLACK MATCH
+   Ensure gray sections match other sections exactly
+   ============================================ */
+
+/* Remove any wrapper backgrounds that might cause color shifts */
+.wrapper-page,
+.div-block-123 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* CRITICAL: Match body-4 background exactly */
+/* body-4 has: background-color: var(--_redesign-style---black) = #050505 */
+/* Plus background images: Ellipse-12.webp and Ellipse-13.webp */
+/* Regular sections show this - gray sections must match exactly */
+html body.body-4 .section.gray,
+html body .section.gray,
+body.body-4 .section.gray,
+body .section.gray,
+.section.gray {
+  /* Match body-4 background exactly */
+  background-color: var(--_redesign-style---black) !important; /* #050505 - matches body-4 */
+  background: var(--_redesign-style---black) !important;
+  /* Include body-4 background images to match exactly */
+  background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+  background-position: 0%, 100% 0 !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: auto, auto !important;
+  background-attachment: scroll, scroll !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  /* Remove any overlays or filters that might cause blue tint */
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: relative !important;
+}
+
+/* Gray section etr-1: Match body-4 background exactly */
+html body.body-4 .section.gray.etr-1,
+html body .section.gray.etr-1,
+body.body-4 .section.gray.etr-1,
+body .section.gray.etr-1,
+.section.gray.etr-1 {
+  background-color: var(--_redesign-style---black) !important; /* #050505 - matches body-4 */
+  background: var(--_redesign-style---black) !important;
+  /* Include body-4 background images, remove ethereum */
+  background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+  background-position: 0%, 100% 0 !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: auto, auto !important;
+  background-attachment: scroll, scroll !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: relative !important;
+}
+
+/* Gray section etr-2: Match body-4 background exactly */
+html body.body-4 .section.gray.etr-2,
+html body .section.gray.etr-2,
+body.body-4 .section.gray.etr-2,
+body .section.gray.etr-2,
+.section.gray.etr-2 {
+  background-color: var(--_redesign-style---black) !important; /* #050505 - matches body-4 */
+  background: var(--_redesign-style---black) !important;
+  /* Include body-4 background images, remove ethereum */
+  background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+  background-position: 0%, 100% 0 !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: auto, auto !important;
+  background-attachment: scroll, scroll !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: relative !important;
+}
+
+/* Override any media query rules - match body-4 in all breakpoints */
+@media screen and (min-width: 768px) {
+  html body.body-4 .section.gray,
+  html body .section.gray,
+  body.body-4 .section.gray,
+  body .section.gray,
+  .section.gray {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  html body.body-4 .section.gray.etr-1,
+  html body .section.gray.etr-1,
+  body.body-4 .section.gray.etr-1,
+  body .section.gray.etr-1,
+  .section.gray.etr-1 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  html body.body-4 .section.gray.etr-2,
+  html body .section.gray.etr-2,
+  body.body-4 .section.gray.etr-2,
+  body .section.gray.etr-2,
+  .section.gray.etr-2 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
 }
 
 @media screen and (max-width: 991px) {
-  /* Prevent horizontal scroll */
-  body, html {
-    overflow-x: hidden;
-    max-width: 100%;
+  html body.body-4 .section.gray,
+  html body .section.gray,
+  body.body-4 .section.gray,
+  body .section.gray,
+  .section.gray {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
   }
   
-  /* Fix flex containers */
-  .hero-wrapper,
-  .hero-header-wrapper,
-  .hero-content-wrapper {
-    flex-wrap: wrap;
-    max-width: 100%;
+  html body.body-4 .section.gray.etr-1,
+  html body .section.gray.etr-1,
+  body.body-4 .section.gray.etr-1,
+  body .section.gray.etr-1,
+  .section.gray.etr-1 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  html body.body-4 .section.gray.etr-2,
+  html body .section.gray.etr-2,
+  body.body-4 .section.gray.etr-2,
+  body .section.gray.etr-2,
+  .section.gray.etr-2 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
   }
 }
 
+/* ============================================
+   SMOOTH SECTION TRANSITIONS
+   Beautiful seamless transitions between sections
+   ============================================ */
+
+/* Smooth transition effect for all sections */
+.section {
+  transition: background-color 0.6s ease, background 0.6s ease;
+}
+
+/* Remove any pseudo-elements that might interfere */
+.section.gray::before,
+.section.gray::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ============================================
+   CONTAINER PADDING CONSISTENCY
+   Ensure gray sections align with other sections
+   ============================================ */
+
+/* Ensure container-24 has consistent padding structure */
+.container-24 {
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+}
+
+@media screen and (max-width: 991px) {
+  .container-24 {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container-24 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ============================================
+   WHITE LIGHT CIRCLES - REFINED & SUBTLE
+   Beautiful, professional glow effect
+   ============================================ */
+
+/* Refine circle-block for gray sections - more subtle and professional */
+.section.gray .circle-block {
+  background-color: rgba(255, 255, 255, 0.15) !important; /* More subtle white */
+  opacity: 0.25 !important; /* Reduced from 0.4 for subtlety */
+  filter: blur(120px) !important; /* Softer blur */
+  width: 350px !important; /* Slightly larger for better coverage */
+  height: 350px !important;
+  border-radius: 50% !important;
+  /* Ensure it's behind content */
+  z-index: -1 !important;
+  /* Smooth fade */
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+
+/* Position circle-wrapper for optimal placement */
+.section.gray .circle-wrapper {
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Ensure circle doesn't interfere with section background */
+.section.gray .circle-wrapper,
+.section.gray .circle-block {
+  mix-blend-mode: normal !important;
+}
+
+/* ============================================
+   SUPPORTED PLATFORMS SECTION - INTEGRATED
+   Professional placement within "What is Crypto Recovery?" section
+   ============================================ */
+
+/* Integrated styling - placed after crypto recovery cards */
+.supported-and-recovery-wrapper .supported-platforms-wrapper {
+  margin-top: 60px !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 32px !important;
+}
+
+.supported-platforms-heading {
+  text-align: center !important;
+  margin: 0 0 24px 0 !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  line-height: 140% !important; /* Increased from 130% to prevent overlap */
+  color: var(--_redesign-style---white) !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.supported-platforms-logos-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  width: 100% !important;
+  align-items: center !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.supported-platforms-logos-row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 24px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.supported-platforms-logo-item {
+  transition: transform 0.3s ease, opacity 0.3s ease, border-color 0.3s ease !important;
+  background-color: rgba(5, 11, 12, 0.6) !important; /* Subtle dark background */
+  border: 1px solid rgba(187, 238, 196, 0.3) !important; /* Subtle green border */
+  border-radius: 10px !important;
+  padding: 12px 20px !important;
+  backdrop-filter: blur(7px) !important;
+  min-width: 120px !important;
+  min-height: 60px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.supported-platforms-logo-item:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(187, 238, 196, 0.6) !important;
+  background-color: rgba(5, 11, 12, 0.8) !important;
+}
+
+.supported-platforms-logos-line {
+  background-color: rgba(187, 238, 196, 0.3) !important; /* Subtle green lines */
+  border-radius: 100px !important;
+  width: 28px !important;
+  height: 2px !important;
+}
+
+/* Ensure logo images don't overlap text */
+.supported-platforms-logo-image {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Fix line spacing between rows */
+.supported-platforms-logos-line-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 8px 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+  .supported-and-recovery-wrapper .supported-platforms-wrapper {
+    margin-top: 40px !important;
+    gap: 24px !important;
+  }
+  
+  .supported-platforms-heading {
+    font-size: 24px !important;
+    line-height: 130% !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .supported-platforms-logos-row {
+    gap: 16px !important;
+  }
+  
+  .supported-platforms-logo-item {
+    padding: 10px 16px !important;
+    min-width: 100px !important;
+    min-height: 50px !important;
+  }
+}
+
+/* ============================================
+   HIDE OLD DECORATIVE LINES
+   Remove duplicate lines from original design
+   ============================================ */
+
+/* Hide old decorative line images */
+.image-51,
+.image-53,
+.image-58,
+.image-64,
+.image-65,
+.image-70,
+.image-73 {
+  display: none !important;
+}
+
+/* Hide old line-top-wrapper */
+.line-top-wrapper {
+  display: none !important;
+}
+
+/* Hide standalone line divs */
+.line:not(.line.top) {
+  display: none !important;
+}
+
+/* ============================================
+   CREATIVE SECTION SEPARATORS
+   Professional, sexy separators matching crypto/tech vibe
+   Only appear BETWEEN sections, not after every section
+   ============================================ */
+
+/* Main separator - appears ONLY between sections */
+/* Improved design: more refined, better positioned, professional */
+.section:not(:first-of-type):not(:last-child)::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  position: relative;
+  margin: 100px auto 0;
+  max-width: 1400px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(163, 220, 173, 0) 8%,
+    rgba(163, 220, 173, 0.3) 20%,
+    rgba(187, 238, 196, 0.7) 50%,
+    rgba(163, 220, 173, 0.3) 80%,
+    rgba(163, 220, 173, 0) 92%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 25px rgba(163, 220, 173, 0.4),
+    0 0 50px rgba(163, 220, 173, 0.2),
+    0 0 75px rgba(163, 220, 173, 0.1),
+    inset 0 0 10px rgba(163, 220, 173, 0.1);
+  filter: blur(0.3px);
+  animation: fadeInSeparator 1s ease-out forwards, pulseGlow 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  transform-origin: center;
+}
+
+/* Geometric pattern overlay (circuit-like dots) - positioned relative to separator */
+/* More subtle and refined pattern */
+.section:not(:first-of-type):not(:last-child)::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: relative;
+  margin: -0.75px auto 0;
+  max-width: 1400px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 12px,
+    rgba(163, 220, 173, 0.2) 12px,
+    rgba(163, 220, 173, 0.2) 14px
+  );
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInSeparator 1s ease-out 0.3s forwards;
+  z-index: 2;
+  transform-origin: center;
+}
+
+/* Fade in animation - smoother, more professional */
+@keyframes fadeInSeparator {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scaleX(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Subtle pulse glow animation - refined timing */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 25px rgba(163, 220, 173, 0.4),
+      0 0 50px rgba(163, 220, 173, 0.2),
+      0 0 75px rgba(163, 220, 173, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 35px rgba(163, 220, 173, 0.6),
+      0 0 70px rgba(163, 220, 173, 0.3),
+      0 0 100px rgba(163, 220, 173, 0.15);
+  }
+}
+
+/* Gray sections get subtler separator */
+.section.gray:not(:first-of-type):not(:last-child)::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(163, 220, 173, 0) 10%,
+    rgba(163, 220, 173, 0.25) 25%,
+    rgba(187, 238, 196, 0.5) 50%,
+    rgba(163, 220, 173, 0.25) 75%,
+    rgba(163, 220, 173, 0) 90%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 20px rgba(163, 220, 173, 0.25),
+    0 0 40px rgba(163, 220, 173, 0.15);
+  margin: 100px auto 0;
+}
+
+.section.gray:not(:first-of-type):not(:last-child)::before {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 12px,
+    rgba(163, 220, 173, 0.15) 12px,
+    rgba(163, 220, 173, 0.15) 14px
+  );
+  margin: -0.75px auto 0;
+}
+
+/* Footer separator - special treatment, more refined */
+.footer-section::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  position: relative;
+  margin: 0 auto 60px;
+  max-width: 1400px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(163, 220, 173, 0) 8%,
+    rgba(163, 220, 173, 0.3) 20%,
+    rgba(187, 238, 196, 0.7) 50%,
+    rgba(163, 220, 173, 0.3) 80%,
+    rgba(163, 220, 173, 0) 92%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 25px rgba(163, 220, 173, 0.4),
+    0 0 50px rgba(163, 220, 173, 0.2);
+  filter: blur(0.3px);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hide separator if section is empty or has no content */
+.section:empty::after,
+.section:empty::before {
+  display: none;
+}
+
+/* ============================================
+   PROFESSIONAL SPACING SYSTEM (8pt Grid)
+   ============================================ */
+
+:root {
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 80px;
+  --spacing-4xl: 96px;
+}
+
+/* Standard section padding - professional spacing */
+/* Ensure consistent professional spacing (80px) */
+.section:not(.section.gray):not(:first-of-type) {
+  padding-top: var(--spacing-3xl) !important; /* 80px */
+  padding-bottom: var(--spacing-3xl) !important; /* 80px */
+}
+
+/* First section (hero) - only bottom padding */
+.section:first-of-type {
+  padding-bottom: var(--spacing-3xl) !important; /* 80px */
+}
+
+/* Gray sections - match spacing but preserve background */
+.section.gray {
+  padding-top: var(--spacing-3xl) !important; /* 80px */
+  padding-bottom: var(--spacing-3xl) !important; /* 80px */
+}
+
+/* Section heading spacing */
+.section-heading-wrapper {
+  margin-bottom: var(--spacing-xl) !important; /* 48px */
+}
+
+/* Card spacing - grids handle spacing, this ensures consistency */
+/* Only apply if cards are in non-grid layouts */
+
+/* Paragraph spacing */
+.card-description,
+.overview-description-paragraph,
+.crypto-recovery-paragraph {
+  margin-bottom: var(--spacing-md) !important; /* 24px */
+}
+
+.card-description:last-child,
+.overview-description-paragraph:last-child,
+.crypto-recovery-paragraph:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Button spacing from content */
+.hero-alternative-button,
+.crypto-easy-button-wrapper,
+.submit-button-2 {
+  margin-top: var(--spacing-lg) !important; /* 32px */
+}
+
+/* Grid gaps */
+.crypto-recovery-cards-wrapper,
+.services-overview-cards-wrapper,
+.team-members-wrapper,
+.crypto-asset-recovery-cards-wrapper {
+  grid-row-gap: var(--spacing-lg) !important; /* 32px */
+  grid-column-gap: var(--spacing-lg) !important; /* 32px */
+}
+
+/* Container max-widths for readability and symmetry */
+.w-layout-blockcontainer.container-23,
+.w-layout-blockcontainer.container-24,
+.w-layout-blockcontainer.container-25 {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ensure symmetric padding on sections - preserve original but ensure symmetry */
+/* Original CSS already sets padding-left/right: 120px, so we just ensure it's symmetric */
+.section:not(.section.gray) {
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+}
+
+/* Gray sections have padding-left/right: 0 in original, but containers inside have padding */
+.section.gray .w-layout-blockcontainer {
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+}
+
+@media screen and (max-width: 991px) {
+  .section:not(.section.gray) {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+  
+  .section.gray .w-layout-blockcontainer {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section:not(.section.gray) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  .section.gray .w-layout-blockcontainer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Text content max-width for readability */
+.card-content,
+.overview-text-wrapper,
+.recovery-hero-description-text {
+  max-width: 800px;
+}
+
+/* ============================================
+   SUPPORTED PLATFORMS - NEW DESIGN
+   Horizontal single-row grid, professional layout
+   ============================================ */
+
+.supported-platforms-section {
+  padding: var(--spacing-3xl) 0 !important; /* 80px */
+}
+
+.supported-platforms-wrapper-new {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: var(--spacing-xl) !important; /* 48px */
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.supported-platforms-heading-new {
+  text-align: center !important;
+  font-size: 36px !important;
+  font-weight: 500 !important;
+  line-height: 140% !important;
+  color: var(--_redesign-style---white) !important;
+  margin: 0 !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+
+.supported-platforms-logos-grid-new {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: var(--spacing-lg) !important; /* 32px */
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+}
+
+.supported-platform-logo-card {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: var(--spacing-md) !important; /* 24px */
+  background: rgba(5, 11, 12, 0.6) !important;
+  border: 1px solid rgba(187, 238, 196, 0.2) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(8px) !important;
+  min-height: 80px !important;
+  text-decoration: none !important;
+}
+
+.supported-platform-logo-card:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  border-color: rgba(163, 220, 173, 0.6) !important;
+  box-shadow: 0 8px 24px rgba(163, 220, 173, 0.2) !important;
+  background: rgba(5, 11, 12, 0.8) !important;
+}
+
+.supported-platform-logo-image-new {
+  max-width: 100% !important;
+  max-height: 60px !important;
+  object-fit: contain !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+  .supported-platforms-logos-grid-new {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: var(--spacing-md) !important; /* 24px */
+  }
+  
+  .supported-platforms-heading-new {
+    font-size: 32px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .supported-platforms-logos-grid-new {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--spacing-sm) !important; /* 16px */
+  }
+  
+  .supported-platforms-heading-new {
+    font-size: 28px !important;
+  }
+  
+  .supported-platform-logo-card {
+    min-height: 70px !important;
+    padding: var(--spacing-sm) !important; /* 16px */
+  }
+  
+  .supported-platform-logo-image-new {
+    max-height: 50px !important;
+  }
+}
+
+/* ============================================
+   END OF MINIMAL FIXES
+   All other design elements use original Webflow CSS
+   ============================================ */
