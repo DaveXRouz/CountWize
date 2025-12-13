@@ -29,24 +29,59 @@
   to = "/contact-us.html"
   status = 200
 
+# Redirect duplicate contact page to canonical
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact-us.html"
+  status = 301
+
+# Education page routes
+[[redirects]]
+  from = "/education"
+  to = "/education.html"
+  status = 200
+
+# Redirect duplicate education page to canonical
 [[redirects]]
   from = "/crypto-education"
-  to = "/crypto-education.html"
-  status = 200
+  to = "/education.html"
+  status = 301
+
+[[redirects]]
+  from = "/crypto-education.html"
+  to = "/education.html"
+  status = 301
 
 [[redirects]]
   from = "/crypto-recovery-guide"
   to = "/crypto-recovery-guide.html"
   status = 200
 
+# FAQ page routes
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+# Redirect duplicate FAQ page to canonical
 [[redirects]]
   from = "/faq-crypto-recovery"
-  to = "/faq-crypto-recovery.html"
-  status = 200
+  to = "/faq.html"
+  status = 301
+
+[[redirects]]
+  from = "/faq-crypto-recovery.html"
+  to = "/faq.html"
+  status = 301
 
 [[redirects]]
   from = "/crypto-insights"
   to = "/crypto-insights.html"
+  status = 200
+
+[[redirects]]
+  from = "/news"
+  to = "/news.html"
   status = 200
 
 [[redirects]]
@@ -56,8 +91,8 @@
 
 [[redirects]]
   from = "/crypto-tax"
-  to = "/crypto-tax.html"
-  status = 200
+  to = "/recovery.html"
+  status = 301
 
 [[redirects]]
   from = "/blog"
