@@ -1,47 +1,41 @@
-# OS Files
+# OS files
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
 Thumbs.db
+ehthumbs.db
 Desktop.ini
 
-# Editor directories and files
-.vscode/
-.idea/
+# Editor files
 *.swp
 *.swo
 *~
-.project
-.classpath
-.settings/
-
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.bak
+*.backup
+.idea/
+.vscode/
+*.sublime-*
 
 # Temporary files
 *.tmp
 *.temp
-.cache/
+*.log
 
-# Node modules (if you add any build tools later)
+# Node modules (if any)
 node_modules/
-package-lock.json
-yarn.lock
+npm-debug.log
 
-# Environment variables
-.env
-.env.local
-.env.*.local
+# Python (if any)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
 
-# Build outputs (if you add build tools)
-dist/
-build/
-*.min.js
-*.min.css
-
+# Backup directories
+backup*/
+old*/
+test*/
+temp*/
