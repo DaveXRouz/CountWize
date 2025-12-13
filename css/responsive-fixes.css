@@ -1302,6 +1302,544 @@ img {
 }
 
 /* ============================================
-   END OF MINIMAL FIXES
-   All other design elements use original Webflow CSS
+   PRIORITY VISUAL POLISH - SEXY & BEAUTIFUL ENHANCEMENTS
+   Based on deep design analysis - maximum impact improvements
+   ============================================ */
+
+/* ========== PRIORITY #1: SHADOWS & DEPTH ========== */
+/* Make all cards and elements pop off the page with professional elevation */
+
+.card {
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+.card:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 0 48px rgba(163, 220, 173, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.pricing-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 2px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(163, 220, 173, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.team-member-card {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 2px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.team-member-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(163, 220, 173, 0.15) !important;
+}
+
+/* Button shadows for depth and magnetic appeal */
+.navbar-contact-button,
+.crypto-easy-button-wrapper,
+.pricing-card-button,
+.hero-alternative-button {
+  box-shadow:
+    0 4px 16px rgba(163, 220, 173, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.navbar-contact-button:hover,
+.crypto-easy-button-wrapper:hover,
+.pricing-card-button:hover,
+.hero-alternative-button:hover {
+  box-shadow:
+    0 8px 24px rgba(163, 220, 173, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 32px rgba(163, 220, 173, 0.4) !important;
+}
+
+.navbar-contact-button:active,
+.pricing-card-button:active,
+.hero-alternative-button:active {
+  transform: translateY(2px) !important;
+  box-shadow:
+    0 2px 8px rgba(163, 220, 173, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ========== PRIORITY #2: BORDER RADIUS CONSISTENCY ========== */
+/* Professional design system with 3 radius sizes */
+
+/* Small elements (icons, badges) */
+.card-icon-container,
+.services-overview-card-icon-container {
+  border-radius: 12px !important;
+}
+
+/* Medium elements (cards, inputs) */
+.card,
+.team-member-card,
+.pricing-card,
+.hero-form-field-wrapper,
+.hero-input,
+.input-new,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  border-radius: 16px !important;
+}
+
+/* Large elements (sections, images) */
+.video-wrapper,
+.services-overview-image,
+.team-member-photo {
+  border-radius: 20px !important;
+}
+
+/* Pills/buttons - full rounded */
+.navbar-contact-button,
+.crypto-easy-button-wrapper,
+.pricing-card-button,
+.hero-alternative-button,
+.button {
+  border-radius: 999px !important;
+}
+
+/* Enhanced input focus with radius change */
+.hero-input:focus,
+.input-new:focus {
+  border-radius: 18px !important;
+  transform: scale(1.01) !important;
+}
+
+/* ========== PRIORITY #3: DRAMATIC HEADING HIERARCHY ========== */
+/* Larger, more impactful headings with better letter-spacing */
+
+h1, .hero-heading {
+  font-size: 4.5rem !important; /* 72px - dramatic impact */
+  line-height: 5rem !important;
+  letter-spacing: -0.02em !important; /* Tighter for premium feel */
+}
+
+h2, .section-heading {
+  font-size: 3rem !important; /* 48px */
+  line-height: 3.5rem !important;
+  letter-spacing: -0.01em !important;
+}
+
+.card-title {
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  line-height: 130% !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Responsive heading sizes */
+@media (max-width: 991px) {
+  h1, .hero-heading {
+    font-size: 3.5rem !important;
+    line-height: 4rem !important;
+  }
+
+  h2, .section-heading {
+    font-size: 2.5rem !important;
+    line-height: 3rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  h1, .hero-heading {
+    font-size: 2.25rem !important; /* 36px */
+    line-height: 2.75rem !important;
+  }
+
+  h2, .section-heading {
+    font-size: 1.875rem !important; /* 30px */
+    line-height: 2.25rem !important;
+  }
+
+  .card-title {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 479px) {
+  h1, .hero-heading {
+    font-size: 2rem !important; /* 32px */
+    line-height: 2.5rem !important;
+  }
+}
+
+/* ========== PRIORITY #4: CARD HOVER EFFECTS ========== */
+/* Smooth, engaging hover animations */
+
+.card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  border-color: rgba(187, 238, 196, 0.5) !important;
+}
+
+.card:hover .card-icon-container {
+  transform: rotate(5deg) scale(1.1) !important;
+  box-shadow: 0 8px 32px rgba(187, 238, 196, 0.6) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card:hover .card-title {
+  color: #d2ffda !important;
+  transition: color 0.3s ease !important;
+}
+
+/* ========== PRIORITY #5: BUTTON ELEVATION & MAGNETISM ========== */
+/* Make CTAs irresistible with gradient, shadows, and animation */
+
+.navbar-contact-button {
+  background: linear-gradient(90deg, #a3dcad, #d2ffda 50%, #a3dcad) !important;
+  color: #050b0c !important;
+  font-weight: 600 !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.navbar-contact-button:hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  background: linear-gradient(90deg, #d2ffda, #a3dcad 50%, #d2ffda) !important;
+}
+
+.navbar-contact-button:active {
+  transform: translateY(1px) scale(0.98) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Card icon containers with radial gradient for depth */
+.card-icon-container {
+  background: radial-gradient(circle at 30% 30%, #d2ffda, #b2ddb9 60%, #a3dcad) !important;
+  box-shadow: 0 4px 20px rgba(187, 238, 196, 0.5),
+              inset 0 -2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ========== PRIORITY #6: GENEROUS WHITE SPACE ========== */
+/* Premium spacing for breathing room */
+
+.section {
+  padding-top: 100px !important;
+  padding-bottom: 100px !important;
+}
+
+.section:first-of-type {
+  padding-top: 60px !important;
+}
+
+@media (max-width: 991px) {
+  .section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* Card internal spacing */
+.card {
+  padding: 36px !important;
+}
+
+.card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.card-title {
+  margin-bottom: 8px !important;
+}
+
+/* Pricing features spacing */
+.pricing-card-feature-item {
+  margin-bottom: 16px !important;
+  line-height: 150% !important;
+}
+
+/* Footer spacing */
+.footer-section {
+  padding: 80px 120px 60px !important;
+}
+
+.footer-top-wrapper {
+  margin-bottom: 60px !important;
+}
+
+.footer-item {
+  margin-bottom: 24px !important;
+}
+
+@media (max-width: 991px) {
+  .footer-section {
+    padding: 60px 40px 40px !important;
+  }
+}
+
+/* ========== PRIORITY #7: SMOOTH TRANSITIONS ========== */
+/* Slow, elegant transitions (400ms) for premium feel */
+
+.navbar-contact-button,
+.crypto-easy-button-wrapper,
+.cta-button,
+.pricing-card-button,
+button,
+.w-button {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card,
+.pricing-card,
+.team-member-card,
+.service-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.hero-input,
+.input-new,
+input,
+textarea,
+select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+a:not(.w-button):not(.w-inline-block) {
+  transition: color 0.3s ease, text-shadow 0.3s ease !important;
+}
+
+/* ========== PRIORITY #8: ENHANCED COLOR CONTRAST ========== */
+/* Brighter borders and better definition */
+
+.card {
+  border: 1px solid rgba(187, 238, 196, 0.25) !important; /* Increased from 0.2 */
+}
+
+.card:hover {
+  border-color: rgba(187, 238, 196, 0.5) !important;
+}
+
+/* Gray sections with subtle differentiation */
+.section.gray {
+  background-color: #0a0f0d !important; /* Slightly lighter with green tint */
+  border-top: 1px solid rgba(187, 238, 196, 0.15) !important;
+  border-bottom: 1px solid rgba(187, 238, 196, 0.15) !important;
+}
+
+/* Navbar link hover with glow */
+.navbar-link:hover,
+.navbar-link.w--current {
+  color: #d2ffda !important;
+  text-shadow: 0 0 20px rgba(210, 255, 218, 0.5) !important;
+}
+
+/* Link hover with underline animation */
+.footer-nav-link {
+  position: relative !important;
+}
+
+.footer-nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -4px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, #a3dcad, #d2ffda) !important;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.footer-nav-link:hover::after {
+  width: 100% !important;
+}
+
+/* ========== PRIORITY #9: COMPONENT CONSISTENCY ========== */
+/* Unified design language across all components */
+
+/* Standardize icon sizes */
+.card-icon-container,
+.services-overview-card-icon-container {
+  width: 64px !important;
+  min-width: 64px !important;
+  height: 64px !important;
+  min-height: 64px !important;
+}
+
+.card-icon-container._70 {
+  width: 72px !important;
+  min-width: 72px !important;
+  height: 72px !important;
+  min-height: 72px !important;
+}
+
+/* Unified input system */
+.hero-input,
+.input-new,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  background: rgba(5, 11, 12, 0.6) !important;
+  border: 1px solid rgba(187, 238, 196, 0.2) !important;
+  color: #ffffff !important;
+  padding: 16px 20px !important;
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+}
+
+.hero-input:focus,
+.input-new:focus {
+  border-color: rgba(187, 238, 196, 0.5) !important;
+  background: rgba(5, 11, 12, 0.8) !important;
+  box-shadow: 0 0 0 4px rgba(163, 220, 173, 0.1),
+              inset 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  outline: none !important;
+}
+
+/* ========== PRIORITY #10: RESPONSIVE OPTIMIZATION ========== */
+/* Perfect layout at all breakpoints */
+
+/* Tablet: 2-column grid for better balance */
+@media (max-width: 991px) and (min-width: 768px) {
+  .crypto-asset-recovery-cards-wrapper,
+  .team-members-wrapper,
+  .crypto-recovery-cards-wrapper {
+    grid-template-columns: 1fr 1fr !important;
+    grid-column-gap: 24px !important;
+    grid-row-gap: 24px !important;
+  }
+}
+
+/* Mobile: Larger touch targets */
+@media (max-width: 767px) {
+  .navbar-contact-button,
+  .crypto-easy-button-wrapper,
+  .cta-button,
+  .hero-button-wrapper {
+    padding: 18px 32px !important;
+    min-height: 56px !important;
+    min-width: 200px !important;
+    font-size: 16px !important;
+  }
+
+  /* Prevent iOS zoom on input focus */
+  .hero-input,
+  .input-new,
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Small mobile: optimized spacing */
+@media (max-width: 479px) {
+  .hero-form-wrapper {
+    padding: 24px 20px !important;
+  }
+
+  .hero-input,
+  .input-new {
+    padding: 14px 16px !important;
+  }
+}
+
+/* ============================================
+   MICRO-INTERACTIONS FOR POLISH
+   Subtle animations that make the difference
+   ============================================ */
+
+/* Hover glow on links */
+a:not(.w-button):hover {
+  text-shadow: 0 0 12px rgba(210, 255, 218, 0.5) !important;
+}
+
+/* Icon rotation and scale on card hover */
+.card:hover .card-icon-wrapper {
+  animation: iconPulse 0.6s ease-out !important;
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Pricing card height consistency */
+.pricing-card {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 600px !important;
+}
+
+.pricing-card-inner {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.pricing-card-button {
+  margin-top: auto !important;
+}
+
+/* Team member card overlay */
+.team-member-photo {
+  box-shadow: inset 0 -100px 60px -40px rgba(5, 11, 12, 0.6) !important;
+}
+
+.team-member-info {
+  min-height: 90px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+/* Hero section vertical rhythm */
+.hero-header-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 32px !important;
+}
+
+/* Card grid gaps for consistency */
+.services-overview-cards-wrapper,
+.crypto-asset-recovery-cards-wrapper,
+.crypto-recovery-cards-wrapper {
+  grid-column-gap: 32px !important;
+  grid-row-gap: 32px !important;
+}
+
+/* ============================================
+   END OF SEXY & BEAUTIFUL ENHANCEMENTS
+   All improvements tested for visual impact
    ============================================ */
