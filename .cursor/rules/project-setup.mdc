@@ -1,0 +1,71 @@
+---
+description: Project configuration and dependencies
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# CountWize Project Setup
+
+## Project Type
+Static HTML/CSS/JS website (exported from Webflow)
+
+## Running the Dev Server
+
+Start the local development server:
+```bash
+python3 -m http.server 8080
+```
+
+The site will be available at: http://localhost:8080
+
+## Dependencies
+
+### NPM Packages (for visual testing)
+- `pixelmatch` - Pixel-level image comparison
+- `pngjs` - PNG image manipulation
+- `tsx` - TypeScript execution
+- `typescript` - TypeScript compiler
+- `@types/node` - Node.js type definitions
+
+### Install Dependencies
+```bash
+npm install
+```
+
+## Directory Structure
+
+```
+├── index.html              # Homepage
+├── css/                    # Stylesheets
+│   ├── normalize.css
+│   ├── webflow.css
+│   └── countwize-test.webflow.css
+├── js/                     # JavaScript files
+│   └── webflow.js
+├── images/                 # Image assets
+├── documents/              # PDF documents
+├── screenshots/            # Visual testing screenshots
+├── diffs/                  # Visual diff outputs
+├── scripts/                # Utility scripts
+│   └── compare-images.ts   # Visual comparison script
+└── .cursor/
+    └── rules/              # Cursor AI rules
+```
+
+## Available Scripts
+
+### Compare Screenshots
+```bash
+npx tsx scripts/compare-images.ts
+```
+
+## External Dependencies (loaded from CDN)
+- Google Fonts (Be Vietnam Pro)
+- International Phone Input library
+- Webflow JS framework
+- jQuery (via Webflow)
+
+## Notes
+- This is a static site - no build step required
+- Forms require backend configuration for production
+- Images and assets are included in the repository

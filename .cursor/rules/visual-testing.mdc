@@ -1,0 +1,61 @@
+---
+description: Visual testing workflow using Playwright MCP and Pixelmatch
+globs: ["**/*.html", "**/*.css", "**/screenshots/**", "**/diffs/**"]
+alwaysApply: false
+---
+
+# Visual Testing Workflow
+
+## Screenshot Specifications
+- **Dimensions**: Always use 1024x768 for consistency
+- **Format**: PNG only (not JPEG)
+- **Naming**: Use descriptive names with timestamps (e.g., `homepage-2025-12-14T10-30-00.png`)
+
+## Directory Structure
+- `screenshots/` - Store all screenshots here
+- `diffs/` - Visual diff outputs are saved here
+- `scripts/` - Contains the comparison script
+
+## Taking Screenshots with Playwright MCP
+
+When taking screenshots:
+1. Always resize the browser first: `browser_resize` to 1024x768
+2. Navigate to the target URL: `browser_navigate`
+3. Wait for the page to fully load
+4. Take the screenshot: `browser_take_screenshot`
+5. Save to the `screenshots/` directory with a descriptive name
+
+## Running Visual Comparisons
+
+To compare screenshots, run:
+```bash
+npx tsx scripts/compare-images.ts
+```
+
+Or with specific files:
+```bash
+npx tsx scripts/compare-images.ts screenshots/baseline.png screenshots/current.png
+```
+
+The script will:
+- Compare the two most recent screenshots (if no args provided)
+- Generate a diff image in the `diffs/` folder
+- Report the percentage of pixels that differ
+
+## Design Implementation Loop
+
+When implementing designs:
+1. Capture target design screenshot (baseline)
+2. Capture current dev server screenshot
+3. Run comparison script to generate diff
+4. Analyze the diff image to identify differences
+5. Implement code changes to match the design
+6. Repeat steps 2-5 until the diff shows minimal differences
+
+## Best Practices
+
+- Keep baseline screenshots in `screenshots/` with clear naming
+- Use `target-` prefix for design targets (e.g., `target-homepage.png`)
+- Use `current-` prefix for dev server captures (e.g., `current-homepage.png`)
+- Review diff images in `diffs/` to guide implementation
+- When dealing with SVGs, use placeholder text and add them manually later
