@@ -1,0 +1,962 @@
+[
+  {
+    "page": "401",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/401.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/401.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-401.png",
+    "diffPixels": 1633,
+    "totalPixels": 3475200,
+    "diffPercentage": "0.05"
+  },
+  {
+    "page": "404",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/404.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/404.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-404.png",
+    "diffPixels": 0,
+    "totalPixels": 3475200,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "about-us",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/about-us.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/about-us.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-about-us.png",
+    "diffPixels": 698442,
+    "totalPixels": 14169600,
+    "diffPercentage": "4.93"
+  },
+  {
+    "page": "article-4",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/article-4.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/article-4.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-article-4.png",
+    "diffPixels": 0,
+    "totalPixels": 8092800,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "article-5",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/article-5.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/article-5.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-article-5.png",
+    "diffPixels": 0,
+    "totalPixels": 9665280,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "blog",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/blog.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/blog.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-blog.png",
+    "diffPixels": 676562,
+    "totalPixels": 11193600,
+    "diffPercentage": "6.04"
+  },
+  {
+    "page": "contact",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/contact.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/contact.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-contact.png",
+    "diffPixels": 106338,
+    "totalPixels": 4114560,
+    "diffPercentage": "2.58"
+  },
+  {
+    "page": "cookie-policy",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/cookie-policy.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/cookie-policy.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-cookie-policy.png",
+    "diffPixels": 100020,
+    "totalPixels": 6938880,
+    "diffPercentage": "1.44"
+  },
+  {
+    "page": "crypto-education",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/crypto-education.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/crypto-education.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-crypto-education.png",
+    "diffPixels": 448015,
+    "totalPixels": 8549760,
+    "diffPercentage": "5.24"
+  },
+  {
+    "page": "crypto-insights",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/crypto-insights.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/crypto-insights.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-crypto-insights.png",
+    "diffPixels": 379314,
+    "totalPixels": 6748800,
+    "diffPercentage": "5.62"
+  },
+  {
+    "page": "crypto-recovery-guide",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/crypto-recovery-guide.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/crypto-recovery-guide.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-crypto-recovery-guide.png",
+    "diffPixels": 4972946,
+    "totalPixels": 29208960,
+    "diffPercentage": "17.03"
+  },
+  {
+    "page": "crypto-tax",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/crypto-tax.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/crypto-tax.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-crypto-tax.png",
+    "diffPixels": 54430,
+    "totalPixels": 9778560,
+    "diffPercentage": "0.56"
+  },
+  {
+    "page": "detail_blogcategory",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/detail_blogcategory.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/detail_blogcategory.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-detail_blogcategory.png",
+    "diffPixels": 58697,
+    "totalPixels": 4108800,
+    "diffPercentage": "1.43"
+  },
+  {
+    "page": "detail_education-videos",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/detail_education-videos.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/detail_education-videos.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-detail_education-videos.png",
+    "diffPixels": 0,
+    "totalPixels": 2073600,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "detail_member",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/detail_member.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/detail_member.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-detail_member.png",
+    "diffPixels": 309,
+    "totalPixels": 3160320,
+    "diffPercentage": "0.01"
+  },
+  {
+    "page": "detail_post",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/detail_post.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/detail_post.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-detail_post.png",
+    "diffPixels": 156,
+    "totalPixels": 3987840,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "detail_project",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/detail_project.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/detail_project.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-detail_project.png",
+    "diffPixels": 263,
+    "totalPixels": 3409920,
+    "diffPercentage": "0.01"
+  },
+  {
+    "page": "detail_service",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/detail_service.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/detail_service.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-detail_service.png",
+    "diffPixels": 14061,
+    "totalPixels": 3348480,
+    "diffPercentage": "0.42"
+  },
+  {
+    "page": "education",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/education.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/education.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-education.png",
+    "diffPixels": 457789,
+    "totalPixels": 8549760,
+    "diffPercentage": "5.35"
+  },
+  {
+    "page": "faq-crypto-recovery",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/faq-crypto-recovery.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/faq-crypto-recovery.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-faq-crypto-recovery.png",
+    "diffPixels": 762235,
+    "totalPixels": 5569920,
+    "diffPercentage": "13.68"
+  },
+  {
+    "page": "faq",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/faq.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/faq.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-faq.png",
+    "diffPixels": 761557,
+    "totalPixels": 5569920,
+    "diffPercentage": "13.67"
+  },
+  {
+    "page": "forex-scams",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/forex-scams.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/forex-scams.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-forex-scams.png",
+    "diffPixels": 0,
+    "totalPixels": 8764800,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-do-you-check-if-a-website-is-legitimate",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/how-do-you-check-if-a-website-is-legitimate.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/how-do-you-check-if-a-website-is-legitimate.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-how-do-you-check-if-a-website-is-legitimate.png",
+    "diffPixels": 0,
+    "totalPixels": 8432640,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-does-a-crypto-recovery-phrase-work",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/how-does-a-crypto-recovery-phrase-work.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/how-does-a-crypto-recovery-phrase-work.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-how-does-a-crypto-recovery-phrase-work.png",
+    "diffPixels": 0,
+    "totalPixels": 8534400,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "diffPixels": 0,
+    "totalPixels": 9313920,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "index",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/index.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/index.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-index.png",
+    "diffPixels": 314443,
+    "totalPixels": 25320960,
+    "diffPercentage": "1.24"
+  },
+  {
+    "page": "legal",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/legal.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/legal.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-legal.png",
+    "diffPixels": 2650,
+    "totalPixels": 8332800,
+    "diffPercentage": "0.03"
+  },
+  {
+    "page": "news",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/news.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/news.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-news.png",
+    "diffPixels": 379314,
+    "totalPixels": 6748800,
+    "diffPercentage": "5.62"
+  },
+  {
+    "page": "privacy-policy",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/privacy-policy.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/privacy-policy.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-privacy-policy.png",
+    "diffPixels": 109786,
+    "totalPixels": 8234880,
+    "diffPercentage": "1.33"
+  },
+  {
+    "page": "recovery-questionnaire",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/recovery-questionnaire.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/recovery-questionnaire.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-recovery-questionnaire.png",
+    "diffPixels": 96258,
+    "totalPixels": 2526720,
+    "diffPercentage": "3.81"
+  },
+  {
+    "page": "recovery",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/recovery.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/recovery.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-recovery.png",
+    "diffPixels": 704923,
+    "totalPixels": 12915840,
+    "diffPercentage": "5.46"
+  },
+  {
+    "page": "team",
+    "breakpoint": "desktop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/desktop/team.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/desktop/team.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/desktop/diff-team.png",
+    "diffPixels": 50336,
+    "totalPixels": 4713600,
+    "diffPercentage": "1.07"
+  },
+  {
+    "page": "401",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/401.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/401.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-401.png",
+    "diffPixels": 1634,
+    "totalPixels": 1791153,
+    "diffPercentage": "0.09"
+  },
+  {
+    "page": "404",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/404.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/404.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-404.png",
+    "diffPixels": 0,
+    "totalPixels": 1791153,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "about-us",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/about-us.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/about-us.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-about-us.png",
+    "diffPixels": 427640,
+    "totalPixels": 7734272,
+    "diffPercentage": "5.53"
+  },
+  {
+    "page": "article-4",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/article-4.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/article-4.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-article-4.png",
+    "diffPixels": 0,
+    "totalPixels": 6569667,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "article-5",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/article-5.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/article-5.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-article-5.png",
+    "diffPixels": 0,
+    "totalPixels": 7462611,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "blog",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/blog.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/blog.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-blog.png",
+    "diffPixels": 481644,
+    "totalPixels": 6696960,
+    "diffPercentage": "7.19"
+  },
+  {
+    "page": "contact",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/contact.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/contact.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-contact.png",
+    "diffPixels": 100471,
+    "totalPixels": 2441216,
+    "diffPercentage": "4.12"
+  },
+  {
+    "page": "cookie-policy",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/cookie-policy.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/cookie-policy.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-cookie-policy.png",
+    "diffPixels": 101494,
+    "totalPixels": 3895296,
+    "diffPercentage": "2.61"
+  },
+  {
+    "page": "crypto-education",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/crypto-education.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/crypto-education.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-crypto-education.png",
+    "diffPixels": 320163,
+    "totalPixels": 4355072,
+    "diffPercentage": "7.35"
+  },
+  {
+    "page": "crypto-insights",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/crypto-insights.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/crypto-insights.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-crypto-insights.png",
+    "diffPixels": 267475,
+    "totalPixels": 3792896,
+    "diffPercentage": "7.05"
+  },
+  {
+    "page": "crypto-recovery-guide",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/crypto-recovery-guide.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/crypto-recovery-guide.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-crypto-recovery-guide.png",
+    "diffPixels": 2254107,
+    "totalPixels": 18084864,
+    "diffPercentage": "12.46"
+  },
+  {
+    "page": "crypto-tax",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/crypto-tax.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/crypto-tax.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-crypto-tax.png",
+    "diffPixels": 45119,
+    "totalPixels": 5987358,
+    "diffPercentage": "0.75"
+  },
+  {
+    "page": "detail_blogcategory",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/detail_blogcategory.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/detail_blogcategory.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-detail_blogcategory.png",
+    "diffPixels": 51206,
+    "totalPixels": 2542592,
+    "diffPercentage": "2.01"
+  },
+  {
+    "page": "detail_education-videos",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/detail_education-videos.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/detail_education-videos.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-detail_education-videos.png",
+    "diffPixels": 0,
+    "totalPixels": 786432,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "detail_member",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/detail_member.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/detail_member.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-detail_member.png",
+    "diffPixels": 309,
+    "totalPixels": 1893376,
+    "diffPercentage": "0.02"
+  },
+  {
+    "page": "detail_post",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/detail_post.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/detail_post.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-detail_post.png",
+    "diffPixels": 156,
+    "totalPixels": 2335744,
+    "diffPercentage": "0.01"
+  },
+  {
+    "page": "detail_project",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/detail_project.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/detail_project.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-detail_project.png",
+    "diffPixels": 8491,
+    "totalPixels": 1818624,
+    "diffPercentage": "0.47"
+  },
+  {
+    "page": "detail_service",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/detail_service.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/detail_service.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-detail_service.png",
+    "diffPixels": 13875,
+    "totalPixels": 1993728,
+    "diffPercentage": "0.70"
+  },
+  {
+    "page": "education",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/education.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/education.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-education.png",
+    "diffPixels": 303896,
+    "totalPixels": 4355072,
+    "diffPercentage": "6.98"
+  },
+  {
+    "page": "faq-crypto-recovery",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/faq-crypto-recovery.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/faq-crypto-recovery.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-faq-crypto-recovery.png",
+    "diffPixels": 497991,
+    "totalPixels": 3297280,
+    "diffPercentage": "15.10"
+  },
+  {
+    "page": "faq",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/faq.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/faq.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-faq.png",
+    "diffPixels": 498401,
+    "totalPixels": 3297280,
+    "diffPercentage": "15.12"
+  },
+  {
+    "page": "forex-scams",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/forex-scams.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/forex-scams.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-forex-scams.png",
+    "diffPixels": 0,
+    "totalPixels": 6911892,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-do-you-check-if-a-website-is-legitimate",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/how-do-you-check-if-a-website-is-legitimate.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/how-do-you-check-if-a-website-is-legitimate.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-how-do-you-check-if-a-website-is-legitimate.png",
+    "diffPixels": 0,
+    "totalPixels": 6529653,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-does-a-crypto-recovery-phrase-work",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/how-does-a-crypto-recovery-phrase-work.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/how-does-a-crypto-recovery-phrase-work.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-how-does-a-crypto-recovery-phrase-work.png",
+    "diffPixels": 0,
+    "totalPixels": 6741306,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "diffPixels": 0,
+    "totalPixels": 7274124,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "index",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/index.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/index.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-index.png",
+    "diffPixels": 304473,
+    "totalPixels": 14301184,
+    "diffPercentage": "2.13"
+  },
+  {
+    "page": "legal",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/legal.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/legal.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-legal.png",
+    "diffPixels": 5673,
+    "totalPixels": 5830461,
+    "diffPercentage": "0.10"
+  },
+  {
+    "page": "news",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/news.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/news.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-news.png",
+    "diffPixels": 267475,
+    "totalPixels": 3792896,
+    "diffPercentage": "7.05"
+  },
+  {
+    "page": "privacy-policy",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/privacy-policy.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/privacy-policy.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-privacy-policy.png",
+    "diffPixels": 99702,
+    "totalPixels": 4845568,
+    "diffPercentage": "2.06"
+  },
+  {
+    "page": "recovery-questionnaire",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/recovery-questionnaire.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/recovery-questionnaire.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-recovery-questionnaire.png",
+    "diffPixels": 93221,
+    "totalPixels": 1262592,
+    "diffPercentage": "7.38"
+  },
+  {
+    "page": "recovery",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/recovery.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/recovery.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-recovery.png",
+    "diffPixels": 511636,
+    "totalPixels": 8011776,
+    "diffPercentage": "6.39"
+  },
+  {
+    "page": "team",
+    "breakpoint": "laptop",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/laptop/team.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/laptop/team.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/laptop/diff-team.png",
+    "diffPixels": 39498,
+    "totalPixels": 2799927,
+    "diffPercentage": "1.41"
+  },
+  {
+    "page": "401",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/401.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/401.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-401.png",
+    "diffPixels": 11471,
+    "totalPixels": 773250,
+    "diffPercentage": "1.48"
+  },
+  {
+    "page": "404",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/404.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/404.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-404.png",
+    "diffPixels": 0,
+    "totalPixels": 773250,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "about-us",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/about-us.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/about-us.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-about-us.png",
+    "diffPixels": 369000,
+    "totalPixels": 3085125,
+    "diffPercentage": "11.96"
+  },
+  {
+    "page": "article-4",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/article-4.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/article-4.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-article-4.png",
+    "diffPixels": 0,
+    "totalPixels": 2669250,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "article-5",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/article-5.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/article-5.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-article-5.png",
+    "diffPixels": 0,
+    "totalPixels": 3079125,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "blog",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/blog.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/blog.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-blog.png",
+    "diffPixels": 662897,
+    "totalPixels": 2785125,
+    "diffPercentage": "23.80"
+  },
+  {
+    "page": "contact",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/contact.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/contact.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-contact.png",
+    "diffPixels": 164845,
+    "totalPixels": 1029000,
+    "diffPercentage": "16.02"
+  },
+  {
+    "page": "cookie-policy",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/cookie-policy.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/cookie-policy.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-cookie-policy.png",
+    "diffPixels": 230989,
+    "totalPixels": 1668750,
+    "diffPercentage": "13.84"
+  },
+  {
+    "page": "crypto-education",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/crypto-education.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/crypto-education.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-crypto-education.png",
+    "diffPixels": 348889,
+    "totalPixels": 2068125,
+    "diffPercentage": "16.87"
+  },
+  {
+    "page": "crypto-insights",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/crypto-insights.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/crypto-insights.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-crypto-insights.png",
+    "diffPixels": 209756,
+    "totalPixels": 1525500,
+    "diffPercentage": "13.75"
+  },
+  {
+    "page": "crypto-recovery-guide",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/crypto-recovery-guide.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/crypto-recovery-guide.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-crypto-recovery-guide.png",
+    "diffPixels": 1051803,
+    "totalPixels": 6074250,
+    "diffPercentage": "17.32"
+  },
+  {
+    "page": "crypto-tax",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/crypto-tax.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/crypto-tax.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-crypto-tax.png",
+    "diffPixels": 36371,
+    "totalPixels": 2683875,
+    "diffPercentage": "1.36"
+  },
+  {
+    "page": "detail_blogcategory",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/detail_blogcategory.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/detail_blogcategory.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-detail_blogcategory.png",
+    "diffPixels": 39386,
+    "totalPixels": 876375,
+    "diffPercentage": "4.49"
+  },
+  {
+    "page": "detail_education-videos",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/detail_education-videos.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/detail_education-videos.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-detail_education-videos.png",
+    "diffPixels": 0,
+    "totalPixels": 304500,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "detail_member",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/detail_member.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/detail_member.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-detail_member.png",
+    "diffPixels": 554,
+    "totalPixels": 589875,
+    "diffPercentage": "0.09"
+  },
+  {
+    "page": "detail_post",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/detail_post.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/detail_post.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-detail_post.png",
+    "diffPixels": 1710,
+    "totalPixels": 772875,
+    "diffPercentage": "0.22"
+  },
+  {
+    "page": "detail_project",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/detail_project.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/detail_project.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-detail_project.png",
+    "diffPixels": 5564,
+    "totalPixels": 702375,
+    "diffPercentage": "0.79"
+  },
+  {
+    "page": "detail_service",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/detail_service.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/detail_service.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-detail_service.png",
+    "diffPixels": 36913,
+    "totalPixels": 819750,
+    "diffPercentage": "4.50"
+  },
+  {
+    "page": "education",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/education.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/education.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-education.png",
+    "diffPixels": 348889,
+    "totalPixels": 2068125,
+    "diffPercentage": "16.87"
+  },
+  {
+    "page": "faq-crypto-recovery",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/faq-crypto-recovery.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/faq-crypto-recovery.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-faq-crypto-recovery.png",
+    "diffPixels": 441319,
+    "totalPixels": 1387125,
+    "diffPercentage": "31.82"
+  },
+  {
+    "page": "faq",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/faq.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/faq.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-faq.png",
+    "diffPixels": 441319,
+    "totalPixels": 1387125,
+    "diffPercentage": "31.82"
+  },
+  {
+    "page": "forex-scams",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/forex-scams.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/forex-scams.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-forex-scams.png",
+    "diffPixels": 0,
+    "totalPixels": 2797500,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-do-you-check-if-a-website-is-legitimate",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/how-do-you-check-if-a-website-is-legitimate.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/how-do-you-check-if-a-website-is-legitimate.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-how-do-you-check-if-a-website-is-legitimate.png",
+    "diffPixels": 0,
+    "totalPixels": 2601375,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-does-a-crypto-recovery-phrase-work",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/how-does-a-crypto-recovery-phrase-work.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/how-does-a-crypto-recovery-phrase-work.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-how-does-a-crypto-recovery-phrase-work.png",
+    "diffPixels": 0,
+    "totalPixels": 2744625,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-how-to-avoid-losing-your-crypto-real-mistakes-real-fixes-and-smart-protection-tips.png",
+    "diffPixels": 0,
+    "totalPixels": 2802000,
+    "diffPercentage": "0.00"
+  },
+  {
+    "page": "index",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/index.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/index.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-index.png",
+    "diffPixels": 991737,
+    "totalPixels": 5600250,
+    "diffPercentage": "17.71"
+  },
+  {
+    "page": "legal",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/legal.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/legal.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-legal.png",
+    "diffPixels": 1480,
+    "totalPixels": 2275500,
+    "diffPercentage": "0.07"
+  },
+  {
+    "page": "news",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/news.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/news.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-news.png",
+    "diffPixels": 209756,
+    "totalPixels": 1525500,
+    "diffPercentage": "13.75"
+  },
+  {
+    "page": "privacy-policy",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/privacy-policy.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/privacy-policy.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-privacy-policy.png",
+    "diffPixels": 278375,
+    "totalPixels": 2092500,
+    "diffPercentage": "13.30"
+  },
+  {
+    "page": "recovery-questionnaire",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/recovery-questionnaire.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/recovery-questionnaire.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-recovery-questionnaire.png",
+    "diffPixels": 23444,
+    "totalPixels": 378000,
+    "diffPercentage": "6.20"
+  },
+  {
+    "page": "recovery",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/recovery.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/recovery.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-recovery.png",
+    "diffPixels": 890768,
+    "totalPixels": 3832125,
+    "diffPercentage": "23.24"
+  },
+  {
+    "page": "team",
+    "breakpoint": "mobile",
+    "beforePath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/before/mobile/team.png",
+    "afterPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/screenshots/after/mobile/team.png",
+    "diffPath": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/diffs/mobile/diff-team.png",
+    "diffPixels": 49398,
+    "totalPixels": 999000,
+    "diffPercentage": "4.94"
+  }
+]
