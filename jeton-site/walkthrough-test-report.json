@@ -1,0 +1,345 @@
+{
+  "live": {
+    "isLocal": false,
+    "timestamp": "2025-12-14T02:53:50.327Z",
+    "section": {
+      "exists": true,
+      "visible": true,
+      "width": 1905,
+      "height": 1080,
+      "top": 0,
+      "left": 0,
+      "backgroundColor": "rgb(247, 59, 32)",
+      "opacity": "1",
+      "display": "block"
+    },
+    "elements": {
+      "canvasCount": 5,
+      "canvasInfo": [
+        {
+          "index": 0,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "1",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-8"
+        },
+        {
+          "index": 1,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-9"
+        },
+        {
+          "index": 2,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-10"
+        },
+        {
+          "index": 3,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-11"
+        },
+        {
+          "index": 4,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-12"
+        }
+      ],
+      "articleCount": 5,
+      "articles": [
+        {
+          "index": 0,
+          "step": "1",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 1,
+          "step": "2",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 2,
+          "step": "3",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 3,
+          "step": "4",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 4,
+          "step": "5",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        }
+      ],
+      "textElements": {
+        "hasSimple": true,
+        "hasFastSafe": true,
+        "hasAllCurrencies": true,
+        "hasOneApp": true
+      },
+      "hasStepper": true,
+      "stepperButtons": [
+        {
+          "index": 0,
+          "text": "01Account",
+          "isActive": true,
+          "visible": true
+        },
+        {
+          "index": 1,
+          "text": "02Add",
+          "isActive": false,
+          "visible": true
+        },
+        {
+          "index": 2,
+          "text": "03Method",
+          "isActive": false,
+          "visible": true
+        },
+        {
+          "index": 3,
+          "text": "04Review",
+          "isActive": false,
+          "visible": true
+        },
+        {
+          "index": 4,
+          "text": "05Done",
+          "isActive": false,
+          "visible": true
+        }
+      ],
+      "hasRestartButton": true,
+      "restartButton": {
+        "visible": true,
+        "opacity": "0",
+        "pointerEvents": "none",
+        "text": "RestartRestart"
+      },
+      "phoneUI": {
+        "hasTransactionDetails": false,
+        "hasGetReceipt": false
+      }
+    },
+    "animations": {
+      "riveLoaded": {
+        "loaded": true,
+        "canvasCount": 5,
+        "note": "Rive loading state checked via canvas elements"
+      }
+    },
+    "interactions": {},
+    "screenshot": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/jeton-site/screenshots/walkthrough-live.png"
+  },
+  "local": {
+    "isLocal": true,
+    "timestamp": "2025-12-14T02:54:04.163Z",
+    "section": {
+      "exists": true,
+      "visible": true,
+      "width": 1905,
+      "height": 1080,
+      "top": 0,
+      "left": 0,
+      "backgroundColor": "rgb(247, 59, 32)",
+      "opacity": "1",
+      "display": "block"
+    },
+    "elements": {
+      "canvasCount": 5,
+      "canvasInfo": [
+        {
+          "index": 0,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "1",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-8"
+        },
+        {
+          "index": 1,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-9"
+        },
+        {
+          "index": 2,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-10"
+        },
+        {
+          "index": 3,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-11"
+        },
+        {
+          "index": 4,
+          "visible": true,
+          "width": 981.8125,
+          "height": 981.8125,
+          "opacity": "0",
+          "hasContent": false,
+          "id": "nhUKueFFVLQ-12"
+        }
+      ],
+      "articleCount": 5,
+      "articles": [
+        {
+          "index": 0,
+          "step": "1",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 1,
+          "step": "2",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 2,
+          "step": "3",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 3,
+          "step": "4",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        },
+        {
+          "index": 4,
+          "step": "5",
+          "visible": true,
+          "opacity": "1",
+          "display": "block",
+          "hasContent": true
+        }
+      ],
+      "textElements": {
+        "hasSimple": true,
+        "hasFastSafe": true,
+        "hasAllCurrencies": true,
+        "hasOneApp": true
+      },
+      "hasStepper": true,
+      "stepperButtons": [
+        {
+          "index": 0,
+          "text": "01Account",
+          "isActive": true,
+          "visible": true
+        },
+        {
+          "index": 1,
+          "text": "02Add",
+          "isActive": false,
+          "visible": true
+        },
+        {
+          "index": 2,
+          "text": "03Method",
+          "isActive": false,
+          "visible": true
+        },
+        {
+          "index": 3,
+          "text": "04Review",
+          "isActive": false,
+          "visible": true
+        },
+        {
+          "index": 4,
+          "text": "05Done",
+          "isActive": false,
+          "visible": true
+        }
+      ],
+      "hasRestartButton": true,
+      "restartButton": {
+        "visible": true,
+        "opacity": "0",
+        "pointerEvents": "none",
+        "text": "RestartRestart"
+      },
+      "phoneUI": {
+        "hasTransactionDetails": false,
+        "hasGetReceipt": false
+      }
+    },
+    "animations": {
+      "riveLoaded": {
+        "loaded": true,
+        "canvasCount": 5,
+        "note": "Rive loading state checked via canvas elements"
+      }
+    },
+    "interactions": {},
+    "screenshot": "/Users/hamzeh/Desktop/Work/ZEFIX/CountWize/jeton-site/screenshots/walkthrough-local.png"
+  },
+  "comparison": {
+    "sectionVisible": true,
+    "canvasCountMatch": true,
+    "articleCountMatch": true,
+    "hasSimpleText": true,
+    "hasFastSafeText": true,
+    "hasRestartButton": true,
+    "hasStepper": true
+  }
+}

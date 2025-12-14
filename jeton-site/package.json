@@ -1,0 +1,24 @@
+{
+  "name": "jeton-site-scraper",
+  "version": "1.0.0",
+  "description": "Comprehensive scraper for jeton.com",
+  "main": "comprehensive-scraper.js",
+  "scripts": {
+    "scrape": "node comprehensive-scraper.js",
+    "verify-assets": "node verify-assets.js",
+    "test-animations": "node test-animations.js",
+    "test-interactions": "node test-interactions.js",
+    "server": "node proxy-server.js",
+    "test-walkthrough": "node test-walkthrough.js",
+    "visual-audit": "node visual-audit.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.6.1",
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7",
+    "playwright": "^1.40.0",
+    "pixelmatch": "^5.3.0",
+    "pngjs": "^7.0.0"
+  }
+}
+
