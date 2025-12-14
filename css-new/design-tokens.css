@@ -141,6 +141,16 @@
   --space-80: 320px;
   --space-96: 384px;
   
+  /* Semantic Spacing Aliases */
+  --spacing-xs: var(--space-2);   /* 8px */
+  --spacing-sm: var(--space-4);   /* 16px */
+  --spacing-md: var(--space-6);   /* 24px */
+  --spacing-lg: var(--space-8);   /* 32px */
+  --spacing-xl: var(--space-12);  /* 48px */
+  --spacing-2xl: var(--space-16); /* 64px */
+  --spacing-3xl: var(--space-20); /* 80px */
+  --spacing-4xl: var(--space-24); /* 96px */
+  
   /* ============================================
      BORDER RADIUS
      ============================================ */
