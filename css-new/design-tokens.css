@@ -1,0 +1,325 @@
+/* ============================================
+   COUNTWIZE DESIGN TOKENS
+   Jeton-Inspired Design System
+   ============================================ */
+
+:root {
+  /* ============================================
+     COLOR PALETTE
+     Based on Jeton.com analysis - to be customized later
+     ============================================ */
+  
+  /* Primary Colors */
+  --color-bg-primary: #050505;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-tertiary: #0f0f0f;
+  --color-bg-elevated: #141414;
+  
+  /* Card & Surface Colors */
+  --color-bg-card: rgba(255, 255, 255, 0.02);
+  --color-bg-card-hover: rgba(255, 255, 255, 0.04);
+  --color-bg-glass: rgba(255, 255, 255, 0.03);
+  --color-bg-overlay: rgba(0, 0, 0, 0.8);
+  
+  /* Accent Colors - Jeton uses teal/cyan, CountWize uses green */
+  /* Phase 1: Using Jeton's teal - Phase 8 will change to CountWize green */
+  --color-accent-primary: #00d4aa;
+  --color-accent-hover: #00ffcc;
+  --color-accent-light: rgba(0, 212, 170, 0.1);
+  --color-accent-glow: rgba(0, 212, 170, 0.3);
+  
+  /* CountWize Brand Colors (for Phase 8 transition) */
+  --color-cw-green: #A3DCAD;
+  --color-cw-green-light: #d2ffda;
+  --color-cw-green-dark: #375534;
+  
+  /* Text Colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-tertiary: rgba(255, 255, 255, 0.5);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+  --color-text-inverse: #050505;
+  
+  /* Border Colors */
+  --color-border-primary: rgba(255, 255, 255, 0.1);
+  --color-border-secondary: rgba(255, 255, 255, 0.05);
+  --color-border-accent: rgba(0, 212, 170, 0.3);
+  
+  /* Status Colors */
+  --color-success: #00d4aa;
+  --color-warning: #ffaa00;
+  --color-error: #ff4d4f;
+  --color-info: #00aaff;
+  
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, #00d4aa 0%, #00ffcc 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(0, 212, 170, 0.1) 0%, transparent 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --gradient-dark: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+  
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+  
+  /* Font Families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', monospace;
+  
+  /* Font Sizes - Fluid Typography */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+  --text-5xl: clamp(3rem, 2rem + 5vw, 4.5rem);
+  --text-6xl: clamp(3.75rem, 2.5rem + 6.25vw, 6rem);
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* ============================================
+     SPACING SYSTEM (8pt Grid)
+     ============================================ */
+  
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-2-5: 10px;
+  --space-3: 12px;
+  --space-3-5: 14px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+  --space-32: 128px;
+  --space-36: 144px;
+  --space-40: 160px;
+  --space-44: 176px;
+  --space-48: 192px;
+  --space-52: 208px;
+  --space-56: 224px;
+  --space-60: 240px;
+  --space-64: 256px;
+  --space-72: 288px;
+  --space-80: 320px;
+  --space-96: 384px;
+  
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  
+  --radius-none: 0;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+  --radius-full: 9999px;
+  
+  /* ============================================
+     SHADOWS
+     ============================================ */
+  
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  
+  /* Glow Shadows */
+  --shadow-glow-sm: 0 0 10px var(--color-accent-glow);
+  --shadow-glow-md: 0 0 20px var(--color-accent-glow);
+  --shadow-glow-lg: 0 0 40px var(--color-accent-glow);
+  --shadow-glow-xl: 0 0 60px var(--color-accent-glow);
+  
+  /* Card Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-card-active: 0 2px 12px rgba(0, 0, 0, 0.15);
+  
+  /* ============================================
+     TRANSITIONS & ANIMATIONS
+     ============================================ */
+  
+  /* Duration */
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-1000: 1000ms;
+  
+  /* Easing Functions */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  
+  /* Preset Transitions */
+  --transition-fast: all var(--duration-150) var(--ease-out);
+  --transition-normal: all var(--duration-300) var(--ease-out);
+  --transition-slow: all var(--duration-500) var(--ease-out);
+  --transition-colors: color var(--duration-200) var(--ease-out), background-color var(--duration-200) var(--ease-out), border-color var(--duration-200) var(--ease-out);
+  --transition-transform: transform var(--duration-300) var(--ease-out);
+  --transition-opacity: opacity var(--duration-300) var(--ease-out);
+  --transition-shadow: box-shadow var(--duration-300) var(--ease-out);
+  
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+  
+  --z-behind: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+  --z-maximum: 9999;
+  
+  /* ============================================
+     LAYOUT & CONTAINERS
+     ============================================ */
+  
+  --container-xs: 320px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1440px;
+  --container-3xl: 1600px;
+  --container-full: 100%;
+  
+  /* Container Padding */
+  --container-padding-mobile: var(--space-4);
+  --container-padding-tablet: var(--space-6);
+  --container-padding-desktop: var(--space-8);
+  
+  /* Section Spacing */
+  --section-spacing-sm: var(--space-16);
+  --section-spacing-md: var(--space-24);
+  --section-spacing-lg: var(--space-32);
+  --section-spacing-xl: var(--space-40);
+  
+  /* ============================================
+     COMPONENT-SPECIFIC TOKENS
+     ============================================ */
+  
+  /* Navigation */
+  --nav-height: 80px;
+  --nav-height-mobile: 64px;
+  --nav-bg: rgba(5, 5, 5, 0.95);
+  --nav-bg-scrolled: rgba(5, 5, 5, 0.98);
+  --nav-backdrop-blur: 20px;
+  
+  /* Buttons */
+  --btn-height-sm: 36px;
+  --btn-height-md: 44px;
+  --btn-height-lg: 52px;
+  --btn-height-xl: 60px;
+  --btn-padding-x-sm: var(--space-4);
+  --btn-padding-x-md: var(--space-6);
+  --btn-padding-x-lg: var(--space-8);
+  
+  /* Cards */
+  --card-padding: var(--space-6);
+  --card-padding-lg: var(--space-8);
+  --card-border-width: 1px;
+  
+  /* Forms */
+  --input-height: 48px;
+  --input-height-lg: 56px;
+  --input-padding-x: var(--space-4);
+  --input-border-width: 1px;
+  --input-border-radius: var(--radius-lg);
+  
+  /* ============================================
+     BREAKPOINTS (for reference in JS)
+     ============================================ */
+  
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1920px;
+}
+
+/* ============================================
+   DARK MODE (default - site is dark by default)
+   ============================================ */
+
+/* Light mode overrides if needed in the future */
+@media (prefers-color-scheme: light) {
+  :root.light-mode {
+    /* Override variables for light mode here if needed */
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-75: 0ms;
+    --duration-100: 0ms;
+    --duration-150: 0ms;
+    --duration-200: 0ms;
+    --duration-300: 0ms;
+    --duration-500: 0ms;
+    --duration-700: 0ms;
+    --duration-1000: 0ms;
+  }
+}
