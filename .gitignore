@@ -39,3 +39,8 @@ backup*/
 old*/
 test*/
 temp*/
+
+# Server runtime files
+.server.pid
+SERVER_STATUS.md
+QUICK_ACCESS.md
