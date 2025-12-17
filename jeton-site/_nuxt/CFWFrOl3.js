@@ -1,1 +1,0 @@
-import{d as e,e as t,f as o}from"./D_P8qzRA.js";const n={width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg"},s=o("circle",{"data-loading":"",cx:"12",cy:"12",r:"8","data-mode":"stroke","stroke-width":"1.5"},null,-1),c=[s];function r(a,d){return e(),t("svg",n,[...c])}const l={render:r};export{l as default,r as render};

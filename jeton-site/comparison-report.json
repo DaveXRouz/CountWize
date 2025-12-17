@@ -1,8 +1,0 @@
-{
-  "missingElements": [],
-  "styleDifferences": [],
-  "functionalityIssues": [],
-  "animationIssues": [
-    "Scroll animations may not work without GSAP"
-  ]
-}
