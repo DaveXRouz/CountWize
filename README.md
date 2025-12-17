@@ -1,10 +1,19 @@
-# CountWize Website
+# CountWize Project
 
-A complete clone of the CountWize website (www.countwize.com) - a crypto recovery services platform.
+This repository contains **two distinct website projects**:
+
+1. **CountWize Main Website** - The original crypto recovery services website (production site)
+2. **Jeton Clone Website** - A cloned Jeton payment platform website being rebranded for CountWize crypto recovery theme
 
 ## Overview
 
-This repository contains a one-to-one clone of the CountWize website, including all pages, styles, scripts, and assets. The site was originally built with Webflow and has been exported as static HTML/CSS/JS files.
+### Section 1: CountWize Main Website
+The production website for CountWize crypto recovery services. Built with Webflow and exported as static HTML/CSS/JS files.
+
+### Section 2: Jeton Clone Website (CountWize Theme)
+A cloned version of the Jeton payment platform website, currently being customized to align with CountWize's crypto recovery theme. This is a Nuxt.js static site that has been exported.
+
+**⚠️ Important**: See `CLAUDE_PROMPT.md` for complete documentation on the project structure, customization status, and development workflow.
 
 ## Structure
 
