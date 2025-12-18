@@ -38,8 +38,6 @@
   gtag('config', 'AW-447543988');
 </script>
   <!--  Google tag (gtag.js)  -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MH4DERNQZ5"></script>
-  <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());    gtag('config', 'G-MH4DERNQZ5'); </script>
   <style>
 ::-webkit-scrollbar {
 		width: 8px;
@@ -66,44 +64,80 @@ textarea::-webkit-resizer{
 </head>
 <body>
   <div class="page-wrapper">
-    <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
-      <div class="nav-container">
-        <a class='nav-brand-logo-wrapper w-nav-brand' href='index.html'><img src="images/svgviewer-output.svg" loading="lazy" alt="" class="nav-brand-logo"></a>
-        <nav role="navigation" class="nav-menu w-nav-menu">
-          <a class='nav-link w-nav-link' href='index.html'>Home</a>
-          <a class='nav-link w-nav-link' href='recovery.html'>Crypto Recovery</a>
-          <a class='nav-link w-nav-link' href='education.html'>Education</a>
-          <div data-hover="true" data-delay="0" class="w-dropdown">
-            <div class="w-dropdown-toggle">
-              <div class="icon w-icon-dropdown-toggle"></div>
-              <div class="text-block-5">Resources</div>
+    <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a4a" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-2 w-nav">
+      <div class="navbar-code w-embed w-script">
+        <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".menu-button");
+    const disableScroll = () => {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    };
+    const enableScroll = () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+    const toggleScroll = () => {
+      if (menuButton.classList.contains("w--open")) {
+        disableScroll();
+      } else {
+        enableScroll();
+      }
+    };
+    menuButton.addEventListener("click", () => {
+      setTimeout(toggleScroll, 50);
+    });
+  });
+</script>
+      </div>
+      <a href="#main-content" class="skip-link">Skip to main content</a>
+      <div class="navbar-wrapper">
+        <a class='navbar-logo-link w-inline-block' href='index.html'><img src="images/Group_3.svg" loading="lazy" alt="Logo" height="25" class="navbar-logo-image"></a>
+        <nav role="navigation" class="navbar-menu w-nav-menu">
+          <div class="navbar-links-wrapper">
+            <a class='navbar-link w-nav-link' href='index.html'>Home</a>
+            <a class='navbar-link w-nav-link' href='about-us.html'>About</a>
+            <a class='navbar-link w-nav-link' href='recovery.html'>Crypto Recovery</a>
+            <a class='navbar-link w-nav-link' href='crypto-recovery-guide.html'>Crypto Recovery Guide</a>
+            <div data-hover="false" data-delay="0" data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a57" class="navbar-dropdown w-dropdown">
+              <div class="navbar-dropdown-toggle w-dropdown-toggle">
+                <div>Resources</div>
+                <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a5b" class="code-icon w-embed"><svg width="10" height="6" viewbox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg></div>
+              </div>
+              <nav class="navbar-dropdown-list w-dropdown-list">
+                <a class='navbar-link drop w-dropdown-link' href='blog.html'>Blog</a>
+                <a class='navbar-link drop w-dropdown-link' href='faq.html'>FAQ</a>
+                <a class='navbar-link drop w-dropdown-link' href='news.html'>News</a>
+              </nav>
             </div>
-            <nav class="dropdown-list w-dropdown-list">
-              <a class='dropdown-link w-dropdown-link' href='blog.html'>Blog</a>
-              <a class='dropdown-link-3 w-dropdown-link' href='faq.html'>FAQ</a>
-              <a class='dropdown-link-4 w-dropdown-link' href='/news'>News</a>
-            </nav>
+            <a class='navbar-link w-nav-link' href='education.html'>Education</a>
           </div>
-          <a class='nav-link w-nav-link' href='about-us.html'>About</a>
-          <div class="nav-bottom-content hide-dekstop">
-            <a class='button w-inline-block' href='/contact'>
-              <div>Contact us</div>
+          <div class="navbar-cta-wrapper">
+            <div class="social-icons nav">
+              <a href="https://www.instagram.com/countwize_" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/instagram-3.svg" loading="lazy" alt="instagram"></a>
+              <a href="https://www.linkedin.com/company/countwize" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector-1.svg" loading="lazy" alt="linkedin"></a>
+              <a href="https://www.facebook.com/profile.php?id=61572760483669" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector.svg" loading="lazy" alt="facebook"></a>
+            </div>
+            <a class='navbar-contact-button w-inline-block' href='contact-us.html'>
+              <div>Contact Us</div>
             </a>
           </div>
         </nav>
-        <div data-w-id="7e836f28-cae7-682c-1d19-d03dccb73461" class="nav-menu-button w-nav-button">
-          <div class="nav-menu-line-wrapper">
-            <div class="nav-menu-line top"></div>
-            <div class="nav-menu-line middle"></div>
-            <div class="nav-menu-line last"></div>
+        <div class="navbar-menu-button w-nav-button">
+          <div class="navbar-menu-button-wrapper">
+            <div class="navbar-menu-button-lines">
+              <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a75" class="navbar-menu-button-line"></div>
+              <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a76" class="navbar-menu-button-line-middle"></div>
+              <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a77" class="navbar-menu-button-line"></div>
+            </div>
           </div>
         </div>
-        <div class="nav-bottom-content hide-tablet">
-          <a class='button w-inline-block' href='/contact'>
-            <div>Contact us</div>
-          </a>
-        </div>
       </div>
+    </div>
+    <div class="line-top-wrapper">
+      <div class="line"></div>
     </div>
     <div class="section-legal">
       <div class="padding-bottom padding-large"></div>
@@ -115,25 +149,25 @@ textarea::-webkit-resizer{
         <div class="doc-columns w-row">
           <div class="doc-column w-col w-col-4">
             <h1 class="doc-title"><strong class="bold-text-28">Joint account agreement</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Joint account agreement</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
           <div class="doc-column w-col w-col-4">
             <h1 class="doc-title"><strong>Power of attorney</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">New power of attorney </strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Cancel an existing power of attorney</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
           <div class="doc-column w-col w-col-4">
             <h1 class="doc-title"><strong>Security transfer</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Debit securities account</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Cash and securities transfer</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
@@ -146,19 +180,19 @@ textarea::-webkit-resizer{
         <div class="doc-columns w-row">
           <div class="doc-column w-col w-col-4">
             <h1 class="other-doc-title"><strong>General deed of pledge and assignment</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Download</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
           <div class="doc-column w-col w-col-4">
             <h1 class="other-doc-title"><strong>Agreement regarding fiduciary deposits</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Download</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
           <div class="doc-column w-col w-col-4">
             <h1 class="other-doc-title"><strong>Declaration of Renunciation</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Download</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
@@ -171,67 +205,67 @@ textarea::-webkit-resizer{
         <div class="doc-columns w-row">
           <div class="doc-column w-col w-col-4">
             <h1 class="doc-title"><strong>Account opening documents</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">General Terms and Conditions</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Special Terms and Conditions for Forex and CFD</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Limited Power of Attorney</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Forex and CFD Risk Disclosure Statement</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Market Data Access Terms and Conditions</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
           <div class="doc-column w-col w-col-4">
             <h1 class="doc-title"><strong>Individual Forex Account Forms</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Funds Withdrawal Request</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Internal Fund Transfer Request Form</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Change Password Request</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Request to Revoke a Power of Attorney</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow" class="image-27">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Swap Free Request</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Third-Party Information Authorization</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Request to Change Personal Details (Individual and Joint Accounts)</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">View Only Password Request</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Leverage Setup Request</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
           <div class="doc-column w-col w-col-4">
             <h1 class="doc-title"><strong>Corporate Forex Account Forms</strong></h1>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Form K (Establishing of the controlling person)</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Form T (Verification of the Beneficial Owner for Foundations and Trusts)</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Form S - Foundations (as well as similar constructs)</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">Request to Change Corporate Details</strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
-            <a href="#" class="link-doc w-inline-block">
+            <a href="javascript:void(0)" class="link-doc w-inline-block">
               <p class="doc-link-text"><strong class="bold-text">MT to MT Connection Agreement (for corporate accounts only)<br></strong></p><img src="images/Hireus-Image.svg" loading="lazy" alt="Arrow">
             </a>
           </div>
@@ -257,86 +291,100 @@ textarea::-webkit-resizer{
       </div>
     </div>
   </div>
-  <div>
-    <div class="section-footer-3">
-      <div class="div-block"><img loading="lazy" src="images/svgviewer-output.svg" alt="" class="footer-brand-logo-2"></div>
-      <div>
-        <div class="container-large">
-          <div class="footer-component">
-            <div class="w-layout-grid footer-grid-3">
-              <aside id="w-node-_5f7203cc-e064-becb-129b-01f4e572fdf4-d0930d5e" class="footer-link-list-wrapper-3">
-                <div class="sitelinks-title">Sitelinks</div>
-                <a class='footer-link-3' href='index.html'>Home</a>
-                <a class='footer-link-3' href='about-us.html'>About</a>
-                <a class='footer-link-3' href='recovery.html'>Crypto Recovery</a>
-                <a class='footer-link-3' href='faq.html'>FAQ</a>
-                <a class='footer-link-3' href='/news'>News</a>
-                <a class='footer-link-3' href='blog.html'>Blog</a>
-                <a class='footer-link-3' href='education.html'>Education</a>
-              </aside>
-              <div id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe03-d0930d5e" class="footer-link-list-wrapper-3">
-                <div class="sitelinks-title">Contact us</div>
-                <div class="w-layout-grid grid">
-                  <div>UK</div>
-                  <a href="https://api.whatsapp.com/send/?phone=%2B972539538554&amp;text=Good+day.&amp;type=phone_number&amp;app_absent=0" id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe0c-d0930d5e" target="_blank" class="footer-link-3">+44 7533 598854</a>
-                  <div>CA</div>
-                  <a href="https://api.whatsapp.com/send/?phone=%2B972539538554&amp;text=Good+day.&amp;type=phone_number&amp;app_absent=0" id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe14-d0930d5e" target="_blank" class="footer-link-3">+1 782 800 0180</a>
-                  <div>SE</div>
-                  <a href="https://api.whatsapp.com/send/?phone=%2B972539538554&amp;text=Good+day.&amp;type=phone_number&amp;app_absent=0" id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe18-d0930d5e" target="_blank" class="footer-link-3">+46 72 400 19 75</a>
+  <footer class="footer-section">
+    <div class="footer-wrapper">
+      <div class="footer-top-wrapper">
+        <div class="footer-logo-wrapper"><img src="images/Clip-path-group.svg" loading="lazy" alt="Logo" class="footer-logo"></div>
+        <div class="footer-navigation-wrapper">
+          <a class='footer-nav-link' href='index.html'>Home</a>
+          <a class='footer-nav-link' href='about-us.html'>About</a>
+          <a class='footer-nav-link' href='recovery.html'>Crypto Recovery</a>
+          <a class='footer-nav-link' href='education.html'>Education</a>
+          <a class='footer-nav-link' href='faq.html'>FAQ</a>
+          <a class='footer-nav-link' href='blog.html'>Blog</a>
+          <a class='footer-nav-link' href='news.html'>News</a>
+        </div>
+      </div>
+      <div class="div-block-195">
+        <div class="footer-contacts-wrapper">
+          <div class="footer-title-wrapper">
+            <div class="footer-title gradient-text">Contact us<br></div>
+          </div>
+          <div class="footer-contact-groups-wrapper">
+            <div class="footer-contact-group">
+              <div id="w-node-f4678efb-62b3-a9fa-37b5-61721326b62c-6a5b6386" class="div-block-194">
+                <div class="footer-item">
+                  <div class="footer-label">UK</div>
+                  <a href="tel:+447893949686" class="footer-contact-link">+44 7893 949686</a>
                 </div>
-                <div class="sitelinks-title">Email</div>
-                <div class="text-block-email">support@countwize.com</div>
-              </div>
-              <div id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe1a-d0930d5e" class="footer-link-list-wrapper-3 _1">
-                <div class="grid-2">
-                  <div class="sitelinks-title">Location</div>
-                  <div class="text-block">UNIT 13 FREELAND PARK WAREHAM ROAD LYTCHETT MATRAVERS POOLE ENGLAND BH16 6FA</div>
+                <div class="footer-item">
+                  <div class="footer-label">CA</div>
+                  <a href="tel:+17828000180" class="footer-contact-link">+1 782 800 0180</a>
                 </div>
-                <div id="w-node-_7ee7f68b-ab19-b26c-e105-8a87a4e7caa5-d0930d5e" class="office-hours">
-                  <div class="sitelinks-title">Office Hours<br></div>
-                  <div class="text-block-4">Mon, Wed <br>08:00-17:00<br><br>Tue, Thu <br>10:00-19:00<br>‍<br>Fri<br> 08:00 - 12:00<br><br>Sat, Sun - closed</div>
+                <div class="footer-item">
+                  <div class="footer-label">SE</div>
+                  <a href="tel:+46724001975" class="footer-contact-link">+46 72 400 19 75</a>
                 </div>
               </div>
-              <div id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe2d-d0930d5e" class="footer-link-list-wrapper-3">
-                <div class="sitelinks-title">Social</div>
-                <div class="w-layout-grid grid-3">
-                  <a href="https://www.facebook.com" id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe31-d0930d5e" target="_blank" class="footer-link-3">Facebook</a>
-                  <a href="https://x.com" id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe33-d0930d5e" target="_blank" class="footer-link-3">Twitter</a>
-                  <a href="https://youtube.com" id="w-node-_5f7203cc-e064-becb-129b-01f4e572fe35-d0930d5e" target="_blank" class="footer-link-3">YouTube</a>
-                </div>
+              <div class="footer-item">
+                <div class="footer-label">Email</div>
+                <a href="mailto:support@countwize.com" class="footer-contact-link">support@countwize.com</a>
               </div>
-              <div id="w-node-_9828b8b0-7587-0b04-1da6-bd421262536b-d0930d5e" class="footer-link-list-wrapper-3">
-                <div class="sitelinks-title">Security</div>
-                <div class="w-layout-grid grid-3">
-                  <a aria-current='page' class='footer-link-3 w--current' href='legal.html' id='w-node-_9828b8b0-7587-0b04-1da6-bd4212625371-d0930d5e'>Legal Page</a>
-                </div>
-              </div>
-              <div id="w-node-_95f65c50-08d0-e4d2-1f54-e3cf591b5bcf-d0930d5e" class="footer-link-list-wrapper-3 _1">
-                <a href="documents/COUNTWIZE-ISO-27001-2111-1.pdf" target="_blank" class="iso w-inline-block"><img src="images/count-wize-ISO.svg" loading="lazy" alt="" class="image-iso">
-                  <div href="index.html" id="w-node-_9828b8b0-7587-0b04-1da6-bd421262536f-d0930d5e" class="footer-link-3">Certificate ISO</div>
-                </a>
-                <a href="https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004151560" target="_blank" rel="noopener noreferrer" class="iso w-inline-block"><img src="images/royal-coat-of-arms-white.svg" loading="lazy" alt="UK Trademark Certificate" class="image-trademark">
-                  <div href="index.html" id="w-node-_0df375d2-9735-a699-9dcc-50b35048ed74-d0930d5e" class="footer-link-3">Certificate TradeMark</div>
-                </a>
+              <div class="footer-item">
+                <div class="footer-label">Location</div>
+                <div class="footer-contact-link">UNIT 13 FREELAND PARK WAREHAM ROAD <br>LYTCHETT MATRAVERS POOLE ENGLAND BH16 6FA</div>
               </div>
             </div>
-            <div class="padding-bottom padding-small"></div>
+          </div>
+        </div>
+        <div class="footer-hours-wrapper">
+          <div class="footer-contacts-wrapper">
+            <div class="footer-hours-groups-wrapper">
+              <div class="footer-hours-days-wrapper">
+                <div class="footer-title gradient-text">Office Hours</div>
+                <div id="w-node-_78209639-57de-e9d0-21e1-a3e46a5b63c4-6a5b6386" class="footer-hours-day-group">
+                  <div class="footer-item">
+                    <div class="footer-label">Mon, Wed</div>
+                    <div class="footer-contact-link">08:00-17:00</div>
+                  </div>
+                  <div class="footer-item">
+                    <div class="footer-label">Tue, Thu</div>
+                    <div class="footer-contact-link">10:00-19:00</div>
+                  </div>
+                  <div class="footer-item">
+                    <div class="footer-label">Fri</div>
+                    <div class="footer-contact-link">08:00 - 12:00</div>
+                  </div>
+                  <div class="footer-item">
+                    <div class="footer-label">Sat, Sun</div>
+                    <div class="footer-contact-link">Closed</div>
+                  </div>
+                </div>
+                <div id="w-node-_78209639-57de-e9d0-21e1-a3e46a5b63d9-6a5b6386" class="footer-social-wrapper">
+                  <div class="social-icons">
+                    <a href="https://www.instagram.com/countwize_" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/instagram-3.svg" loading="lazy" alt="instagram"></a>
+                    <a href="https://www.linkedin.com/company/countwize" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector-1.svg" loading="lazy" alt="linkedin"></a>
+                    <a href="https://www.facebook.com/profile.php?id=61572760483669" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector.svg" loading="lazy" alt="facebook"></a>
+                  </div>
+                </div>
+                <div id="w-node-_78209639-57de-e9d0-21e1-a3e46a5b63e3-6a5b6386" class="footer-certificates-wrapper">
+                  <a href="https://drive.google.com/file/d/1aVXXHeyoGYqyWGz-wSCcFWxsSCurltzn/view" target="_blank" rel="noopener noreferrer" class="footer-certificate-item w-inline-block"><img src="images/aa29f00df770d0d403ca5e9c8237b8b5856c006b.webp" loading="lazy" width="66" height="66" alt="Certificate" class="footer-certificate-image">
+                    <div class="footer-certificate-text">Certificate ISO</div>
+                  </a>
+                  <a href="https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004151560" target="_blank" rel="noopener noreferrer" class="footer-certificate-item w-inline-block"><img src="images/941ab0070c54e830e3f44ffc2fd08e1ca2cf1287.webp" loading="lazy" width="66" height="66" alt="Certificate" class="footer-certificate-image">
+                    <div class="footer-certificate-text">Certificate TradeMark</div>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom-content-wrapper-13">
-      <div class="footer-bottom-content">
-        <div class="regular-font-8">© 2025 <a href="https://webflow.com/" target="_blank" class="website-link-2">CountWize </a>| Registered in England and Wales No: <a href="https://find-and-update.company-information.service.gov.uk/company/16198508" target="_blank" class="link-2">16198508</a>
-          <a href="https://webflow.com/" target="_blank" class="website-link-2"> </a>| All rights reserved
-        </div>
-        <div class="footer-social-icon-wrapper">
-          <a href="https://instagram.com" target="_blank" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/Instagram-Icon.svg" alt="Instagram"></a>
-          <a href="https://instagram.com" target="_blank" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/Toutube-Icon.svg" alt="Toutube Icon"></a>
-          <a href="https://www.linkedin.com" target="_blank" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/676554ffd1c673852255bb86_Linkedin%20Icon.svg" alt=""></a>
-          <a href="https://www.facebook.com" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/676554ffd1c673852255bb68_Facebook%20Icon.svg" alt=""></a>
-        </div>
-      </div>
+  </footer>
+  <div class="copyright-legal-wrapper">
+    <div class="copyright-text-wrapper">
+      <div class="copyright-text">© 2025 <a class='copyright-link' href='index.html'>CountWize</a> | Registered in England and Wales No: <a href="https://find-and-update.company-information.service.gov.uk/company/16198508" target="_blank" class="copyright-link">16198508 </a>| <a class='copyright-link' href='privacy-policy.html'>All rights reserved</a></div>
     </div>
   </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6757da2d0bddf4e7ffe6a430" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

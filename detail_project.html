@@ -50,56 +50,92 @@
 </head>
 <body>
   <div class="page-wrapper">
-    <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
-      <div class="nav-container">
-        <a class='nav-brand-logo-wrapper w-nav-brand' href='index.html'><img src="images/svgviewer-output.svg" loading="lazy" alt="CountWize Logo" class="nav-brand-logo"></a>
-        <nav role="navigation" class="nav-menu w-nav-menu">
-          <a class='nav-link w-nav-link' href='index.html'>Home</a>
-          <a class='nav-link w-nav-link' href='recovery.html'>Crypto Recovery</a>
-          <a class='nav-link w-nav-link' href='education.html'>Education</a>
-          <div data-hover="true" data-delay="0" class="w-dropdown">
-            <div class="w-dropdown-toggle">
-              <div class="icon w-icon-dropdown-toggle"></div>
-              <div class="text-block-5">Resources</div>
+    <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a4a" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-2 w-nav">
+      <div class="navbar-code w-embed w-script">
+        <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".menu-button");
+    const disableScroll = () => {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    };
+    const enableScroll = () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+    const toggleScroll = () => {
+      if (menuButton.classList.contains("w--open")) {
+        disableScroll();
+      } else {
+        enableScroll();
+      }
+    };
+    menuButton.addEventListener("click", () => {
+      setTimeout(toggleScroll, 50);
+    });
+  });
+</script>
+      </div>
+      <a href="#main-content" class="skip-link">Skip to main content</a>
+      <div class="navbar-wrapper">
+        <a class='navbar-logo-link w-inline-block' href='index.html'><img src="images/Group_3.svg" loading="lazy" alt="Logo" height="25" class="navbar-logo-image"></a>
+        <nav role="navigation" class="navbar-menu w-nav-menu">
+          <div class="navbar-links-wrapper">
+            <a class='navbar-link w-nav-link' href='index.html'>Home</a>
+            <a class='navbar-link w-nav-link' href='about-us.html'>About</a>
+            <a class='navbar-link w-nav-link' href='recovery.html'>Crypto Recovery</a>
+            <a class='navbar-link w-nav-link' href='crypto-recovery-guide.html'>Crypto Recovery Guide</a>
+            <div data-hover="false" data-delay="0" data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a57" class="navbar-dropdown w-dropdown">
+              <div class="navbar-dropdown-toggle w-dropdown-toggle">
+                <div>Resources</div>
+                <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a5b" class="code-icon w-embed"><svg width="10" height="6" viewbox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.5 0.75L5 5.25L9.5 0.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg></div>
+              </div>
+              <nav class="navbar-dropdown-list w-dropdown-list">
+                <a class='navbar-link drop w-dropdown-link' href='blog.html'>Blog</a>
+                <a class='navbar-link drop w-dropdown-link' href='faq.html'>FAQ</a>
+                <a class='navbar-link drop w-dropdown-link' href='news.html'>News</a>
+              </nav>
             </div>
-            <nav class="dropdown-list w-dropdown-list">
-              <a class='dropdown-link w-dropdown-link' href='blog.html'>Blog</a>
-              <a class='dropdown-link-3 w-dropdown-link' href='faq.html'>FAQ</a>
-              <a class='dropdown-link-4 w-dropdown-link' href='/news'>News</a>
-            </nav>
+            <a class='navbar-link w-nav-link' href='education.html'>Education</a>
           </div>
-          <a class='nav-link w-nav-link' href='about-us.html'>About</a>
-          <div class="nav-bottom-content hide-dekstop">
-            <a class='button w-inline-block' href='/contact'>
-              <div>Contact us</div>
+          <div class="navbar-cta-wrapper">
+            <div class="social-icons nav">
+              <a href="https://www.instagram.com/countwize_" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/instagram-3.svg" loading="lazy" alt="instagram"></a>
+              <a href="https://www.linkedin.com/company/countwize" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector-1.svg" loading="lazy" alt="linkedin"></a>
+              <a href="https://www.facebook.com/profile.php?id=61572760483669" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector.svg" loading="lazy" alt="facebook"></a>
+            </div>
+            <a class='navbar-contact-button w-inline-block' href='contact-us.html'>
+              <div>Contact Us</div>
             </a>
           </div>
         </nav>
-        <div data-w-id="7e836f28-cae7-682c-1d19-d03dccb73461" class="nav-menu-button w-nav-button">
-          <div class="nav-menu-line-wrapper">
-            <div class="nav-menu-line top"></div>
-            <div class="nav-menu-line middle"></div>
-            <div class="nav-menu-line last"></div>
+        <div class="navbar-menu-button w-nav-button">
+          <div class="navbar-menu-button-wrapper">
+            <div class="navbar-menu-button-lines">
+              <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a75" class="navbar-menu-button-line"></div>
+              <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a76" class="navbar-menu-button-line-middle"></div>
+              <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a77" class="navbar-menu-button-line"></div>
+            </div>
           </div>
-        </div>
-        <div class="nav-bottom-content hide-tablet">
-          <a class='button w-inline-block' href='/contact'>
-            <div>Contact us</div>
-          </a>
         </div>
       </div>
     </div>
+    <div class="line-top-wrapper">
+      <div class="line"></div>
+    </div>
     <div class="main-wrapper">
-      <nav aria-label="Breadcrumb" class="breadcrumb-nav" style="padding: 1rem 0; background: #f8f9fa;">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav" style="padding: 1rem 0; background: transparent;">
         <div class="padding-global">
           <div class="container-large">
             <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.875rem;">
               <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="index.html" style="color: #666; text-decoration: none;"><span itemprop="name">Home</span></a>
+                <a itemprop="item" href="index.html" style="color: #a3dcad; text-decoration: none;"><span itemprop="name">Home</span></a>
                 <meta itemprop="position" content="1">
               </li>
-              <li style="color: #999;">/</li>
-              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="color: #333;">
+              <li style="color: #666;">/</li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="color: #fff;">
                 <span itemprop="name" class="breadcrumb-current">Project</span>
                 <meta itemprop="position" content="2">
               </li>
@@ -117,7 +153,7 @@
                   <p class="text-size-regular">Sollicitudin sit justo amet sed amet proin faucibus vulputate. Eu scelerisque orci amet tellus orci dictum habitant pretium.</p>
                 </div>
                 <div class="padding-bottom padding-large"></div>
-                <div data-w-id="df19b30f-cd21-ebae-05c3-a83ff5c7a4e6" style="opacity:0" class="project-details-image-wrapper"><img src="images/placeholder.60f9b1840c.svg" loading="lazy" alt="Project image" class="project-details-image w-dyn-bind-empty"></div>
+                <div data-w-id="df19b30f-cd21-ebae-05c3-a83ff5c7a4e6" style="opacity:0" class="project-details-image-wrapper"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy" alt="Project image" class="project-details-image w-dyn-bind-empty"></div>
                 <div class="padding-bottom padding-large"></div>
                 <div class="project-details-bottom-content-wrapper">
                   <div data-w-id="1d36008e-1ffd-4a8a-e43e-b8d49c168b33" style="opacity:0" class="project-details-top-bottom-content">
@@ -147,59 +183,100 @@
         </div>
       </div>
     </div>
-    <div class="section-footer-2">
-      <div class="padding-global">
-        <div class="container-large">
-          <div class="footer-component">
-            <div class="w-layout-grid footer-grid-2">
-              <div id="w-node-_19f9ab22-0efb-8b84-b0b7-e67dd71082f0-ffe6a48f" class="footer-left-content-wrapper">
-                <a href="#" class="footer-brand-logo-wrapper w-inline-block"><img loading="lazy" src="images/Footer-Logo.svg" alt="Footer Logo" class="footer-brand-logo"></a>
-                <p class="text-size-regular-2">Individuals around the globe, find a mentor, expand and learn from incredible people.</p>
-                <a href="#" class="button-2 w-inline-block">
-                  <div>Contact us</div>
-                </a>
-              </div>
-              <div id="w-node-_19f9ab22-0efb-8b84-b0b7-e67dd71082f8-ffe6a48f" class="footer-link-list-wrapper-2">
-                <div class="text-size-regular-2 is-linear">Main page</div>
-                <a href="#" class="footer-link-2">Home</a>
-                <a href="#" class="footer-link-2">About</a>
-                <a href="#" class="footer-link-2">Service</a>
-                <a href="#" class="footer-link-2">Blog</a>
-                <a href="#" class="footer-link-2">FAQ</a>
-                <a href="#" class="footer-link-2">Team</a>
-              </div>
-              <div class="footer-link-list-wrapper-2">
-                <div class="text-size-regular-2 is-linear">Inner page</div>
-                <a href="https://countwise.webflow.io/post/the-importance-of-bookkeeping-for-startups" class="footer-link-2">Blog details</a>
-                <a href="https://countwise.webflow.io/service/tax-planning" class="footer-link-2">Service details</a>
-                <a href="https://countwise.webflow.io/member/jane-smith" class="footer-link-2">Team details</a>
-                <a href="#" class="footer-link-2">Price</a>
-                <a href="#" class="footer-link-2">Project</a>
-                <a href="https://countwise.webflow.io/project/long-term-budget-development" class="footer-link-2">Project  details</a>
-              </div>
-              <div class="footer-link-list-wrapper-2">
-                <div class="text-size-regular-2 is-linear">Utility pages</div>
-                <a href="#" class="footer-link-2">Style Guide</a>
-                <a href="#" class="footer-link-2">Change log</a>
-                <a href="https://countwise.webflow.io/404" class="footer-link-2">404 page</a>
-                <a href="#" class="footer-link-2">Licenses</a>
-                <a href="https://countwise.webflow.io/401" class="footer-link-2">Protected</a>
+    <footer class="footer-section">
+      <div class="footer-wrapper">
+        <div class="footer-top-wrapper">
+          <div class="footer-logo-wrapper"><img src="images/Clip-path-group.svg" loading="lazy" alt="Logo" class="footer-logo"></div>
+          <div class="footer-navigation-wrapper">
+            <a class='footer-nav-link' href='index.html'>Home</a>
+            <a class='footer-nav-link' href='about-us.html'>About</a>
+            <a class='footer-nav-link' href='recovery.html'>Crypto Recovery</a>
+            <a class='footer-nav-link' href='education.html'>Education</a>
+            <a class='footer-nav-link' href='faq.html'>FAQ</a>
+            <a class='footer-nav-link' href='blog.html'>Blog</a>
+            <a class='footer-nav-link' href='news.html'>News</a>
+          </div>
+        </div>
+        <div class="div-block-195">
+          <div class="footer-contacts-wrapper">
+            <div class="footer-title-wrapper">
+              <div class="footer-title gradient-text">Contact us<br></div>
+            </div>
+            <div class="footer-contact-groups-wrapper">
+              <div class="footer-contact-group">
+                <div id="w-node-f4678efb-62b3-a9fa-37b5-61721326b62c-6a5b6386" class="div-block-194">
+                  <div class="footer-item">
+                    <div class="footer-label">UK</div>
+                    <a href="tel:+447893949686" class="footer-contact-link">+44 7893 949686</a>
+                  </div>
+                  <div class="footer-item">
+                    <div class="footer-label">CA</div>
+                    <a href="tel:+17828000180" class="footer-contact-link">+1 782 800 0180</a>
+                  </div>
+                  <div class="footer-item">
+                    <div class="footer-label">SE</div>
+                    <a href="tel:+46724001975" class="footer-contact-link">+46 72 400 19 75</a>
+                  </div>
+                </div>
+                <div class="footer-item">
+                  <div class="footer-label">Email</div>
+                  <a href="mailto:support@countwize.com" class="footer-contact-link">support@countwize.com</a>
+                </div>
+                <div class="footer-item">
+                  <div class="footer-label">Location</div>
+                  <div class="footer-contact-link">UNIT 13 FREELAND PARK WAREHAM ROAD <br>LYTCHETT MATRAVERS POOLE ENGLAND BH16 6FA</div>
+                </div>
               </div>
             </div>
-            <div class="padding-bottom padding-small"></div>
+          </div>
+          <div class="footer-hours-wrapper">
+            <div class="footer-contacts-wrapper">
+              <div class="footer-hours-groups-wrapper">
+                <div class="footer-hours-days-wrapper">
+                  <div class="footer-title gradient-text">Office Hours</div>
+                  <div id="w-node-_78209639-57de-e9d0-21e1-a3e46a5b63c4-6a5b6386" class="footer-hours-day-group">
+                    <div class="footer-item">
+                      <div class="footer-label">Mon, Wed</div>
+                      <div class="footer-contact-link">08:00-17:00</div>
+                    </div>
+                    <div class="footer-item">
+                      <div class="footer-label">Tue, Thu</div>
+                      <div class="footer-contact-link">10:00-19:00</div>
+                    </div>
+                    <div class="footer-item">
+                      <div class="footer-label">Fri</div>
+                      <div class="footer-contact-link">08:00 - 12:00</div>
+                    </div>
+                    <div class="footer-item">
+                      <div class="footer-label">Sat, Sun</div>
+                      <div class="footer-contact-link">Closed</div>
+                    </div>
+                  </div>
+                  <div id="w-node-_78209639-57de-e9d0-21e1-a3e46a5b63d9-6a5b6386" class="footer-social-wrapper">
+                    <div class="social-icons">
+                      <a href="https://www.instagram.com/countwize_" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/instagram-3.svg" loading="lazy" alt="instagram"></a>
+                      <a href="https://www.linkedin.com/company/countwize" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector-1.svg" loading="lazy" alt="linkedin"></a>
+                      <a href="https://www.facebook.com/profile.php?id=61572760483669" target="_blank" rel="noopener noreferrer" class="social-link w-inline-block"><img src="images/Vector.svg" loading="lazy" alt="facebook"></a>
+                    </div>
+                  </div>
+                  <div id="w-node-_78209639-57de-e9d0-21e1-a3e46a5b63e3-6a5b6386" class="footer-certificates-wrapper">
+                    <a href="https://drive.google.com/file/d/1aVXXHeyoGYqyWGz-wSCcFWxsSCurltzn/view" target="_blank" rel="noopener noreferrer" class="footer-certificate-item w-inline-block"><img src="images/aa29f00df770d0d403ca5e9c8237b8b5856c006b.webp" loading="lazy" width="66" height="66" alt="Certificate" class="footer-certificate-image">
+                      <div class="footer-certificate-text">Certificate ISO</div>
+                    </a>
+                    <a href="https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004151560" target="_blank" rel="noopener noreferrer" class="footer-certificate-item w-inline-block"><img src="images/941ab0070c54e830e3f44ffc2fd08e1ca2cf1287.webp" loading="lazy" width="66" height="66" alt="Certificate" class="footer-certificate-image">
+                      <div class="footer-certificate-text">Certificate TradeMark</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="footer-bottom-content-wrapper-2">
-        <div class="footer-bottom-content">
-          <div class="text-size-regular-2">Powered by <a href="https://webflow.com/" target="_blank" class="website-link-2">Webflow</a> | Designed by <a href="https://webocean.io" target="_blank" class="website-link-2">WebOcean</a>
-          </div>
-          <div class="footer-social-icon-wrapper">
-            <a href="https://instagram.com" target="_blank" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/Instagram-Icon.svg" alt="Instagram"></a>
-            <a href="https://twitter.com" target="_blank" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/Twitter-Icon.svg" alt="Twitter"></a>
-            <a href="https://www.linkedin.com" target="_blank" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/Linkedin-Icon.svg" alt="LinkedIn "></a>
-            <a href="https://www.facebook.com" class="footer-social-icon w-inline-block"><img loading="lazy" src="images/Facebook-Icon.svg" alt="Facebook"></a>
-          </div>
+    </footer>
+    <div class="copyright-legal-wrapper">
+      <div class="copyright-text-wrapper">
+        <div class="copyright-text">© 2025 <a class='copyright-link' href='index.html'>CountWize</a> | Registered in England and Wales No: <a href="https://find-and-update.company-information.service.gov.uk/company/16198508" target="_blank" class="copyright-link">16198508 </a>| <a class='copyright-link' href='privacy-policy.html'>All rights reserved</a>
         </div>
       </div>
     </div>

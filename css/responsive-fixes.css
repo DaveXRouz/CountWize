@@ -1112,7 +1112,7 @@ input[name="Phone"],
 
 /* Ensure phone dropdown is visible and properly styled */
 .iti__country-list {
-  z-index: 999999 !important;
+  z-index: 2000 !important;
   max-height: 300px !important;
   overflow-y: auto !important;
   background-color: #1a1a1a !important;
@@ -1223,7 +1223,7 @@ input[name="Phone"],
   bottom: 20px !important;
   left: 20px !important;
   max-width: 320px !important;
-  z-index: 999999 !important;
+  z-index: 2000 !important;
 }
 
 /* Ensure cookie banner doesn't overlap with content on mobile */

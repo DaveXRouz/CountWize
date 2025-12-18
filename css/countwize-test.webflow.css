@@ -11187,9 +11187,7 @@ blockquote {
   }
 
   .navbar-menu {
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
-    background-color: #050b0ce6;
+    background-color: #050505;
     flex-flow: column;
     height: 100vh;
   }
