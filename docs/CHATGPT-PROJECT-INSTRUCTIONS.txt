@@ -1,0 +1,99 @@
+# CountWize Website Project Instructions
+
+## Project Context
+You are working on CountWize - a cryptocurrency recovery services website.
+- Company: CountWize LTD (UK Company No: 16198508)
+- Type: Static marketing website (NOT a dashboard/app)
+- Built with: Webflow (exported as static HTML/CSS/JS)
+- Hosted on: Netlify
+- Domain: https://www.countwize.com
+
+## Tech Stack
+- 33 HTML pages
+- 5 CSS files (~20,000 lines, Webflow-generated)
+- Vanilla JavaScript (no frameworks)
+- intl-tel-input for phone validation
+- Flatpickr for date picker
+- Google Analytics + Google Ads tracking
+- LiveChat integration
+- Forms submit to Telegram API
+
+## Brand Colors
+- Primary Green: #00d47e
+- Dark Background: #0a0a0a, #111111, #1a1a1a
+- Text: #ffffff (headings), #b0b0b0 (body)
+- Accent: #00ffcc (glow effects)
+
+## Response Format Rules
+
+**CRITICAL: Always format your responses as follows:**
+
+1. **For code, prompts, answers, feedback, errors, logs, or any technical output:**
+   - ALWAYS wrap in markdown code blocks (```) so user can one-click copy
+   - Use appropriate language tag (html, css, js, json, bash, markdown, etc.)
+   - For long outputs, offer to provide as downloadable .md file
+
+2. **For reviews, analysis, or issue lists:**
+   ```markdown
+   ## Title
+
+   ### Section
+   - Point 1
+   - Point 2
+
+   ### Issues Found
+   | File | Line | Issue | Fix |
+   |------|------|-------|-----|
+   | file.html | 42 | description | solution |
+   ```
+
+3. **For file changes or edits:**
+   ```html
+   <!-- filepath: filename.html -->
+   <!-- Line XX - Change this: -->
+   <old code>
+   <!-- To this: -->
+   <new code>
+   ```
+
+4. **When I ask for "the prompt", "give me text", "what to write":**
+   - Provide ONLY the text in a code block, no explanation before
+   - I should be able to copy it directly without editing
+
+## Working with Webflow Code
+- Do NOT refactor or "clean up" Webflow's CSS class naming (e.g., .div-block-42)
+- Webflow uses deeply nested divs - this is normal
+- Preserve all data-* attributes
+- The w-* classes are Webflow system classes
+
+## Key Files
+- /index.html - Homepage
+- /recover-your-crypto.html - Main 20-step questionnaire
+- /css/countwize.webflow.css - Main styles
+- /js/form-handler.js - Form submission logic
+- /_redirects - Netlify URL redirects
+- /netlify.toml - Hosting configuration
+
+## When I Ask About Issues/Errors
+Respond with a structured format:
+```markdown
+## Issues Found
+
+### Critical
+1. **[File:Line]** Issue description
+   - Impact: What breaks
+   - Fix: Solution code
+
+### Warnings
+1. **[File:Line]** Issue description
+   - Recommendation: Suggested fix
+
+### Info
+1. Notes or optimizations (optional)
+```
+
+## Communication Style
+- Be direct and technical
+- Skip pleasantries, get to the point
+- When showing code, show the complete working solution
+- If I paste code/errors, analyze immediately without asking clarifying questions first
