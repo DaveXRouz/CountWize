@@ -1,0 +1,460 @@
+/* CountWize Custom Animations - Modern Futuristic Theme */
+
+/* CSS Variables for consistent theming */
+:root {
+  --cw-primary: #34D399;
+  --cw-primary-glow: rgba(52, 211, 153, 0.4);
+  --cw-accent: #4ADE80;
+  --cw-dark: #0D1117;
+  --cw-glass: rgba(255, 255, 255, 0.05);
+  --cw-border-glass: rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced button glow effect */
+._button,
+[data-button] {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+._button::before,
+[data-button]::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--cw-primary), var(--cw-accent));
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+._button:hover::before,
+[data-button]:hover::before {
+  opacity: 0.5;
+}
+
+/* Pulse animation for primary CTAs */
+@keyframes cw-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--cw-primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px transparent;
+  }
+}
+
+._button[data-tone="orange"],
+.ExtraBoldHero ._button {
+  animation: cw-pulse 3s ease-in-out infinite;
+}
+
+/* Floating animation for hero elements */
+@keyframes cw-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Subtle breathing glow */
+@keyframes cw-breathe {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px var(--cw-primary-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px var(--cw-primary-glow));
+  }
+}
+
+/* Glassmorphism card enhancement */
+._media-card,
+._currency-card,
+._article-card figure {
+  background: var(--cw-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--cw-border-glass);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+._media-card:hover,
+._currency-card:hover,
+._article-card:hover figure {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(52, 211, 153, 0.1);
+  border-color: var(--cw-primary-glow);
+}
+
+/* Smooth reveal on scroll */
+@keyframes cw-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient text animation */
+@keyframes cw-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Enhanced hover states for links */
+._menu-link,
+._menu-button,
+.menu-link {
+  position: relative;
+  overflow: hidden;
+}
+
+._menu-link::after,
+._menu-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cw-primary), var(--cw-accent));
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+._menu-link:hover::after,
+._menu-button:hover::after {
+  transform: translateX(0);
+}
+
+/* Icon rotation on hover */
+._icon {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+._button:hover ._icon,
+[data-button]:hover ._icon {
+  transform: translateX(3px);
+}
+
+/* Testimonial card enhancements */
+.ClientTestimonials ._toggle-button {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ClientTestimonials ._toggle-button:hover {
+  transform: scale(1.02);
+}
+
+/* Smooth section transitions */
+section,
+[class*="Hero"],
+[class*="Section"] {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Loading shimmer effect */
+@keyframes cw-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+._skeleton::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 211, 153, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: cw-shimmer 1.5s ease-in-out infinite;
+}
+
+/* Accent line animation */
+@keyframes cw-accent-line {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* Footer enhancement */
+.Footer {
+  position: relative;
+}
+
+.Footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cw-primary),
+    transparent
+  );
+}
+
+/* Scroll indicator animation */
+._scroll-hint {
+  animation: cw-float 2s ease-in-out infinite;
+}
+
+/* Form input focus enhancements */
+._input input:focus,
+._input textarea:focus {
+  box-shadow: 0 0 0 3px var(--cw-primary-glow) !important;
+  border-color: var(--cw-primary) !important;
+}
+
+/* Dropdown animations */
+._dropdown .overlay-container {
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Card stack animations */
+._scroll-stack-view {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Tag/Badge pulsing for important items */
+._tag[data-tone="orange"] {
+  animation: cw-pulse 2.5s ease-in-out infinite;
+}
+
+/* Circle button enhancement */
+._circle-button {
+  transition: all 0.3s ease;
+}
+
+._circle-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--cw-primary-glow);
+}
+
+/* Avatar glow effect */
+._avatar {
+  transition: box-shadow 0.3s ease;
+}
+
+._avatar:hover {
+  box-shadow: 0 0 15px var(--cw-primary-glow);
+}
+
+/* Stepper progress enhancement */
+._stepper button .index svg circle:last-child {
+  transition: stroke-dasharray 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Wordmark logo subtle animation */
+._wordmark svg {
+  transition: filter 0.3s ease;
+}
+
+._wordmark:hover svg {
+  filter: drop-shadow(0 0 8px var(--cw-primary-glow));
+}
+
+/* Menu overlay smooth entry */
+._menu[data-variant="overlay"] .menu-overlay {
+  transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Notification banner slide animation */
+._notification-banner {
+  animation: cw-reveal-up 0.5s ease-out;
+}
+
+/* Partnership card hover */
+._partnership-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+._partnership-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Currency converter smooth transitions */
+._currency-converter {
+  transition: opacity 0.3s ease;
+}
+
+._currency-converter .swap-btn:hover {
+  box-shadow: 0 0 15px var(--cw-primary-glow);
+}
+
+/* FAQ accordion smooth expand */
+._faq-accordion .accordion-content {
+  transition: height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Table row hover effect */
+._table tr {
+  transition: background-color 0.2s ease;
+}
+
+._table tbody tr:hover {
+  background-color: rgba(52, 211, 153, 0.05);
+}
+
+/* Drawer modal enhancement */
+._drawer .drawer-modal {
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Media performance optimization */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark theme optimizations */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cw-glass: rgba(0, 0, 0, 0.3);
+    --cw-border-glass: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* =========================================================
+   CW-ALPHA PHASE 2 — MOTION RESTRAINT (DO NOT DELETE)
+   Goal: Reduce aggressive motion, respect user preferences
+   Version: 1.0.0
+   Date: 2026-01-06
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   ACTION 09: MOTION RESTRAINT + REDUCED MOTION (P1)
+   ----------------------------------------------------------- */
+
+/* Reduce aggressive glow pulsing on hero CTA */
+.hero-alternative-button {
+  animation: gradientShift 8s ease infinite, glow-subtle 3s ease-in-out infinite;
+}
+
+@keyframes glow-subtle {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(144, 238, 144, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(144, 238, 144, 0.6);
+  }
+}
+
+/* Reduce wave animation intensity */
+.recovery-button-image {
+  animation: wave-subtle 2s infinite ease-in-out;
+}
+
+@keyframes wave-subtle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* Reduce card pulse intensity */
+._tag[data-tone="orange"],
+._button[data-tone="orange"],
+.ExtraBoldHero ._button {
+  animation: cw-pulse-subtle 4s ease-in-out infinite;
+}
+
+@keyframes cw-pulse-subtle {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px transparent;
+  }
+}
+
+/* Enhanced prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all non-essential animations */
+  .hero-alternative-button,
+  .recovery-button-image,
+  ._tag[data-tone="orange"],
+  ._button[data-tone="orange"],
+  .ExtraBoldHero ._button,
+  ._scroll-hint,
+  ._wordmark svg {
+    animation: none !important;
+  }
+
+  /* Disable hover transforms */
+  .card:hover,
+  .services-overview-card:hover,
+  .pricing-card:hover,
+  .lesson-slide:hover,
+  .supported-platform-logo-card:hover,
+  .hero-button-wrapper:hover,
+  .navbar-contact-button:hover,
+  .news-navigation-button:hover {
+    transform: none !important;
+  }
+
+  /* Keep only essential feedback */
+  a:hover,
+  button:hover {
+    opacity: 0.85;
+  }
+
+  /* Disable smooth scroll */
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable floating animations */
+  @keyframes cw-float {
+    0%, 100% { transform: none; }
+  }
+
+  /* Disable breathing glow */
+  @keyframes cw-breathe {
+    0%, 100% { filter: none; }
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 2 — MOTION RESTRAINT
+   ========================================================= */
