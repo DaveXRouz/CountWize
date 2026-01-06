@@ -1,105 +1,177 @@
-# CountWize - Crypto Recovery Services
+<p align="center">
+  <img src="images/Footer-Logo.svg" alt="CountWize" width="200">
+</p>
 
-Professional cryptocurrency recovery services website. Built with Webflow and exported as static HTML/CSS/JS files.
+<h1 align="center">CountWize</h1>
 
-## Overview
+<p align="center">
+  <strong>Professional Cryptocurrency Recovery Services</strong>
+</p>
 
-CountWize offers secure, efficient crypto recovery services to help clients recover lost or stolen cryptocurrency assets using advanced tracking and forensic analysis.
+<p align="center">
+  <a href="https://countwize.com">Website</a> •
+  <a href="#features">Features</a> •
+  <a href="#deployment">Deployment</a> •
+  <a href="#contact">Contact</a>
+</p>
 
-## Structure
+---
+
+## About
+
+CountWize provides professional cryptocurrency recovery services, helping individuals and businesses recover lost or stolen digital assets through advanced blockchain forensics and legal expertise.
+
+**ISO 27001 Certified** — We maintain the highest standards of information security.
+
+---
+
+## Features
+
+- **Crypto Asset Recovery** — Expert recovery of lost, stolen, or inaccessible cryptocurrency
+- **Blockchain Forensics** — Advanced tracing and analysis of blockchain transactions
+- **Legal Support** — Coordination with law enforcement and legal proceedings
+- **Educational Resources** — Comprehensive guides on crypto security and scam prevention
+- **Multi-step Questionnaire** — Streamlined client intake process
+
+---
+
+## Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | HTML5, CSS3, JavaScript |
+| **Framework** | Webflow |
+| **Hosting** | Netlify |
+| **Fonts** | Be Vietnam Pro, Poppins |
+| **Analytics** | Google Analytics |
+
+---
+
+## Project Structure
 
 ```
 CountWize/
-├── index.html                    # Homepage
-├── about-us.html                 # About page
-├── recovery.html                 # Crypto Recovery services
-├── recovery-questionnaire.html   # Recovery questionnaire form
-├── education.html                # Education resources
-├── blog.html                     # Blog listing
-├── news.html                     # News articles
-├── faq.html                      # FAQ page
-├── faq-crypto-recovery.html      # Crypto recovery FAQ
-├── team.html                     # Team members
-├── contact-us.html               # Contact page
-├── contact.html                  # Alternative contact
-├── legal.html                    # Legal information
-├── privacy-policy.html           # Privacy policy
-├── cookie-policy.html            # Cookie policy
-├── 401.html                      # 401 error page
-├── 404.html                      # 404 error page
-├── css/                          # Stylesheets
-│   ├── normalize.css
-│   ├── webflow.css
-│   ├── countwize-test.webflow.css
-│   └── responsive-fixes.css
-├── js/                           # JavaScript
-│   └── webflow.js
-├── images/                       # Image assets (400+ files)
-└── documents/                    # PDF documents
-    └── COUNTWIZE-ISO-27001-2111-1.pdf
+├── site/                   # Production build (Netlify deploy directory)
+│   ├── *.html             # 33 optimized pages
+│   ├── css/               # Stylesheets
+│   ├── js/                # Scripts
+│   ├── images/            # Optimized assets
+│   └── documents/         # PDF documents
+│
+├── css/                    # Source stylesheets
+│   ├── normalize.css      # CSS reset
+│   ├── webflow.css        # Webflow base
+│   ├── countwize-test.webflow.css  # Main styles
+│   ├── responsive-fixes.css        # Mobile/tablet fixes
+│   └── countwize-animations.css    # Animations
+│
+├── js/                     # Source scripts
+│   ├── webflow.js         # Webflow runtime
+│   ├── a11y-hardening.js  # Accessibility enhancements
+│   ├── form-hardening.js  # Form validation
+│   └── perf-deferred-init.js  # Performance optimization
+│
+├── images/                 # Source image assets
+├── documents/              # Source documents
+├── netlify.toml           # Netlify configuration
+├── robots.txt             # Search engine directives
+└── sitemap.xml            # XML sitemap
 ```
+
+---
 
 ## Pages
 
-### Main Pages
-- **Home** - Landing page with services overview and contact form
-- **About Us** - Company information and mission
-- **Crypto Recovery** - Detailed recovery services
-- **Recovery Questionnaire** - Client intake form
-- **Education** - Educational resources and videos
-- **Blog** - Blog articles
-- **News** - Latest news and updates
-- **FAQ** - Frequently asked questions
-- **Team** - Team members
-- **Contact** - Contact information and form
+### Main
+- Homepage
+- About Us
+- Recovery Services
+- Recovery Questionnaire
+- Education Center
+- Blog & News
+- FAQ
+- Team
+- Contact
 
-### Article Pages
-- Crypto Education
-- Crypto Insights
+### Resources
 - Crypto Recovery Guide
-- Crypto Tax
-- Forex Scams
-- How to Check Legitimate Websites
-- How Crypto Recovery Phrases Work
-- How to Avoid Losing Your Crypto
+- Crypto Tax Information
+- Forex Scams Guide
+- Security Best Practices
 
-## Technologies
+### Legal
+- Privacy Policy
+- Cookie Policy
+- Legal Information
 
-- HTML5, CSS3, JavaScript
-- Webflow framework
-- Google Fonts (Be Vietnam Pro, Poppins)
-- Google Analytics
-- Vimeo video embeds
-- International Phone Input library
-
-## Local Development
-
-```bash
-# Using Python
-python -m http.server 8080
-
-# Using Node.js
-npx serve
-```
-
-Then open http://localhost:8080 in your browser.
+---
 
 ## Deployment
 
-Static site deployable to:
-- Netlify
-- Vercel
-- GitHub Pages
-- Any static hosting
+### Netlify (Recommended)
+
+The site is configured for Netlify deployment:
+
+```toml
+[build]
+  publish = "site"
+```
+
+1. Connect repository to Netlify
+2. Deploy — Netlify automatically publishes from `/site`
+3. Custom domain: `countwize.com`
+
+### Local Development
+
+```bash
+# Python
+cd site && python -m http.server 8080
+
+# Node.js
+cd site && npx serve
+
+# Then open http://localhost:8080
+```
+
+---
+
+## Security Features
+
+- **HTTPS Enforced** — All traffic encrypted
+- **Security Headers** — X-Frame-Options, X-XSS-Protection, CSP
+- **Form Validation** — Client-side validation with sanitization
+- **Canonical URLs** — SEO-optimized non-www domain
+
+---
 
 ## Contact
 
-- Website: https://www.countwize.com
-- Email: support@countwize.com
-- UK: +44 7533 598854
-- CA: +1 782 800 0180
-- SE: +46 72 400 19 75
+<table>
+  <tr>
+    <td><strong>Website</strong></td>
+    <td><a href="https://countwize.com">countwize.com</a></td>
+  </tr>
+  <tr>
+    <td><strong>Email</strong></td>
+    <td>support@countwize.com</td>
+  </tr>
+  <tr>
+    <td><strong>UK</strong></td>
+    <td>+44 7533 598854</td>
+  </tr>
+  <tr>
+    <td><strong>Canada</strong></td>
+    <td>+1 782 800 0180</td>
+  </tr>
+  <tr>
+    <td><strong>Sweden</strong></td>
+    <td>+46 72 400 19 75</td>
+  </tr>
+</table>
 
-## License
+---
 
-Copyright 2025 CountWize LTD. All rights reserved.
+<p align="center">
+  <strong>CountWize LTD</strong><br>
+  © 2025 All Rights Reserved
+</p>

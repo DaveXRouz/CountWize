@@ -1,6 +1,0 @@
-CONTACT FORM TEST @ 2026-01-06T10:22:54.369Z
-ERROR: locator.scrollIntoViewIfNeeded: Timeout 10000ms exceeded.
-Call log:
-  - waiting for locator('form#contact-form, form.contact-page-form').first()
-
-NOTE: Country/Town selects may fail if API blocked; review screenshots + console logs.

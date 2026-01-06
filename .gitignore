@@ -1,4 +1,6 @@
-# OS files
+# ===================
+# OS Generated Files
+# ===================
 .DS_Store
 .DS_Store?
 ._*
@@ -8,42 +10,44 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Editor files
+# ===================
+# Editor & IDE
+# ===================
 *.swp
 *.swo
 *~
 *.bak
-*.backup
 .idea/
 .vscode/
 *.sublime-*
 
-# Temporary files
+# ===================
+# Dependencies
+# ===================
+node_modules/
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# ===================
+# Build & Temp
+# ===================
 *.tmp
 *.temp
 *.log
+dist/
+build/
 
-# Node modules (if any)
-node_modules/
-npm-debug.log
-
-# Python (if any)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-
-# Backup directories
-backup*/
-old*/
-test*/
-temp*/
-
-# Server runtime files
+# ===================
+# Local Development
+# ===================
+.env
+.env.local
 .server.pid
-SERVER_STATUS.md
-QUICK_ACCESS.md
 
-# Release zip artifacts (too large for git)
-COUNTWIZE_*.zip
+# ===================
+# Archives
+# ===================
+*.zip
+*.tar.gz
+*.rar
