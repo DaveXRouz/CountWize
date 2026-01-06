@@ -53,3 +53,17 @@
 4. `recovery-questionnaire.html` - Form hardening + HTML bug fixes
 5. `css/responsive-fixes.css` - Phase 4 CSS block added
 6. `js/form-hardening.js` - NEW: Shared hardening module
+
+---
+
+## [1.0.1] - 2026-01-06 (Audit Fix)
+
+### Fixed
+- **CW-ALPHA-PH4-AUDITFIX-001**: Email validation now enforced before fetch()
+  - Added `validateEmailField()` function to `js/form-hardening.js` (lines 178-207)
+  - Integrated validation call into all 4 hardened form handlers
+  - Invalid/empty email now triggers `.w-form-fail` error UI and blocks submission
+  - Form unlocks for user retry after validation failure
+
+### Security
+- Empty or invalid email can no longer trigger fetch request (deterministic block)

@@ -1982,6 +1982,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lock form - lock all submit buttons
     submitBtns.forEach(btn => FH.lockForm(form, btn));
 
+    // Validate email before fetch (AUDIT FIX PH4-001)
+    const emailInput = form.querySelector('input[type="email"]');
+    if (emailInput && !FH.isValidEmail((emailInput.value || '').trim())) {
+      FH.showError(form);
+      submitBtns.forEach(btn => FH.unlockForm(form, btn));
+      try { emailInput.focus(); } catch (e) { /* ignore */ }
+      return;
+    }
+
     const formData = new FormData(form);
     const fields = Object.fromEntries(formData.entries());
     const fileFields = [];

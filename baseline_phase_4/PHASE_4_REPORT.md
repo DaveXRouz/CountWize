@@ -2,7 +2,8 @@
 
 **Date**: 2026-01-06
 **Branch**: `claude/phase-4-forms-questionnaire-qa-bi663`
-**Status**: COMPLETE
+**Status**: PASS (after audit fix)
+**Ready for Phase 5**: YES
 
 ---
 
@@ -88,6 +89,7 @@ window.CWFormHardening = {
   isValidEmail(email)                // Basic email validation
   isValidPhone(phone, dialCode)      // Minimum 7 digit check
   validateRequired(form)             // Check [required] fields
+  validateEmailField(form, btn)      // Block fetch if email invalid (AUDIT FIX)
 }
 ```
 
@@ -131,6 +133,36 @@ window.CWFormHardening = {
 - [x] Step 19 label fixed with proper accessibility
 - [x] Loading CSS spinner defined
 - [x] No regressions in form submission flow
+- [x] Email validation blocks fetch on invalid input (AUDIT FIX)
+
+---
+
+## Phase 4 Audit Fix
+
+### CW-ALPHA-PH4-AUDITFIX-001: Email Validation Before Fetch
+
+**Problem**: `FH.isValidEmail()` existed but was not called before `fetchWithTimeout()`. Invalid/empty email could bypass HTML5 validation and trigger a fetch request.
+
+**Solution**:
+1. Added `validateEmailField(form, submitBtn)` function to `js/form-hardening.js` (lines 178-207)
+2. Integrated validation call into all 4 hardened form handlers:
+   - `index.html:1805-1806`
+   - `contact-us.html:881-882`
+   - `contact.html:881-882`
+   - `recovery-questionnaire.html:1985-1992`
+
+**Behavior on invalid email**:
+- Shows `.w-form-fail` error UI
+- Unlocks form for user retry
+- Focuses email input field
+- Returns early (no fetch executed)
+
+**Acceptance Criteria**: ✓
+- Empty email → error shown, no fetch
+- Invalid format email → error shown, no fetch
+- Valid email → submission proceeds
+
+**Rollback Plan**: Remove `validateEmailField` calls from handlers; revert to HTML5-only validation.
 
 ---
 
@@ -138,10 +170,14 @@ window.CWFormHardening = {
 
 ```
 PH4: Forms & Questionnaire Deep QA - Complete Implementation
-
 - Add js/form-hardening.js shared module
 - Harden all 4 Telegram submission forms
 - Fix Step 18/19 questionnaire HTML bugs
 - Remove PII from console.error logs
 - Add Phase 4 CSS loading/error states
+
+PH4-AUDIT: Enforce email validation before fetch
+- Add validateEmailField() function
+- Integrate into all 4 form handlers
+- Block fetch on empty/invalid email
 ```

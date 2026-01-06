@@ -175,6 +175,37 @@
     return { valid: errors.length === 0, errors };
   }
 
+  /**
+   * Validate email field before submission (AUDIT FIX PH4-001)
+   * Blocks fetch if email is empty or invalid format
+   * @param {HTMLFormElement} form
+   * @param {HTMLButtonElement|HTMLInputElement} submitBtn - for unlocking on failure
+   * @returns {boolean} true if valid or no email field, false if invalid (blocks submission)
+   */
+  function validateEmailField(form, submitBtn) {
+    const emailInput = form.querySelector('input[type="email"]');
+
+    // No email field = nothing to validate, allow submission
+    if (!emailInput) {
+      return true;
+    }
+
+    const email = (emailInput.value || '').trim();
+
+    // Check if empty or invalid format
+    if (!email || !isValidEmail(email)) {
+      // Show error UI
+      showError(form);
+      // Unlock form for retry
+      unlockForm(form, submitBtn);
+      // Focus the email field for user convenience
+      try { emailInput.focus(); } catch (e) { /* ignore focus errors */ }
+      return false;
+    }
+
+    return true;
+  }
+
   // Expose API
   window.CWFormHardening = {
     canSubmit: canSubmit,
@@ -187,6 +218,7 @@
     isValidEmail: isValidEmail,
     isValidPhone: isValidPhone,
     validateRequired: validateRequired,
+    validateEmailField: validateEmailField,
     SUBMIT_TIMEOUT_MS: SUBMIT_TIMEOUT_MS
   };
 

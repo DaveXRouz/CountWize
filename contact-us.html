@@ -878,6 +878,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lock form
     FH.lockForm(form, submitBtn);
 
+    // Validate email before fetch (AUDIT FIX PH4-001)
+    if (!FH.validateEmailField(form, submitBtn)) return;
+
     const formData = new FormData(form);
     const fields = Object.fromEntries(formData.entries());
     // 🎌 Визначити країну за номером телефону
