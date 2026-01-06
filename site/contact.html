@@ -49,18 +49,18 @@ z-index: 2000;
 max-height: 200px !important;
 }
 .iti__country-list {
-    background-color: #0d0d0d !important; /* Черный фон */
-    color: #aec3b0 !important; /* Белый текст */
-    border: none !important; /* Темная граница */
+    background-color: #0d0d0d !important; 
+    color: #aec3b0 !important; 
+    border: none !important; 
 }
-/* Стили для элементов внутри списка */
+
 .iti__country {
-    color: #aec3b0 !important; /* Белый текст */
+    color: #aec3b0 !important; 
     padding: 8px;
 }
-/* При наведении — затемнение */
+
 .iti__country:hover {
-    background-color: #000 !important; /* Темно-серый фон при наведении */
+    background-color: #000 !important; 
 }
 .optionContact {
 background-color: #0d0d0d;
@@ -84,27 +84,27 @@ select:-webkit-autofill {
 </style>
   <style>
     .title-link-web {
-    display: -webkit-box; /* Включаем флекс-контейнер */
-  -webkit-line-clamp: 2; /* Ограничиваем текст до 2 строк */
-  -webkit-box-orient: vertical; /* Устанавливаем вертикальную ориентацию */
-  overflow: hidden; /* Скрываем текст, выходящий за пределы */
-  text-overflow: ellipsis; /* Добавляем "..." в конце текста */
+    display: -webkit-box; 
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
   }
     .title-link {
-    display: -webkit-box; /* Включаем флекс-контейнер */
-  -webkit-line-clamp: 2; /* Ограничиваем текст до 2 строк */
-  -webkit-box-orient: vertical; /* Устанавливаем вертикальную ориентацию */
-  overflow: hidden; /* Скрываем текст, выходящий за пределы */
-  text-overflow: ellipsis; /* Добавляем "..." в конце текста */
+    display: -webkit-box; 
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
   }
   .title-link:hover {
-  text-decoration: underline; /* Добавляем подчеркивание при наведении */
-  color: #07b96a; /* Можно изменить цвет при наведении (опционально) */
+  text-decoration: underline; 
+  color: #07b96a; 
 }
 .disabled-link {
-  pointer-events: none; /* Отключает клики */
-  cursor: default; /* Обычный курсор */
-  opacity: 0.6; /* Прозрачность */
+  pointer-events: none; 
+  cursor: default; 
+  opacity: 0.6; 
 }
 .hide {
 display: none;
@@ -116,19 +116,19 @@ z-index: 2000;
 max-height: 200px !important;
 }
 .iti__country-list {
-    background-color: #3B4743 !important; /* Черный фон */
-    color: #aec3b0 !important; /* Белый текст */
-    border: none !important; /* Темная граница */
+    background-color: #3B4743 !important; 
+    color: #aec3b0 !important; 
+    border: none !important; 
     white-space: normal !important;
 }
-/* Стили для элементов внутри списка */
+
 .iti__country {
-    color: #aec3b0 !important; /* Белый текст */
+    color: #aec3b0 !important; 
     padding: 8px;
 }
-/* При наведении — затемнение */
+
 .iti__country:hover {
-    background-color: #222e2a !important; /* Темно-серый фон при наведении */
+    background-color: #222e2a !important; 
 }
 ::-webkit-scrollbar {
 		width: 8px;
@@ -164,7 +164,7 @@ textarea::-webkit-resizer{
 .recovery-button-image:nth-child(3) {
     animation-delay: 0.8s;
 }
-/* Волнообразное переливание */
+
 @keyframes wave {
     0%   { opacity: 0.2; }
     33%  { opacity: 1; }
@@ -520,7 +520,7 @@ textarea::-webkit-resizer{
     #cookie-banner-simple {
       left: 20px !important;
       right: 20px !important;
-      max-width: unset !important; /* щоб не обмежував ширину */
+      max-width: unset !important; 
     }
   }
   </style>
@@ -848,22 +848,22 @@ document.addEventListener("DOMContentLoaded", async function () {
         resetValidation();
         updateInputValue();
     });
-    // 🔐 Перевірка перед сабмітом
+    
     form.addEventListener("submit", function (e) {
         resetValidation();
         if (!iti.isValidNumber()) {
             e.preventDefault();
-            e.stopImmediatePropagation(); // 💥 блокує навіть Webflow Logic
+            e.stopImmediatePropagation(); 
             showError();
-            // 💡 Зупиняє Webflow повністю
+            
             return false;
         }
     });
 });
 </script>
-  <!--  Підключення бібліотеки libphonenumber-js  -->
+  <!-- Phone number library -->
   <script src="https://unpkg.com/libphonenumber-js@1.10.18/bundle/libphonenumber-max.js"></script>
-  <!-- Phase 4: Form hardening module -->
+  <!-- Form hardening module -->
   <script src="js/form-hardening.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -882,12 +882,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lock form
     FH.lockForm(form, submitBtn);
 
-    // Validate email before fetch (AUDIT FIX PH4-001)
+    // Validate email before fetch
     if (!FH.validateEmailField(form, submitBtn)) return;
 
     const formData = new FormData(form);
     const fields = Object.fromEntries(formData.entries());
-    // 🎌 Визначити країну за номером телефону
+    
     function getCountryFromPhone(phone) {
       try {
         const parsed = libphonenumber.parsePhoneNumber(phone);
@@ -901,14 +901,14 @@ document.addEventListener("DOMContentLoaded", function () {
         ? [...code.toUpperCase()].map(c => String.fromCodePoint(c.charCodeAt(0) + 127397)).join('')
         : '';
     }
-    // Формуємо повний номер з dialCode та Phone (якщо dialCode є)
+    
     const dialCode = fields["dialCode"] || "";
     const phoneRaw = fields["Phone"] || "";
     const fullPhone = `${dialCode}${phoneRaw}`.replace(/\s+/g, "");
-    // Отримуємо код країни та прапор
+    
     const countryCodeFromPhone = getCountryFromPhone(fullPhone);
     const flagFromPhone = countryCodeToFlag(countryCodeFromPhone);
-    // Прапор від вибору країни у селекті (якщо він є)
+    
     function countryNameToFlag(name) {
       const select = document.getElementById("Country");
       if (!select) return "";
@@ -919,9 +919,9 @@ document.addEventListener("DOMContentLoaded", function () {
         : "";
     }
     const flagFromSelect = countryNameToFlag(fields["Country"] || "");
-    // Формуємо заголовок із прапором (краще взяти прапор із селекту, якщо він є)
+    
     const flag = flagFromSelect || flagFromPhone || "";
-    // Поля у потрібному порядку з підписами
+    
     const orderedFields = [
       { key: "Full-Name", label: "Name" },
       { key: "Email", label: "Email" },
@@ -935,11 +935,11 @@ document.addEventListener("DOMContentLoaded", function () {
     for (const { key, label } of orderedFields) {
       if (!fields[key]) continue;
       let value = fields[key];
-      // Якщо це телефон — додаємо dialCode, чистимо пробіли
+      
       if (key === "Phone") {
         value = fullPhone;
       }
-      // Якщо це селект (Country або Town) — беремо видимий текст, а не value
+      
       if (["Country", "Town"].includes(key)) {
         const select = document.querySelector(`[name="${key}"]`);
         const selectedOption = select?.options?.[select.selectedIndex];
@@ -947,7 +947,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       message += `◾️ <b>${label}:</b> ${value}\n`;
     }
-    // Якщо у формі немає файлів — можна пропустити кодування файлів
+    
     const fileFields = [];
     for (const [key, value] of formData.entries()) {
       if (value instanceof File && value.size > 0) {

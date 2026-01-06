@@ -658,7 +658,7 @@
     #cookie-banner-simple {
       left: 20px !important;
       right: 20px !important;
-      max-width: unset !important; /* щоб не обмежував ширину */
+      max-width: unset !important; 
     }
   }
   </style>
@@ -851,13 +851,13 @@ async function fetchNews(page = 1) {
         timeSince.textContent = news.published_time;
         const titleLink = item.querySelector('.title-link-new');
         if (titleLink) {
-          titleLink.textContent = news.title; // тільки текст, без href
+          titleLink.textContent = news.title; 
         }
         const buttonLink = item.querySelector('.button-link-new');
         if (buttonLink) {
-          buttonLink.setAttribute('href', news.url);         // Лінк
-          buttonLink.setAttribute('target', '_blank');        // Відкривати в новій вкладці
-          buttonLink.setAttribute('rel', 'noopener noreferrer'); // Захист (важливо для безпеки)
+          buttonLink.setAttribute('href', news.url);         
+          buttonLink.setAttribute('target', '_blank');        
+          buttonLink.setAttribute('rel', 'noopener noreferrer'); 
         }
       }
     });
@@ -896,8 +896,8 @@ prevButton.addEventListener('click', (event) => {
 });
 fetchNews(currentPage);
 const webNewsItems = document.querySelectorAll('.web-news-items-new [class^="item"]');
-const prevButtonWeb = document.getElementById('prevBtnWeb'); // Кнопка Назад
-const nextButtonWeb = document.getElementById('nextBtnWeb'); // Кнопка Вперед
+const prevButtonWeb = document.getElementById('prevBtnWeb'); 
+const nextButtonWeb = document.getElementById('nextBtnWeb'); 
 let currentPage2 = 1;
 const itemsPerPage2 = webNewsItems.length;
 async function fetchWebNews(page = 1) {
@@ -929,7 +929,7 @@ async function fetchWebNews(page = 1) {
         item.onclick = () => window.open(news.url, '_blank');
       }
     });
-    // Увімкнення/вимкнення кнопок Prev/Next
+    
     if (currentPage2 === 1) {
       prevButtonWeb.classList.add('disabled-link');
     } else {
@@ -951,7 +951,7 @@ async function fetchWebNews(page = 1) {
     });
   }
 }
-// Обробники подій для кнопок Prev/Next
+
 nextButtonWeb.addEventListener('click', (event) => {
   event.preventDefault();
   if (nextButtonWeb.classList.contains('disabled-link')) return;
@@ -966,29 +966,29 @@ prevButtonWeb.addEventListener('click', (event) => {
     fetchWebNews(currentPage2);
   }
 });
-// Стартова загрузка
+
 fetchWebNews(currentPage2);
 /*
-const modal = document.querySelector('.modal-wrapper'); // Всплывающее окно
-const closeButton = document.querySelector('.button-pop-up'); // Кнопка закрытия
+const modal = document.querySelector('.modal-wrapper'); 
+const closeButton = document.querySelector('.button-pop-up'); 
 const openButton = document.querySelector('.button-discover');
-// Функция для плавного закрытия окна
+
 function closeModal() {
-    // Добавляем плавное уменьшение прозрачности
+    
     modal.style.transition = 'opacity 0.5s ease';
     modal.style.opacity = '0';
-    // Ждем окончания анимации, чтобы убрать элемент
+    
     setTimeout(() => {
-        modal.style.display = 'none'; // Убираем окно из отображения
-    }, 500); // Задержка соответствует времени анимации
+        modal.style.display = 'none'; 
+    }, 500); 
 }
 function openModal() {
-    modal.style.display = 'flex'; // Делаем окно видимым
+    modal.style.display = 'flex'; 
     setTimeout(() => {
-        modal.style.opacity = '1'; // Плавно увеличиваем прозрачность
-    }, 10); // Небольшая задержка для плавного появления
+        modal.style.opacity = '1'; 
+    }, 10); 
 }
-// Добавляем обработчик события на кнопку
+
 closeButton.addEventListener('click', closeModal);
 openButton.addEventListener('click', openModal);
 window.addEventListener('DOMContentLoaded', () => {
@@ -996,18 +996,18 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 */
 const cookieContainer = document.querySelector('.cookies');
-const accept = document.querySelector('.button-accept'); // Кнопка закрытия
+const accept = document.querySelector('.button-accept'); 
 const decline = document.querySelector('.button-decline');
 accept.addEventListener('click', closeMCookie);
 decline.addEventListener('click', closeMCookie);
 function closeMCookie() {
-    // Добавляем плавное уменьшение прозрачности
+    
     cookieContainer.style.transition = 'opacity 0.5s ease';
     cookieContainer.style.opacity = '0';
-    // Ждем окончания анимации, чтобы убрать элемент
+    
     setTimeout(() => {
-        cookieContainer.style.display = 'none'; // Убираем окно из отображения
-    }, 500); // Задержка соответствует времени анимации
+        cookieContainer.style.display = 'none'; 
+    }, 500); 
 }
 function openCookies() {
 	cookieContainer.style.display = 'flex';
@@ -1021,13 +1021,12 @@ window.addEventListener('DOMContentLoaded', () => {
   <script>
         async function getUserCountry() {
             try {
-                // Бесплатный API без токена
                 const response = await fetch("https://ipapi.co/json/");
                 const data = await response.json();
-                return data.country_code.toLowerCase(); // Получаем код страны (например, "ua", "us")
+                return data.country_code.toLowerCase();
             } catch (error) {
-                console.error("Ошибка получения страны:", error);
-                return "us"; // Если не удалось определить, используем США по умолчанию
+                console.error("Country detection error:", error);
+                return "us";
             }
         }
         document.addEventListener("DOMContentLoaded", async function() {
@@ -1037,9 +1036,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 errorMsg = document.querySelector("#error-msg"),
                 validMsg = document.querySelector("#valid-msg");
             var iti = intlTelInput(input, {
-                initialCountry: userCountry, // Устанавливаем страну пользователя
+                initialCountry: userCountry,
                 placeholderNumberType: 'FIXED_LINE',
-                separateDialCode: true, // Показывает код страны отдельно
+                separateDialCode: true,
             });
             var updateInputValue = function (event) {
                 dialCode.value = "+" + iti.getSelectedCountryData().dialCode;
@@ -1072,21 +1071,21 @@ window.addEventListener('DOMContentLoaded', () => {
     </script>
   <script>
 document.querySelectorAll('.only-text').forEach((el) => {
-    // Блокируем вставку картинок и HTML
+    
     el.addEventListener('paste', function (e) {
         e.preventDefault();
         const text = e.clipboardData.getData('text/plain');
         if (document.execCommand) {
             document.execCommand('insertText', false, text);
         } else {
-            // fallback для некоторых браузеров
+            
             const start = el.selectionStart;
             const end = el.selectionEnd;
             el.value = el.value.slice(0, start) + text + el.value.slice(end);
             el.selectionStart = el.selectionEnd = start + text.length;
         }
     });
-    // Блокируем drag & drop файлов
+    
     el.addEventListener('drop', function (e) {
         e.preventDefault();
     });
