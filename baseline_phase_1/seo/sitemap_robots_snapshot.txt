@@ -1,0 +1,126 @@
+# CountWize SEO Snapshot
+# Captured: 2026-01-06 (Phase 1 Baseline)
+# Source: Live site + local files
+
+================================================================================
+ROBOTS.TXT (from https://countwize.com/robots.txt)
+================================================================================
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.countwize.com/sitemap.xml
+
+--------------------------------------------------------------------------------
+NOTES:
+- ISSUE: Sitemap URL uses www.countwize.com but site may redirect non-www to www
+- Need to verify canonical domain handling (www vs non-www)
+================================================================================
+
+
+================================================================================
+SITEMAP.XML (from https://countwize.com/sitemap.xml)
+================================================================================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.countwize.com/</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/recovery.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/about-us.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/contact-us.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/crypto-recovery-guide.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/education.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/crypto-insights.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/news.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/blog.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/faq.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/team.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/recovery-questionnaire.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/privacy-policy.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/cookie-policy.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.countwize.com/legal.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
+
+--------------------------------------------------------------------------------
+NOTES:
+- 15 URLs in sitemap
+- All URLs use www.countwize.com domain
+- Sitemap uses .html extensions (matches local file structure)
+- Missing from sitemap: contact.html (duplicate of contact-us?), article pages,
+  detail_* template pages, forex-scams.html, crypto-tax.html
+================================================================================

@@ -1236,3 +1236,1471 @@ input[name="Phone"],
     max-width: calc(100% - 20px) !important;
   }
 }
+
+/* =========================================================
+   CW-ALPHA PHASE 2 — POLISH LAYER (DO NOT DELETE)
+   Goal: spacing/type/state consistency with minimal overrides
+   Rules: scoped selectors; low specificity; reversible edits
+   Version: 1.0.0
+   Date: 2026-01-06
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   ACTION 02: GLOBAL UI STATE SYSTEM (P0)
+   Unified focus-visible, hover/active, disabled states
+   ----------------------------------------------------------- */
+
+/* Focus-visible for all interactive elements - accessible outline */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.w-button:focus-visible,
+.w-inline-block:focus-visible {
+  outline: 2px solid rgba(163, 220, 173, 0.8);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(163, 220, 173, 0.15);
+  transition: outline-offset 0.15s ease;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Disabled state - universal */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+.w-button:disabled,
+[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(30%);
+}
+
+/* -----------------------------------------------------------
+   ACTION 03: TYPOGRAPHY RHYTHM NORMALIZATION (P0)
+   Premium readability on dark UI
+   ----------------------------------------------------------- */
+
+/* Section headings - consistent bottom margin */
+.section-heading {
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.section-heading.center {
+  margin-bottom: 1.5rem;
+}
+
+/* Subheadings - proper breathing room */
+.subheading {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Card titles - harmonized */
+.card-title {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Card descriptions - readable on dark */
+.card-description {
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Overview paragraphs - premium readability */
+.overview-description-paragraph {
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Hero heading - breathing room */
+.hero-heading {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Hero form headings */
+.hero-form-heading {
+  margin-bottom: 0.5rem;
+}
+
+.hero-form-subheading {
+  margin-bottom: 1.25rem;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------------
+   ACTION 04: VERTICAL SPACING / SECTION RHYTHM (P0)
+   Consistent section padding by breakpoint
+   ----------------------------------------------------------- */
+
+/* Desktop (992px+): 80-96px */
+@media screen and (min-width: 992px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 60px;
+  }
+
+  .section.gray {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+/* Tablet (768-991px): 64-80px */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 48px;
+  }
+
+  .section.gray {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Mobile (<768px): 40-56px */
+@media screen and (max-width: 767px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .section.gray {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 05: BUTTONS + LINKS CONSISTENCY (P0)
+   Unified CTA system with no layout shift
+   ----------------------------------------------------------- */
+
+/* Primary CTA - hero button */
+.hero-button-wrapper {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-button-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(163, 220, 173, 0.25);
+}
+
+.hero-button-wrapper:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(163, 220, 173, 0.2);
+}
+
+/* Alt hero CTA - glow button */
+.hero-alternative-button {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hero-alternative-button:hover {
+  transform: scale(1.03);
+}
+
+.hero-alternative-button:active {
+  transform: scale(0.98);
+}
+
+/* Nav contact button */
+.navbar-contact-button {
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-contact-button:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-contact-button:active {
+  transform: translateY(0);
+}
+
+/* Form submit button */
+.submit-button-2 {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.submit-button-2:hover {
+  background-color: rgba(163, 220, 173, 0.1);
+}
+
+.submit-button-2:active {
+  transform: scale(0.98);
+}
+
+.submit-button-2:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Inline link buttons */
+.button-link-new {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button-link-new:hover {
+  transform: translateX(2px);
+  opacity: 0.9;
+}
+
+/* Navigation buttons (sliders) */
+.news-navigation-button {
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.news-navigation-button:hover {
+  transform: scale(1.05);
+  background-color: rgba(163, 220, 173, 0.15);
+}
+
+.news-navigation-button:active {
+  transform: scale(0.95);
+}
+
+/* Generic link hover - subtle underline */
+a:not(.w-button):not(.w-inline-block):not(.navbar-link):not(.social-link):hover {
+  text-decoration-color: rgba(163, 220, 173, 0.6);
+}
+
+/* -----------------------------------------------------------
+   ACTION 06: CARD/PANEL CONSISTENCY (P1)
+   Unified card family styling
+   ----------------------------------------------------------- */
+
+/* Base card hover - consistent across families */
+.card,
+.services-overview-card,
+.pricing-card,
+.lesson-slide {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.services-overview-card:hover,
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Lesson slide hover */
+.lesson-slide:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Card border radius consistency */
+.card,
+.services-overview-card,
+.pricing-card {
+  border-radius: 12px;
+}
+
+/* Card internal padding consistency */
+.card-content,
+.services-overview-card-content {
+  padding: 1.25rem;
+}
+
+/* Card icon containers - consistent size */
+.card-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Team member card - photo handling */
+.team-member-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------
+   ACTION 07: LOGO / PLATFORM ROWS (P0 - trust critical)
+   Clean, professional logo display
+   ----------------------------------------------------------- */
+
+/* Logo cards - consistent sizing */
+.supported-platform-logo-card {
+  min-height: 72px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.supported-platform-logo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(163, 220, 173, 0.15);
+}
+
+/* Logo images - no stretch/squash */
+.supported-platform-logo-image-new {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Logo grid - neat alignment */
+.supported-platforms-logos-grid-new {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Mobile logo adjustments */
+@media screen and (max-width: 767px) {
+  .supported-platform-logo-card {
+    min-height: 60px;
+    padding: 12px 16px;
+  }
+
+  .supported-platform-logo-image-new {
+    max-height: 32px;
+  }
+
+  .supported-platforms-logos-grid-new {
+    gap: 12px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 08: FORMS VISUAL POLISH (P0)
+   Premium form appearance - visual only
+   ----------------------------------------------------------- */
+
+/* Form field wrapper - consistent spacing */
+.hero-form-field-wrapper {
+  margin-bottom: 0;
+}
+
+/* Form row gap consistency */
+.hero-form-row {
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.hero-form-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Input fields - border contrast on dark UI */
+.hero-input {
+  border: 1px solid rgba(163, 220, 173, 0.25);
+  background-color: rgba(5, 11, 12, 0.6);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-input:hover {
+  border-color: rgba(163, 220, 173, 0.4);
+}
+
+.hero-input:focus {
+  border-color: rgba(163, 220, 173, 0.6);
+  background-color: rgba(5, 11, 12, 0.8);
+  box-shadow: 0 0 0 3px rgba(163, 220, 173, 0.1);
+}
+
+/* Form label spacing (visible labels) */
+.form-label,
+label:not(.sr-only) {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Error states - visual only */
+.hero-input.error,
+.hero-input:invalid:not(:placeholder-shown) {
+  border-color: rgba(255, 77, 79, 0.6);
+}
+
+/* Success message - subtle animation */
+.success-message-3,
+.w-form-done {
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact form field alignment */
+@media screen and (min-width: 768px) {
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 10: OVERFLOW & PIXEL-SNAGS SWEEP (P0)
+   Kill tiny UI issues
+   ----------------------------------------------------------- */
+
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Container max-width safety */
+.w-container,
+.container-23,
+.container-24 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Image overflow prevention */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Shadow clipping fix - ensure shadows visible */
+.card,
+.services-overview-card,
+.pricing-card,
+.supported-platform-logo-card {
+  overflow: visible;
+}
+
+/* Baseline alignment for inline elements */
+.card-icon-container img,
+.services-overview-card-icon-container img {
+  vertical-align: middle;
+}
+
+/* Mobile container padding */
+@media screen and (max-width: 479px) {
+  .w-container,
+  .container-23 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Ensure no text overflow on small screens */
+@media screen and (max-width: 360px) {
+  .hero-heading,
+  .section-heading {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    word-break: break-word;
+  }
+
+  .card-title {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 2 — POLISH LAYER
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING (DO NOT DELETE)
+   Goal: responsive stability + nav reliability + tap targets
+   Rules: scoped selectors; minimal overrides; reversible edits
+   Version: 1.0.0
+   Date: 2026-01-06
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   ACTION 02: BREAKPOINT DISCIPLINE & CONTAINER SAFETY (P0)
+   Consistent container padding across mobile/tablet
+   ----------------------------------------------------------- */
+
+/* Mobile (<768px): 16px side padding */
+@media screen and (max-width: 767px) {
+  .w-container,
+  .container-23,
+  .container-24,
+  .hero-wrapper,
+  .footer-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Prevent nested containers from doubling padding */
+  .w-container .w-container,
+  .container-23 .container-23 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Section content should not exceed viewport */
+  .section,
+  .section.gray {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* Tablet (768-991px): 24px side padding */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .w-container,
+  .container-23,
+  .container-24 {
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section,
+  .section.gray {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 03: TAP TARGET & HIT AREA HARDENING (P0)
+   Minimum 44px tap targets for key interactives
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Nav menu button - ensure adequate tap size */
+  .navbar-menu-button,
+  .w-nav-button {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  /* Nav links in mobile menu - comfortable tap spacing */
+  .navbar-link,
+  .w-nav-link {
+    min-height: 44px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Primary CTA buttons */
+  .hero-button-wrapper,
+  .navbar-contact-button,
+  .submit-button-2,
+  .crypto-easy-button-wrapper {
+    min-height: 48px;
+    padding: 12px 24px;
+  }
+
+  /* Form submit buttons */
+  input[type="submit"],
+  button[type="submit"],
+  .w-button {
+    min-height: 44px;
+    padding: 10px 20px;
+  }
+
+  /* Slider navigation buttons */
+  .news-navigation-button,
+  .w-slider-arrow-left,
+  .w-slider-arrow-right {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Footer nav links */
+  .footer-nav-link {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Checkbox/radio touch expansion */
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-width: 20px;
+    min-height: 20px;
+  }
+
+  /* Quiz option cards - ensure tappable */
+  .quiz-option {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 04: MOBILE TYPOGRAPHY READABILITY (P0)
+   Prevent cramped text, especially on dark backgrounds
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Body text - comfortable line height */
+  p,
+  .card-description,
+  .overview-description-paragraph {
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+
+  /* Headings - prevent awkward wraps */
+  .hero-heading {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.2;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .section-heading {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.25;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* Card titles - readable size */
+  .card-title {
+    font-size: clamp(1rem, 4.5vw, 1.25rem);
+    line-height: 1.35;
+  }
+
+  /* Subheadings */
+  .subheading,
+  .hero-form-subheading {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Footer text */
+  .footer-nav-link,
+  .footer-contact-link {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+/* Tablet typography adjustments */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .hero-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .section-heading {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  p,
+  .card-description {
+    line-height: 1.65;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 05: SECTION RHYTHM ON MOBILE/TABLET (P0)
+   Consistent vertical spacing
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Normalize section padding on mobile */
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section.gray {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  /* First section (hero) - no top padding */
+  .section:first-of-type {
+    padding-top: 0;
+  }
+
+  /* Supported platforms section - tighter */
+  .supported-platforms-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  /* Section heading spacing */
+  .section-heading-wrapper {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section.gray {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+  }
+
+  .supported-platforms-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .section-heading-wrapper {
+    margin-bottom: 32px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 06: GRID/COLUMNS COLLAPSE STABILITY (P0)
+   Consistent gaps and alignment when stacked
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Card grid containers - consistent column gap */
+  .crypto-recovery-cards-wrapper,
+  .services-overview-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Cards - full width on mobile, consistent padding */
+  .card,
+  .services-overview-card {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Card icon alignment */
+  .card-icon-container,
+  .services-overview-card-icon-container {
+    margin-bottom: 16px;
+  }
+
+  /* Team cards grid */
+  .team-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .team-member-card {
+    width: 100%;
+  }
+
+  /* Lessons slider - stack vertically */
+  .lessons-section-wrapper .w-slider-mask {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* 2-column layouts on tablet */
+  .crypto-recovery-cards-wrapper,
+  .services-overview-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card,
+  .services-overview-card {
+    box-sizing: border-box;
+  }
+
+  .team-section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 07: LOGO ROWS / PLATFORM ROWS (P0)
+   Clean wrapping, no squashing
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  .supported-platforms-logos-grid-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .supported-platform-logo-card {
+    flex: 0 0 calc(50% - 6px);
+    max-width: calc(50% - 6px);
+    min-height: 56px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+  }
+
+  .supported-platform-logo-image-new {
+    max-height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .supported-platforms-logos-grid-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .supported-platform-logo-card {
+    flex: 0 0 calc(33.333% - 11px);
+    max-width: calc(33.333% - 11px);
+    min-height: 64px;
+    padding: 14px 20px;
+    box-sizing: border-box;
+  }
+
+  .supported-platform-logo-image-new {
+    max-height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 08: MOBILE NAV BEHAVIOR HARDENING (P0)
+   Reliable open/close, no scroll bugs
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Ensure nav menu has correct z-index */
+  .navbar-2,
+  .w-nav {
+    z-index: 1000;
+    position: relative;
+  }
+
+  /* Mobile menu overlay - full screen with proper z-index */
+  .navbar-menu,
+  .w-nav-menu {
+    z-index: 999;
+  }
+
+  /* When menu is open - style the overlay */
+  .w-nav-menu.w--open {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(5, 11, 12, 0.98);
+    padding: 20px 16px;
+  }
+
+  /* Prevent menu from causing horizontal scroll */
+  .navbar-wrapper {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Hamburger button visibility */
+  .navbar-menu-button,
+  .w-nav-button {
+    z-index: 1001;
+  }
+
+  /* Nav links in open state - proper stacking */
+  .w-nav-menu.w--open .navbar-link,
+  .w-nav-menu.w--open .w-nav-link {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(163, 220, 173, 0.1);
+  }
+
+  .w-nav-menu.w--open .navbar-link:last-child,
+  .w-nav-menu.w--open .w-nav-link:last-child {
+    border-bottom: none;
+  }
+
+  /* Contact button in mobile menu */
+  .w-nav-menu.w--open .navbar-contact-button {
+    margin-top: 16px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Dropdown in mobile nav */
+  .navbar-dropdown,
+  .w-dropdown {
+    width: 100%;
+  }
+
+  .navbar-dropdown-list,
+  .w-dropdown-list {
+    position: relative;
+    background-color: rgba(5, 11, 12, 0.95);
+    padding-left: 16px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 09: SAFE-AREA INSETS (iOS Notch) (P1)
+   Respect safe areas on modern phones
+   ----------------------------------------------------------- */
+
+@supports (padding: env(safe-area-inset-top)) {
+  @media screen and (max-width: 991px) {
+    /* Header safe area */
+    .navbar-2,
+    .w-nav {
+      padding-top: env(safe-area-inset-top, 0);
+      padding-left: env(safe-area-inset-left, 0);
+      padding-right: env(safe-area-inset-right, 0);
+    }
+
+    /* Footer safe area */
+    .footer-section {
+      padding-bottom: calc(24px + env(safe-area-inset-bottom, 0));
+      padding-left: env(safe-area-inset-left, 0);
+      padding-right: env(safe-area-inset-right, 0);
+    }
+
+    /* Cookie banner - account for bottom safe area */
+    #cookie-banner-simple,
+    #cookie-banner-advanced {
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+    }
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 10: 100vh / VIEWPORT UNIT SANITY (P1)
+   Avoid iOS address bar vh bugs
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Use min-height instead of fixed height for hero-like sections */
+  .hero-wrapper,
+  .section:first-of-type {
+    min-height: auto;
+    height: auto;
+  }
+
+  /* If any element uses 100vh, use svh/dvh with fallback */
+  .full-height-section {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+}
+
+/* For browsers supporting dynamic viewport units */
+@supports (height: 100dvh) {
+  @media screen and (max-width: 991px) {
+    .full-height-section {
+      min-height: 100dvh;
+    }
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 11: OVERLAY & Z-INDEX HYGIENE (P0)
+   Prevent overlays from blocking CTAs
+   ----------------------------------------------------------- */
+
+/* Z-index hierarchy (mobile):
+   - Base content: 1
+   - Sticky header: 1000
+   - Mobile nav menu: 999
+   - Hamburger button: 1001
+   - Cookie banner: 9000
+   - LiveChat widget: 9500
+   - Modal/lightbox: 9999
+*/
+
+@media screen and (max-width: 767px) {
+  /* Cookie banners - ensure they don't cover form submit */
+  #cookie-banner-simple,
+  #cookie-banner-advanced {
+    z-index: 9000;
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+
+  /* LiveChat widget positioning - bottom right, above cookie banner */
+  /* Note: LiveChat may need inline style override via JS if this doesn't work */
+  #chat-widget-container,
+  .livechat-widget,
+  [data-testid="widget-container"] {
+    z-index: 9500;
+    bottom: 80px; /* Above typical cookie banner height */
+  }
+
+  /* Ensure form submit buttons are not covered */
+  .hero-form,
+  .w-form {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Video lightbox overlay */
+  .w-lightbox-backdrop {
+    z-index: 9999;
+  }
+
+  .w-lightbox-container {
+    z-index: 10000;
+  }
+}
+
+/* Tablet overlay adjustments */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #cookie-banner-simple,
+  #cookie-banner-advanced {
+    z-index: 9000;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 12: MOBILE OVERFLOW ROOT-CAUSE SWEEP (P0)
+   Targeted overflow fixes, not blanket hiding
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Images - constrain to container */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hero background elements - prevent overflow */
+  .hero-background-wrapper,
+  .hero-background-img,
+  .hero-background-blur {
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  /* Long URLs and text - break safely */
+  a,
+  .card-description,
+  .footer-contact-link {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Prevent transform animations from causing overflow */
+  .card:hover,
+  .services-overview-card:hover,
+  .supported-platform-logo-card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Constrain slider width */
+  .w-slider,
+  .w-slider-mask {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Code embeds - prevent overflow */
+  .w-embed,
+  .code-embed-5 {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Form field wrappers */
+  .hero-form-field-wrapper {
+    max-width: 100%;
+  }
+
+  /* Quiz steps - prevent overflow */
+  .quiz-step {
+    max-width: 100%;
+    overflow-x: hidden;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Images - constrain */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hero backgrounds */
+  .hero-background-wrapper,
+  .hero-background-img {
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  /* Slider constraint */
+  .w-slider,
+  .w-slider-mask {
+    max-width: 100vw;
+  }
+}
+
+/* Global overflow protection - JUSTIFIED: last resort after targeted fixes */
+/* This prevents any edge cases from creating horizontal scroll */
+@media screen and (max-width: 991px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* -----------------------------------------------------------
+   ADDITIONAL MOBILE/TABLET REFINEMENTS
+   ----------------------------------------------------------- */
+
+/* Form layout on mobile */
+@media screen and (max-width: 767px) {
+  .hero-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-form-field-wrapper {
+    width: 100%;
+  }
+
+  .hero-input {
+    width: 100%;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  /* Phone input with country code */
+  .iti {
+    width: 100%;
+  }
+
+  .iti__selected-flag {
+    min-width: 52px;
+  }
+}
+
+/* Footer mobile layout */
+@media screen and (max-width: 767px) {
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-top-wrapper {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .footer-navigation-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+  }
+
+  .footer-contacts-wrapper {
+    text-align: center;
+  }
+
+  .footer-contact-groups-wrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-social-wrapper {
+    justify-content: center;
+  }
+}
+
+/* Questionnaire mobile refinements */
+@media screen and (max-width: 767px) {
+  .quiz-container,
+  .questionnaire-wrapper {
+    padding: 16px;
+  }
+
+  .quiz-navigation {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-navigation button,
+  .quiz-prev-btn,
+  .quiz-next-btn {
+    min-height: 48px;
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+
+  /* Quiz progress indicator */
+  .quiz-progress {
+    font-size: 0.875rem;
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING
+   ========================================================= */
+
+
+/* =========================================================
+   CW-ALPHA PHASE 4 — FORM HARDENING STYLES
+   Date: 2026-01-06
+   ========================================================= */
+
+/* Form loading state */
+.cw-form-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.cw-form-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: cw-form-spin 0.8s linear infinite;
+}
+
+@keyframes cw-form-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Submit button loading state */
+button[disabled].submit,
+button[disabled].submit-button-2,
+button[disabled].submit-button-4,
+input[type="submit"][disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Error state for invalid fields */
+.cw-field-error {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Error message text */
+.cw-error-text {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Questionnaire required-step validation (Phase 4.1) */
+.cw-field-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+}
+
+.cw-field-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.35) !important;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 4 — FORM HARDENING STYLES
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
+   ========================================================= */
+
+/* PH5-001: Skip link styles */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #375534;
+  color: #fff;
+  padding: 12px 24px;
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* PH5-002: Main content target focus (for skip link) */
+#main-content:focus {
+  outline: none;
+}
+
+/* PH5-012: Focus visible indicators */
+.cw-keyboard-nav a:focus,
+.cw-keyboard-nav button:focus,
+.cw-keyboard-nav input:focus,
+.cw-keyboard-nav select:focus,
+.cw-keyboard-nav textarea:focus,
+.cw-keyboard-nav [tabindex]:focus {
+  outline: 3px solid #aec3b0 !important;
+  outline-offset: 2px !important;
+}
+
+/* Focus indicator for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* PH5-013: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep essential loading indicators but simplify */
+  .cw-form-loading::before {
+    animation: none;
+    border-top-color: #333;
+    opacity: 0.5;
+  }
+}
+
+/* Improved focus states for form elements */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 1px;
+}
+
+/* Nav menu button accessibility */
+.navbar-menu-button.w-nav-button:focus,
+.w-nav-button:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* Dropdown toggle accessibility */
+.w-dropdown-toggle:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
+   ========================================================= */
+
+/*
+ * Phase 6 Performance Notes:
+ * - No global will-change traps found in codebase
+ * - No expensive filter effects found on large containers
+ * - Image lazy loading and decoding="async" handled in HTML
+ * - Script defer attributes handled in HTML
+ * - Resource hints (preconnect/dns-prefetch) handled in HTML
+ * - Caching headers handled in netlify.toml
+ */
+
+/* =========================================================
+   END CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
+   ========================================================= */

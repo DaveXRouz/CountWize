@@ -1,0 +1,5 @@
+CountWize Phase 1B Evidence Capture
+BASE=https://countwize.com
+OUT=.
+TIME=2026-01-06T10:22:26.065Z
+NOTE=No code changes; evidence only.

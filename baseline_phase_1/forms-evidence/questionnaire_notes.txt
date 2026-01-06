@@ -1,0 +1,4 @@
+QUESTIONNAIRE
+Invalid attempt telegramCount=0 (expect 0 if validation blocks)
+Valid attempt telegramCount=0 (expect >=1 if submission triggers)
+Step 18 + Step 19 screenshots captured for known content/label mismatches.

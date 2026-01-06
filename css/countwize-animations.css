@@ -356,3 +356,105 @@ section,
     --cw-border-glass: rgba(255, 255, 255, 0.15);
   }
 }
+
+/* =========================================================
+   CW-ALPHA PHASE 2 — MOTION RESTRAINT (DO NOT DELETE)
+   Goal: Reduce aggressive motion, respect user preferences
+   Version: 1.0.0
+   Date: 2026-01-06
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   ACTION 09: MOTION RESTRAINT + REDUCED MOTION (P1)
+   ----------------------------------------------------------- */
+
+/* Reduce aggressive glow pulsing on hero CTA */
+.hero-alternative-button {
+  animation: gradientShift 8s ease infinite, glow-subtle 3s ease-in-out infinite;
+}
+
+@keyframes glow-subtle {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(144, 238, 144, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(144, 238, 144, 0.6);
+  }
+}
+
+/* Reduce wave animation intensity */
+.recovery-button-image {
+  animation: wave-subtle 2s infinite ease-in-out;
+}
+
+@keyframes wave-subtle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* Reduce card pulse intensity */
+._tag[data-tone="orange"],
+._button[data-tone="orange"],
+.ExtraBoldHero ._button {
+  animation: cw-pulse-subtle 4s ease-in-out infinite;
+}
+
+@keyframes cw-pulse-subtle {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px transparent;
+  }
+}
+
+/* Enhanced prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all non-essential animations */
+  .hero-alternative-button,
+  .recovery-button-image,
+  ._tag[data-tone="orange"],
+  ._button[data-tone="orange"],
+  .ExtraBoldHero ._button,
+  ._scroll-hint,
+  ._wordmark svg {
+    animation: none !important;
+  }
+
+  /* Disable hover transforms */
+  .card:hover,
+  .services-overview-card:hover,
+  .pricing-card:hover,
+  .lesson-slide:hover,
+  .supported-platform-logo-card:hover,
+  .hero-button-wrapper:hover,
+  .navbar-contact-button:hover,
+  .news-navigation-button:hover {
+    transform: none !important;
+  }
+
+  /* Keep only essential feedback */
+  a:hover,
+  button:hover {
+    opacity: 0.85;
+  }
+
+  /* Disable smooth scroll */
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable floating animations */
+  @keyframes cw-float {
+    0%, 100% { transform: none; }
+  }
+
+  /* Disable breathing glow */
+  @keyframes cw-breathe {
+    0%, 100% { filter: none; }
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 2 — MOTION RESTRAINT
+   ========================================================= */
