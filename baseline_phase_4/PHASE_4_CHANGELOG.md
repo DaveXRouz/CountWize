@@ -67,3 +67,33 @@
 
 ### Security
 - Empty or invalid email can no longer trigger fetch request (deterministic block)
+
+---
+
+## [1.0.2] - 2026-01-06 (Final Lockdown)
+
+### Fixed
+- **CW-ALPHA-PH4-AUDITFIX-002**: Questionnaire required-step blocking now enforced
+  - Added `validateCurrentStep()` function to questionnaire navigation script
+  - Next button click now validates required fields before advancing
+  - Step 19 "Yes to consultation" radio now validates email/phone before going to step 20
+  - Invalid fields get `.cw-field-invalid` class + `aria-invalid="true"` + focus
+
+### Added
+- CSS `.cw-field-invalid` and `.cw-field-invalid:focus` styles (Phase 4.1 block)
+
+### Security
+- User cannot advance past step with empty/invalid required fields
+
+---
+
+## Phase 4 Lockdown (Final)
+
+**Audited**: 2026-01-06
+**Verdict**: PASS
+
+All Phase 4 requirements verified:
+- Form submission hardening (double-submit, timeout, email validation)
+- Questionnaire logic hardening (required-step blocking, back/progress preserved)
+- Step 18/19 HTML fixes
+- No PII logging

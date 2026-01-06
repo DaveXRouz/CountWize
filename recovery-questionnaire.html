@@ -1707,6 +1707,58 @@ document.addEventListener("DOMContentLoaded", function () {
   const startBtn = document.getElementById("start-quiz");
   const startScreen = document.querySelector(".quiz-start");
   let currentStepIndex = 0;
+
+  // Phase 4: Required-step validation before navigation
+  function validateCurrentStep() {
+    const currentStep = steps[currentStepIndex];
+    if (!currentStep) return true;
+
+    const requiredInputs = currentStep.querySelectorAll('[required]');
+    let isValid = true;
+    let firstInvalid = null;
+
+    requiredInputs.forEach(input => {
+      // Remove previous error state
+      input.classList.remove('cw-field-invalid');
+      input.removeAttribute('aria-invalid');
+
+      const value = (input.value || '').trim();
+      let fieldValid = true;
+
+      if (input.type === 'email') {
+        // Use form hardening module for email validation
+        fieldValid = value && window.CWFormHardening && window.CWFormHardening.isValidEmail(value);
+      } else if (input.type === 'tel') {
+        // Basic phone validation - at least 7 digits
+        const digits = value.replace(/\D/g, '');
+        fieldValid = digits.length >= 7;
+      } else if (input.type === 'checkbox') {
+        fieldValid = input.checked;
+      } else if (input.type === 'radio') {
+        // Check if any radio in the group is selected
+        const name = input.name;
+        const group = currentStep.querySelectorAll('input[type="radio"][name="' + name + '"]');
+        fieldValid = Array.from(group).some(r => r.checked);
+      } else {
+        // Text, textarea, select
+        fieldValid = value.length > 0;
+      }
+
+      if (!fieldValid) {
+        isValid = false;
+        input.classList.add('cw-field-invalid');
+        input.setAttribute('aria-invalid', 'true');
+        if (!firstInvalid) firstInvalid = input;
+      }
+    });
+
+    if (!isValid && firstInvalid) {
+      try { firstInvalid.focus(); } catch (e) { /* ignore */ }
+    }
+
+    return isValid;
+  }
+
   function showStep(index) {
     const progressBar = document.querySelector(".progress-bar .active");
     if (progressBar) {
@@ -1780,7 +1832,11 @@ document.addEventListener("DOMContentLoaded", function () {
       backBtn.addEventListener("click", () => goToStep(index - 1));
     }
     if (nextBtn) {
-      nextBtn.addEventListener("click", () => goToStep(index + 1));
+      nextBtn.addEventListener("click", () => {
+        // Phase 4: Validate required fields before advancing
+        if (!validateCurrentStep()) return;
+        goToStep(index + 1);
+      });
       deactivateNextButton(step);
     }
     if (selectField) {
@@ -1844,6 +1900,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const choiceValue = radio.value?.toLowerCase();
         if (submitNoConsBtn) submitNoConsBtn.style.display = "none";
         if (choiceValue === "yes") {
+          // Phase 4: Validate required fields before advancing to step 20
+          if (!validateCurrentStep()) return;
           goToStep(20);
         } else if (choiceValue === "no") {
           const nextBtn = step19.querySelector(".next-button");

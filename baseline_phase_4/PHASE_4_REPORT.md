@@ -115,11 +115,10 @@ window.CWFormHardening = {
 
 ## Defer List (Phase 5+)
 
-1. **Phone validation blocking** - `libphonenumber-js` loaded but not blocking invalid phones
+1. **Phone validation blocking** - `libphonenumber-js` loaded but not blocking invalid phones at step level
 2. **Service Detail form** - Uses Webflow default, not Telegram (inconsistent with other forms)
 3. **File upload validation** - No file size/type validation before submission
 4. **Country/Town dropdown error handling** - Fetch failures show generic console.error
-5. **Questionnaire step validation** - Next button doesn't enforce required fields
 
 ---
 
@@ -133,7 +132,8 @@ window.CWFormHardening = {
 - [x] Step 19 label fixed with proper accessibility
 - [x] Loading CSS spinner defined
 - [x] No regressions in form submission flow
-- [x] Email validation blocks fetch on invalid input (AUDIT FIX)
+- [x] Email validation blocks fetch on invalid input (AUDIT FIX 001)
+- [x] Questionnaire Next button validates required fields before advancing (AUDIT FIX 002)
 
 ---
 
@@ -166,6 +166,52 @@ window.CWFormHardening = {
 
 ---
 
+### CW-ALPHA-PH4-AUDITFIX-002: Questionnaire Required-Step Blocking
+
+**Problem**: Questionnaire Next buttons advanced to next step without validating required fields (email, phone). Users could reach step 20 or submit with empty required inputs.
+
+**Solution**:
+1. Added `validateCurrentStep()` function to questionnaire navigation script (lines 1711-1760)
+2. Modified Next button click handler to validate before calling `goToStep()` (line 1835-1839)
+3. Modified Step 19 "Yes" radio handler to validate email/phone before going to step 20 (line 1903-1905)
+
+**Behavior on invalid fields**:
+- Adds `.cw-field-invalid` class to invalid inputs
+- Sets `aria-invalid="true"` for accessibility
+- Focuses first invalid field
+- Blocks step navigation (returns early)
+
+**Validation rules**:
+- Email: Uses `FH.isValidEmail()` from form hardening module
+- Phone: At least 7 digits
+- Text/textarea/select: Not empty
+- Checkbox: Must be checked if required
+- Radio: At least one in group selected
+
+**Acceptance Criteria**: ✓
+- Empty email on step 19 → blocks advancing to step 20
+- Empty phone on step 19 → blocks advancing to step 20
+- Valid email + phone → advances normally
+
+**Rollback Plan**: Remove `validateCurrentStep()` function and calls; Next buttons will advance without validation.
+
+---
+
+## Phase 4 Final Lockdown
+
+**Date**: 2026-01-06
+**Verdict**: **PASS**
+**Ready for Phase 5**: **YES**
+
+All Phase 4 hard requirements verified via code inspection:
+- ✓ Form submission hardening (double-submit, timeout, email validation)
+- ✓ Questionnaire logic hardening (required-step blocking)
+- ✓ Step 18/19 HTML fixes preserved
+- ✓ No PII logging
+- ✓ No risky file modifications
+
+---
+
 ## Commit Summary
 
 ```
@@ -180,4 +226,9 @@ PH4-AUDIT: Enforce email validation before fetch
 - Add validateEmailField() function
 - Integrate into all 4 form handlers
 - Block fetch on empty/invalid email
+
+PH4: Enforce questionnaire required-step blocking
+- Add validateCurrentStep() function
+- Block Next if required fields empty/invalid
+- Add .cw-field-invalid CSS styling
 ```
