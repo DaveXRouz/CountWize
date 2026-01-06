@@ -174,3 +174,24 @@ All Phase 6 requirements verified:
 **Fix Applied**: Changed to `loading="eager"` for consistency with other pages.
 
 **Commit**: See `PH6-AUDIT: Fix navbar logo lazy loading in questionnaire`
+
+---
+
+### PH6-AUDIT-2 (2026-01-06) - Caching Policy Safety Fix
+
+**Issue Found**: Original caching headers used `max-age=31536000, immutable` (1 year, immutable) for CSS/JS/images. However, Webflow asset filenames are NOT content-hashed (e.g., `responsive-fixes.css` not `responsive-fixes.8d3f2.css`). This means users could be stuck on stale assets for up to 1 year after deployment with no way to invalidate.
+
+**Risk Level**: HIGH - Deploying fixes would not reach users with cached assets.
+
+**Fix Applied**:
+- CSS/JS: Changed to `max-age=604800, must-revalidate` (1 week with revalidation)
+- Images: Changed to `max-age=604800` (1 week)
+- Documents: Changed to `max-age=2592000` (30 days)
+- Removed `immutable` flag from all rules
+- Added comment documenting the non-hashed asset situation
+
+**Files Modified**:
+- `netlify.toml`: Updated cache-control headers
+- `baseline_phase_6/perf_risk_register.md`: Updated R002 risk description
+
+**Commit**: See `PH6-AUDIT: Fix caching policy for non-fingerprinted assets`

@@ -26,14 +26,15 @@
 
 **Description**: Long cache durations could serve stale content
 
-**Likelihood**: Medium
-**Impact**: Medium (users may see old content)
+**Likelihood**: Low (after PH6-AUDIT fix)
+**Impact**: Low (mitigated)
 
-**Mitigation**:
+**Mitigation** (updated in PH6-AUDIT):
 - HTML pages: 1 hour cache with `must-revalidate`
-- Static assets: 1 year cache (versioned by Webflow)
-- Webflow export includes unique hashes in asset URLs
-- Critical updates deploy new asset URLs
+- CSS/JS: 1 week cache with `must-revalidate` (assets NOT content-hashed)
+- Images: 1 week cache (assets NOT content-hashed)
+- Documents: 30 days cache
+- Removed `immutable` flag since Webflow assets lack content hashes
 
 **Rollback**: Remove Phase 6 header rules from `netlify.toml`
 
