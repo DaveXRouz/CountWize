@@ -2,6 +2,14 @@
   # Static site - no build command needed
   publish = "."
 
+# Phase 7: Canonical domain enforcement (www → non-www)
+# All www.countwize.com requests redirect to countwize.com
+[[redirects]]
+  from = "https://www.countwize.com/*"
+  to = "https://countwize.com/:splat"
+  status = 301
+  force = true
+
 # URL redirects to match live site structure
 # These ensure URLs like /crypto-recovery work correctly
 [[redirects]]
