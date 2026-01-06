@@ -15,7 +15,7 @@
   - External link security (`secureExternalLinks`)
   - Keyboard navigation tracking (`enhanceFocusIndicators`)
 
-- Phase 5 CSS block in `css/responsive-fixes.css` (lines 2593-2688):
+- Phase 5 CSS block in `css/responsive-fixes.css` (lines 2594-2687):
   - Skip link styles (hidden by default, visible on focus)
   - Focus-visible indicators for keyboard navigation
   - `@media (prefers-reduced-motion: reduce)` support
@@ -50,8 +50,8 @@
 - **Base**: `claude/phase-4-forms-questionnaire-qa-bi663`
 
 ## Files Modified
-1. `js/a11y-hardening.js` - NEW: Accessibility hardening module (280 lines)
-2. `css/responsive-fixes.css` - Phase 5 CSS block added (96 lines)
+1. `js/a11y-hardening.js` - NEW: Accessibility hardening module (375 lines)
+2. `css/responsive-fixes.css` - Phase 5 CSS block added (94 lines)
 3. All 33 HTML files - Script include added
 
 ## Commit Summary

@@ -113,8 +113,8 @@ window.CWA11y = {
 
 | File | Changes |
 |------|---------|
-| `js/a11y-hardening.js` | NEW: 280-line accessibility module |
-| `css/responsive-fixes.css` | +Phase 5 CSS block (lines 2593-2688) |
+| `js/a11y-hardening.js` | NEW: 375-line accessibility module |
+| `css/responsive-fixes.css` | +Phase 5 CSS block (lines 2594-2687) |
 | All 33 HTML files | +script include for a11y-hardening.js |
 
 ---
@@ -186,7 +186,7 @@ To remove Phase 5 accessibility enhancements:
    sed -i '/a11y-hardening.js/d' *.html
    ```
 
-3. **Remove Phase 5 CSS block** (lines 2593-2688 in `css/responsive-fixes.css`):
+3. **Remove Phase 5 CSS block** (lines 2594-2687 in `css/responsive-fixes.css`):
    - Delete everything between `CW-ALPHA PHASE 5` markers
 
 4. **Verify rollback**:
