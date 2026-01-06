@@ -1236,3 +1236,522 @@ input[name="Phone"],
     max-width: calc(100% - 20px) !important;
   }
 }
+
+/* =========================================================
+   CW-ALPHA PHASE 2 — POLISH LAYER (DO NOT DELETE)
+   Goal: spacing/type/state consistency with minimal overrides
+   Rules: scoped selectors; low specificity; reversible edits
+   Version: 1.0.0
+   Date: 2026-01-06
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   ACTION 02: GLOBAL UI STATE SYSTEM (P0)
+   Unified focus-visible, hover/active, disabled states
+   ----------------------------------------------------------- */
+
+/* Focus-visible for all interactive elements - accessible outline */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.w-button:focus-visible,
+.w-inline-block:focus-visible {
+  outline: 2px solid rgba(163, 220, 173, 0.8);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(163, 220, 173, 0.15);
+  transition: outline-offset 0.15s ease;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Disabled state - universal */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+.w-button:disabled,
+[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(30%);
+}
+
+/* -----------------------------------------------------------
+   ACTION 03: TYPOGRAPHY RHYTHM NORMALIZATION (P0)
+   Premium readability on dark UI
+   ----------------------------------------------------------- */
+
+/* Section headings - consistent bottom margin */
+.section-heading {
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.section-heading.center {
+  margin-bottom: 1.5rem;
+}
+
+/* Subheadings - proper breathing room */
+.subheading {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Card titles - harmonized */
+.card-title {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Card descriptions - readable on dark */
+.card-description {
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Overview paragraphs - premium readability */
+.overview-description-paragraph {
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Hero heading - breathing room */
+.hero-heading {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Hero form headings */
+.hero-form-heading {
+  margin-bottom: 0.5rem;
+}
+
+.hero-form-subheading {
+  margin-bottom: 1.25rem;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------------
+   ACTION 04: VERTICAL SPACING / SECTION RHYTHM (P0)
+   Consistent section padding by breakpoint
+   ----------------------------------------------------------- */
+
+/* Desktop (992px+): 80-96px */
+@media screen and (min-width: 992px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 60px;
+  }
+
+  .section.gray {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+/* Tablet (768-991px): 64-80px */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 48px;
+  }
+
+  .section.gray {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Mobile (<768px): 40-56px */
+@media screen and (max-width: 767px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .section.gray {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 05: BUTTONS + LINKS CONSISTENCY (P0)
+   Unified CTA system with no layout shift
+   ----------------------------------------------------------- */
+
+/* Primary CTA - hero button */
+.hero-button-wrapper {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-button-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(163, 220, 173, 0.25);
+}
+
+.hero-button-wrapper:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(163, 220, 173, 0.2);
+}
+
+/* Alt hero CTA - glow button */
+.hero-alternative-button {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hero-alternative-button:hover {
+  transform: scale(1.03);
+}
+
+.hero-alternative-button:active {
+  transform: scale(0.98);
+}
+
+/* Nav contact button */
+.navbar-contact-button {
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-contact-button:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-contact-button:active {
+  transform: translateY(0);
+}
+
+/* Form submit button */
+.submit-button-2 {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.submit-button-2:hover {
+  background-color: rgba(163, 220, 173, 0.1);
+}
+
+.submit-button-2:active {
+  transform: scale(0.98);
+}
+
+.submit-button-2:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Inline link buttons */
+.button-link-new {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button-link-new:hover {
+  transform: translateX(2px);
+  opacity: 0.9;
+}
+
+/* Navigation buttons (sliders) */
+.news-navigation-button {
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.news-navigation-button:hover {
+  transform: scale(1.05);
+  background-color: rgba(163, 220, 173, 0.15);
+}
+
+.news-navigation-button:active {
+  transform: scale(0.95);
+}
+
+/* Generic link hover - subtle underline */
+a:not(.w-button):not(.w-inline-block):not(.navbar-link):not(.social-link):hover {
+  text-decoration-color: rgba(163, 220, 173, 0.6);
+}
+
+/* -----------------------------------------------------------
+   ACTION 06: CARD/PANEL CONSISTENCY (P1)
+   Unified card family styling
+   ----------------------------------------------------------- */
+
+/* Base card hover - consistent across families */
+.card,
+.services-overview-card,
+.pricing-card,
+.lesson-slide {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.services-overview-card:hover,
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Lesson slide hover */
+.lesson-slide:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Card border radius consistency */
+.card,
+.services-overview-card,
+.pricing-card {
+  border-radius: 12px;
+}
+
+/* Card internal padding consistency */
+.card-content,
+.services-overview-card-content {
+  padding: 1.25rem;
+}
+
+/* Card icon containers - consistent size */
+.card-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Team member card - photo handling */
+.team-member-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------
+   ACTION 07: LOGO / PLATFORM ROWS (P0 - trust critical)
+   Clean, professional logo display
+   ----------------------------------------------------------- */
+
+/* Logo cards - consistent sizing */
+.supported-platform-logo-card {
+  min-height: 72px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.supported-platform-logo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(163, 220, 173, 0.15);
+}
+
+/* Logo images - no stretch/squash */
+.supported-platform-logo-image-new {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Logo grid - neat alignment */
+.supported-platforms-logos-grid-new {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Mobile logo adjustments */
+@media screen and (max-width: 767px) {
+  .supported-platform-logo-card {
+    min-height: 60px;
+    padding: 12px 16px;
+  }
+
+  .supported-platform-logo-image-new {
+    max-height: 32px;
+  }
+
+  .supported-platforms-logos-grid-new {
+    gap: 12px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 08: FORMS VISUAL POLISH (P0)
+   Premium form appearance - visual only
+   ----------------------------------------------------------- */
+
+/* Form field wrapper - consistent spacing */
+.hero-form-field-wrapper {
+  margin-bottom: 0;
+}
+
+/* Form row gap consistency */
+.hero-form-row {
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.hero-form-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Input fields - border contrast on dark UI */
+.hero-input {
+  border: 1px solid rgba(163, 220, 173, 0.25);
+  background-color: rgba(5, 11, 12, 0.6);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-input:hover {
+  border-color: rgba(163, 220, 173, 0.4);
+}
+
+.hero-input:focus {
+  border-color: rgba(163, 220, 173, 0.6);
+  background-color: rgba(5, 11, 12, 0.8);
+  box-shadow: 0 0 0 3px rgba(163, 220, 173, 0.1);
+}
+
+/* Form label spacing (visible labels) */
+.form-label,
+label:not(.sr-only) {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Error states - visual only */
+.hero-input.error,
+.hero-input:invalid:not(:placeholder-shown) {
+  border-color: rgba(255, 77, 79, 0.6);
+}
+
+/* Success message - subtle animation */
+.success-message-3,
+.w-form-done {
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact form field alignment */
+@media screen and (min-width: 768px) {
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 10: OVERFLOW & PIXEL-SNAGS SWEEP (P0)
+   Kill tiny UI issues
+   ----------------------------------------------------------- */
+
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Container max-width safety */
+.w-container,
+.container-23,
+.container-24 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Image overflow prevention */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Shadow clipping fix - ensure shadows visible */
+.card,
+.services-overview-card,
+.pricing-card,
+.supported-platform-logo-card {
+  overflow: visible;
+}
+
+/* Baseline alignment for inline elements */
+.card-icon-container img,
+.services-overview-card-icon-container img {
+  vertical-align: middle;
+}
+
+/* Mobile container padding */
+@media screen and (max-width: 479px) {
+  .w-container,
+  .container-23 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Ensure no text overflow on small screens */
+@media screen and (max-width: 360px) {
+  .hero-heading,
+  .section-heading {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    word-break: break-word;
+  }
+
+  .card-title {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 2 — POLISH LAYER
+   ========================================================= */
