@@ -147,6 +147,56 @@ window.CWA11y = {
 
 ---
 
+## Verification Commands
+
+```bash
+# Count HTML pages
+find . -maxdepth 1 -name "*.html" | wc -l
+# Expected: 33
+
+# Verify script include coverage
+grep -l 'a11y-hardening.js' *.html | wc -l
+# Expected: 33
+
+# Verify lang attribute coverage
+grep -l '<html.*lang=' *.html | wc -l
+# Expected: 33
+
+# Verify target="_blank" link security (JS handles dynamic)
+grep -c 'target="_blank"' *.html
+# Note: JS secureExternalLinks() adds noreferrer at runtime
+
+# Verify Phase 5 CSS markers
+grep "CW-ALPHA PHASE 5" css/responsive-fixes.css
+```
+
+---
+
+## Rollback Instructions
+
+To remove Phase 5 accessibility enhancements:
+
+1. **Remove JS module**:
+   ```bash
+   rm js/a11y-hardening.js
+   ```
+
+2. **Remove script includes from all HTML pages**:
+   ```bash
+   sed -i '/a11y-hardening.js/d' *.html
+   ```
+
+3. **Remove Phase 5 CSS block** (lines 2593-2688 in `css/responsive-fixes.css`):
+   - Delete everything between `CW-ALPHA PHASE 5` markers
+
+4. **Verify rollback**:
+   ```bash
+   grep -l 'a11y-hardening.js' *.html | wc -l  # Should be 0
+   grep 'CW-ALPHA PHASE 5' css/responsive-fixes.css  # Should be empty
+   ```
+
+---
+
 ## Defer List (Phase 6+)
 
 1. **Contrast ratio audit** - Not automated, requires visual review
