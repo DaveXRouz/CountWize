@@ -151,3 +151,15 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Phase 6: Additional caching headers
+[[headers]]
+  for = "/documents/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML pages: short cache for freshness
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+

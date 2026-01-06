@@ -2686,3 +2686,21 @@ textarea:focus {
 /* =========================================================
    END CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
    ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
+   ========================================================= */
+
+/*
+ * Phase 6 Performance Notes:
+ * - No global will-change traps found in codebase
+ * - No expensive filter effects found on large containers
+ * - Image lazy loading and decoding="async" handled in HTML
+ * - Script defer attributes handled in HTML
+ * - Resource hints (preconnect/dns-prefetch) handled in HTML
+ * - Caching headers handled in netlify.toml
+ */
+
+/* =========================================================
+   END CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
+   ========================================================= */
