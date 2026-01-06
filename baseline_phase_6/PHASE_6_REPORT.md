@@ -162,3 +162,15 @@ All Phase 6 requirements verified:
 - Changes are minimal and reversible
 - Performance improvements implemented safely
 - Documentation complete with rollback instructions
+
+---
+
+## Audit Notes
+
+### PH6-AUDIT (2026-01-06)
+
+**Issue Found**: `recovery-questionnaire.html` navbar logo had `loading="lazy"` instead of `loading="eager"`. This was due to different attribute ordering in that file.
+
+**Fix Applied**: Changed to `loading="eager"` for consistency with other pages.
+
+**Commit**: See `PH6-AUDIT: Fix navbar logo lazy loading in questionnaire`
