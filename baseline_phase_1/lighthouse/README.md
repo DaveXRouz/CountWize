@@ -48,4 +48,9 @@ npx lighthouse https://countwize.com --output html --output-path ./home_desktop.
 | Questionnaire | Desktop | ? | ? | ? | ? | ? | ? |
 
 ## Status
-**PENDING** - Lighthouse reports not yet generated (CLI analysis only)
+**BLOCKED** - Lighthouse CLI execution attempted 2026-01-06 but network blocked (CHROME_INTERSTITIAL_ERROR).
+
+HTML report files exist but contain error data, not valid metrics.
+See `PHASE_1B_EXECUTION_REPORT.md` for details.
+
+Re-run required on machine with unrestricted network access.

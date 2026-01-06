@@ -218,36 +218,72 @@ async function testHomeForm(browser) {
   const getTelegramCount = await withTelegramMock(page);
 
   await safeGoto(page, `${BASE}/`);
-  const form = page.locator("form.hero-form#email-form");
 
-  // FAILURE: invalid phone should block network request
-  await form.locator("#First-Name").fill("Test");
-  await form.locator("#Last-Name").fill("User");
-  await form.locator("#Email").fill("test@example.com");
-  await form.locator("#Phone").fill("123"); // invalid
-  await form.locator("#Investment").fill("1000");
-  await form.locator("#Your-Problem-2").fill("Baseline test");
-  await form.locator("button[type=submit]").click();
-  await page.waitForTimeout(1200);
+  // Wait for page to fully load and scroll to form
+  await page.waitForTimeout(3000);
 
-  const failCount = getTelegramCount();
-  await page.screenshot({ path: path.join(DIRS.formsShots, "home_form_invalid_phone_blocked.png"), fullPage: false });
+  const form = page.locator("form#email-form, form.hero-form").first();
+  let failCount = 0;
+  let successCount = 0;
+  let notes = [`HOME FORM TEST @ ${nowISO()}`];
 
-  // SUCCESS: valid phone should allow request (mocked)
-  await form.locator("#Phone").fill("+447911123456");
-  await form.locator("button[type=submit]").click();
-  await page.waitForTimeout(1500);
+  try {
+    // Scroll form into view
+    await form.scrollIntoViewIfNeeded({ timeout: 10000 });
+    await page.waitForTimeout(1000);
 
-  const successCount = getTelegramCount();
-  await page.screenshot({ path: path.join(DIRS.formsShots, "home_form_success.png"), fullPage: false });
+    // Try to fill form fields with fallbacks
+    const fillField = async (selectors, value) => {
+      for (const sel of selectors) {
+        try {
+          const el = form.locator(sel).first();
+          if (await el.count() > 0) {
+            await el.fill(value, { timeout: 5000 });
+            return true;
+          }
+        } catch {}
+      }
+      return false;
+    };
 
-  const note = [
-    `HOME FORM`,
-    `Invalid attempt telegramCount=${failCount} (expect 0 if validation blocks)`,
-    `Valid attempt telegramCount=${successCount} (expect >=1 if submission triggers)`,
-  ].join("\n");
+    // Fill fields with multiple selector attempts
+    await fillField(['#First-Name', 'input[name="First-Name"]', 'input[placeholder*="Name"]'], "Test");
+    await fillField(['#Last-Name', 'input[name="Last-Name"]', 'input[placeholder*="Last"]'], "User");
+    await fillField(['#Email', 'input[type="email"]', 'input[name="Email"]'], "test@example.com");
+    await fillField(['#Phone', 'input[type="tel"]', 'input[name="Phone"]'], "123"); // invalid
+    await fillField(['#Investment', 'input[name="Investment"]'], "1000");
+    await fillField(['#Your-Problem-2', 'input[name="Your-Problem"]'], "Baseline test");
 
-  writeFile(path.join(DIRS.forms, "home_form_notes.txt"), note);
+    // Try to submit
+    const submitBtn = form.locator('button[type="submit"], input[type="submit"], .submit-button-2').first();
+    if (await submitBtn.count() > 0) {
+      await submitBtn.click({ timeout: 5000 });
+    }
+    await page.waitForTimeout(1500);
+
+    failCount = getTelegramCount();
+    notes.push(`Invalid phone attempt: telegramCount=${failCount} (expect 0 if validation blocks)`);
+
+    await page.screenshot({ path: path.join(DIRS.formsShots, "home_form_invalid_phone_blocked.png"), fullPage: false });
+
+    // SUCCESS: valid phone
+    await fillField(['#Phone', 'input[type="tel"]', 'input[name="Phone"]'], "+447911123456");
+    if (await submitBtn.count() > 0) {
+      await submitBtn.click({ timeout: 5000 });
+    }
+    await page.waitForTimeout(2000);
+
+    successCount = getTelegramCount();
+    notes.push(`Valid phone attempt: telegramCount=${successCount} (expect >=1 if submission triggers)`);
+
+    await page.screenshot({ path: path.join(DIRS.formsShots, "home_form_success.png"), fullPage: false });
+
+  } catch (err) {
+    notes.push(`ERROR: ${err.message}`);
+    await page.screenshot({ path: path.join(DIRS.formsShots, "home_form_error.png"), fullPage: false });
+  }
+
+  writeFile(path.join(DIRS.forms, "home_form_notes.txt"), notes.join("\n"));
   await ctx.close();
 }
 
@@ -258,57 +294,89 @@ async function testContactForm(browser) {
   const getTelegramCount = await withTelegramMock(page);
 
   await safeGoto(page, `${BASE}/contact-us`);
-  const form = page.locator("form#contact-form");
 
-  // Wait for country/town selects to populate (best effort)
-  await page.waitForTimeout(1500);
+  // Wait for page to fully load
+  await page.waitForTimeout(3000);
 
-  await form.locator("#Full-Name").fill("Test User");
-  await form.locator("#Email").fill("test@example.com");
-  await form.locator("#Phone").fill("123"); // invalid
-  await form.locator("#Message-Subject").fill("Baseline test");
-  await form.locator("#investment-input").fill("1000");
-  await form.locator("#specialist-input").fill("Any");
+  const form = page.locator("form#contact-form, form.contact-page-form").first();
+  let failCount = 0;
+  let successCount = 0;
+  let notes = [`CONTACT FORM TEST @ ${nowISO()}`];
 
-  // Country + Town (if options exist)
-  const country = form.locator("#country-input");
-  const town = form.locator("#town-input");
   try {
-    await country.waitFor({ state: "visible", timeout: 8000 });
-    const countryOptions = await country.locator("option").count();
-    if (countryOptions > 1) await country.selectOption({ index: 1 });
-  } catch {}
-  try {
-    const townOptions = await town.locator("option").count();
-    if (townOptions > 1) await town.selectOption({ index: 1 });
-  } catch {}
+    await form.scrollIntoViewIfNeeded({ timeout: 10000 });
+    await page.waitForTimeout(1000);
 
-  await form.locator("#Message").fill("Baseline test message.");
+    const fillField = async (selectors, value) => {
+      for (const sel of selectors) {
+        try {
+          const el = form.locator(sel).first();
+          if (await el.count() > 0) {
+            await el.fill(value, { timeout: 5000 });
+            return true;
+          }
+        } catch {}
+      }
+      return false;
+    };
 
-  await form.locator("button[type=submit], input[type=submit]").first().click();
-  await page.waitForTimeout(1200);
+    // Fill form fields
+    await fillField(['#Full-Name', 'input[name="Full-Name"]', 'input[placeholder*="Name"]'], "Test User");
+    await fillField(['#Email', 'input[type="email"]'], "test@example.com");
+    await fillField(['#Phone', 'input[type="tel"]'], "123"); // invalid
+    await fillField(['#Message-Subject', 'input[name="Message-Subject"]'], "Baseline test");
+    await fillField(['#investment-input', 'input[name="investment"]'], "1000");
+    await fillField(['#specialist-input', 'input[name="specialist"]'], "Any");
+    await fillField(['#Message', 'textarea'], "Baseline test message.");
 
-  const failCount = getTelegramCount();
-  await page.screenshot({ path: path.join(DIRS.formsShots, "contact_form_invalid_phone_blocked.png"), fullPage: false });
+    // Country + Town (best effort)
+    try {
+      const country = form.locator("#country-input, select[name='country']").first();
+      if (await country.count() > 0) {
+        await country.waitFor({ state: "visible", timeout: 5000 });
+        const opts = await country.locator("option").count();
+        if (opts > 1) await country.selectOption({ index: 1 });
+      }
+    } catch {}
+    try {
+      const town = form.locator("#town-input, select[name='town']").first();
+      if (await town.count() > 0) {
+        const opts = await town.locator("option").count();
+        if (opts > 1) await town.selectOption({ index: 1 });
+      }
+    } catch {}
 
-  // success
-  await form.locator("#Phone").fill("+447911123456");
-  await form.locator("button[type=submit], input[type=submit]").first().click();
-  await page.waitForTimeout(1500);
+    // Submit (invalid phone)
+    const submitBtn = form.locator('button[type="submit"], input[type="submit"], .submit-button-2').first();
+    if (await submitBtn.count() > 0) {
+      await submitBtn.click({ timeout: 5000 });
+    }
+    await page.waitForTimeout(1500);
 
-  const successCount = getTelegramCount();
-  await page.screenshot({ path: path.join(DIRS.formsShots, "contact_form_success.png"), fullPage: false });
+    failCount = getTelegramCount();
+    notes.push(`Invalid phone attempt: telegramCount=${failCount} (expect 0 if validation blocks)`);
 
-  writeFile(
-    path.join(DIRS.forms, "contact_form_notes.txt"),
-    [
-      `CONTACT FORM`,
-      `Invalid attempt telegramCount=${failCount} (expect 0 if validation blocks)`,
-      `Valid attempt telegramCount=${successCount} (expect >=1 if submission triggers)`,
-      `NOTE: Country/Town selects may fail if API blocked; review screenshots + console logs.`,
-    ].join("\n")
-  );
+    await page.screenshot({ path: path.join(DIRS.formsShots, "contact_form_invalid_phone_blocked.png"), fullPage: false });
 
+    // SUCCESS: valid phone
+    await fillField(['#Phone', 'input[type="tel"]'], "+447911123456");
+    if (await submitBtn.count() > 0) {
+      await submitBtn.click({ timeout: 5000 });
+    }
+    await page.waitForTimeout(2000);
+
+    successCount = getTelegramCount();
+    notes.push(`Valid phone attempt: telegramCount=${successCount} (expect >=1 if submission triggers)`);
+
+    await page.screenshot({ path: path.join(DIRS.formsShots, "contact_form_success.png"), fullPage: false });
+
+  } catch (err) {
+    notes.push(`ERROR: ${err.message}`);
+    await page.screenshot({ path: path.join(DIRS.formsShots, "contact_form_error.png"), fullPage: false });
+  }
+
+  notes.push(`NOTE: Country/Town selects may fail if API blocked; review screenshots + console logs.`);
+  writeFile(path.join(DIRS.forms, "contact_form_notes.txt"), notes.join("\n"));
   await ctx.close();
 }
 

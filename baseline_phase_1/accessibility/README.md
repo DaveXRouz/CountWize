@@ -60,4 +60,9 @@ fs.writeFileSync('axe_home.json', JSON.stringify(results, null, 2));
 | Focus state visibility | All interactive elements | Needs verification |
 
 ## Status
-**PENDING** - Accessibility reports not yet generated (CLI analysis only)
+**BLOCKED** - axe-core execution attempted 2026-01-06 but network blocked (ERR_TUNNEL_CONNECTION_FAILED).
+
+JSON report files exist but contain `{"error": "page_not_accessible"}`.
+See `PHASE_1B_EXECUTION_REPORT.md` for details.
+
+Re-run required on machine with unrestricted network access.
