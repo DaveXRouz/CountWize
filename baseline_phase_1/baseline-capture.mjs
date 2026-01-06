@@ -579,6 +579,25 @@ async function verifyDomainRedirects(browser) {
 }
 
 async function main() {
+  // PREFLIGHT CHECK - Fail fast if network is blocked
+  console.log(`Preflight: checking connectivity to ${BASE}...`);
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    const resp = await fetch(BASE, { method: "HEAD", signal: controller.signal });
+    clearTimeout(timeout);
+    if (!resp.ok && resp.status !== 301 && resp.status !== 302) {
+      throw new Error(`HTTP ${resp.status}`);
+    }
+    console.log(`Preflight: OK (status ${resp.status})`);
+  } catch (err) {
+    console.error(`❌ PREFLIGHT FAILED: Cannot reach ${BASE}`);
+    console.error(`   Error: ${err.message}`);
+    console.error(`   Check your network connection and try again.`);
+    console.error(`   If behind corporate proxy, try: export HTTPS_PROXY=http://your-proxy:port`);
+    process.exit(1);
+  }
+
   // Create folder structure
   Object.values(DIRS).forEach(ensureDir);
 

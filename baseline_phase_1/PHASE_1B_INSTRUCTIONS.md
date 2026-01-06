@@ -1,5 +1,8 @@
 # Phase 1B: Browser Evidence Capture Instructions
 
+> **NEW**: For complete step-by-step instructions with troubleshooting, see
+> **[PHASE_1B_OPERATOR_RUNBOOK.md](./PHASE_1B_OPERATOR_RUNBOOK.md)** (v1.1)
+
 ## Overview
 
 Phase 1A (code analysis) is complete. Phase 1B requires **real browser testing** to capture:
