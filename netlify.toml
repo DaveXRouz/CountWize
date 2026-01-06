@@ -1,6 +1,7 @@
 [build]
   # Static site - no build command needed
-  publish = "."
+  # Phase 8: Deploy-safe publish directory (excludes internal docs)
+  publish = "site"
 
 # Phase 7: Canonical domain enforcement (www → non-www)
 # All www.countwize.com requests redirect to countwize.com

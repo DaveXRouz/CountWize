@@ -1,0 +1,2706 @@
+/* ============================================
+   MINIMAL RESPONSIVE FIXES FOR COUNTWIZE
+   Preserves original design while fixing critical issues
+   ============================================ */
+
+/* ============================================
+   CRITICAL: PREVENT HORIZONTAL SCROLL
+   ============================================ */
+
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+.wrapper-page,
+.main-wrapper,
+.page-wrapper {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* ============================================
+   CRITICAL: BUTTON VISIBILITY FIX
+   ============================================ */
+
+/* Ensure hero button is visible and centered */
+.hero-header-wrapper .hero-button-wrapper {
+  opacity: 1 !important;
+  position: static !important;
+  display: flex !important;
+  margin: 30px auto 0;
+}
+
+@media screen and (max-width: 991px) {
+  .hero-header-wrapper .hero-button-wrapper {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================
+   CRITICAL: SKIP LINK ACCESSIBILITY
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   MINIMAL: TEXT OVERFLOW PREVENTION
+   Only for very small screens where text breaks
+   ============================================ */
+
+@media screen and (max-width: 479px) {
+  /* Only prevent text from breaking mid-word on very small screens */
+  .hero-heading,
+  .section-heading {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Ensure containers don't overflow */
+  .w-container,
+  .container-23,
+  .container-24 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ============================================
+   MINIMAL: FORM RESPONSIVENESS
+   Only stack forms on mobile
+   ============================================ */
+
+@media screen and (max-width: 767px) {
+  .hero-form-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
+   PROFESSIONAL FORM IMPROVEMENTS
+   ============================================ */
+
+/* Make placeholder text more subtle and professional */
+.hero-input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important; /* Changed from full white to 50% opacity */
+  opacity: 0.6 !important;
+  font-size: 14px;
+}
+
+/* Keep labels accessible but hide visually for clean layout */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
+
+/* Improve form field spacing for professional look */
+.hero-form-row {
+  grid-column-gap: 20px !important; /* Increased from 15px */
+  grid-row-gap: 20px !important; /* Increased from 15px */
+}
+
+/* Ensure form maintains 2-column layout on desktop - professional layout */
+@media screen and (min-width: 768px) {
+  .hero-form-row {
+    grid-template-columns: 1fr 1fr !important;
+    display: grid !important;
+    grid-column-gap: 20px !important;
+    grid-row-gap: 20px !important;
+  }
+  
+  /* Ensure form fields don't stack on desktop */
+  .hero-form-field-wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* On larger screens, ensure proper spacing */
+@media screen and (min-width: 992px) {
+  .hero-form-row {
+    grid-column-gap: 24px !important;
+  }
+}
+
+/* Better form field appearance */
+.hero-form-field-wrapper {
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-form-field-wrapper:focus-within {
+  border-color: rgba(187, 238, 196, 0.6) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* ============================================
+   VIDEO LOGO FIXES
+   ============================================ */
+
+/* Make video player logo background transparent */
+.video-wrapper .vimeo-logo,
+.video-wrapper .embedly-logo,
+.video-wrapper iframe[src*="vimeo"] + *,
+.code-embed-5 .w-embed iframe + * {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Hide duplicate logo/branding in video player */
+.video-wrapper .vimeo-branding,
+.video-wrapper .embedly-branding,
+.video-wrapper .player-logo,
+.video-wrapper .vimeo-watermark,
+.video-wrapper .embedly-watermark {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Hide Vimeo logo/branding overlay */
+.video-wrapper iframe[src*="vimeo"]::after,
+.code-embed-5 iframe[src*="vimeo"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Ensure video iframe has transparent background */
+.video-wrapper iframe,
+.code-embed-5 iframe,
+.w-embed iframe {
+  background-color: transparent !important;
+}
+
+/* Hide any overlay elements in video containers */
+.video-wrapper > *:not(iframe),
+.code-embed-5 > *:not(iframe) {
+  background-color: transparent !important;
+}
+
+/* Specific fix for Vimeo embed branding */
+.embedly-embed,
+.embedly-embed * {
+  background-color: transparent !important;
+}
+
+.embedly-embed .embedly-card,
+.embedly-embed .embedly-card-hug {
+  background: transparent !important;
+}
+
+/* ============================================
+   VIDEO LIGHTBOX BLACK BACKGROUND FIX
+   Remove black background from video lightbox/embedly
+   ============================================ */
+
+/* Fix black background in video lightbox */
+.w-lightbox-backdrop {
+  background-color: rgba(0, 0, 0, 0.85) !important; /* Semi-transparent dark overlay */
+}
+
+.w-lightbox-view {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.w-lightbox-content {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix embedly card black background */
+.embedly-embed,
+.embedly-embed iframe,
+.embedly-card,
+.embedly-card-hug,
+.embedly-card-hug * {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix any black backgrounds in video containers */
+.video-wrapper,
+.code-embed-5,
+.w-embed,
+.w-embed iframe,
+.w-iframe {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix div-block-292 (video play button container) black background */
+.div-block-292 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix div-block-291 (video text container) black background */
+.div-block-291 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix hero-alternative-heading-wrapper black background */
+.hero-alternative-heading-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix any black backgrounds in hero form wrapper */
+.hero-form-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix video play button images - ensure no black backgrounds */
+.image-98,
+.image-99 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix w-lightbox link container */
+.w-lightbox,
+a.w-lightbox,
+a.w-inline-block.w-lightbox {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Fix any parent containers that might have black backgrounds */
+.hero-content-wrapper,
+.hero-wrapper {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* ============================================
+   VIDEO SECTION - FIX LIGHT CUTTING
+   Prevent circle-wrapper from cutting into video
+   ============================================ */
+
+/* Hide circle-wrapper before video section to prevent cutting */
+/* Using :has() selector for modern browsers */
+.section:has(.crypto-asset-recovery-wrapper) .circle-wrapper,
+.section .crypto-asset-recovery-wrapper ~ .circle-wrapper {
+  display: none !important; /* Hide if causing light cutting */
+}
+
+/* Fallback: Direct targeting - hide circle-wrapper that comes before video section */
+.crypto-asset-recovery-wrapper ~ .circle-wrapper,
+.section > .circle-wrapper._220 {
+  display: none !important;
+}
+
+/* Ensure video wrapper doesn't get cut by light */
+.video-wrapper,
+.crypto-asset-recovery-wrapper {
+  position: relative !important;
+  z-index: 1 !important;
+  overflow: visible !important;
+}
+
+/* ============================================
+   RECOVERY TEAM SECTION - FIX EMPTY LIGHT SECTION
+   Remove empty light section between team and next section
+   ============================================ */
+
+/* Remove empty light section between team and next section */
+/* Using :has() selector for modern browsers */
+.section:has(.team-members-wrapper) .circle-wrapper:last-of-type,
+.section:has(.experts-team-wrapper) .circle-wrapper:last-of-type,
+.section:has(.team-members-wrapper) ~ .circle-wrapper,
+.section:has(.experts-team-wrapper) ~ .circle-wrapper {
+  display: none !important; /* Hide the empty light section */
+}
+
+/* Fallback: Direct targeting - hide circle-wrapper after team section */
+.experts-team-wrapper ~ .circle-wrapper,
+.team-members-wrapper ~ .circle-wrapper,
+.section .experts-team-wrapper + * + .circle-wrapper {
+  display: none !important;
+}
+
+/* Ensure smooth transition from team to next section */
+.section:has(.team-members-wrapper),
+.section:has(.experts-team-wrapper) {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.section:has(.team-members-wrapper) + .section,
+.section:has(.experts-team-wrapper) + .section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ============================================
+   BACKGROUND HARMONY: PERFECT BLACK MATCH
+   Ensure gray sections match other sections exactly
+   ============================================ */
+
+/* Remove any wrapper backgrounds that might cause color shifts */
+.wrapper-page,
+.div-block-123 {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* CRITICAL: Match body-4 background exactly */
+/* body-4 has: background-color: var(--_redesign-style---black) = #050505 */
+/* Plus background images: Ellipse-12.webp and Ellipse-13.webp */
+/* Regular sections show this - gray sections must match exactly */
+html body.body-4 .section.gray,
+html body .section.gray,
+body.body-4 .section.gray,
+body .section.gray,
+.section.gray {
+  /* Match body-4 background exactly */
+  background-color: var(--_redesign-style---black) !important; /* #050505 - matches body-4 */
+  background: var(--_redesign-style---black) !important;
+  /* Include body-4 background images to match exactly */
+  background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+  background-position: 0%, 100% 0 !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: auto, auto !important;
+  background-attachment: scroll, scroll !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  /* Remove any overlays or filters that might cause blue tint */
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: relative !important;
+}
+
+/* Gray section etr-1: Match body-4 background exactly */
+html body.body-4 .section.gray.etr-1,
+html body .section.gray.etr-1,
+body.body-4 .section.gray.etr-1,
+body .section.gray.etr-1,
+.section.gray.etr-1 {
+  background-color: var(--_redesign-style---black) !important; /* #050505 - matches body-4 */
+  background: var(--_redesign-style---black) !important;
+  /* Include body-4 background images, remove ethereum */
+  background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+  background-position: 0%, 100% 0 !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: auto, auto !important;
+  background-attachment: scroll, scroll !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: relative !important;
+}
+
+/* Gray section etr-2: Match body-4 background exactly */
+html body.body-4 .section.gray.etr-2,
+html body .section.gray.etr-2,
+body.body-4 .section.gray.etr-2,
+body .section.gray.etr-2,
+.section.gray.etr-2 {
+  background-color: var(--_redesign-style---black) !important; /* #050505 - matches body-4 */
+  background: var(--_redesign-style---black) !important;
+  /* Include body-4 background images, remove ethereum */
+  background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+  background-position: 0%, 100% 0 !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: auto, auto !important;
+  background-attachment: scroll, scroll !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  position: relative !important;
+}
+
+/* Override any media query rules - match body-4 in all breakpoints */
+@media screen and (min-width: 768px) {
+  html body.body-4 .section.gray,
+  html body .section.gray,
+  body.body-4 .section.gray,
+  body .section.gray,
+  .section.gray {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  html body.body-4 .section.gray.etr-1,
+  html body .section.gray.etr-1,
+  body.body-4 .section.gray.etr-1,
+  body .section.gray.etr-1,
+  .section.gray.etr-1 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  html body.body-4 .section.gray.etr-2,
+  html body .section.gray.etr-2,
+  body.body-4 .section.gray.etr-2,
+  body .section.gray.etr-2,
+  .section.gray.etr-2 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  html body.body-4 .section.gray,
+  html body .section.gray,
+  body.body-4 .section.gray,
+  body .section.gray,
+  .section.gray {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  html body.body-4 .section.gray.etr-1,
+  html body .section.gray.etr-1,
+  body.body-4 .section.gray.etr-1,
+  body .section.gray.etr-1,
+  .section.gray.etr-1 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+  
+  html body.body-4 .section.gray.etr-2,
+  html body .section.gray.etr-2,
+  body.body-4 .section.gray.etr-2,
+  body .section.gray.etr-2,
+  .section.gray.etr-2 {
+    background-color: var(--_redesign-style---black) !important;
+    background: var(--_redesign-style---black) !important;
+    background-image: url('../images/Ellipse-12.webp'), url('../images/Ellipse-13.webp') !important;
+    background-position: 0%, 100% 0 !important;
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, auto !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* ============================================
+   SMOOTH SECTION TRANSITIONS
+   Beautiful seamless transitions between sections
+   ============================================ */
+
+/* Smooth transition effect for all sections */
+.section {
+  transition: background-color 0.6s ease, background 0.6s ease;
+}
+
+/* Remove any pseudo-elements that might interfere */
+.section.gray::before,
+.section.gray::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ============================================
+   CONTAINER PADDING CONSISTENCY
+   Ensure gray sections align with other sections
+   ============================================ */
+
+/* Ensure container-24 has consistent padding structure */
+.container-24 {
+  padding-left: 120px !important;
+  padding-right: 120px !important;
+}
+
+@media screen and (max-width: 991px) {
+  .container-24 {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container-24 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ============================================
+   WHITE LIGHT CIRCLES - REFINED & SUBTLE
+   Beautiful, professional glow effect
+   ============================================ */
+
+/* Refine circle-block for gray sections - more subtle and professional */
+.section.gray .circle-block {
+  background-color: rgba(255, 255, 255, 0.15) !important; /* More subtle white */
+  opacity: 0.25 !important; /* Reduced from 0.4 for subtlety */
+  filter: blur(120px) !important; /* Softer blur */
+  width: 350px !important; /* Slightly larger for better coverage */
+  height: 350px !important;
+  border-radius: 50% !important;
+  /* Ensure it's behind content */
+  z-index: -1 !important;
+  /* Smooth fade */
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+
+/* Position circle-wrapper for optimal placement */
+.section.gray .circle-wrapper {
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* Ensure circle doesn't interfere with section background */
+.section.gray .circle-wrapper,
+.section.gray .circle-block {
+  mix-blend-mode: normal !important;
+}
+
+/* ============================================
+   SUPPORTED PLATFORMS SECTION - INTEGRATED
+   Professional placement within "What is Crypto Recovery?" section
+   ============================================ */
+
+/* Integrated styling - placed after crypto recovery cards */
+.supported-and-recovery-wrapper .supported-platforms-wrapper {
+  margin-top: 60px !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 32px !important;
+}
+
+.supported-platforms-heading {
+  text-align: center !important;
+  margin: 0 0 24px 0 !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  line-height: 140% !important; /* Increased from 130% to prevent overlap */
+  color: var(--_redesign-style---white) !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.supported-platforms-logos-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  width: 100% !important;
+  align-items: center !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.supported-platforms-logos-row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 24px !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.supported-platforms-logo-item {
+  transition: transform 0.3s ease, opacity 0.3s ease, border-color 0.3s ease !important;
+  background-color: rgba(5, 11, 12, 0.6) !important; /* Subtle dark background */
+  border: 1px solid rgba(187, 238, 196, 0.3) !important; /* Subtle green border */
+  border-radius: 10px !important;
+  padding: 12px 20px !important;
+  backdrop-filter: blur(7px) !important;
+  min-width: 120px !important;
+  min-height: 60px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.supported-platforms-logo-item:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(187, 238, 196, 0.6) !important;
+  background-color: rgba(5, 11, 12, 0.8) !important;
+}
+
+.supported-platforms-logos-line {
+  background-color: rgba(187, 238, 196, 0.3) !important; /* Subtle green lines */
+  border-radius: 100px !important;
+  width: 28px !important;
+  height: 2px !important;
+}
+
+/* Ensure logo images don't overlap text */
+.supported-platforms-logo-image {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Fix line spacing between rows */
+.supported-platforms-logos-line-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 8px 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+  .supported-and-recovery-wrapper .supported-platforms-wrapper {
+    margin-top: 40px !important;
+    gap: 24px !important;
+  }
+  
+  .supported-platforms-heading {
+    font-size: 24px !important;
+    line-height: 130% !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .supported-platforms-logos-row {
+    gap: 16px !important;
+  }
+  
+  .supported-platforms-logo-item {
+    padding: 10px 16px !important;
+    min-width: 100px !important;
+    min-height: 50px !important;
+  }
+}
+
+/* ============================================
+   HIDE OLD DECORATIVE LINES
+   Remove duplicate lines from original design
+   ============================================ */
+
+/* Hide old decorative line images */
+.image-51,
+.image-53,
+.image-58,
+.image-64,
+.image-65,
+.image-70,
+.image-73 {
+  display: none !important;
+}
+
+/* Hide old line-top-wrapper */
+.line-top-wrapper {
+  display: none !important;
+}
+
+/* Hide standalone line divs */
+.line:not(.line.top) {
+  display: none !important;
+}
+
+/* ============================================
+   SECTION SEPARATORS - DISABLED
+   Removed to prevent empty spaces
+   ============================================ */
+
+/* All section separators removed - they were causing empty space issues */
+
+/* ============================================
+   MINIMAL SPACING - Using original Webflow spacing
+   ============================================ */
+
+/* Don't override original section padding - let Webflow handle it */
+
+/* ============================================
+   SUPPORTED PLATFORMS - NEW DESIGN
+   Horizontal single-row grid, professional layout
+   ============================================ */
+
+.supported-platforms-section {
+  padding: var(--spacing-3xl) 0 !important; /* 80px */
+}
+
+.supported-platforms-wrapper-new {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: var(--spacing-xl) !important; /* 48px */
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.supported-platforms-heading-new {
+  text-align: center !important;
+  font-size: 36px !important;
+  font-weight: 500 !important;
+  line-height: 140% !important;
+  color: var(--_redesign-style---white) !important;
+  margin: 0 !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+
+.supported-platforms-logos-grid-new {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: var(--spacing-lg) !important; /* 32px */
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+}
+
+.supported-platform-logo-card {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: var(--spacing-md) !important; /* 24px */
+  background: rgba(5, 11, 12, 0.6) !important;
+  border: 1px solid rgba(187, 238, 196, 0.2) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(8px) !important;
+  min-height: 80px !important;
+  text-decoration: none !important;
+}
+
+.supported-platform-logo-card:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  border-color: rgba(163, 220, 173, 0.6) !important;
+  box-shadow: 0 8px 24px rgba(163, 220, 173, 0.2) !important;
+  background: rgba(5, 11, 12, 0.8) !important;
+}
+
+.supported-platform-logo-image-new {
+  max-width: 100% !important;
+  max-height: 60px !important;
+  object-fit: contain !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 991px) {
+  .supported-platforms-logos-grid-new {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: var(--spacing-md) !important; /* 24px */
+  }
+  
+  .supported-platforms-heading-new {
+    font-size: 32px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .supported-platforms-logos-grid-new {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--spacing-sm) !important; /* 16px */
+  }
+  
+  .supported-platforms-heading-new {
+    font-size: 28px !important;
+  }
+  
+  .supported-platform-logo-card {
+    min-height: 70px !important;
+    padding: var(--spacing-sm) !important; /* 16px */
+  }
+  
+  .supported-platform-logo-image-new {
+    max-height: 50px !important;
+  }
+}
+
+/* ============================================
+   HIDE PLACEHOLDER IMAGES
+   Temporarily hide placeholder images for professional look
+   ============================================ */
+
+/* Hide placeholder SVG images - replace with actual content later */
+img[src*="placeholder.60f9b1840c.svg"] {
+  display: none !important;
+}
+
+/* Hide parent containers if they only contain placeholders */
+/* This prevents empty boxes from showing */
+.source-logo-new:has(img[src*="placeholder"]) {
+  display: none !important;
+}
+
+/* ============================================
+   NON-FUNCTIONAL LINK FIX
+   Style links with href="#" to look disabled
+   ============================================ */
+
+/* Make non-functional links look disabled instead of clickable */
+a.link-doc[href="#"] {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  filter: grayscale(40%) !important;
+}
+
+/* Add "Coming Soon" indicator to non-functional document links */
+a.link-doc[href="#"]::after {
+  content: " (Coming Soon)" !important;
+  font-size: 12px !important;
+  color: rgba(163, 220, 173, 0.7) !important;
+  font-style: italic !important;
+  margin-left: 8px !important;
+}
+
+/* ============================================
+   PROFESSIONAL BUTTON ENHANCEMENTS
+   Smooth, polished button interactions
+   ============================================ */
+
+/* Ensure all buttons have smooth transitions */
+.hero-alternative-button,
+.navbar-contact-button,
+.submit-button-2,
+.pricing-card-button,
+.crypto-easy-button-wrapper a,
+button,
+.w-button {
+  transition: all 0.3s ease !important;
+}
+
+/* Improve button hover states for better UX */
+.hero-alternative-button:hover,
+.navbar-contact-button:hover,
+.pricing-card-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(163, 220, 173, 0.3) !important;
+}
+
+/* Button active/pressed state for tactile feedback */
+.hero-alternative-button:active,
+.navbar-contact-button:active,
+.pricing-card-button:active {
+  transform: translateY(0px) !important;
+  box-shadow: 0 2px 6px rgba(163, 220, 173, 0.2) !important;
+}
+
+/* ============================================
+   PROFESSIONAL CARD IMPROVEMENTS
+   Consistent, polished card styling
+   ============================================ */
+
+/* Smooth card hover effects */
+.card,
+.pricing-card,
+.team-member-card,
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover,
+.pricing-card:hover,
+.team-member-card:hover,
+.service-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ============================================
+   TYPOGRAPHY REFINEMENTS
+   Better readability and hierarchy
+   ============================================ */
+
+/* Improve line height for better readability */
+p, .card-description, .crypto-recovery-paragraph, .overview-description-paragraph {
+  line-height: 1.7 !important;
+}
+
+/* Ensure headings have proper spacing */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem !important;
+}
+
+/* Better link styling */
+a:not(.w-button):not(.w-inline-block) {
+  transition: color 0.2s ease !important;
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   Better focus states for keyboard navigation
+   ============================================ */
+
+/* Visible focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid rgba(163, 220, 173, 0.6) !important;
+  outline-offset: 2px !important;
+}
+
+/* Remove default focus outline only when replacing with custom */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* Enhanced focus-visible for modern browsers */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(163, 220, 173, 0.8) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(163, 220, 173, 0.2) !important;
+}
+
+/* ============================================
+   SMOOTH SCROLLING
+   Better user experience for anchor links
+   ============================================ */
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* ============================================
+   IMAGE QUALITY IMPROVEMENTS
+   Crisp, professional image rendering
+   ============================================ */
+
+img {
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ============================================
+   CRITICAL FIXES - ENSURE CONTENT IS VISIBLE
+   Override opacity:0 inline styles that hide content
+   ============================================ */
+
+/* Force all animated elements to be visible */
+[data-w-id],
+[style*="opacity: 0"],
+[style*="opacity:0"] {
+  opacity: 1 !important;
+}
+
+/* Force cards and important elements to be visible */
+.card,
+.supported-platform-logo-card,
+.services-overview-card,
+.services-overview-image,
+.crypto-recovery-card,
+.team-member-card,
+.pricing-card,
+.lesson-slide,
+.lessons-slider-mask {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ============================================
+   PHONE INPUT FIX
+   Prevent flag from covering input text
+   ============================================ */
+
+/* Fix international phone input - flag and dial code covering text */
+.iti {
+  width: 100% !important;
+  display: block !important;
+}
+
+.iti__flag-container {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  padding: 0 !important;
+  z-index: 1 !important;
+}
+
+.iti__selected-flag {
+  padding: 0 8px 0 12px !important;
+  background: transparent !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* The dial code display - ensure it doesn't overflow */
+.iti__selected-dial-code {
+  margin-left: 6px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 14px !important;
+  }
+
+/* Add left padding to input to make room for flag AND dial code */
+.iti input,
+.iti input[type="tel"],
+input.phone-input,
+input[name="phone"],
+input[name="Phone"],
+.hero-input[type="tel"],
+.iti__tel-input {
+  padding-left: 100px !important; /* More space for flag + dial code */
+}
+
+/* When separateDialCode is true, the iti adds extra elements */
+.iti--separate-dial-code input {
+  padding-left: 105px !important;
+}
+
+/* Ensure phone dropdown is visible and properly styled */
+.iti__country-list {
+  z-index: 2000 !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+  background-color: #1a1a1a !important;
+  border: 1px solid rgba(163, 220, 173, 0.3) !important;
+  border-radius: 8px !important;
+}
+
+.iti__country-list::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.iti__country-list::-webkit-scrollbar-thumb {
+  background: #a3dcad !important;
+  border-radius: 3px !important;
+}
+
+/* ============================================
+   TEAM MEMBER PHOTOS FIX
+   Ensure photos are not cut off
+   ============================================ */
+
+.team-member-photo,
+.team-member-image,
+.member-photo {
+  object-fit: cover !important;
+  object-position: center top !important; /* Show face, not cut off */
+  width: 100% !important;
+  height: auto !important;
+  min-height: 300px !important;
+}
+
+/* Team member card - ensure proper aspect ratio */
+.team-member-card {
+  overflow: hidden !important;
+}
+
+.team-member-card .team-member-photo-wrapper {
+  overflow: hidden !important;
+  aspect-ratio: 3/4 !important;
+}
+
+/* ============================================
+   REMOVE PROBLEMATIC HOVER ANIMATIONS
+   Keep interactions simple and clean
+   ============================================ */
+
+/* Remove card icon rotation on hover - it looks weird */
+.card:hover .card-icon-container,
+.card:hover .card-icon-wrapper {
+  transform: none !important;
+}
+
+/* Simple subtle hover for cards */
+.card:hover,
+.services-overview-card:hover {
+  transform: translateY(-4px) !important;
+}
+
+/* ============================================
+   LAYOUT FIXES
+   ============================================ */
+
+/* Ensure sections don't have excessive padding - use original Webflow values */
+.section {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+/* Hero section - normal padding */
+.section:first-of-type {
+  padding-top: 0 !important;
+  padding-bottom: 30px !important;
+}
+
+/* Gray sections */
+.section.gray {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  }
+
+/* Supported platforms section - reduce empty space */
+.supported-platforms-section {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+/* Supported platforms grid - ensure logos are visible */
+.supported-platforms-logos-grid-new {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px !important;
+}
+
+.supported-platform-logo-card {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ============================================
+   COOKIE CONSENT BANNER FIX
+   Position it better so it doesn't cover content
+   ============================================ */
+
+#cookie-banner-simple,
+#cookie-banner-advanced {
+  bottom: 20px !important;
+  left: 20px !important;
+  max-width: 320px !important;
+  z-index: 2000 !important;
+}
+
+/* Ensure cookie banner doesn't overlap with content on mobile */
+@media (max-width: 767px) {
+  #cookie-banner-simple,
+  #cookie-banner-advanced {
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+}
+
+/* =========================================================
+   CW-ALPHA PHASE 2 — POLISH LAYER (DO NOT DELETE)
+   Goal: spacing/type/state consistency with minimal overrides
+   Rules: scoped selectors; low specificity; reversible edits
+   Version: 1.0.0
+   Date: 2026-01-06
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   ACTION 02: GLOBAL UI STATE SYSTEM (P0)
+   Unified focus-visible, hover/active, disabled states
+   ----------------------------------------------------------- */
+
+/* Focus-visible for all interactive elements - accessible outline */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.w-button:focus-visible,
+.w-inline-block:focus-visible {
+  outline: 2px solid rgba(163, 220, 173, 0.8);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(163, 220, 173, 0.15);
+  transition: outline-offset 0.15s ease;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Disabled state - universal */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+.w-button:disabled,
+[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(30%);
+}
+
+/* -----------------------------------------------------------
+   ACTION 03: TYPOGRAPHY RHYTHM NORMALIZATION (P0)
+   Premium readability on dark UI
+   ----------------------------------------------------------- */
+
+/* Section headings - consistent bottom margin */
+.section-heading {
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.section-heading.center {
+  margin-bottom: 1.5rem;
+}
+
+/* Subheadings - proper breathing room */
+.subheading {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Card titles - harmonized */
+.card-title {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Card descriptions - readable on dark */
+.card-description {
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Overview paragraphs - premium readability */
+.overview-description-paragraph {
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Hero heading - breathing room */
+.hero-heading {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Hero form headings */
+.hero-form-heading {
+  margin-bottom: 0.5rem;
+}
+
+.hero-form-subheading {
+  margin-bottom: 1.25rem;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------------
+   ACTION 04: VERTICAL SPACING / SECTION RHYTHM (P0)
+   Consistent section padding by breakpoint
+   ----------------------------------------------------------- */
+
+/* Desktop (992px+): 80-96px */
+@media screen and (min-width: 992px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 60px;
+  }
+
+  .section.gray {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+/* Tablet (768-991px): 64-80px */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 48px;
+  }
+
+  .section.gray {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Mobile (<768px): 40-56px */
+@media screen and (max-width: 767px) {
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .section.gray {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .supported-platforms-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 05: BUTTONS + LINKS CONSISTENCY (P0)
+   Unified CTA system with no layout shift
+   ----------------------------------------------------------- */
+
+/* Primary CTA - hero button */
+.hero-button-wrapper {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-button-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(163, 220, 173, 0.25);
+}
+
+.hero-button-wrapper:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(163, 220, 173, 0.2);
+}
+
+/* Alt hero CTA - glow button */
+.hero-alternative-button {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.hero-alternative-button:hover {
+  transform: scale(1.03);
+}
+
+.hero-alternative-button:active {
+  transform: scale(0.98);
+}
+
+/* Nav contact button */
+.navbar-contact-button {
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-contact-button:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-contact-button:active {
+  transform: translateY(0);
+}
+
+/* Form submit button */
+.submit-button-2 {
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.submit-button-2:hover {
+  background-color: rgba(163, 220, 173, 0.1);
+}
+
+.submit-button-2:active {
+  transform: scale(0.98);
+}
+
+.submit-button-2:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Inline link buttons */
+.button-link-new {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button-link-new:hover {
+  transform: translateX(2px);
+  opacity: 0.9;
+}
+
+/* Navigation buttons (sliders) */
+.news-navigation-button {
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.news-navigation-button:hover {
+  transform: scale(1.05);
+  background-color: rgba(163, 220, 173, 0.15);
+}
+
+.news-navigation-button:active {
+  transform: scale(0.95);
+}
+
+/* Generic link hover - subtle underline */
+a:not(.w-button):not(.w-inline-block):not(.navbar-link):not(.social-link):hover {
+  text-decoration-color: rgba(163, 220, 173, 0.6);
+}
+
+/* -----------------------------------------------------------
+   ACTION 06: CARD/PANEL CONSISTENCY (P1)
+   Unified card family styling
+   ----------------------------------------------------------- */
+
+/* Base card hover - consistent across families */
+.card,
+.services-overview-card,
+.pricing-card,
+.lesson-slide {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.services-overview-card:hover,
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Lesson slide hover */
+.lesson-slide:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Card border radius consistency */
+.card,
+.services-overview-card,
+.pricing-card {
+  border-radius: 12px;
+}
+
+/* Card internal padding consistency */
+.card-content,
+.services-overview-card-content {
+  padding: 1.25rem;
+}
+
+/* Card icon containers - consistent size */
+.card-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Team member card - photo handling */
+.team-member-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------
+   ACTION 07: LOGO / PLATFORM ROWS (P0 - trust critical)
+   Clean, professional logo display
+   ----------------------------------------------------------- */
+
+/* Logo cards - consistent sizing */
+.supported-platform-logo-card {
+  min-height: 72px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.supported-platform-logo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(163, 220, 173, 0.15);
+}
+
+/* Logo images - no stretch/squash */
+.supported-platform-logo-image-new {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Logo grid - neat alignment */
+.supported-platforms-logos-grid-new {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Mobile logo adjustments */
+@media screen and (max-width: 767px) {
+  .supported-platform-logo-card {
+    min-height: 60px;
+    padding: 12px 16px;
+  }
+
+  .supported-platform-logo-image-new {
+    max-height: 32px;
+  }
+
+  .supported-platforms-logos-grid-new {
+    gap: 12px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 08: FORMS VISUAL POLISH (P0)
+   Premium form appearance - visual only
+   ----------------------------------------------------------- */
+
+/* Form field wrapper - consistent spacing */
+.hero-form-field-wrapper {
+  margin-bottom: 0;
+}
+
+/* Form row gap consistency */
+.hero-form-row {
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.hero-form-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Input fields - border contrast on dark UI */
+.hero-input {
+  border: 1px solid rgba(163, 220, 173, 0.25);
+  background-color: rgba(5, 11, 12, 0.6);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-input:hover {
+  border-color: rgba(163, 220, 173, 0.4);
+}
+
+.hero-input:focus {
+  border-color: rgba(163, 220, 173, 0.6);
+  background-color: rgba(5, 11, 12, 0.8);
+  box-shadow: 0 0 0 3px rgba(163, 220, 173, 0.1);
+}
+
+/* Form label spacing (visible labels) */
+.form-label,
+label:not(.sr-only) {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Error states - visual only */
+.hero-input.error,
+.hero-input:invalid:not(:placeholder-shown) {
+  border-color: rgba(255, 77, 79, 0.6);
+}
+
+/* Success message - subtle animation */
+.success-message-3,
+.w-form-done {
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact form field alignment */
+@media screen and (min-width: 768px) {
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 10: OVERFLOW & PIXEL-SNAGS SWEEP (P0)
+   Kill tiny UI issues
+   ----------------------------------------------------------- */
+
+/* Prevent horizontal scroll globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Container max-width safety */
+.w-container,
+.container-23,
+.container-24 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Image overflow prevention */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Shadow clipping fix - ensure shadows visible */
+.card,
+.services-overview-card,
+.pricing-card,
+.supported-platform-logo-card {
+  overflow: visible;
+}
+
+/* Baseline alignment for inline elements */
+.card-icon-container img,
+.services-overview-card-icon-container img {
+  vertical-align: middle;
+}
+
+/* Mobile container padding */
+@media screen and (max-width: 479px) {
+  .w-container,
+  .container-23 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Ensure no text overflow on small screens */
+@media screen and (max-width: 360px) {
+  .hero-heading,
+  .section-heading {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    word-break: break-word;
+  }
+
+  .card-title {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 2 — POLISH LAYER
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING (DO NOT DELETE)
+   Goal: responsive stability + nav reliability + tap targets
+   Rules: scoped selectors; minimal overrides; reversible edits
+   Version: 1.0.0
+   Date: 2026-01-06
+   ========================================================= */
+
+/* -----------------------------------------------------------
+   ACTION 02: BREAKPOINT DISCIPLINE & CONTAINER SAFETY (P0)
+   Consistent container padding across mobile/tablet
+   ----------------------------------------------------------- */
+
+/* Mobile (<768px): 16px side padding */
+@media screen and (max-width: 767px) {
+  .w-container,
+  .container-23,
+  .container-24,
+  .hero-wrapper,
+  .footer-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Prevent nested containers from doubling padding */
+  .w-container .w-container,
+  .container-23 .container-23 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Section content should not exceed viewport */
+  .section,
+  .section.gray {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* Tablet (768-991px): 24px side padding */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .w-container,
+  .container-23,
+  .container-24 {
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section,
+  .section.gray {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 03: TAP TARGET & HIT AREA HARDENING (P0)
+   Minimum 44px tap targets for key interactives
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Nav menu button - ensure adequate tap size */
+  .navbar-menu-button,
+  .w-nav-button {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  /* Nav links in mobile menu - comfortable tap spacing */
+  .navbar-link,
+  .w-nav-link {
+    min-height: 44px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Primary CTA buttons */
+  .hero-button-wrapper,
+  .navbar-contact-button,
+  .submit-button-2,
+  .crypto-easy-button-wrapper {
+    min-height: 48px;
+    padding: 12px 24px;
+  }
+
+  /* Form submit buttons */
+  input[type="submit"],
+  button[type="submit"],
+  .w-button {
+    min-height: 44px;
+    padding: 10px 20px;
+  }
+
+  /* Slider navigation buttons */
+  .news-navigation-button,
+  .w-slider-arrow-left,
+  .w-slider-arrow-right {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Footer nav links */
+  .footer-nav-link {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Checkbox/radio touch expansion */
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-width: 20px;
+    min-height: 20px;
+  }
+
+  /* Quiz option cards - ensure tappable */
+  .quiz-option {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 04: MOBILE TYPOGRAPHY READABILITY (P0)
+   Prevent cramped text, especially on dark backgrounds
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Body text - comfortable line height */
+  p,
+  .card-description,
+  .overview-description-paragraph {
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+
+  /* Headings - prevent awkward wraps */
+  .hero-heading {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.2;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .section-heading {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.25;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* Card titles - readable size */
+  .card-title {
+    font-size: clamp(1rem, 4.5vw, 1.25rem);
+    line-height: 1.35;
+  }
+
+  /* Subheadings */
+  .subheading,
+  .hero-form-subheading {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Footer text */
+  .footer-nav-link,
+  .footer-contact-link {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+/* Tablet typography adjustments */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .hero-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+  }
+
+  .section-heading {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  p,
+  .card-description {
+    line-height: 1.65;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 05: SECTION RHYTHM ON MOBILE/TABLET (P0)
+   Consistent vertical spacing
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Normalize section padding on mobile */
+  .section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section.gray {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  /* First section (hero) - no top padding */
+  .section:first-of-type {
+    padding-top: 0;
+  }
+
+  /* Supported platforms section - tighter */
+  .supported-platforms-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  /* Section heading spacing */
+  .section-heading-wrapper {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section.gray {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section:first-of-type {
+    padding-top: 0;
+  }
+
+  .supported-platforms-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .section-heading-wrapper {
+    margin-bottom: 32px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 06: GRID/COLUMNS COLLAPSE STABILITY (P0)
+   Consistent gaps and alignment when stacked
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Card grid containers - consistent column gap */
+  .crypto-recovery-cards-wrapper,
+  .services-overview-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Cards - full width on mobile, consistent padding */
+  .card,
+  .services-overview-card {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Card icon alignment */
+  .card-icon-container,
+  .services-overview-card-icon-container {
+    margin-bottom: 16px;
+  }
+
+  /* Team cards grid */
+  .team-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .team-member-card {
+    width: 100%;
+  }
+
+  /* Lessons slider - stack vertically */
+  .lessons-section-wrapper .w-slider-mask {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* 2-column layouts on tablet */
+  .crypto-recovery-cards-wrapper,
+  .services-overview-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card,
+  .services-overview-card {
+    box-sizing: border-box;
+  }
+
+  .team-section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 07: LOGO ROWS / PLATFORM ROWS (P0)
+   Clean wrapping, no squashing
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  .supported-platforms-logos-grid-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .supported-platform-logo-card {
+    flex: 0 0 calc(50% - 6px);
+    max-width: calc(50% - 6px);
+    min-height: 56px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+  }
+
+  .supported-platform-logo-image-new {
+    max-height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .supported-platforms-logos-grid-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .supported-platform-logo-card {
+    flex: 0 0 calc(33.333% - 11px);
+    max-width: calc(33.333% - 11px);
+    min-height: 64px;
+    padding: 14px 20px;
+    box-sizing: border-box;
+  }
+
+  .supported-platform-logo-image-new {
+    max-height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 08: MOBILE NAV BEHAVIOR HARDENING (P0)
+   Reliable open/close, no scroll bugs
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Ensure nav menu has correct z-index */
+  .navbar-2,
+  .w-nav {
+    z-index: 1000;
+    position: relative;
+  }
+
+  /* Mobile menu overlay - full screen with proper z-index */
+  .navbar-menu,
+  .w-nav-menu {
+    z-index: 999;
+  }
+
+  /* When menu is open - style the overlay */
+  .w-nav-menu.w--open {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(5, 11, 12, 0.98);
+    padding: 20px 16px;
+  }
+
+  /* Prevent menu from causing horizontal scroll */
+  .navbar-wrapper {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Hamburger button visibility */
+  .navbar-menu-button,
+  .w-nav-button {
+    z-index: 1001;
+  }
+
+  /* Nav links in open state - proper stacking */
+  .w-nav-menu.w--open .navbar-link,
+  .w-nav-menu.w--open .w-nav-link {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(163, 220, 173, 0.1);
+  }
+
+  .w-nav-menu.w--open .navbar-link:last-child,
+  .w-nav-menu.w--open .w-nav-link:last-child {
+    border-bottom: none;
+  }
+
+  /* Contact button in mobile menu */
+  .w-nav-menu.w--open .navbar-contact-button {
+    margin-top: 16px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Dropdown in mobile nav */
+  .navbar-dropdown,
+  .w-dropdown {
+    width: 100%;
+  }
+
+  .navbar-dropdown-list,
+  .w-dropdown-list {
+    position: relative;
+    background-color: rgba(5, 11, 12, 0.95);
+    padding-left: 16px;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 09: SAFE-AREA INSETS (iOS Notch) (P1)
+   Respect safe areas on modern phones
+   ----------------------------------------------------------- */
+
+@supports (padding: env(safe-area-inset-top)) {
+  @media screen and (max-width: 991px) {
+    /* Header safe area */
+    .navbar-2,
+    .w-nav {
+      padding-top: env(safe-area-inset-top, 0);
+      padding-left: env(safe-area-inset-left, 0);
+      padding-right: env(safe-area-inset-right, 0);
+    }
+
+    /* Footer safe area */
+    .footer-section {
+      padding-bottom: calc(24px + env(safe-area-inset-bottom, 0));
+      padding-left: env(safe-area-inset-left, 0);
+      padding-right: env(safe-area-inset-right, 0);
+    }
+
+    /* Cookie banner - account for bottom safe area */
+    #cookie-banner-simple,
+    #cookie-banner-advanced {
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+    }
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 10: 100vh / VIEWPORT UNIT SANITY (P1)
+   Avoid iOS address bar vh bugs
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Use min-height instead of fixed height for hero-like sections */
+  .hero-wrapper,
+  .section:first-of-type {
+    min-height: auto;
+    height: auto;
+  }
+
+  /* If any element uses 100vh, use svh/dvh with fallback */
+  .full-height-section {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+}
+
+/* For browsers supporting dynamic viewport units */
+@supports (height: 100dvh) {
+  @media screen and (max-width: 991px) {
+    .full-height-section {
+      min-height: 100dvh;
+    }
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 11: OVERLAY & Z-INDEX HYGIENE (P0)
+   Prevent overlays from blocking CTAs
+   ----------------------------------------------------------- */
+
+/* Z-index hierarchy (mobile):
+   - Base content: 1
+   - Sticky header: 1000
+   - Mobile nav menu: 999
+   - Hamburger button: 1001
+   - Cookie banner: 9000
+   - LiveChat widget: 9500
+   - Modal/lightbox: 9999
+*/
+
+@media screen and (max-width: 767px) {
+  /* Cookie banners - ensure they don't cover form submit */
+  #cookie-banner-simple,
+  #cookie-banner-advanced {
+    z-index: 9000;
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+
+  /* LiveChat widget positioning - bottom right, above cookie banner */
+  /* Note: LiveChat may need inline style override via JS if this doesn't work */
+  #chat-widget-container,
+  .livechat-widget,
+  [data-testid="widget-container"] {
+    z-index: 9500;
+    bottom: 80px; /* Above typical cookie banner height */
+  }
+
+  /* Ensure form submit buttons are not covered */
+  .hero-form,
+  .w-form {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Video lightbox overlay */
+  .w-lightbox-backdrop {
+    z-index: 9999;
+  }
+
+  .w-lightbox-container {
+    z-index: 10000;
+  }
+}
+
+/* Tablet overlay adjustments */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #cookie-banner-simple,
+  #cookie-banner-advanced {
+    z-index: 9000;
+  }
+}
+
+/* -----------------------------------------------------------
+   ACTION 12: MOBILE OVERFLOW ROOT-CAUSE SWEEP (P0)
+   Targeted overflow fixes, not blanket hiding
+   ----------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Images - constrain to container */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hero background elements - prevent overflow */
+  .hero-background-wrapper,
+  .hero-background-img,
+  .hero-background-blur {
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  /* Long URLs and text - break safely */
+  a,
+  .card-description,
+  .footer-contact-link {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Prevent transform animations from causing overflow */
+  .card:hover,
+  .services-overview-card:hover,
+  .supported-platform-logo-card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Constrain slider width */
+  .w-slider,
+  .w-slider-mask {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Code embeds - prevent overflow */
+  .w-embed,
+  .code-embed-5 {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Form field wrappers */
+  .hero-form-field-wrapper {
+    max-width: 100%;
+  }
+
+  /* Quiz steps - prevent overflow */
+  .quiz-step {
+    max-width: 100%;
+    overflow-x: hidden;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Images - constrain */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Hero backgrounds */
+  .hero-background-wrapper,
+  .hero-background-img {
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  /* Slider constraint */
+  .w-slider,
+  .w-slider-mask {
+    max-width: 100vw;
+  }
+}
+
+/* Global overflow protection - JUSTIFIED: last resort after targeted fixes */
+/* This prevents any edge cases from creating horizontal scroll */
+@media screen and (max-width: 991px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* -----------------------------------------------------------
+   ADDITIONAL MOBILE/TABLET REFINEMENTS
+   ----------------------------------------------------------- */
+
+/* Form layout on mobile */
+@media screen and (max-width: 767px) {
+  .hero-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-form-field-wrapper {
+    width: 100%;
+  }
+
+  .hero-input {
+    width: 100%;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  /* Phone input with country code */
+  .iti {
+    width: 100%;
+  }
+
+  .iti__selected-flag {
+    min-width: 52px;
+  }
+}
+
+/* Footer mobile layout */
+@media screen and (max-width: 767px) {
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-top-wrapper {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .footer-navigation-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+  }
+
+  .footer-contacts-wrapper {
+    text-align: center;
+  }
+
+  .footer-contact-groups-wrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-social-wrapper {
+    justify-content: center;
+  }
+}
+
+/* Questionnaire mobile refinements */
+@media screen and (max-width: 767px) {
+  .quiz-container,
+  .questionnaire-wrapper {
+    padding: 16px;
+  }
+
+  .quiz-navigation {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-navigation button,
+  .quiz-prev-btn,
+  .quiz-next-btn {
+    min-height: 48px;
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+
+  /* Quiz progress indicator */
+  .quiz-progress {
+    font-size: 0.875rem;
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING
+   ========================================================= */
+
+
+/* =========================================================
+   CW-ALPHA PHASE 4 — FORM HARDENING STYLES
+   Date: 2026-01-06
+   ========================================================= */
+
+/* Form loading state */
+.cw-form-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.cw-form-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: cw-form-spin 0.8s linear infinite;
+}
+
+@keyframes cw-form-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Submit button loading state */
+button[disabled].submit,
+button[disabled].submit-button-2,
+button[disabled].submit-button-4,
+input[type="submit"][disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Error state for invalid fields */
+.cw-field-error {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Error message text */
+.cw-error-text {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Questionnaire required-step validation (Phase 4.1) */
+.cw-field-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+}
+
+.cw-field-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.35) !important;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 4 — FORM HARDENING STYLES
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
+   ========================================================= */
+
+/* PH5-001: Skip link styles */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #375534;
+  color: #fff;
+  padding: 12px 24px;
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* PH5-002: Main content target focus (for skip link) */
+#main-content:focus {
+  outline: none;
+}
+
+/* PH5-012: Focus visible indicators */
+.cw-keyboard-nav a:focus,
+.cw-keyboard-nav button:focus,
+.cw-keyboard-nav input:focus,
+.cw-keyboard-nav select:focus,
+.cw-keyboard-nav textarea:focus,
+.cw-keyboard-nav [tabindex]:focus {
+  outline: 3px solid #aec3b0 !important;
+  outline-offset: 2px !important;
+}
+
+/* Focus indicator for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* PH5-013: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep essential loading indicators but simplify */
+  .cw-form-loading::before {
+    animation: none;
+    border-top-color: #333;
+    opacity: 0.5;
+  }
+}
+
+/* Improved focus states for form elements */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 1px;
+}
+
+/* Nav menu button accessibility */
+.navbar-menu-button.w-nav-button:focus,
+.w-nav-button:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* Dropdown toggle accessibility */
+.w-dropdown-toggle:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
+   ========================================================= */
+
+/*
+ * Phase 6 Performance Notes:
+ * - No global will-change traps found in codebase
+ * - No expensive filter effects found on large containers
+ * - Image lazy loading and decoding="async" handled in HTML
+ * - Script defer attributes handled in HTML
+ * - Resource hints (preconnect/dns-prefetch) handled in HTML
+ * - Caching headers handled in netlify.toml
+ */
+
+/* =========================================================
+   END CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
+   ========================================================= */
