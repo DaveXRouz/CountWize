@@ -44,3 +44,6 @@ temp*/
 .server.pid
 SERVER_STATUS.md
 QUICK_ACCESS.md
+
+# Release zip artifacts (too large for git)
+COUNTWIZE_*.zip
