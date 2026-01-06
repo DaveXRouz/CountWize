@@ -139,3 +139,44 @@ Phase 7 implemented SEO metadata hygiene, canonical domain enforcement, and fina
 **VERDICT: READY TO MERGE / RELEASE**
 
 All SEO metadata is complete and consistent. Canonical domain is enforced. No regressions detected in previous phases.
+
+---
+
+## Audit Notes
+
+### PH7-AUDIT2 (2026-01-06) - Secondary Skeptical Audit
+
+**Issues Found**:
+
+1. **Duplicate Titles (5 pairs)**
+   - crypto-insights.html / news.html (same title)
+   - crypto-education.html / education.html (same title)
+   - faq-crypto-recovery.html / faq.html (same title)
+   - contact.html / contact-us.html (same title)
+   - recovery.html / index.html (same title)
+
+2. **Missing twitter:description (11 pages)**
+   - 401.html, 404.html, cookie-policy.html, privacy-policy.html
+   - recovery-questionnaire.html
+   - detail_blogcategory.html, detail_education-videos.html
+   - detail_member.html, detail_post.html, detail_project.html, detail_service.html
+
+3. **Incorrect og:url (5 pages)**
+   - crypto-insights.html, recovery.html, crypto-education.html
+   - faq-crypto-recovery.html, contact.html
+   - All had og:url pointing to homepage instead of page-specific URL
+
+**Fixes Applied**:
+
+1. Updated titles for uniqueness:
+   - crypto-insights.html → "Crypto Insights and Market Updates | CountWize"
+   - recovery.html → "Professional Crypto Asset Recovery | CountWize"
+   - crypto-education.html → "Crypto Education Resources | CountWize"
+   - faq-crypto-recovery.html → "Frequently Asked Questions | CountWize"
+   - contact.html → "Contact Us | CountWize"
+
+2. Added twitter:description to all 11 pages
+
+3. Fixed og:url on 5 pages to use page-specific URLs
+
+**Commit**: `PH7-AUDIT2: Title/description/OG fixes`
