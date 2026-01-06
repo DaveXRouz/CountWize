@@ -2521,3 +2521,60 @@ img {
 /* =========================================================
    END CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING
    ========================================================= */
+
+
+/* =========================================================
+   CW-ALPHA PHASE 4 — FORM HARDENING STYLES
+   Date: 2026-01-06
+   ========================================================= */
+
+/* Form loading state */
+.cw-form-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.cw-form-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: cw-form-spin 0.8s linear infinite;
+}
+
+@keyframes cw-form-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Submit button loading state */
+button[disabled].submit,
+button[disabled].submit-button-2,
+button[disabled].submit-button-4,
+input[type="submit"][disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Error state for invalid fields */
+.cw-field-error {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Error message text */
+.cw-error-text {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 4 — FORM HARDENING STYLES
+   ========================================================= */
