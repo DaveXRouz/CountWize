@@ -1,5 +1,5 @@
 /**
- * Accessibility Hardening Module - Phase 5
+ * Accessibility Hardening Module
  * Provides: Skip links, landmarks, ARIA attributes, keyboard nav, focus management
  *
  * Usage: Include this script in all pages before </body>
@@ -11,7 +11,7 @@
   const A11Y_INITIALIZED_ATTR = 'data-cw-a11y-init';
 
   /**
-   * PH5-001: Inject skip link if not present
+   * Inject skip link if not present
    */
   function injectSkipLink() {
     // Check if skip link already exists
@@ -29,7 +29,7 @@
   }
 
   /**
-   * PH5-002: Ensure main-content target exists
+   * Ensure main-content target exists
    */
   function ensureMainContentTarget() {
     // Check if target already exists
@@ -70,7 +70,7 @@
   }
 
   /**
-   * PH5-004: Add landmark roles where missing
+   * Add landmark roles where missing
    */
   function ensureLandmarks() {
     // Add role="navigation" to nav elements without it
@@ -98,7 +98,7 @@
   }
 
   /**
-   * PH5-005/006/007: Webflow navigation accessibility
+   * Webflow navigation accessibility
    */
   function enhanceNavAccessibility() {
     // Find menu button (hamburger)
@@ -134,7 +134,7 @@
       });
       observer.observe(menuButton, { attributes: true });
 
-      // PH5-006: ESC key closes mobile menu
+      // ESC key closes mobile menu
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && menuButton.classList.contains('w--open')) {
           menuButton.click(); // Trigger Webflow's close mechanism
@@ -165,7 +165,7 @@
   }
 
   /**
-   * PH5-008: Add aria-live to form success/error regions
+   * Add aria-live to form success/error regions
    */
   function enhanceFormRegions() {
     // Success messages
@@ -186,7 +186,7 @@
   }
 
   /**
-   * PH5-009: Add aria-required to required fields
+   * Add aria-required to required fields
    */
   function enhanceRequiredFields() {
     document.querySelectorAll('[required]').forEach(field => {
@@ -197,7 +197,7 @@
   }
 
   /**
-   * PH5-010: Add autocomplete attributes to known field types
+   * Add autocomplete attributes to known field types
    */
   function addAutocomplete() {
     const autocompleteMap = {
@@ -248,7 +248,7 @@
   }
 
   /**
-   * PH5-011: Sync aria-invalid with validation state
+   * Sync aria-invalid with validation state
    * Called by form-hardening.js when validation occurs
    */
   function syncAriaInvalid(field, isInvalid) {
@@ -260,7 +260,7 @@
   }
 
   /**
-   * PH5-012: Add aria-label to icon-only links
+   * Add aria-label to icon-only links
    */
   function labelIconLinks() {
     document.querySelectorAll('a').forEach(link => {
@@ -297,7 +297,7 @@
   }
 
   /**
-   * PH5-014: Add rel="noopener noreferrer" to external links
+   * Add rel="noopener noreferrer" to external links
    */
   function secureExternalLinks() {
     document.querySelectorAll('a[target="_blank"]').forEach(link => {

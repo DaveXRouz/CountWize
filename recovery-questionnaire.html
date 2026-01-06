@@ -30,7 +30,7 @@
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0NX03W5PQR"></script>
   <script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('set', 'developer_id.dZGVlNj', true);gtag('config', 'G-0NX03W5PQR');gtag('config', 'AW-447543988');</script>
 
-  <!-- Phase 7: WebPage structured data for questionnaire -->
+  <!-- WebPage structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1734,7 +1734,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const startScreen = document.querySelector(".quiz-start");
   let currentStepIndex = 0;
 
-  // Phase 4: Required-step validation before navigation
+  // Required-step validation before navigation
   function validateCurrentStep() {
     const currentStep = steps[currentStepIndex];
     if (!currentStep) return true;
@@ -1859,7 +1859,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (nextBtn) {
       nextBtn.addEventListener("click", () => {
-        // Phase 4: Validate required fields before advancing
+        // Validate required fields before advancing
         if (!validateCurrentStep()) return;
         goToStep(index + 1);
       });
@@ -1926,7 +1926,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const choiceValue = radio.value?.toLowerCase();
         if (submitNoConsBtn) submitNoConsBtn.style.display = "none";
         if (choiceValue === "yes") {
-          // Phase 4: Validate required fields before advancing to step 20
+          // Validate required fields before advancing to step 20
           if (!validateCurrentStep()) return;
           goToStep(20);
         } else if (choiceValue === "no") {
@@ -2047,7 +2047,7 @@ function generateCaseID() {
 // Виклик після завантаження DOM
 document.addEventListener("DOMContentLoaded", generateCaseID);
 </script>
-  <!-- Phase 4: Form hardening module -->
+  <!-- Form hardening module -->
   <script src="js/form-hardening.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -2066,7 +2066,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lock form - lock all submit buttons
     submitBtns.forEach(btn => FH.lockForm(form, btn));
 
-    // Validate email before fetch (AUDIT FIX PH4-001)
+    // Validate email before fetch
     const emailInput = form.querySelector('input[type="email"]');
     if (emailInput && !FH.isValidEmail((emailInput.value || '').trim())) {
       FH.showError(form);

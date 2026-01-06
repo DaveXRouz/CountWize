@@ -1,5 +1,5 @@
 /**
- * Form Hardening Module - Phase 4
+ * Form Hardening Module
  * Provides: double-submit protection, loading states, timeout handling, PII-safe errors
  *
  * Usage: Include this script before form submission handlers
@@ -176,7 +176,7 @@
   }
 
   /**
-   * Validate email field before submission (AUDIT FIX PH4-001)
+   * Validate email field before submission
    * Blocks fetch if email is empty or invalid format
    * @param {HTMLFormElement} form
    * @param {HTMLButtonElement|HTMLInputElement} submitBtn - for unlocking on failure

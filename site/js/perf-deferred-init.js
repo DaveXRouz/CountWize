@@ -1,5 +1,5 @@
 /**
- * Performance Deferred Initialization - Phase 6
+ * Performance Deferred Initialization
  * Delays non-critical third-party widget initialization to after page load
  */
 (function() {

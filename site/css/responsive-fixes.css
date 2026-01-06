@@ -1238,11 +1238,7 @@ input[name="Phone"],
 }
 
 /* =========================================================
-   CW-ALPHA PHASE 2 — POLISH LAYER (DO NOT DELETE)
-   Goal: spacing/type/state consistency with minimal overrides
-   Rules: scoped selectors; low specificity; reversible edits
-   Version: 1.0.0
-   Date: 2026-01-06
+   UI POLISH — Visual consistency layer
    ========================================================= */
 
 /* -----------------------------------------------------------
@@ -1753,15 +1749,11 @@ img {
 }
 
 /* =========================================================
-   END CW-ALPHA PHASE 2 — POLISH LAYER
+   END UI POLISH
    ========================================================= */
 
 /* =========================================================
-   CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING (DO NOT DELETE)
-   Goal: responsive stability + nav reliability + tap targets
-   Rules: scoped selectors; minimal overrides; reversible edits
-   Version: 1.0.0
-   Date: 2026-01-06
+   RESPONSIVE — Mobile/tablet hardening
    ========================================================= */
 
 /* -----------------------------------------------------------
@@ -2519,13 +2511,12 @@ img {
 }
 
 /* =========================================================
-   END CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING
+   END RESPONSIVE
    ========================================================= */
 
 
 /* =========================================================
-   CW-ALPHA PHASE 4 — FORM HARDENING STYLES
-   Date: 2026-01-06
+   FORM STYLES — Form hardening and validation
    ========================================================= */
 
 /* Form loading state */
@@ -2575,7 +2566,7 @@ input[type="submit"][disabled] {
   margin-top: 0.25rem;
 }
 
-/* Questionnaire required-step validation (Phase 4.1) */
+/* Questionnaire required-step validation */
 .cw-field-invalid {
   border-color: #dc3545 !important;
   box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25) !important;
@@ -2587,14 +2578,14 @@ input[type="submit"][disabled] {
 }
 
 /* =========================================================
-   END CW-ALPHA PHASE 4 — FORM HARDENING STYLES
+   END FORM STYLES
    ========================================================= */
 
 /* =========================================================
-   CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
+   ACCESSIBILITY — WCAG compliance styles
    ========================================================= */
 
-/* PH5-001: Skip link styles */
+/* Skip link styles */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -2616,12 +2607,12 @@ input[type="submit"][disabled] {
   outline-offset: 2px;
 }
 
-/* PH5-002: Main content target focus (for skip link) */
+/* Main content target focus (for skip link) */
 #main-content:focus {
   outline: none;
 }
 
-/* PH5-012: Focus visible indicators */
+/* Focus visible indicators */
 .cw-keyboard-nav a:focus,
 .cw-keyboard-nav button:focus,
 .cw-keyboard-nav input:focus,
@@ -2643,7 +2634,7 @@ textarea:focus-visible,
   outline-offset: 2px;
 }
 
-/* PH5-013: Reduced motion support */
+/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2684,23 +2675,13 @@ textarea:focus {
 }
 
 /* =========================================================
-   END CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
+   END ACCESSIBILITY
    ========================================================= */
 
 /* =========================================================
-   CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
-   ========================================================= */
-
-/*
- * Phase 6 Performance Notes:
- * - No global will-change traps found in codebase
- * - No expensive filter effects found on large containers
- * - Image lazy loading and decoding="async" handled in HTML
- * - Script defer attributes handled in HTML
- * - Resource hints (preconnect/dns-prefetch) handled in HTML
- * - Caching headers handled in netlify.toml
- */
-
-/* =========================================================
-   END CW-ALPHA PHASE 6 — PERFORMANCE QUICK WINS (DO NOT DELETE)
+   PERFORMANCE — Optimization notes
+   - Image lazy loading and decoding="async" in HTML
+   - Script defer attributes in HTML
+   - Resource hints (preconnect/dns-prefetch) in HTML
+   - Caching headers in netlify.toml
    ========================================================= */

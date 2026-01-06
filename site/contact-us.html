@@ -33,7 +33,7 @@
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-0NX03W5PQR"></script>
   <script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('set', 'developer_id.dZGVlNj', true);gtag('config', 'G-0NX03W5PQR');gtag('config', 'AW-447543988');</script>
 
-  <!-- Phase 7: ContactPage structured data -->
+  <!-- ContactPage structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -878,7 +878,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 </script>
   <!--  Підключення бібліотеки libphonenumber-js  -->
   <script src="https://unpkg.com/libphonenumber-js@1.10.18/bundle/libphonenumber-max.js"></script>
-  <!-- Phase 4: Form hardening module -->
+  <!-- Form hardening module -->
   <script src="js/form-hardening.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -897,7 +897,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Lock form
     FH.lockForm(form, submitBtn);
 
-    // Validate email before fetch (AUDIT FIX PH4-001)
+    // Validate email before fetch
     if (!FH.validateEmailField(form, submitBtn)) return;
 
     const formData = new FormData(form);
