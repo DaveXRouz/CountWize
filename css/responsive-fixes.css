@@ -2589,3 +2589,100 @@ input[type="submit"][disabled] {
 /* =========================================================
    END CW-ALPHA PHASE 4 — FORM HARDENING STYLES
    ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 5 — ACCESSIBILITY COMPLIANCE STYLES
+   ========================================================= */
+
+/* PH5-001: Skip link styles */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #375534;
+  color: #fff;
+  padding: 12px 24px;
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* PH5-002: Main content target focus (for skip link) */
+#main-content:focus {
+  outline: none;
+}
+
+/* PH5-012: Focus visible indicators */
+.cw-keyboard-nav a:focus,
+.cw-keyboard-nav button:focus,
+.cw-keyboard-nav input:focus,
+.cw-keyboard-nav select:focus,
+.cw-keyboard-nav textarea:focus,
+.cw-keyboard-nav [tabindex]:focus {
+  outline: 3px solid #aec3b0 !important;
+  outline-offset: 2px !important;
+}
+
+/* Focus indicator for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* PH5-013: Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep essential loading indicators but simplify */
+  .cw-form-loading::before {
+    animation: none;
+    border-top-color: #333;
+    opacity: 0.5;
+  }
+}
+
+/* Improved focus states for form elements */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 1px;
+}
+
+/* Nav menu button accessibility */
+.navbar-menu-button.w-nav-button:focus,
+.w-nav-button:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* Dropdown toggle accessibility */
+.w-dropdown-toggle:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 5 — ACCESSIBILITY COMPLIANCE STYLES
+   ========================================================= */
