@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/Footer-Logo.svg" alt="CountWize" width="200">
+  <img src="site/images/Footer-Logo.svg" alt="CountWize" width="200">
 </p>
 
 <h1 align="center">CountWize</h1>
@@ -51,31 +51,31 @@ CountWize provides professional cryptocurrency recovery services, helping indivi
 
 ```
 CountWize/
-├── site/                   # Production build (Netlify deploy directory)
-│   ├── *.html             # 33 optimized pages
-│   ├── css/               # Stylesheets
-│   ├── js/                # Scripts
-│   ├── images/            # Optimized assets
-│   └── documents/         # PDF documents
+├── site/                    # Production (Netlify deploy directory)
+│   ├── *.html              # 33 pages
+│   ├── css/                # Stylesheets
+│   │   ├── normalize.css
+│   │   ├── webflow.css
+│   │   ├── countwize-test.webflow.css
+│   │   ├── design-tokens.css
+│   │   ├── responsive-fixes.css
+│   │   └── countwize-animations.css
+│   ├── js/                 # Scripts
+│   │   ├── webflow.js
+│   │   ├── a11y-hardening.js
+│   │   ├── form-hardening.js
+│   │   └── perf-deferred-init.js
+│   ├── images/             # Assets (409 files)
+│   ├── documents/          # PDFs
+│   ├── robots.txt
+│   └── sitemap.xml
 │
-├── css/                    # Source stylesheets
-│   ├── normalize.css      # CSS reset
-│   ├── webflow.css        # Webflow base
-│   ├── countwize-test.webflow.css  # Main styles
-│   ├── responsive-fixes.css        # Mobile/tablet fixes
-│   └── countwize-animations.css    # Animations
+├── scripts/                 # Development tools
+│   └── check-deploy-drift.mjs
 │
-├── js/                     # Source scripts
-│   ├── webflow.js         # Webflow runtime
-│   ├── a11y-hardening.js  # Accessibility enhancements
-│   ├── form-hardening.js  # Form validation
-│   └── perf-deferred-init.js  # Performance optimization
-│
-├── images/                 # Source image assets
-├── documents/              # Source documents
-├── netlify.toml           # Netlify configuration
-├── robots.txt             # Search engine directives
-└── sitemap.xml            # XML sitemap
+├── netlify.toml            # Deployment config
+├── README.md               # This file
+└── DEVELOPMENT_RULES.md    # Dev guidelines
 ```
 
 ---
@@ -106,28 +106,14 @@ CountWize/
 
 ---
 
-## Development Rules
+## Development
 
-**Important:** See [`DEVELOPMENT_RULES.md`](DEVELOPMENT_RULES.md) for critical information about the deploy directory structure.
+**Important:** See [`DEVELOPMENT_RULES.md`](DEVELOPMENT_RULES.md) for deployment workflow.
 
-**TL;DR:** Netlify publishes `site/` — edit files in `site/` for production changes.
-
----
-
-## Deployment
-
-### Netlify (Recommended)
-
-The site is configured for Netlify deployment:
-
-```toml
-[build]
-  publish = "site"
-```
-
-1. Connect repository to Netlify
-2. Deploy — Netlify automatically publishes from `/site`
-3. Custom domain: `countwize.com`
+**Key Points:**
+- Netlify publishes from `site/` directory
+- All edits should be made in `site/` for production
+- Run `node scripts/check-deploy-drift.mjs` to verify file sync
 
 ### Local Development
 
@@ -138,12 +124,27 @@ cd site && python -m http.server 8080
 # Node.js
 cd site && npx serve
 
-# Then open http://localhost:8080
+# Open http://localhost:8080
 ```
 
 ---
 
-## Security Features
+## Deployment
+
+### Netlify
+
+```toml
+[build]
+  publish = "site"
+```
+
+1. Connect repository to Netlify
+2. Automatic deployment from `main` branch
+3. Custom domain: `countwize.com`
+
+---
+
+## Security
 
 - **HTTPS Enforced** — All traffic encrypted
 - **Security Headers** — X-Frame-Options, X-XSS-Protection, CSP
@@ -154,28 +155,13 @@ cd site && npx serve
 
 ## Contact
 
-<table>
-  <tr>
-    <td><strong>Website</strong></td>
-    <td><a href="https://countwize.com">countwize.com</a></td>
-  </tr>
-  <tr>
-    <td><strong>Email</strong></td>
-    <td>support@countwize.com</td>
-  </tr>
-  <tr>
-    <td><strong>UK</strong></td>
-    <td>+44 7533 598854</td>
-  </tr>
-  <tr>
-    <td><strong>Canada</strong></td>
-    <td>+1 782 800 0180</td>
-  </tr>
-  <tr>
-    <td><strong>Sweden</strong></td>
-    <td>+46 72 400 19 75</td>
-  </tr>
-</table>
+| | |
+|---|---|
+| **Website** | [countwize.com](https://countwize.com) |
+| **Email** | support@countwize.com |
+| **UK** | +44 7533 598854 |
+| **Canada** | +1 782 800 0180 |
+| **Sweden** | +46 72 400 19 75 |
 
 ---
 
