@@ -2685,3 +2685,1352 @@ textarea:focus {
    - Resource hints (preconnect/dns-prefetch) in HTML
    - Caching headers in netlify.toml
    ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 2 — POLISH LAYER (DO NOT DELETE)
+   Goals: focus-visible, states, rhythm, cards, logos, forms, overflow
+   Rollback: delete this entire block (from here to END marker)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ACTION 01 — Global Focus-Visible System (P0)
+   - Applies to interactive elements
+   - Uses :focus-visible for keyboard-only focus indication
+   - Preserves native outlines in unsupported browsers
+   - No layout shift (outline, not border)
+   --------------------------------------------------------- */
+
+/* Base focus-visible for links and buttons */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Form elements focus-visible (enhances existing :focus rules) */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #aec3b0;
+  outline-offset: 1px;
+}
+
+/* Webflow-specific interactive elements */
+.w-nav-button:focus-visible,
+.w-dropdown-toggle:focus-visible,
+.w-slider-arrow-left:focus-visible,
+.w-slider-arrow-right:focus-visible,
+.w-slider-dot:focus-visible {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* Cards and inline-blocks when focusable */
+.w-inline-block:focus-visible,
+.card:focus-visible,
+.blog-card:focus-visible,
+.supported-platform-logo-card:focus-visible {
+  outline: 2px solid #aec3b0;
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   ACTION 02 — Link States (P0)
+   - Hover: subtle underline for text links
+   - Active: slight opacity change
+   - Visited: no purple defaults (brand consistent)
+   --------------------------------------------------------- */
+
+/* Text links hover state */
+a:not(.w-inline-block):not(.button):not(.navbar-logo-image):hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Generic link active state */
+a:active {
+  opacity: 0.85;
+}
+
+/* Navbar link hover (no underline, subtle opacity) */
+.navbar-links-wrapper a:hover,
+.navbar-dropdown-toggle:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+/* Footer links hover */
+.footer-section a:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------------------------------------------------------
+   ACTION 03 — Button State System (P0)
+   - Consistent hover/active/disabled across all button types
+   - Uses transform for hover lift (no reflow)
+   - Disabled: cursor + opacity
+   --------------------------------------------------------- */
+
+/* Primary button hover */
+.button:hover,
+.w-button:hover,
+.hero-button-wrapper:hover,
+.navbar-contact-button:hover,
+.blog-button:hover,
+.ebook-button:hover,
+.crypto-easy-button-wrapper:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Primary button active */
+.button:active,
+.w-button:active,
+.hero-button-wrapper:active,
+.navbar-contact-button:active,
+.blog-button:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+/* Disabled button state */
+.button:disabled,
+.w-button:disabled,
+button:disabled,
+input[type="submit"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Navigation buttons (next/back) */
+.next-button:hover,
+.back-button:hover,
+.news-navigation-button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.15s ease;
+}
+
+/* ---------------------------------------------------------
+   ACTION 04 — Typography Rhythm (P0)
+   - Consistent margin-bottom for headings/paragraphs
+   - Line-height standards per text type
+   --------------------------------------------------------- */
+
+/* Body text line height */
+p,
+.text-block,
+.paragraph {
+  line-height: 1.7;
+}
+
+/* Heading line heights (tight but readable) */
+h1, .heading-style-h1 {
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+h2, .heading-style-h2,
+.section-heading {
+  line-height: 1.2;
+  margin-bottom: 0.875rem;
+}
+
+h3, .heading-style-h3 {
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h4, h5, h6,
+.heading-style-h4,
+.heading-style-h5,
+.heading-style-h6 {
+  line-height: 1.3;
+  margin-bottom: 0.625rem;
+}
+
+/* Small/helper text */
+.text-size-small,
+.text-size-tiny,
+small,
+.helper-text {
+  line-height: 1.5;
+}
+
+/* Card titles */
+.card-title,
+.blog-card-title,
+.mindmap-card-heading {
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+/* Card descriptions */
+.card-description,
+.blog-card-description,
+.mindmap-card-description {
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   ACTION 05 — Section Vertical Rhythm (P0)
+   - Desktop ≥992: 80px top/bottom
+   - Tablet 768–991: 64px
+   - Mobile <768: 48px
+   --------------------------------------------------------- */
+
+/* Desktop section padding */
+.section,
+.padding-section-large,
+.padding-section-medium,
+.section-cta,
+.section-service,
+.section-team,
+.section-faq,
+.section-legal,
+.section-blog {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Tablet section padding */
+@media screen and (max-width: 991px) {
+  .section,
+  .padding-section-large,
+  .padding-section-medium,
+  .section-cta,
+  .section-service,
+  .section-team,
+  .section-faq,
+  .section-legal,
+  .section-blog {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* Mobile section padding */
+@media screen and (max-width: 767px) {
+  .section,
+  .padding-section-large,
+  .padding-section-medium,
+  .section-cta,
+  .section-service,
+  .section-team,
+  .section-faq,
+  .section-legal,
+  .section-blog {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 06 — Card/Panel Consistency (P1)
+   - Aligned border radius
+   - Consistent hover lift (transform only, no layout shift)
+   - Shadow behavior
+   --------------------------------------------------------- */
+
+/* Card base styles */
+.card,
+.blog-card,
+.mindmap-card,
+.ebook-card-wrapper,
+.services-overview-card,
+.pricing-card {
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Card hover lift */
+.card:hover,
+.blog-card:hover,
+.mindmap-card:hover,
+.ebook-card-wrapper:hover,
+.services-overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Blog article card */
+.blog-article-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.blog-article-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Lesson slide cards */
+.lesson-slide {
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.lesson-slide:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------
+   ACTION 07 — Logo/Platform Rows (P0, trust-critical)
+   - object-fit: contain prevents distortion
+   - Consistent max-height
+   - Consistent padding
+   --------------------------------------------------------- */
+
+/* Logo images */
+.source-logo-new,
+.supported-platform-logo-image-new,
+.navbar-logo-image,
+.footer-logo,
+.hero-logo {
+  object-fit: contain;
+  max-height: 48px;
+}
+
+/* Platform logo cards */
+.supported-platform-logo-card {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Platform logo grid consistency */
+.supported-platforms-logos-grid-new {
+  gap: 16px;
+}
+
+/* Source logos in trust sections */
+.source-logo-new {
+  max-height: 36px;
+  padding: 8px;
+}
+
+/* Navbar logo sizing */
+.navbar-logo-image {
+  max-height: 40px;
+  width: auto;
+}
+
+/* Footer logo sizing */
+.footer-logo {
+  max-height: 44px;
+  width: auto;
+}
+
+/* ---------------------------------------------------------
+   ACTION 08 — Forms Visual Polish (P0)
+   - Input border contrast improvement
+   - Focus consistent with focus-visible system
+   - Error/success states compatible with Webflow
+   --------------------------------------------------------- */
+
+/* Input base styles */
+.w-input,
+.hero-input,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select,
+textarea {
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Input focus state */
+.w-input:focus,
+.hero-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #aec3b0;
+  box-shadow: 0 0 0 3px rgba(174, 195, 176, 0.15);
+}
+
+/* Error state (compatible with Webflow .w-form-fail) */
+.cw-field-invalid,
+.w-input.cw-field-invalid,
+input.error,
+input:invalid:not(:placeholder-shown) {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
+}
+
+/* Success state hint */
+input:valid:not(:placeholder-shown):not(:focus) {
+  border-color: rgba(174, 195, 176, 0.5);
+}
+
+/* Form button submit styling */
+.w-button,
+input[type="submit"],
+button[type="submit"] {
+  border-radius: 6px;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+/* ---------------------------------------------------------
+   ACTION 09 — Micro "Pixel Snags" Sweep (P1)
+   - Alignment fixes
+   - Tiny overflow fixes
+   - Awkward gap fixes
+   --------------------------------------------------------- */
+
+/* Consistent icon alignment in cards */
+.card-icon-container,
+.card-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CTA wrapper alignment */
+.cta-wrapper,
+.cta-content-wrapper {
+  text-align: center;
+}
+
+/* Hero form alignment */
+.hero-form-wrapper {
+  max-width: 100%;
+}
+
+/* Blog card content spacing */
+.blog-card-content {
+  padding: 16px;
+}
+
+/* Breadcrumb alignment */
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Footer wrapper alignment */
+.footer-navigation-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* FAQ section spacing */
+.faq-section-wrapper {
+  gap: 16px;
+}
+
+/* ---------------------------------------------------------
+   ACTION 10 — Overflow/X-Scroll Prevention (P0)
+   - Target likely culprits first
+   - Scoped fixes, not global
+   --------------------------------------------------------- */
+
+/* Slider overflow control */
+.w-slider,
+.w-slider-mask {
+  overflow: hidden;
+}
+
+/* Embed overflow control */
+.w-embed,
+.w-video {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Long word break for text containers */
+.card-description,
+.blog-card-description,
+.mindmap-card-description,
+.paragraph,
+.text-block,
+p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Container overflow safety */
+.container-23,
+.w-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Hero section overflow */
+.hero-wrapper,
+.hero-content-wrapper {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Grid overflow control */
+.w-layout-grid {
+  max-width: 100%;
+}
+
+/* Image overflow control */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* LAST RESORT: Body overflow fallback
+   Only applies if targeted fixes above are insufficient */
+body {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 2 — POLISH LAYER
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING (DO NOT DELETE)
+   Goals: tap targets, container padding, nav stability, safe-area, overflow
+   Rollback: delete this entire block (from here to END marker)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ACTION 01 — Breakpoint Discipline (P0)
+   Breakpoint groups used in Phase 3:
+   - Mobile: max-width: 767px
+   - Tablet: min-width: 768px and max-width: 991px
+   - Desktop: min-width: 992px (minimal changes)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   ACTION 02 — Container Padding (P0)
+   - Mobile: 16px side padding
+   - Tablet: 24px side padding
+   --------------------------------------------------------- */
+
+/* Mobile container padding */
+@media screen and (max-width: 767px) {
+  .w-container,
+  .container-23,
+  .hero-wrapper,
+  .cta-wrapper,
+  .footer-section .w-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Tablet container padding */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .w-container,
+  .container-23,
+  .hero-wrapper,
+  .cta-wrapper,
+  .footer-section .w-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 03 — Tap Targets (P0)
+   Minimum 44px height/width for touch accessibility
+   Uses padding/min-height, not font-size changes
+   --------------------------------------------------------- */
+
+/* Mobile tap targets */
+@media screen and (max-width: 991px) {
+  /* Nav links and hamburger */
+  .navbar-links-wrapper a,
+  .navbar-dropdown-toggle,
+  .navbar-menu-button,
+  .w-nav-button {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Primary CTAs */
+  .button,
+  .w-button,
+  .hero-button-wrapper,
+  .navbar-contact-button,
+  .blog-button,
+  .ebook-button {
+    min-height: 44px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  /* Slider arrows */
+  .w-slider-arrow-left,
+  .w-slider-arrow-right {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Form submit buttons */
+  input[type="submit"],
+  button[type="submit"],
+  .w-button {
+    min-height: 44px;
+  }
+
+  /* Footer links */
+  .footer-section a,
+  .footer-navigation-wrapper a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Questionnaire next/prev buttons */
+  .next-button,
+  .back-button,
+  .next-button-wrapper,
+  .back-button-wrapper {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 20px;
+  }
+
+  /* Dropdown items */
+  .navbar-dropdown-list a {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* Social links */
+  .social-link {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 04 — Mobile Typography Readability (P1)
+   - Body line-height ~1.7 on mobile
+   - clamp() for heading safety
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Body text readability */
+  body,
+  p,
+  .text-block,
+  .paragraph {
+    line-height: 1.7;
+  }
+
+  /* Heading size safety with clamp */
+  h1, .heading-style-h1, .hero-heading {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  h2, .heading-style-h2, .section-heading {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.25;
+  }
+
+  h3, .heading-style-h3 {
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+    line-height: 1.3;
+  }
+
+  /* Card titles */
+  .card-title,
+  .blog-card-title {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 05 — Section Rhythm (P0)
+   - Mobile: 48px vertical padding
+   - Tablet: 64px vertical padding
+   (Reinforces Phase 2 ACTION 05 for mobile/tablet)
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  .section,
+  .padding-section-large,
+  .padding-section-medium,
+  .section-cta,
+  .section-service,
+  .section-team,
+  .section-faq,
+  .section-legal,
+  .section-blog,
+  .footer-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section,
+  .padding-section-large,
+  .padding-section-medium,
+  .section-cta,
+  .section-service,
+  .section-team,
+  .section-faq,
+  .section-legal,
+  .section-blog,
+  .footer-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 06 — Grid Collapse Stability (P0)
+   Consistent gap when cards stack vertically
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Card grids - consistent gap */
+  .w-layout-grid,
+  .crypto-recovery-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper,
+  .core-values-cards-wrapper,
+  .supported-platforms-logos-grid-new {
+    gap: 24px;
+  }
+
+  /* Blog card grid */
+  .blog-cms-section-wrapper,
+  .lessons-section-wrapper {
+    gap: 20px;
+  }
+
+  /* Stack cards vertically */
+  .card,
+  .blog-card,
+  .mindmap-card,
+  .ebook-card-wrapper {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .w-layout-grid,
+  .crypto-recovery-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper,
+  .core-values-cards-wrapper {
+    gap: 20px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 07 — Logo Rows (P0)
+   - Mobile: 2-column grid
+   - Tablet: 3-column grid
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  .supported-platforms-logos-grid-new {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .supported-platform-logo-card {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .source-logo-new,
+  .supported-platform-logo-image-new {
+    max-height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .supported-platforms-logos-grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .source-logo-new,
+  .supported-platform-logo-image-new {
+    max-height: 36px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 08 — Mobile Nav Hardening (P0)
+   Z-index hierarchy (lowest to highest):
+   - Content: auto
+   - Cards hover: 1
+   - Sticky elements: 10
+   - Dropdowns: 100
+   - Mobile nav overlay: 1000
+   - Cookie banner: 1001
+   - Modal/lightbox: 2000
+   --------------------------------------------------------- */
+
+/* Mobile nav menu overlay */
+@media screen and (max-width: 991px) {
+  .navbar-menu.w-nav-menu {
+    z-index: 1000;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Ensure hamburger is always clickable */
+  .navbar-menu-button,
+  .w-nav-button {
+    z-index: 1001;
+    position: relative;
+  }
+
+  /* Open state background */
+  .w-nav-overlay {
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Dropdown list in mobile */
+  .navbar-dropdown-list.w-dropdown-list {
+    z-index: 1000;
+    background-color: #1a1a1a;
+  }
+}
+
+/* Navbar wrapper z-index */
+.navbar-2,
+.navbar-wrapper {
+  z-index: 100;
+  position: relative;
+}
+
+/* ---------------------------------------------------------
+   ACTION 09 — iOS Safe-Area Insets (P1)
+   For devices with notches/home indicators
+   --------------------------------------------------------- */
+
+@supports (padding: env(safe-area-inset-top)) {
+  /* Header safe area */
+  .navbar-2,
+  .navbar-wrapper {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Footer safe area */
+  .footer-section {
+    padding-bottom: calc(48px + env(safe-area-inset-bottom));
+  }
+
+  /* Cookie banner safe area */
+  .cookie-banner,
+  [class*="cookie"],
+  [class*="consent"] {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Fixed bottom elements */
+  @media screen and (max-width: 767px) {
+    .back-button-wrapper,
+    .next-button-wrapper {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 10 — Viewport Unit Sanity (P1)
+   svh/dvh fallbacks for 100vh sections
+   --------------------------------------------------------- */
+
+/* Hero section height */
+.section.hero,
+.hero-wrapper {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+@supports (min-height: 100dvh) {
+  .section.hero,
+  .hero-wrapper {
+    min-height: 100dvh;
+  }
+}
+
+/* Full-height sections on mobile */
+@media screen and (max-width: 767px) {
+  .section.hero,
+  .hero-wrapper {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 11 — Overlay Conflicts (P1)
+   Cookie banner, chat widget, lightbox layering
+   --------------------------------------------------------- */
+
+/* Cookie banner */
+.cookie-banner,
+[class*="cookie-consent"],
+[class*="gdpr"] {
+  z-index: 1001;
+  position: fixed;
+}
+
+/* Chat widgets (common third-party) */
+[class*="chat-widget"],
+[class*="intercom"],
+[class*="crisp"],
+[class*="drift"] {
+  z-index: 999;
+}
+
+/* Lightbox/modal */
+.w-lightbox-backdrop {
+  z-index: 2000;
+}
+
+.w-lightbox-container {
+  z-index: 2001;
+}
+
+/* ---------------------------------------------------------
+   ACTION 12 — Overflow Sweep (P0)
+   Target specific sources, then scoped fallback
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Slider overflow */
+  .w-slider,
+  .w-slider-mask,
+  .w-slider-nav {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  /* Embed overflow */
+  .w-embed,
+  .w-video,
+  iframe {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Table overflow wrapper */
+  table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  /* Long word break */
+  h1, h2, h3, h4, h5, h6,
+  p, .text-block, .paragraph,
+  .card-title, .card-description,
+  .blog-card-title, .blog-card-description {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Container overflow */
+  .w-container,
+  .container-23,
+  .hero-wrapper,
+  .hero-content-wrapper {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Grid overflow */
+  .w-layout-grid {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Image overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* LAST RESORT: Body overflow for mobile/tablet only
+     Scoped to <=991px to avoid desktop issues */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Questionnaire mobile comfort */
+@media screen and (max-width: 767px) {
+  /* Questionnaire container */
+  .questionnaire-wrapper,
+  .hero-form-wrapper,
+  .hero-form-container {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  /* Questionnaire steps */
+  .hero-form-fields-wrapper {
+    gap: 16px;
+  }
+
+  /* Input fields full width */
+  .hero-input,
+  .w-input,
+  .hero-form-field-wrapper {
+    width: 100%;
+  }
+
+  /* Button row */
+  .hero-form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Progress indicator */
+  .questionnaire-progress,
+  .step-indicator {
+    padding: 8px 16px;
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 4 — FORMS/QUESTIONNAIRE STATES (DO NOT DELETE)
+   Goals: spinner, disabled states, invalid field styling, form loading
+   Rollback: delete this entire block (from here to END marker)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Form Loading State
+   Applied via JS: form.classList.add('cw-form-loading')
+   --------------------------------------------------------- */
+
+.cw-form-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Spinner overlay for loading forms */
+.cw-form-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border: 3px solid rgba(174, 195, 176, 0.3);
+  border-top-color: #aec3b0;
+  border-radius: 50%;
+  animation: cw-spinner 0.8s linear infinite;
+}
+
+@keyframes cw-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disable spinner animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cw-form-loading::after {
+    animation: none;
+    border-top-color: #aec3b0;
+    opacity: 0.7;
+  }
+}
+
+/* ---------------------------------------------------------
+   Disabled Button States
+   Applied via JS: submitBtn.disabled = true
+   --------------------------------------------------------- */
+
+button:disabled,
+input[type="submit"]:disabled,
+.w-button:disabled,
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Submitting state text */
+button[disabled],
+input[type="submit"][disabled] {
+  color: inherit;
+}
+
+/* ---------------------------------------------------------
+   Invalid Field Styling
+   Applied via JS: input.classList.add('cw-field-invalid')
+   --------------------------------------------------------- */
+
+.cw-field-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.15);
+}
+
+.cw-field-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+  outline: none;
+}
+
+/* aria-invalid attribute styling */
+[aria-invalid="true"] {
+  border-color: #dc3545;
+}
+
+/* ---------------------------------------------------------
+   Questionnaire-Specific States
+   --------------------------------------------------------- */
+
+/* Step validation error state */
+.quiz-step .cw-field-invalid {
+  border-color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+/* Questionnaire input focus within invalid state */
+.quiz-step input.cw-field-invalid:focus,
+.quiz-step select.cw-field-invalid:focus,
+.quiz-step textarea.cw-field-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+/* Next/Back button disabled state in questionnaire */
+.next-button-wrapper.disabled,
+.back-button-wrapper.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Submit button loading state */
+#submit-no-cons:disabled,
+#submit-cons:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ---------------------------------------------------------
+   Form Success/Error Message Visibility
+   Compatible with Webflow .w-form-done / .w-form-fail
+   --------------------------------------------------------- */
+
+.w-form-done {
+  display: none;
+}
+
+.w-form-fail {
+  display: none;
+  color: #dc3545;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 4 — FORMS/QUESTIONNAIRE STATES
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 5 — ACCESSIBILITY (DO NOT DELETE)
+   Goals: skip link, focus indicators, keyboard nav, reduced motion
+   Rollback: delete this entire block (from here to END marker)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Skip Link Styles
+   Hidden by default, visible on focus for keyboard users
+   --------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------
+   Keyboard Navigation Indicator
+   Added by a11y-hardening.js when Tab key is used
+   --------------------------------------------------------- */
+
+.cw-keyboard-nav *:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------
+   Focus Visible Enhancements
+   Enhanced focus states for keyboard users
+   --------------------------------------------------------- */
+
+/* Main content target focus (for skip link) */
+#main-content:focus {
+  outline: none;
+}
+
+/* Focus indicator for interactive elements */
+.cw-keyboard-nav a:focus,
+.cw-keyboard-nav button:focus,
+.cw-keyboard-nav input:focus,
+.cw-keyboard-nav select:focus,
+.cw-keyboard-nav textarea:focus,
+.cw-keyboard-nav [tabindex]:focus {
+  outline: 2px solid #aec3b0;
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------
+   Reduced Motion Enforcement
+   Respects user preference for reduced motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+
+  /* Disable all transitions and animations */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   Screen Reader Only Utility
+   Hide visually but keep accessible to screen readers
+   --------------------------------------------------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 5 — ACCESSIBILITY
+   ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 6 — PERFORMANCE (DO NOT DELETE)
+   Goals: image loading, resource hints, critical CSS markers
+   Rollback: delete this entire block (from here to END marker)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Image Loading Optimization
+   Prevent layout shift during image load
+   --------------------------------------------------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* LCP image optimization hints (applied via HTML attributes) */
+img[fetchpriority="high"] {
+  /* Ensure high-priority images render immediately */
+  content-visibility: auto;
+}
+
+/* Lazy loaded images below fold */
+img[loading="lazy"] {
+  /* Prevent CLS during lazy load */
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ---------------------------------------------------------
+   Content Visibility for Off-Screen Content
+   Improves rendering performance
+   --------------------------------------------------------- */
+
+.footer-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+/* ---------------------------------------------------------
+   Print Styles
+   Basic print optimization
+   --------------------------------------------------------- */
+
+@media print {
+  .navbar-2,
+  .footer-section,
+  .cookie-banner,
+  [class*="chat"],
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 6 — PERFORMANCE
+   ========================================================= */
