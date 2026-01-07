@@ -3194,3 +3194,526 @@ body {
 /* =========================================================
    END CW-ALPHA PHASE 2 — POLISH LAYER
    ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING (DO NOT DELETE)
+   Goals: tap targets, container padding, nav stability, safe-area, overflow
+   Rollback: delete this entire block (from here to END marker)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ACTION 01 — Breakpoint Discipline (P0)
+   Breakpoint groups used in Phase 3:
+   - Mobile: max-width: 767px
+   - Tablet: min-width: 768px and max-width: 991px
+   - Desktop: min-width: 992px (minimal changes)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   ACTION 02 — Container Padding (P0)
+   - Mobile: 16px side padding
+   - Tablet: 24px side padding
+   --------------------------------------------------------- */
+
+/* Mobile container padding */
+@media screen and (max-width: 767px) {
+  .w-container,
+  .container-23,
+  .hero-wrapper,
+  .cta-wrapper,
+  .footer-section .w-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Tablet container padding */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .w-container,
+  .container-23,
+  .hero-wrapper,
+  .cta-wrapper,
+  .footer-section .w-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 03 — Tap Targets (P0)
+   Minimum 44px height/width for touch accessibility
+   Uses padding/min-height, not font-size changes
+   --------------------------------------------------------- */
+
+/* Mobile tap targets */
+@media screen and (max-width: 991px) {
+  /* Nav links and hamburger */
+  .navbar-links-wrapper a,
+  .navbar-dropdown-toggle,
+  .navbar-menu-button,
+  .w-nav-button {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Primary CTAs */
+  .button,
+  .w-button,
+  .hero-button-wrapper,
+  .navbar-contact-button,
+  .blog-button,
+  .ebook-button {
+    min-height: 44px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  /* Slider arrows */
+  .w-slider-arrow-left,
+  .w-slider-arrow-right {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Form submit buttons */
+  input[type="submit"],
+  button[type="submit"],
+  .w-button {
+    min-height: 44px;
+  }
+
+  /* Footer links */
+  .footer-section a,
+  .footer-navigation-wrapper a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Questionnaire next/prev buttons */
+  .next-button,
+  .back-button,
+  .next-button-wrapper,
+  .back-button-wrapper {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 20px;
+  }
+
+  /* Dropdown items */
+  .navbar-dropdown-list a {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* Social links */
+  .social-link {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 04 — Mobile Typography Readability (P1)
+   - Body line-height ~1.7 on mobile
+   - clamp() for heading safety
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Body text readability */
+  body,
+  p,
+  .text-block,
+  .paragraph {
+    line-height: 1.7;
+  }
+
+  /* Heading size safety with clamp */
+  h1, .heading-style-h1, .hero-heading {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  h2, .heading-style-h2, .section-heading {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.25;
+  }
+
+  h3, .heading-style-h3 {
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+    line-height: 1.3;
+  }
+
+  /* Card titles */
+  .card-title,
+  .blog-card-title {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 05 — Section Rhythm (P0)
+   - Mobile: 48px vertical padding
+   - Tablet: 64px vertical padding
+   (Reinforces Phase 2 ACTION 05 for mobile/tablet)
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  .section,
+  .padding-section-large,
+  .padding-section-medium,
+  .section-cta,
+  .section-service,
+  .section-team,
+  .section-faq,
+  .section-legal,
+  .section-blog,
+  .footer-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section,
+  .padding-section-large,
+  .padding-section-medium,
+  .section-cta,
+  .section-service,
+  .section-team,
+  .section-faq,
+  .section-legal,
+  .section-blog,
+  .footer-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 06 — Grid Collapse Stability (P0)
+   Consistent gap when cards stack vertically
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  /* Card grids - consistent gap */
+  .w-layout-grid,
+  .crypto-recovery-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper,
+  .core-values-cards-wrapper,
+  .supported-platforms-logos-grid-new {
+    gap: 24px;
+  }
+
+  /* Blog card grid */
+  .blog-cms-section-wrapper,
+  .lessons-section-wrapper {
+    gap: 20px;
+  }
+
+  /* Stack cards vertically */
+  .card,
+  .blog-card,
+  .mindmap-card,
+  .ebook-card-wrapper {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .w-layout-grid,
+  .crypto-recovery-cards-wrapper,
+  .crypto-asset-recovery-cards-wrapper,
+  .core-values-cards-wrapper {
+    gap: 20px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 07 — Logo Rows (P0)
+   - Mobile: 2-column grid
+   - Tablet: 3-column grid
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+  .supported-platforms-logos-grid-new {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .supported-platform-logo-card {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .source-logo-new,
+  .supported-platform-logo-image-new {
+    max-height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .supported-platforms-logos-grid-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .source-logo-new,
+  .supported-platform-logo-image-new {
+    max-height: 36px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 08 — Mobile Nav Hardening (P0)
+   Z-index hierarchy (lowest to highest):
+   - Content: auto
+   - Cards hover: 1
+   - Sticky elements: 10
+   - Dropdowns: 100
+   - Mobile nav overlay: 1000
+   - Cookie banner: 1001
+   - Modal/lightbox: 2000
+   --------------------------------------------------------- */
+
+/* Mobile nav menu overlay */
+@media screen and (max-width: 991px) {
+  .navbar-menu.w-nav-menu {
+    z-index: 1000;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Ensure hamburger is always clickable */
+  .navbar-menu-button,
+  .w-nav-button {
+    z-index: 1001;
+    position: relative;
+  }
+
+  /* Open state background */
+  .w-nav-overlay {
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Dropdown list in mobile */
+  .navbar-dropdown-list.w-dropdown-list {
+    z-index: 1000;
+    background-color: #1a1a1a;
+  }
+}
+
+/* Navbar wrapper z-index */
+.navbar-2,
+.navbar-wrapper {
+  z-index: 100;
+  position: relative;
+}
+
+/* ---------------------------------------------------------
+   ACTION 09 — iOS Safe-Area Insets (P1)
+   For devices with notches/home indicators
+   --------------------------------------------------------- */
+
+@supports (padding: env(safe-area-inset-top)) {
+  /* Header safe area */
+  .navbar-2,
+  .navbar-wrapper {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Footer safe area */
+  .footer-section {
+    padding-bottom: calc(48px + env(safe-area-inset-bottom));
+  }
+
+  /* Cookie banner safe area */
+  .cookie-banner,
+  [class*="cookie"],
+  [class*="consent"] {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Fixed bottom elements */
+  @media screen and (max-width: 767px) {
+    .back-button-wrapper,
+    .next-button-wrapper {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 10 — Viewport Unit Sanity (P1)
+   svh/dvh fallbacks for 100vh sections
+   --------------------------------------------------------- */
+
+/* Hero section height */
+.section.hero,
+.hero-wrapper {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+@supports (min-height: 100dvh) {
+  .section.hero,
+  .hero-wrapper {
+    min-height: 100dvh;
+  }
+}
+
+/* Full-height sections on mobile */
+@media screen and (max-width: 767px) {
+  .section.hero,
+  .hero-wrapper {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACTION 11 — Overlay Conflicts (P1)
+   Cookie banner, chat widget, lightbox layering
+   --------------------------------------------------------- */
+
+/* Cookie banner */
+.cookie-banner,
+[class*="cookie-consent"],
+[class*="gdpr"] {
+  z-index: 1001;
+  position: fixed;
+}
+
+/* Chat widgets (common third-party) */
+[class*="chat-widget"],
+[class*="intercom"],
+[class*="crisp"],
+[class*="drift"] {
+  z-index: 999;
+}
+
+/* Lightbox/modal */
+.w-lightbox-backdrop {
+  z-index: 2000;
+}
+
+.w-lightbox-container {
+  z-index: 2001;
+}
+
+/* ---------------------------------------------------------
+   ACTION 12 — Overflow Sweep (P0)
+   Target specific sources, then scoped fallback
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 991px) {
+  /* Slider overflow */
+  .w-slider,
+  .w-slider-mask,
+  .w-slider-nav {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  /* Embed overflow */
+  .w-embed,
+  .w-video,
+  iframe {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Table overflow wrapper */
+  table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  /* Long word break */
+  h1, h2, h3, h4, h5, h6,
+  p, .text-block, .paragraph,
+  .card-title, .card-description,
+  .blog-card-title, .blog-card-description {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Container overflow */
+  .w-container,
+  .container-23,
+  .hero-wrapper,
+  .hero-content-wrapper {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Grid overflow */
+  .w-layout-grid {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Image overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* LAST RESORT: Body overflow for mobile/tablet only
+     Scoped to <=991px to avoid desktop issues */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Questionnaire mobile comfort */
+@media screen and (max-width: 767px) {
+  /* Questionnaire container */
+  .questionnaire-wrapper,
+  .hero-form-wrapper,
+  .hero-form-container {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  /* Questionnaire steps */
+  .hero-form-fields-wrapper {
+    gap: 16px;
+  }
+
+  /* Input fields full width */
+  .hero-input,
+  .w-input,
+  .hero-form-field-wrapper {
+    width: 100%;
+  }
+
+  /* Button row */
+  .hero-form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Progress indicator */
+  .questionnaire-progress,
+  .step-indicator {
+    padding: 8px 16px;
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 3 — MOBILE/TABLET HARDENING
+   ========================================================= */
