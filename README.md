@@ -106,6 +106,14 @@ CountWize/
 
 ---
 
+## Development Rules
+
+**Important:** See [`DEVELOPMENT_RULES.md`](DEVELOPMENT_RULES.md) for critical information about the deploy directory structure.
+
+**TL;DR:** Netlify publishes `site/` — edit files in `site/` for production changes.
+
+---
+
 ## Deployment
 
 ### Netlify (Recommended)

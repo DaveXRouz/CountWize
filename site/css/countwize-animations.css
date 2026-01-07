@@ -455,3 +455,78 @@ section,
 /* =========================================================
    END MOTION RESTRAINT
    ========================================================= */
+
+/* =========================================================
+   CW-ALPHA PHASE 2 — MOTION RESTRAINT (DO NOT DELETE)
+   Goals: reduce aggressive glow, respect prefers-reduced-motion
+   Rollback: delete this block (from here to END marker)
+   ========================================================= */
+
+/* Reduce glow intensity for calmer visual appearance */
+.cw-glow,
+.glow-effect,
+[class*="glow"] {
+  filter: brightness(0.95);
+}
+
+/* Reduce box-shadow glow intensity */
+.card:hover,
+.button:hover,
+.w-button:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Motion restraint for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all CSS animations */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable transform-based hover effects */
+  .card:hover,
+  .blog-card:hover,
+  .button:hover,
+  .w-button:hover,
+  .hero-button-wrapper:hover,
+  .navbar-contact-button:hover,
+  .supported-platform-logo-card:hover,
+  .lesson-slide:hover {
+    transform: none !important;
+  }
+
+  /* Keep only essential opacity feedback */
+  a:hover,
+  button:hover,
+  .w-inline-block:hover {
+    opacity: 0.85;
+  }
+
+  /* Disable floating/breathing animations */
+  @keyframes cw-float {
+    0%, 100% { transform: none; }
+  }
+
+  @keyframes cw-breathe {
+    0%, 100% { filter: none; opacity: 1; }
+  }
+
+  @keyframes cw-pulse {
+    0%, 100% { transform: none; opacity: 1; }
+  }
+
+  /* Disable parallax effects */
+  .parallax,
+  [data-parallax] {
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   END CW-ALPHA PHASE 2 — MOTION RESTRAINT
+   ========================================================= */

@@ -5,19 +5,546 @@
 
 /* ============================================
    CRITICAL: PREVENT HORIZONTAL SCROLL
+   V3 Fix: Use 100% instead of 100vw to avoid
+   scrollbar width issues on desktop
    ============================================ */
 
 html, body {
   overflow-x: hidden !important;
-  max-width: 100vw !important;
+  max-width: 100% !important;
 }
 
 .wrapper-page,
 .main-wrapper,
 .page-wrapper {
   overflow-x: hidden !important;
-  max-width: 100vw !important;
+  max-width: 100% !important;
 }
+
+/* V3 Fix: Override Webflow 100vw widths that cause horizontal scroll */
+.container-large,
+.section,
+.w-slider,
+.w-slider-mask,
+.w-slider-nav,
+[class*="slider"],
+[class*="wrapper"] {
+  max-width: 100% !important;
+}
+
+/* Fix slider specifically - was using width: 100vw */
+.w-slider {
+  width: 100% !important;
+}
+
+/* ============================================
+   V3 PHASE 3: SPACING STANDARDIZATION
+   Using 8px grid system via design tokens
+   ============================================ */
+
+/* Section padding - consistent vertical rhythm */
+.section,
+.section-padding,
+[class*="section"] {
+  padding-top: var(--section-padding-desktop, var(--space-10));
+  padding-bottom: var(--section-padding-desktop, var(--space-10));
+}
+
+@media screen and (max-width: 991px) {
+  .section,
+  .section-padding,
+  [class*="section"] {
+    padding-top: var(--section-padding-tablet, var(--space-9));
+    padding-bottom: var(--section-padding-tablet, var(--space-9));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section,
+  .section-padding,
+  [class*="section"] {
+    padding-top: var(--section-padding-mobile, var(--space-8));
+    padding-bottom: var(--section-padding-mobile, var(--space-8));
+  }
+}
+
+/* Container padding */
+.w-container,
+.container,
+[class*="container"] {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+@media screen and (max-width: 767px) {
+  .w-container,
+  .container,
+  [class*="container"] {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+/* Card padding standardization */
+.card,
+.pricing-card,
+.blog-article-card,
+.blog-cms-card,
+.services-overview-card {
+  padding: var(--card-padding, var(--space-5));
+}
+
+/* Component gaps - using design tokens */
+.grid,
+.w-layout-grid,
+[class*="grid"] {
+  gap: var(--space-5);
+}
+
+@media screen and (max-width: 767px) {
+  .grid,
+  .w-layout-grid,
+  [class*="grid"] {
+    gap: var(--space-4);
+  }
+}
+
+/* ============================================
+   V3 PHASE 4: COLOR CONSOLIDATION
+   Using design token palette
+   ============================================ */
+
+/* Background colors - use tokens */
+body,
+.page-wrapper,
+.wrapper-page {
+  background-color: var(--color-bg-base);
+}
+
+/* Elevated surfaces (cards, modals) */
+.card,
+.pricing-card,
+.pricing-card-inner,
+.blog-article-card,
+.blog-cms-card,
+.services-overview-card,
+.modal,
+.dropdown-list {
+  background-color: var(--color-bg-elevated);
+}
+
+/* Interactive surfaces (inputs, hover areas) */
+input,
+select,
+textarea,
+.w-input,
+.w-select,
+.hero-input,
+.input,
+.input-new {
+  background-color: var(--color-bg-surface);
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6,
+.heading,
+[class*="heading"] {
+  color: var(--color-text-primary);
+}
+
+p,
+.paragraph,
+.text-block,
+[class*="description"] {
+  color: var(--color-text-secondary);
+}
+
+/* Border colors - unified */
+.card,
+.pricing-card,
+input,
+select,
+textarea,
+.w-input,
+.w-select {
+  border-color: var(--color-border-default);
+}
+
+.card:hover,
+.pricing-card:hover,
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--color-border-hover);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.w-input:focus,
+.w-select:focus {
+  border-color: var(--color-border-focus);
+}
+
+/* Primary color applications */
+.text-color-green,
+.text-color-primary,
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Error states */
+.cw-field-invalid,
+.w-input.error,
+[aria-invalid="true"] {
+  border-color: var(--color-error) !important;
+  background-color: var(--color-error-bg);
+}
+
+/* Success states */
+.w-form-done,
+.success-message {
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success);
+}
+
+/* ============================================
+   END V3 PHASE 3-4
+   ============================================ */
+
+/* ============================================
+   V3 PHASE 5: BORDER-RADIUS STANDARDIZATION
+   6-step scale for visual consistency
+   ============================================ */
+
+/* Small elements (tags, badges) */
+.tag,
+.badge,
+.label-tag {
+  border-radius: var(--radius-sm);
+}
+
+/* Medium elements (buttons, inputs) */
+button,
+.button,
+.w-button,
+input,
+select,
+textarea,
+.w-input,
+.w-select,
+.hero-button-wrapper,
+.navbar-contact-button,
+.cta-button {
+  border-radius: var(--radius-md);
+}
+
+/* Large elements (cards) */
+.card,
+.pricing-card,
+.blog-article-card,
+.blog-cms-card,
+.services-overview-card,
+.supported-platform-logo-card {
+  border-radius: var(--radius-lg);
+}
+
+/* Extra large (modals, hero sections) */
+.modal,
+.modal-content,
+.hero-form {
+  border-radius: var(--radius-xl);
+}
+
+/* Pills (full rounded) */
+.pill,
+.chip,
+.avatar,
+[class*="pill"] {
+  border-radius: var(--radius-full);
+}
+
+/* ============================================
+   V3 PHASE 6: SHADOW STANDARDIZATION
+   5-step scale for depth perception
+   ============================================ */
+
+/* Default state - no shadow or subtle */
+.card,
+.pricing-card,
+.blog-article-card {
+  box-shadow: var(--shadow-none);
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+/* Hover state - elevated */
+.card:hover,
+.pricing-card:hover,
+.blog-article-card:hover,
+.blog-cms-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Buttons - subtle lift on hover */
+.hero-button-wrapper:hover,
+.cta-button:hover,
+.navbar-contact-button:hover {
+  box-shadow: var(--shadow-glow-md);
+}
+
+/* Modal/overlay shadows */
+.modal,
+.dropdown-list,
+.w-dropdown-list {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Focus glow */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+}
+
+/* ============================================
+   V3 PHASE 7: TRANSITION STANDARDIZATION
+   4-step timing scale
+   ============================================ */
+
+/* Fast transitions (micro-interactions) */
+a,
+button,
+input,
+select,
+textarea {
+  transition: color var(--transition-fast),
+              background-color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+/* Normal transitions (hover effects) */
+.card,
+.pricing-card,
+.blog-article-card,
+.hero-button-wrapper,
+.navbar-contact-button {
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal),
+              background-color var(--transition-normal);
+}
+
+/* Slow transitions (page/section reveals) */
+.section,
+.modal {
+  transition: opacity var(--transition-slow);
+}
+
+/* ============================================
+   V3 PHASE 8: BUTTON HARMONIZATION
+   Unified button system
+   ============================================ */
+
+/* Button base styles */
+button,
+.button,
+.w-button,
+.hero-button-wrapper,
+.navbar-contact-button,
+.cta-button,
+[class*="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal),
+              background-color var(--transition-fast);
+}
+
+/* Primary button (filled) */
+.hero-button-wrapper,
+.cta-button,
+.submit-button,
+.submit-button-2 {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--btn-padding-md);
+  min-height: var(--btn-height-lg);
+}
+
+.hero-button-wrapper:hover,
+.cta-button:hover,
+.submit-button:hover,
+.submit-button-2:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-md);
+}
+
+/* Secondary button (outline) */
+.navbar-contact-button {
+  background-color: transparent;
+  border-color: var(--color-border-default);
+  color: var(--color-text-primary);
+  padding: var(--btn-padding-sm);
+}
+
+.navbar-contact-button:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-bg-hover);
+  transform: translateY(-1px);
+}
+
+/* Disabled buttons */
+button:disabled,
+.button:disabled,
+[class*="button"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================
+   V3 PHASE 9: CARD HARMONIZATION
+   Unified card system
+   ============================================ */
+
+/* Card base */
+.card,
+.pricing-card,
+.blog-article-card,
+.blog-cms-card,
+.services-overview-card {
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--card-padding);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal),
+              border-color var(--transition-fast);
+}
+
+/* Card hover effect - unified */
+.card:hover,
+.pricing-card:hover,
+.blog-article-card:hover,
+.blog-cms-card:hover,
+.services-overview-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Featured card variant */
+.pricing-card.featured,
+.card.featured {
+  border-color: var(--color-primary-muted);
+  background: linear-gradient(135deg, var(--color-bg-elevated), var(--color-bg-surface));
+}
+
+/* ============================================
+   V3 PHASE 10: FORM HARMONIZATION
+   Unified input system
+   ============================================ */
+
+/* Input base styles */
+input,
+select,
+textarea,
+.w-input,
+.w-select,
+.hero-input,
+.input,
+.input-new,
+.text-field-2 {
+  width: 100%;
+  padding: var(--input-padding);
+  font-size: var(--font-base);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-surface);
+  border: var(--input-border-width) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast),
+              background-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+  min-height: var(--input-height);
+}
+
+/* Input hover */
+input:hover,
+select:hover,
+textarea:hover,
+.w-input:hover,
+.w-select:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* Input focus */
+input:focus,
+select:focus,
+textarea:focus,
+.w-input:focus,
+.w-select:focus {
+  border-color: var(--color-border-focus);
+  outline: var(--focus-ring-width) solid var(--color-primary);
+  outline-offset: var(--focus-ring-offset);
+  background-color: var(--color-bg-elevated);
+}
+
+/* Placeholder styling - improved contrast */
+input::placeholder,
+textarea::placeholder,
+.w-input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+/* Select dropdown arrow */
+select,
+.w-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23aec3b0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  padding-right: var(--space-8);
+}
+
+/* Textarea specific */
+textarea,
+.w-input[type="textarea"] {
+  min-height: calc(var(--input-height) * 3);
+  resize: vertical;
+}
+
+/* Form row/group spacing */
+.form-row,
+.hero-form-row,
+.form-group {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+@media screen and (max-width: 767px) {
+  .form-row,
+  .hero-form-row,
+  .form-group {
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   END V3 PHASE 5-10
+   ============================================ */
 
 /* ============================================
    CRITICAL: BUTTON VISIBILITY FIX
@@ -28,7 +555,7 @@ html, body {
   opacity: 1 !important;
   position: static !important;
   display: flex !important;
-  margin: 30px auto 0;
+  margin: var(--space-6) auto 0;
 }
 
 @media screen and (max-width: 991px) {
@@ -1287,48 +1814,158 @@ textarea:disabled,
 
 /* -----------------------------------------------------------
    ACTION 03: TYPOGRAPHY RHYTHM NORMALIZATION (P0)
+   V3 Update: Using design tokens for consistent typography
    Premium readability on dark UI
    ----------------------------------------------------------- */
 
+/* ============================================
+   V3: GLOBAL TYPOGRAPHY USING DESIGN TOKENS
+   Reduces 25+ font sizes to 9-step scale
+   ============================================ */
+
+/* Headings - using design token scale */
+h1, .heading-style-h1 {
+  font-size: var(--font-4xl, 3.75rem);
+  line-height: var(--leading-tight, 1.2);
+  font-weight: var(--font-bold, 700);
+  letter-spacing: var(--tracking-tight, -0.02em);
+}
+
+h2, .heading-style-h2, .heading-style-h2-2 {
+  font-size: var(--font-2xl, 2.5rem);
+  line-height: var(--leading-tight, 1.2);
+  font-weight: var(--font-bold, 700);
+}
+
+h3, .heading-style-h3 {
+  font-size: var(--font-xl, 2rem);
+  line-height: var(--leading-snug, 1.375);
+  font-weight: var(--font-semibold, 600);
+}
+
+h4, .heading-style-h4 {
+  font-size: var(--font-lg, 1.5rem);
+  line-height: var(--leading-snug, 1.375);
+  font-weight: var(--font-semibold, 600);
+}
+
+h5, .heading-style-h5 {
+  font-size: var(--font-md, 1.25rem);
+  line-height: var(--leading-normal, 1.5);
+  font-weight: var(--font-medium, 500);
+}
+
+h6, .heading-style-h6 {
+  font-size: var(--font-base, 1rem);
+  line-height: var(--leading-normal, 1.5);
+  font-weight: var(--font-medium, 500);
+}
+
+/* Body text */
+p, .paragraph, .text-size-regular {
+  font-size: var(--font-base, 1rem);
+  line-height: var(--leading-relaxed, 1.625);
+  color: var(--color-text-secondary, rgba(255, 255, 255, 0.7));
+}
+
+/* Lead paragraphs */
+.text-size-large, .lead-paragraph {
+  font-size: var(--font-md, 1.25rem);
+  line-height: var(--leading-loose, 1.8);
+}
+
+/* Small text */
+.text-size-small, .caption, .label {
+  font-size: var(--font-sm, 0.875rem);
+  line-height: var(--leading-normal, 1.5);
+}
+
+/* Extra small */
+.text-size-tiny {
+  font-size: var(--font-xs, 0.75rem);
+  line-height: var(--leading-normal, 1.5);
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+
+@media screen and (max-width: 991px) {
+  h1, .heading-style-h1 {
+    font-size: var(--font-3xl, 3rem);
+  }
+  h2, .heading-style-h2, .heading-style-h2-2 {
+    font-size: var(--font-xl, 2rem);
+  }
+  h3, .heading-style-h3 {
+    font-size: var(--font-lg, 1.5rem);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h1, .heading-style-h1 {
+    font-size: var(--font-2xl, 2.5rem);
+  }
+  h2, .heading-style-h2, .heading-style-h2-2 {
+    font-size: var(--font-lg, 1.5rem);
+  }
+  h3, .heading-style-h3 {
+    font-size: var(--font-md, 1.25rem);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  h1, .heading-style-h1 {
+    font-size: clamp(1.75rem, 8vw, var(--font-2xl, 2.5rem));
+  }
+  h2, .heading-style-h2, .heading-style-h2-2 {
+    font-size: clamp(1.25rem, 6vw, var(--font-lg, 1.5rem));
+  }
+}
+
+/* ============================================
+   END V3 GLOBAL TYPOGRAPHY
+   ============================================ */
+
 /* Section headings - consistent bottom margin */
 .section-heading {
-  margin-bottom: 1.25rem;
-  line-height: 1.3;
+  margin-bottom: var(--space-5, 1.25rem);
+  line-height: var(--leading-snug, 1.3);
 }
 
 .section-heading.center {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-5, 1.5rem);
 }
 
 /* Subheadings - proper breathing room */
 .subheading {
-  margin-top: 0.75rem;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  opacity: 0.85;
+  margin-top: var(--space-3, 0.75rem);
+  margin-bottom: var(--space-4, 1rem);
+  line-height: var(--leading-relaxed, 1.6);
+  color: var(--color-text-secondary, rgba(255, 255, 255, 0.85));
 }
 
 /* Card titles - harmonized */
 .card-title {
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
+  margin-bottom: var(--space-3, 0.75rem);
+  line-height: var(--leading-snug, 1.4);
 }
 
 /* Card descriptions - readable on dark */
 .card-description {
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.8);
+  line-height: var(--leading-loose, 1.75);
+  color: var(--color-text-secondary, rgba(255, 255, 255, 0.8));
 }
 
 /* Overview paragraphs - premium readability */
 .overview-description-paragraph {
-  line-height: 1.8;
-  letter-spacing: 0.01em;
+  line-height: var(--leading-loose, 1.8);
+  letter-spacing: var(--tracking-wide, 0.01em);
 }
 
 /* Hero heading - breathing room */
 .hero-heading {
-  line-height: 1.2;
+  line-height: var(--leading-tight, 1.2);
   letter-spacing: -0.02em;
 }
 
@@ -1695,7 +2332,7 @@ label:not(.sr-only) {
 /* Prevent horizontal scroll globally */
 html, body {
   overflow-x: hidden;
-  max-width: 100vw;
+  max-width: 100%;
 }
 
 /* Container max-width safety */
@@ -1785,7 +2422,7 @@ img {
   .section,
   .section.gray {
     overflow-x: hidden;
-    max-width: 100vw;
+    max-width: 100%;
   }
 }
 
@@ -1803,7 +2440,7 @@ img {
   .section,
   .section.gray {
     overflow-x: hidden;
-    max-width: 100vw;
+    max-width: 100%;
   }
 }
 
@@ -1868,11 +2505,11 @@ img {
     align-items: center;
   }
 
-  /* Checkbox/radio touch expansion */
+  /* V3 FIX: Checkbox/radio touch expansion - WCAG AA requires 24px min */
   input[type="checkbox"],
   input[type="radio"] {
-    min-width: 20px;
-    min-height: 20px;
+    min-width: 24px;
+    min-height: 24px;
   }
 
   /* Quiz option cards - ensure tappable */
@@ -2136,37 +2773,45 @@ img {
    ----------------------------------------------------------- */
 
 @media screen and (max-width: 991px) {
-  /* Ensure nav menu has correct z-index */
+  /* ============================================
+     V3 FIX: Z-INDEX HIERARCHY FOR MOBILE NAV
+     Using design tokens for consistent layering:
+     - Navbar base: var(--z-fixed) = 1000
+     - Menu overlay: var(--z-modal) = 2000 (ABOVE navbar)
+     - Hamburger: var(--z-popover) = 2500 (always clickable)
+     ============================================ */
+
+  /* Navbar container - fixed position */
   .navbar-2,
   .w-nav {
-    z-index: 1000;
+    z-index: var(--z-fixed, 1000);
     position: relative;
   }
 
-  /* Mobile menu overlay - full screen with proper z-index */
+  /* Mobile menu overlay - MUST be above navbar */
   .navbar-menu,
   .w-nav-menu {
-    z-index: 999;
+    z-index: var(--z-modal, 2000);
   }
 
   /* When menu is open - style the overlay */
   .w-nav-menu.w--open {
     display: flex;
     flex-direction: column;
-    background-color: rgba(5, 11, 12, 0.98);
-    padding: 20px 16px;
+    background-color: var(--color-bg-overlay, rgba(5, 11, 12, 0.98));
+    padding: var(--space-5, 20px) var(--space-4, 16px);
   }
 
   /* Prevent menu from causing horizontal scroll */
   .navbar-wrapper {
-    max-width: 100vw;
+    max-width: 100%;
     overflow-x: hidden;
   }
 
-  /* Hamburger button visibility */
+  /* Hamburger button - always on top for interaction */
   .navbar-menu-button,
   .w-nav-button {
-    z-index: 1001;
+    z-index: var(--z-popover, 2500);
   }
 
   /* Nav links in open state - proper stacking */
@@ -2336,7 +2981,7 @@ img {
   .hero-background-wrapper,
   .hero-background-img,
   .hero-background-blur {
-    max-width: 100vw;
+    max-width: 100%;
     overflow: hidden;
   }
 
@@ -2358,7 +3003,7 @@ img {
   /* Constrain slider width */
   .w-slider,
   .w-slider-mask {
-    max-width: 100vw;
+    max-width: 100%;
     overflow-x: hidden;
   }
 
@@ -2394,14 +3039,14 @@ img {
   /* Hero backgrounds */
   .hero-background-wrapper,
   .hero-background-img {
-    max-width: 100vw;
+    max-width: 100%;
     overflow: hidden;
   }
 
   /* Slider constraint */
   .w-slider,
   .w-slider-mask {
-    max-width: 100vw;
+    max-width: 100%;
   }
 }
 
@@ -3657,7 +4302,7 @@ body {
   .hero-wrapper,
   .hero-content-wrapper {
     overflow-x: hidden;
-    max-width: 100vw;
+    max-width: 100%;
   }
 
   /* Grid overflow */

@@ -197,6 +197,92 @@
   }
 
   /**
+   * Add aria-labels to fields missing labels (V2-4-001)
+   * Derives labels from placeholder, name, or id when no label element exists
+   */
+  function addMissingAriaLabels() {
+    // Mapping of common field identifiers to human-readable labels
+    const labelMap = {
+      // Recovery questionnaire fields
+      'to-which-wallet-address-was-the-crypto-sent': 'Wallet address where crypto was sent',
+      'what-was-your-own-wallet-address': 'Your wallet address',
+      'id-case': 'Case ID',
+      'user-timezone': 'Your timezone',
+      // Contact form fields
+      'sphere-input': 'Sphere of interest',
+      'full-name': 'Full name',
+      'message-subject': 'Message subject',
+      'investment-input': 'Investment amount',
+      'specialist-input': 'Specialist type',
+      'country-input': 'Country',
+      'town-input': 'Town or city',
+      'message': 'Your message',
+      // Generic mappings
+      'name': 'Name',
+      'email': 'Email address',
+      'phone': 'Phone number',
+      'country': 'Country'
+    };
+
+    document.querySelectorAll('input, select, textarea').forEach(field => {
+      // Skip if already has accessible name
+      if (field.hasAttribute('aria-label') || field.hasAttribute('aria-labelledby')) {
+        return;
+      }
+
+      // Check if there's an associated label element
+      const id = field.id;
+      if (id) {
+        const label = document.querySelector(`label[for="${id}"]`);
+        if (label && label.textContent.trim()) {
+          return; // Has a proper label
+        }
+      }
+
+      // Check if field is inside a label
+      const parentLabel = field.closest('label');
+      if (parentLabel && parentLabel.textContent.trim().length > field.value.length) {
+        return; // Wrapped in label with text
+      }
+
+      // Derive aria-label from various sources
+      const identifier = (field.id || field.name || '').toLowerCase().replace(/_/g, '-');
+
+      // 1. Check explicit mapping
+      if (labelMap[identifier]) {
+        field.setAttribute('aria-label', labelMap[identifier]);
+        return;
+      }
+
+      // 2. Check partial match in mapping
+      for (const [key, label] of Object.entries(labelMap)) {
+        if (identifier.includes(key) || key.includes(identifier)) {
+          field.setAttribute('aria-label', label);
+          return;
+        }
+      }
+
+      // 3. Use placeholder if present
+      if (field.placeholder && field.placeholder.trim()) {
+        field.setAttribute('aria-label', field.placeholder.trim());
+        return;
+      }
+
+      // 4. Humanize the identifier as last resort
+      if (identifier) {
+        const humanized = identifier
+          .replace(/-/g, ' ')
+          .replace(/([a-z])([A-Z])/g, '$1 $2')
+          .replace(/\b\w/g, c => c.toUpperCase())
+          .trim();
+        if (humanized) {
+          field.setAttribute('aria-label', humanized);
+        }
+      }
+    });
+  }
+
+  /**
    * Add autocomplete attributes to known field types
    */
   function addAutocomplete() {
@@ -352,6 +438,7 @@
     enhanceNavAccessibility();
     enhanceFormRegions();
     enhanceRequiredFields();
+    addMissingAriaLabels();
     addAutocomplete();
     labelIconLinks();
     secureExternalLinks();
