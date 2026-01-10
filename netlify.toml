@@ -2,7 +2,7 @@
 # This file overrides any dashboard settings
 
 [build]
-  # No build command needed - this is a static site with files in root
-  command = ""
+  # Static site - no build process needed, just output a message
+  command = "echo 'No build required for static site'"
   # Publish directory is the root where all HTML files are located
   publish = "."
