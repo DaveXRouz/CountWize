@@ -1,3 +1,28 @@
+/**
+ * CountWize Main Stylesheet
+ * Version: 1.0.0
+ * Last Updated: January 2026
+ * 
+ * Table of Contents:
+ * 1. CSS Variables (Custom Properties)
+ * 2. Webflow Base Styles
+ * 3. Typography
+ * 4. Layout Components
+ * 5. Navigation
+ * 6. Hero Sections
+ * 7. Cards & Components
+ * 8. Forms & Inputs
+ * 9. Video Player
+ * 10. Footer
+ * 11. Utilities
+ * 12. Animations
+ * 13. Media Queries
+ */
+
+/* ===========================================
+   1. CSS Variables (Custom Properties)
+   =========================================== */
+
 :root {
   --neutral--black-900: #090910;
   --font--global-font: "Be Vietnam Pro", sans-serif;
@@ -16160,4 +16185,130 @@ blockquote {
   }
 }
 
+/* ===========================================
+   CUSTOM ADDITIONS - CountWize Enhancements
+   =========================================== */
+
+/* Video Player Container */
+.video-player-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 19px 13px rgba(7, 185, 106, 0.19);
+  background-color: #000;
+}
+
+.video-player-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Lesson Slide Hover Effects */
+.lesson-slide {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lesson-slide:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(7, 185, 106, 0.3);
+}
+
+/* Fix overflow warning for media elements */
+img, video, canvas {
+  overflow: clip;
+}
+
+/* Title Link Clamp */
+.title-link-new {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 2;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral--black-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand--brand-color-third);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand--brand-color-second);
+}
+
+/* Form Autofill Styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--neutral--white-0);
+  -webkit-box-shadow: 0 0 0px 1000px var(--neutral--black-800) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Phone Input Dropdown Fix */
+.iti__country-list {
+  background-color: var(--neutral--black-800);
+  color: var(--neutral--white-0);
+  border: 1px solid var(--neutral--gray-600);
+}
+
+.iti__country:hover {
+  background-color: var(--brand--brand-color-second);
+}
+
+.iti__selected-flag {
+  background-color: transparent;
+}
+
+/* Focus States for Accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brand--brand-color-third);
+  outline-offset: 2px;
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--brand--brand-color-second);
+  color: var(--neutral--white-0);
+  padding: 0.5rem 1rem;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
 
