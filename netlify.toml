@@ -2,6 +2,14 @@
   command = "rm -rf site && mkdir site && cp *.html site/ 2>/dev/null; cp -r css site/ 2>/dev/null; cp -r js site/ 2>/dev/null; cp -r images site/ 2>/dev/null; cp -r blog site/ 2>/dev/null; cp -r documents site/ 2>/dev/null; exit 0"
   publish = "site"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ajax.googleapis.com https://www.googletagmanager.com https://cdn.livechatinc.com https://api.livechatinc.com https://d3e54v103j8qbb.cloudfront.net https://cdnjs.cloudflare.com https://unpkg.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://f.vimeocdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com http://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com http://fonts.gstatic.com; img-src 'self' data: https: https://i.vimeocdn.com https://vimeocdn.com; media-src 'self' https://player.vimeo.com https://vimeo.com https://vod-progressive.akamaized.net; frame-src 'self' https://player.vimeo.com https://vimeo.com https://cdn.embedly.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://ipapi.co https://countwiseapi.space https://telegram-vercel-seven.vercel.app https://pagead2.googlesyndication.com https://stats.g.doubleclick.net https://www.google.com https://player.vimeo.com https://vimeo.com https://fresnel.vimeocdn.com https://collector.vimeocdn.com;"
+    Permissions-Policy = "accelerometer=(), gyroscope=()"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+
 [[redirects]]
   from = "/crypto-recovery"
   to = "/recovery.html"

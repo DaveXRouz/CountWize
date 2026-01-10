@@ -16160,4 +16160,32 @@ blockquote {
   }
 }
 
+/* Fix view-transitions overflow warning for media elements */
+img, video, canvas {
+  overflow: clip;
+}
+/* Use hidden for containers that need stricter overflow control */
+img[style*="overflow: visible"],
+video[style*="overflow: visible"],
+canvas[style*="overflow: visible"] {
+  overflow: hidden !important;
+}
+
+/* Video Player Container - Ensure Visibility */
+.video-player-container {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1;
+  min-height: 400px;
+  background-color: #000;
+}
+
+.video-player-container iframe {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1;
+  background-color: #000;
+}
 
