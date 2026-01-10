@@ -5,4 +5,20 @@
   # Static site - no build process needed, just output a message
   command = "echo 'No build required for static site'"
   # Publish directory is the root where all HTML files are located
+  # Note: Using "." explicitly to publish from repository root
   publish = "."
+
+# URL redirects to match live site structure
+# These ensure URLs like /crypto-recovery work correctly
+[[redirects]]
+  from = "/crypto-recovery"
+  to = "/recovery.html"
+  status = 200
+
+# Canonical domain enforcement (www → non-www)
+# All www.countwize.com requests redirect to countwize.com
+[[redirects]]
+  from = "https://www.countwize.com/*"
+  to = "https://countwize.com/:splat"
+  status = 301
+  force = true
