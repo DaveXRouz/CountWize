@@ -1,0 +1,166 @@
+# ===========================================
+# CountWize Netlify Configuration
+# Last Updated: January 2026
+# ===========================================
+
+# Build Configuration
+# Static site - no build step required
+[build]
+  publish = "."
+  command = "echo 'Static site - no build required'"
+
+# ===========================================
+# Security Headers
+# ===========================================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Content Security Policy
+    # Allows necessary external resources while blocking unsafe content
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval'
+        https://ajax.googleapis.com
+        https://www.googletagmanager.com
+        https://cdn.livechatinc.com
+        https://api.livechatinc.com
+        https://d3e54v103j8qbb.cloudfront.net
+        https://cdnjs.cloudflare.com
+        https://unpkg.com
+        https://f.vimeocdn.com;
+      style-src 'self' 'unsafe-inline'
+        https://fonts.googleapis.com
+        https://cdnjs.cloudflare.com;
+      font-src 'self' data:
+        https://fonts.gstatic.com;
+      img-src 'self' data: https:
+        https://i.vimeocdn.com;
+      media-src 'self'
+        https://player.vimeo.com
+        https://vimeo.com;
+      frame-src 'self'
+        https://player.vimeo.com
+        https://vimeo.com
+        https://www.googletagmanager.com;
+      connect-src 'self'
+        https://www.google-analytics.com
+        https://analytics.google.com
+        https://ipapi.co
+        https://countwiseapi.space
+        https://telegram-vercel-seven.vercel.app
+        https://player.vimeo.com
+        https://fresnel.vimeocdn.com;
+    """
+    
+    # Prevent clickjacking
+    X-Frame-Options = "SAMEORIGIN"
+    
+    # Prevent MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # XSS Protection (legacy browsers)
+    X-XSS-Protection = "1; mode=block"
+    
+    # Referrer Policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Permissions Policy - Disable unused features
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+
+# ===========================================
+# Cache Control - Static Assets
+# ===========================================
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/documents/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ===========================================
+# Redirects
+# ===========================================
+
+# www to non-www redirect
+[[redirects]]
+  from = "https://www.countwize.com/*"
+  to = "https://countwize.com/:splat"
+  status = 301
+  force = true
+
+# Clean URL for crypto recovery
+[[redirects]]
+  from = "/crypto-recovery"
+  to = "/recovery.html"
+  status = 200
+
+# Blog redirects (for SEO preservation)
+[[redirects]]
+  from = "/forex-scams.html"
+  to = "/blog/forex-scams.html"
+  status = 301
+
+[[redirects]]
+  from = "/how-do-you-check-if-a-website-is-legitimate.html"
+  to = "/blog/how-do-you-check-if-a-website-is-legitimate.html"
+  status = 301
+
+[[redirects]]
+  from = "/how-does-a-crypto-recovery-phrase-work.html"
+  to = "/blog/how-does-a-crypto-recovery-phrase-work.html"
+  status = 301
+
+# Legacy page redirects
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact-us.html"
+  status = 301
+
+[[redirects]]
+  from = "/legal.html"
+  to = "/legal-page.html"
+  status = 301
+
+[[redirects]]
+  from = "/about-old.html"
+  to = "/about-us.html"
+  status = 301
+
+[[redirects]]
+  from = "/blog-old.html"
+  to = "/blog.html"
+  status = 301
+
+[[redirects]]
+  from = "/faq-old.html"
+  to = "/faq-crypto-recovery.html"
+  status = 301
+
+[[redirects]]
+  from = "/education-old.html"
+  to = "/crypto-education.html"
+  status = 301
+
+[[redirects]]
+  from = "/old-home.html"
+  to = "/"
+  status = 301
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
