@@ -5,9 +5,24 @@
 
 # Build Configuration
 # Creates site directory and copies all static files for deployment
+# Note: Uses explicit file list to ensure all content is copied
 [build]
   publish = "site"
-  command = "rm -rf site && mkdir -p site && cp -r *.html css js images documents blog site/ 2>/dev/null; cp netlify.toml site/ 2>/dev/null; exit 0"
+  command = """
+    echo "Starting build..." && \
+    rm -rf site && \
+    mkdir -p site && \
+    echo "Copying HTML files..." && \
+    cp *.html site/ && \
+    echo "Copying directories..." && \
+    cp -r css site/ && \
+    cp -r js site/ && \
+    cp -r images site/ && \
+    cp -r documents site/ && \
+    cp -r blog site/ && \
+    echo "Build complete. Files in site:" && \
+    ls -la site/
+  """
 
 # ===========================================
 # Security Headers
