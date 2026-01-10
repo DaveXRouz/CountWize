@@ -136,6 +136,39 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `chore`
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Android)
 
+## Troubleshooting
+
+### Netlify Deployment Fails
+
+**Error**: "Deploy directory 'site' does not exist"
+
+**Solution**: The build command in `netlify.toml` creates the `site` directory. Ensure the build command runs successfully by checking the deploy logs for any errors during file copying.
+
+### Video Not Playing
+
+**Possible Causes**:
+1. **CSP Blocking**: Ensure Content Security Policy includes all Vimeo domains
+2. **Domain Restriction**: Verify videos are not restricted in Vimeo settings
+3. **CSS Conflicts**: Check for `display: none` or `visibility: hidden` overrides
+
+**Required Vimeo Domains for CSP**:
+- `player.vimeo.com` (frame-src, connect-src)
+- `vimeo.com` (frame-src)
+- `f.vimeocdn.com` (script-src)
+- `i.vimeocdn.com` (img-src)
+- `fresnel.vimeocdn.com` (connect-src)
+- `vod-progressive.akamaized.net` (media-src)
+
+### CSS Not Loading
+
+Ensure all HTML files reference `css/main.css` (not the old `countwize-test.webflow.css`).
+
+### Console Errors
+
+- **"License expired"**: LiveChat subscription needs renewal
+- **"improperly configured forms"**: Webflow form warning (safe to ignore on static hosting)
+- **"overflow: visible"**: View transitions warning (cosmetic only)
+
 ## License
 
 Copyright © 2026 CountWize. All rights reserved.
