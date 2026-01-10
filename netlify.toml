@@ -1,5 +1,5 @@
 [build]
-  command = "rm -rf site && mkdir site && for f in *.html; do [ -f \"$f\" ] && cp \"$f\" site/; done && [ -d css ] && cp -r css site/ && [ -d js ] && cp -r js site/ && [ -d images ] && cp -r images site/ && [ -d blog ] && cp -r blog site/ && [ -d documents ] && cp -r documents site/ || true"
+  command = "rm -rf site && mkdir site && cp *.html site/ 2>/dev/null; cp -r css site/ 2>/dev/null; cp -r js site/ 2>/dev/null; cp -r images site/ 2>/dev/null; cp -r blog site/ 2>/dev/null; cp -r documents site/ 2>/dev/null; exit 0"
   publish = "site"
 
 [[redirects]]
