@@ -16189,7 +16189,7 @@ blockquote {
    CUSTOM ADDITIONS - CountWize Enhancements
    =========================================== */
 
-/* Video Player Container */
+/* Video Player Container - Force Visibility */
 .video-player-container {
   position: relative;
   width: 100%;
@@ -16201,6 +16201,12 @@ blockquote {
   border-radius: 10px;
   box-shadow: 0 0 19px 13px rgba(7, 185, 106, 0.19);
   background-color: #000;
+  /* Force visibility overrides */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 400px;
+  z-index: 1;
 }
 
 .video-player-container iframe {
@@ -16211,17 +16217,34 @@ blockquote {
   height: 100%;
   border: none;
   border-radius: 10px;
+  /* Force visibility overrides */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1;
+}
+
+/* Video loading state */
+.video-player-container.loading {
+  opacity: 0.5 !important;
 }
 
 /* Lesson Slide Hover Effects */
 .lesson-slide {
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
 
 .lesson-slide:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(7, 185, 106, 0.3);
+}
+
+/* Lesson Slide Active State */
+.lesson-slide.active {
+  border: 2px solid #07B96A;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(7, 185, 106, 0.4);
 }
 
 /* Fix overflow warning for media elements */
