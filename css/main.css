@@ -16189,14 +16189,13 @@ blockquote {
    CUSTOM ADDITIONS - CountWize Enhancements
    =========================================== */
 
-/* Video Player Container - Force Visibility */
+/* Video Player Container - Fixed Aspect Ratio */
 .video-player-container {
   position: relative;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 0 19px 13px rgba(7, 185, 106, 0.19);
@@ -16205,8 +16204,15 @@ blockquote {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  min-height: 400px;
   z-index: 1;
+}
+
+/* Fallback for browsers without aspect-ratio support */
+@supports not (aspect-ratio: 16 / 9) {
+  .video-player-container {
+    padding-bottom: 56.25%;
+    height: 0;
+  }
 }
 
 .video-player-container iframe {
@@ -16222,11 +16228,30 @@ blockquote {
   visibility: visible !important;
   opacity: 1 !important;
   z-index: 1;
+  background-color: #000;
 }
 
 /* Video loading state */
 .video-player-container.loading {
-  opacity: 0.5 !important;
+  opacity: 0.7 !important;
+}
+
+.video-player-container.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid rgba(7, 185, 106, 0.3);
+  border-top-color: #07B96A;
+  border-radius: 50%;
+  animation: video-spinner 0.8s linear infinite;
+}
+
+@keyframes video-spinner {
+  to { transform: rotate(360deg); }
 }
 
 /* Lesson Slide Hover Effects */
@@ -16249,7 +16274,28 @@ blockquote {
 
 /* Fix overflow warning for media elements */
 img, video, canvas {
-  overflow: clip;
+  overflow: clip !important;
+}
+
+/* Video Player Responsive Adjustments */
+@media screen and (max-width: 991px) {
+  .video-player-container {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .video-player-container {
+    border-radius: 6px;
+    box-shadow: 0 0 10px 6px rgba(7, 185, 106, 0.15);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .video-player-container {
+    border-radius: 4px;
+  }
 }
 
 /* Title Link Clamp */

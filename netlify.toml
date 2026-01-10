@@ -14,6 +14,9 @@
     mkdir -p site && \
     echo "Copying HTML files..." && \
     cp *.html site/ && \
+    echo "Copying SEO files..." && \
+    cp robots.txt site/ 2>/dev/null || true && \
+    cp sitemap.xml site/ 2>/dev/null || true && \
     echo "Copying directories..." && \
     cp -r css site/ && \
     cp -r js site/ && \

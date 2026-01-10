@@ -4,6 +4,33 @@ All notable changes to the CountWize website are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.2] - 2026-01-11
+
+### Fixed
+
+- Video player CSS: Replaced padding-bottom aspect ratio hack with modern `aspect-ratio: 16/9`
+- Fixed broken image: `group-1.svg` → `group_1.svg` (case mismatch)
+- Fixed broken image: `Группа2.svg` → `группа2.svg` (case sensitivity)
+- Created missing placeholder icons: `404-Icon.svg`, `count-wize-ISO.svg`
+- Improved alt text for form icons (decorative icons now use `aria-hidden="true"`)
+- Added descriptive alt text for feature card icons
+- Added Vimeo player parameters to fix background display issues
+- Added video loading spinner CSS animation
+- Added responsive video player styles for all breakpoints
+
+### Added
+
+- `robots.txt` with proper sitemap reference
+- `sitemap.xml` with all 22 site pages
+- Preconnect hints for Vimeo and cdnjs CDN
+- CSS fallback for browsers without `aspect-ratio` support
+
+### Changed
+
+- Updated netlify.toml to include robots.txt and sitemap.xml in build
+
+---
+
 ## [1.0.1] - 2026-01-11
 
 ### Fixed
