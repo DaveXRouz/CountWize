@@ -50,6 +50,8 @@
       connect-src 'self'
         https://www.google-analytics.com
         https://analytics.google.com
+        https://pagead2.googlesyndication.com
+        https://stats.g.doubleclick.net
         https://ipapi.co
         https://countwiseapi.space
         https://telegram-vercel-seven.vercel.app
