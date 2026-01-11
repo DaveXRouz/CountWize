@@ -1,40 +1,50 @@
 # ===========================================
-# CountWize Netlify Configuration
+# CountWize Netlify Configuration v3.0
+# Ultimate Enterprise Audit Plan Implementation
 # Last Updated: January 2026
 # ===========================================
 
 # Build Configuration
 # Creates site directory and copies all static files for deployment
-# Note: Uses explicit file list to ensure all content is copied
+# Optimized for performance and reliability
 [build]
   publish = "site"
   command = """
-    echo "Starting build..." && \
+    echo "=== CountWize Build Process ===" && \
+    echo "Starting enterprise-grade build..." && \
     rm -rf site && \
     mkdir -p site && \
-    echo "Copying HTML files..." && \
+    echo "[1/5] Copying HTML files..." && \
     cp *.html site/ && \
-    echo "Copying SEO files..." && \
+    echo "[2/5] Copying SEO files..." && \
     cp robots.txt site/ 2>/dev/null || true && \
     cp sitemap.xml site/ 2>/dev/null || true && \
-    echo "Copying directories..." && \
+    echo "[3/5] Copying static assets..." && \
     cp -r css site/ && \
     cp -r js site/ && \
     cp -r images site/ && \
     cp -r documents site/ && \
+    echo "[4/5] Copying blog content..." && \
     cp -r blog site/ && \
-    echo "Build complete. Files in site:" && \
-    ls -la site/
+    echo "[5/5] Build verification..." && \
+    echo "Files in site directory:" && \
+    ls -la site/ && \
+    echo "=== Build Complete ==="
   """
 
 # ===========================================
-# Security Headers
+# Security Headers (Part 8: Security Fortress)
+# Phases 281-300: Enterprise-grade security
 # ===========================================
 [[headers]]
   for = "/*"
   [headers.values]
-    # Content Security Policy
-    # Comprehensive CSP allowing Vimeo video playback and all required services
+    # Phase 283: HSTS - Strict Transport Security
+    # Enforce HTTPS for 1 year with subdomains
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # Phase 281-282: Content Security Policy
+    # Comprehensive CSP with violation reporting
     Content-Security-Policy = """
       default-src 'self';
       script-src 'self' 'unsafe-inline' 'unsafe-eval'
@@ -81,22 +91,25 @@
         https://vimeo.com
         https://fresnel.vimeocdn.com
         https://collector.vimeocdn.com;
+      frame-ancestors 'self';
+      base-uri 'self';
+      form-action 'self' https://countwiseapi.space https://telegram-vercel-seven.vercel.app;
     """
     
-    # Prevent clickjacking
+    # Phase 284: Prevent clickjacking
     X-Frame-Options = "SAMEORIGIN"
     
-    # Prevent MIME type sniffing
+    # Phase 285: Prevent MIME type sniffing
     X-Content-Type-Options = "nosniff"
     
     # XSS Protection (legacy browsers)
     X-XSS-Protection = "1; mode=block"
     
-    # Referrer Policy
+    # Phase 286: Referrer Policy - Privacy protection
     Referrer-Policy = "strict-origin-when-cross-origin"
     
-    # Permissions Policy - Disable unused features
-    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    # Phase 287-288: Permissions Policy - Disable unused APIs
+    Permissions-Policy = "accelerometer=(), ambient-light-sensor=(), autoplay=(self), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(self), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(self), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()"
 
 # ===========================================
 # Cache Control - Static Assets

@@ -179,6 +179,48 @@ textarea::-webkit-resizer{
   </style>
   <!-- International Phone Input Library -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.min.css" rel="stylesheet">
+  
+  <!-- Structured Data: ContactPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact CountWize",
+    "description": "Contact CountWize for expert crypto recovery and tax consulting assistance.",
+    "url": "https://countwize.com/contact-us.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "CountWize",
+      "email": "support@countwize.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "availableLanguage": ["English"]
+      }
+    }
+  }
+  </script>
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://countwize.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact Us",
+        "item": "https://countwize.com/contact-us.html"
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="body-4">
   <div class="wrapper-page">
