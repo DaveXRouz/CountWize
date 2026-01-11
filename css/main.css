@@ -8531,6 +8531,19 @@ blockquote {
   display: flex;
 }
 
+/* Second row of platform logos - force visibility */
+.supported-platforms-logos-row ~ .supported-platforms-logos-row {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Force all anchor elements in platform rows to be visible */
+.supported-platforms-logos-row a[data-w-id] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .supported-platforms-logos-line-wrapper {
   display: block;
 }
@@ -18007,152 +18020,667 @@ textarea::-webkit-resizer {
   display: none;
 }
 
-
 /* ==========================================================================
-   VISUAL SECTIONS DEEP AUDIT - Part D: Image Optimization
-   Phases 56-65: SVG optimization, alt text, loading states
+   VISUAL SECTIONS DEEP AUDIT - Part A: Hero Section Decorative Elements
+   Phases 1-15: Circle elements, backgrounds, decorative lines
    ========================================================================== */
 
-/* Phase 56-60: SVG icon styling */
-.supported-platforms-logo-image,
-.services-overview-card-icon-container img,
-.card-icon-container img {
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+/* Phase 1-8: Circle Element Improvements */
+.circle-block {
+  z-index: -1;
+  background-color: var(--_redesign-style---white, #fff);
+  opacity: 0.25; /* Reduced from 0.4 for subtler effect */
+  filter: blur(100px);
+  -webkit-filter: blur(100px); /* Safari support */
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  pointer-events: none; /* Ensure no interaction */
+  will-change: transform; /* GPU acceleration hint */
+  transform: translateZ(0); /* Force GPU layer */
 }
 
-/* Ensure consistent SVG colors match design system */
-.supported-platforms-logo-image {
-  filter: brightness(1) contrast(1);
+.circle-block._200 {
+  width: 200px;
+  height: 200px;
+  opacity: 0.2; /* Slightly lower for smaller circle */
 }
 
-/* Phase 61-63: Image loading optimization */
-img[loading="lazy"] {
-  opacity: 1;
-  transition: opacity 0.3s ease;
+/* Circle wrapper with proper stacking */
+.circle-wrapper {
+  z-index: -2; /* Lower than content but above background */
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 100px;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+  pointer-events: none;
+  overflow: hidden; /* Prevent blur bleeding outside */
 }
 
-/* Placeholder style for images that haven't loaded */
-img:not([src]),
-img[src=""] {
-  background-color: rgba(255, 255, 255, 0.05);
-  min-height: 40px;
+.circle-wrapper._220 {
+  padding-bottom: 220px;
 }
 
-/* Phase 64: Ensure proper image aspect ratio */
-.services-overview-image {
-  aspect-ratio: 734 / 600;
-  object-fit: cover;
-  width: 100%;
-  height: auto;
+/* Phase 5: Circle responsive behavior */
+@media screen and (max-width: 991px) {
+  .circle-block {
+    width: 250px;
+    height: 250px;
+    opacity: 0.2;
+  }
+  
+  .circle-block._200 {
+    width: 150px;
+    height: 150px;
+    opacity: 0.15;
+  }
+  
+  .circle-wrapper {
+    padding-bottom: 60px;
+  }
+  
+  .circle-wrapper._220 {
+    padding-bottom: 140px;
+  }
 }
 
-/* Hero section images */
+@media screen and (max-width: 767px) {
+  .circle-block {
+    width: 180px;
+    height: 180px;
+    opacity: 0.15;
+    filter: blur(60px);
+    -webkit-filter: blur(60px);
+  }
+  
+  .circle-block._200 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .circle-wrapper {
+    padding-bottom: 40px;
+  }
+  
+  .circle-wrapper._220 {
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .circle-block {
+    width: 120px;
+    height: 120px;
+    opacity: 0.12;
+    filter: blur(40px);
+    -webkit-filter: blur(40px);
+  }
+  
+  .circle-block._200 {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Phase 9-15: Hero Background Improvements */
 .hero-background-img {
-  aspect-ratio: auto;
+  z-index: -1;
+  object-fit: cover;
+  object-position: 50% 0%;
+  min-width: 100%;
+  max-height: 100%;
+  overflow: hidden; /* Changed from visible to prevent artifacts */
+  pointer-events: none;
 }
 
-/* Phase 65: Image loading states and placeholder effects */
-.image-loading-placeholder {
-  background: linear-gradient(90deg, 
-    rgba(255, 255, 255, 0.05) 25%, 
-    rgba(255, 255, 255, 0.1) 50%, 
-    rgba(255, 255, 255, 0.05) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+.hero-background-img._180deg {
+  transform-style: preserve-3d;
+  max-height: 900px;
+  transform: rotateX(180deg) rotateY(0) rotateZ(0);
 }
 
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+.hero-background-wrapper {
+  z-index: -3; /* Below circle-wrapper */
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 400px 0% 0%;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-/* Decorative images - reduced prominence */
-.image-53,
-.image-58,
+.hero-background-wrapper._140 {
+  top: 140px;
+}
+
+/* Hero blur gradient overlay */
+.hero-background-blur {
+  background-image: linear-gradient(180deg, transparent, var(--_redesign-style---black, #090910) 50%);
+  position: absolute;
+  inset: 0%;
+  pointer-events: none;
+}
+
+.hero-background-blur._180deg {
+  z-index: 1;
+  background-image: linear-gradient(180deg, var(--_redesign-style---black, #090910) 40%, transparent);
+}
+
+/* Phase 11-13: Decorative line images */
 .image-64,
 .image-65 {
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  transform-style: preserve-3d;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.8; /* Slight transparency for subtle effect */
+  max-width: 40%; /* Prevent overflow on smaller screens */
 }
 
-/* Improve icon visibility in dark mode */
-.card-icon-container img {
-  filter: brightness(0) invert(1); /* White icons on green gradient */
+.image-64 {
+  inset: 70px auto auto -5%;
+  transform: rotateX(180deg) rotateY(0) rotateZ(0);
 }
 
-.services-overview-card-icon-container img {
-  filter: brightness(0.9);
+.image-65 {
+  inset: auto -4% -5px auto;
+}
+
+/* Responsive decorative lines */
+@media screen and (max-width: 991px) {
+  .image-64,
+  .image-65 {
+    max-width: 35%;
+    opacity: 0.6;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .image-64,
+  .image-65 {
+    max-width: 30%;
+    opacity: 0.5;
+  }
+  
+  .image-64 {
+    top: 40px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .image-64,
+  .image-65 {
+    display: none; /* Hide on very small screens */
+  }
 }
 
 /* ==========================================================================
-   Additional Visual Polish - Section Specific Improvements
+   VISUAL SECTIONS DEEP AUDIT - Part B: Supported Platforms Section
+   Phases 16-35: Platform logos, connecting lines, typography
    ========================================================================== */
 
-/* Hero section polish */
-.section.hero {
-  position: relative;
-  overflow: hidden;
+/* Phase 16-18: Platform container layout */
+.supported-platforms-wrapper {
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  flex-flow: row wrap;
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  overflow: visible !important;
 }
 
-/* Services overview section */
-.services-overview-wrapper {
-  position: relative;
+.supported-platforms-logos-wrapper {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  flex-flow: row wrap;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: visible !important;
+  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
-/* Crypto recovery section cards grid alignment */
-.crypto-asset-recovery-wrapper {
-  position: relative;
+.supported-platforms-logos-row {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  align-items: center;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: auto;
+  max-width: 100%;
 }
 
-/* Ensure proper stacking context for all sections */
-.section {
-  position: relative;
-  isolation: isolate;
+/* Ensure all child elements are visible */
+.supported-platforms-logos-row * {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Focus states for accessibility */
-.supported-platforms-logo-item:focus,
-.card:focus,
-.services-overview-card:focus {
+/* Force visibility for second row of logos */
+.supported-platforms-logos-wrapper > .supported-platforms-logos-row:nth-child(3) {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+/* Ensure all logo items and their children are visible */
+.supported-platforms-logos-row > a,
+.supported-platforms-logos-row > a > img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Phase 19-21: Logo item styling */
+.supported-platforms-logo-item {
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(187, 238, 196, 0.3);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-width: 120px;
+  height: 60px;
+  padding: 12px 20px;
+  display: flex;
+  transition: all 0.3s ease;
+  opacity: 1 !important; /* Force visibility for all platform logos */
+}
+
+/* Phase 20: Hover states for logo items */
+.supported-platforms-logo-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(187, 238, 196, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(7, 185, 106, 0.15);
+}
+
+.supported-platforms-logo-item:focus-visible {
   outline: 2px solid var(--_redesign-style---green, #07B96A);
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 
-/* Smooth scrolling for entire page */
-html {
-  scroll-behavior: smooth;
+/* Phase 21: Logo image sizing */
+.supported-platforms-logo-image {
+  object-fit: contain;
+  max-height: 28px;
+  width: auto;
+  transition: opacity 0.3s ease;
 }
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+.supported-platforms-logo-image.binance {
+  max-height: 24px;
+}
+
+.supported-platforms-logo-image.medium {
+  max-height: 26px;
+}
+
+.supported-platforms-logo-image.coinpress {
+  max-height: 22px;
+}
+
+.supported-platforms-logo-image.barchart {
+  max-height: 24px;
+}
+
+.supported-platforms-logo-image.journal {
+  max-height: 22px;
+}
+
+/* Phase 24-30: Connecting lines */
+.supported-platforms-logos-line {
+  background-color: rgba(187, 238, 196, 0.3);
+  border-radius: 100px;
+  width: 28px;
+  height: 2px;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+.supported-platforms-logos-line-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 60px; /* Align with logo items */
+}
+
+/* Line animation on nearby hover */
+.supported-platforms-logo-item:hover + .supported-platforms-logos-line,
+.supported-platforms-logos-line:has(+ .supported-platforms-logo-item:hover) {
+  background-color: rgba(187, 238, 196, 0.6);
+}
+
+/* Phase 31-33: Heading typography */
+.supported-platforms-heading {
+  text-align: left;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--_redesign-style---white, #FCFCFC);
+  letter-spacing: -0.01em;
+}
+
+/* Platform section responsive */
+@media screen and (max-width: 991px) {
+  .supported-platforms-wrapper,
+  .supported-platforms-logos-wrapper {
+    flex-flow: column;
+    align-items: center;
   }
   
-  html {
-    scroll-behavior: auto;
+  .supported-platforms-logos-row {
+    justify-content: center;
+    flex-wrap: wrap;
   }
-}
-
-/* High contrast mode adjustments */
-@media (prefers-contrast: high) {
-  .circle-block {
+  
+  .supported-platforms-heading {
+    text-align: center;
+    font-size: 26px;
+  }
+  
+  .supported-platforms-logos-line-wrapper {
     display: none;
   }
-  
-  .card,
+}
+
+@media screen and (max-width: 767px) {
   .supported-platforms-logo-item {
-    border-width: 2px;
+    min-width: 100px;
+    height: 55px;
+    padding: 10px 16px;
+  }
+  
+  .supported-platforms-heading {
+    font-size: 20px;
+  }
+  
+  .supported-platforms-logos-line {
+    width: 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .supported-platforms-logo-item {
+    width: 23vw;
+    min-width: unset;
+    height: 50px;
+    padding: 8px 12px;
+  }
+  
+  .supported-platforms-logo-image {
+    max-height: 20px;
+  }
+  
+  .supported-platforms-logos-line-wrapper {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   VISUAL SECTIONS DEEP AUDIT - Part C: Service Cards Section
+   Phases 36-55: Overview cards, recovery cards, backgrounds
+   ========================================================================== */
+
+/* Phase 36-37: Cards wrapper layout */
+.services-overview-cards-wrapper {
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+.services-overview-card {
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  flex-flow: column;
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.services-overview-card:hover {
+  transform: translateX(5px);
+}
+
+/* Phase 38-40: Card icon container */
+.services-overview-card-icon-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(187, 238, 196, 0.3);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  min-height: 60px;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.services-overview-card:hover .services-overview-card-icon-container {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(187, 238, 196, 0.5);
+  box-shadow: 0 0 12px rgba(7, 185, 106, 0.2);
+}
+
+.services-overview-card-icon-wrapper {
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* Phase 41-42: Card typography */
+.card-title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 130%;
+  color: var(--_redesign-style---white, #FCFCFC);
+}
+
+.card-description {
+  color: #c2c2c2;
+  font-size: 15px;
+  line-height: 140%;
+}
+
+/* Phase 43-44: Dashed arrow lines */
+.services-overview-card-line {
+  min-width: 80%;
+  height: auto;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.services-overview-card:hover .services-overview-card-line {
+  opacity: 1;
+}
+
+/* Phase 46-52: Crypto recovery cards */
+.crypto-asset-recovery-cards-wrapper {
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-columns: 1fr;
+  width: 100%;
+  display: grid;
+}
+
+.card {
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  background-color: rgba(5, 11, 12, 0.5);
+  border: 1px solid rgba(187, 238, 196, 0.2);
+  border-radius: 10px;
+  flex-flow: column;
+  padding: 30px 30px 60px;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+/* Phase 52: Card hover states */
+.card:hover {
+  background-color: rgba(5, 11, 12, 0.7);
+  border-color: rgba(187, 238, 196, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card.pad-bott-30 {
+  padding-bottom: 30px;
+}
+
+.card-content {
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+  flex-flow: column;
+  display: flex;
+}
+
+.card-icon-wrapper {
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* Phase 49-50: Icon container gradient and glow */
+.card-icon-container {
+  background-image: linear-gradient(
+    90deg,
+    var(--_redesign-style---green, #07B96A),
+    var(--_redesign-style---green-light, #A3DCAD) 50%,
+    var(--_redesign-style---green, #07B96A)
+  );
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  min-height: 60px;
+  display: flex;
+  box-shadow: 0 0 14px rgba(187, 238, 196, 0.8);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover .card-icon-container {
+  box-shadow: 0 0 20px rgba(187, 238, 196, 1);
+}
+
+.card-icon-container._70 {
+  width: 70px;
+  min-width: 70px;
+  height: 70px;
+  min-height: 70px;
+}
+
+/* Icon images inside containers */
+.card-icon-container img,
+.services-overview-card-icon-container img {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+}
+
+/* Phase 53-55: Section backgrounds */
+.section.gray.etr-1 {
+  background-color: var(--_redesign-style---black, #090910);
+}
+
+.container-24 {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Service cards responsive */
+@media screen and (max-width: 991px) {
+  .services-overview-cards-wrapper {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+  
+  .services-overview-card {
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+  }
+  
+  .services-overview-card-content {
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+  }
+  
+  .services-overview-card-icon-container {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
+  }
+  
+  .crypto-asset-recovery-cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .card-icon-container,
+  .card-icon-container._70 {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
+  }
+  
+  .card-title {
+    font-size: 18px;
   }
   
   .card-description {
-    color: #e0e0e0;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .crypto-asset-recovery-cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    padding: 24px 24px 40px;
+  }
+  
+  .services-overview-card-line {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .services-overview-card-icon-container {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+  }
+  
+  .card {
+    padding: 20px 20px 30px;
+  }
+  
+  .card-title {
+    font-size: 16px;
   }
 }
