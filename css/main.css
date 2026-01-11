@@ -18007,3 +18007,152 @@ textarea::-webkit-resizer {
   display: none;
 }
 
+
+/* ==========================================================================
+   VISUAL SECTIONS DEEP AUDIT - Part D: Image Optimization
+   Phases 56-65: SVG optimization, alt text, loading states
+   ========================================================================== */
+
+/* Phase 56-60: SVG icon styling */
+.supported-platforms-logo-image,
+.services-overview-card-icon-container img,
+.card-icon-container img {
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Ensure consistent SVG colors match design system */
+.supported-platforms-logo-image {
+  filter: brightness(1) contrast(1);
+}
+
+/* Phase 61-63: Image loading optimization */
+img[loading="lazy"] {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Placeholder style for images that haven't loaded */
+img:not([src]),
+img[src=""] {
+  background-color: rgba(255, 255, 255, 0.05);
+  min-height: 40px;
+}
+
+/* Phase 64: Ensure proper image aspect ratio */
+.services-overview-image {
+  aspect-ratio: 734 / 600;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+/* Hero section images */
+.hero-background-img {
+  aspect-ratio: auto;
+}
+
+/* Phase 65: Image loading states and placeholder effects */
+.image-loading-placeholder {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.05) 25%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Decorative images - reduced prominence */
+.image-53,
+.image-58,
+.image-64,
+.image-65 {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+/* Improve icon visibility in dark mode */
+.card-icon-container img {
+  filter: brightness(0) invert(1); /* White icons on green gradient */
+}
+
+.services-overview-card-icon-container img {
+  filter: brightness(0.9);
+}
+
+/* ==========================================================================
+   Additional Visual Polish - Section Specific Improvements
+   ========================================================================== */
+
+/* Hero section polish */
+.section.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Services overview section */
+.services-overview-wrapper {
+  position: relative;
+}
+
+/* Crypto recovery section cards grid alignment */
+.crypto-asset-recovery-wrapper {
+  position: relative;
+}
+
+/* Ensure proper stacking context for all sections */
+.section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Focus states for accessibility */
+.supported-platforms-logo-item:focus,
+.card:focus,
+.services-overview-card:focus {
+  outline: 2px solid var(--_redesign-style---green, #07B96A);
+  outline-offset: 4px;
+}
+
+/* Smooth scrolling for entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .circle-block {
+    display: none;
+  }
+  
+  .card,
+  .supported-platforms-logo-item {
+    border-width: 2px;
+  }
+  
+  .card-description {
+    color: #e0e0e0;
+  }
+}
