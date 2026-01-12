@@ -7925,16 +7925,15 @@ blockquote {
 }
 
 .supported-platforms-logo-item {
-  -webkit-backdrop-filter: blur(7px);
-  backdrop-filter: blur(7px);
-  background-color: #050b0c99;
+  background-color: #0d1614 !important; /* Solid dark background - no transparency */
   border: 1px solid #bbeec433;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  width: 120px;
+  min-width: 120px;
+  width: auto;
   height: 60px;
-  padding: 10px;
+  padding: 12px 20px;
   display: flex;
 }
 
@@ -18281,9 +18280,7 @@ textarea::-webkit-resizer {
 
 /* Phase 19-21: Logo item styling */
 .supported-platforms-logo-item {
-  -webkit-backdrop-filter: blur(7px);
-  backdrop-filter: blur(7px);
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #0d1614 !important; /* Solid dark background - no transparency */
   border: 1px solid rgba(187, 238, 196, 0.3);
   border-radius: 10px;
   justify-content: center;
@@ -18310,32 +18307,21 @@ textarea::-webkit-resizer {
   outline-offset: 2px;
 }
 
-/* Phase 21: Logo image sizing */
+/* Phase 21: Logo image sizing - STANDARDIZED for visual harmony */
 .supported-platforms-logo-image {
   object-fit: contain;
-  max-height: 28px;
+  max-height: 26px; /* Consistent height for all logos */
   width: auto;
   transition: opacity 0.3s ease;
 }
 
-.supported-platforms-logo-image.binance {
-  max-height: 24px;
-}
-
-.supported-platforms-logo-image.medium {
-  max-height: 26px;
-}
-
-.supported-platforms-logo-image.coinpress {
-  max-height: 22px;
-}
-
-.supported-platforms-logo-image.barchart {
-  max-height: 24px;
-}
-
+/* All logo variants use the same max-height for visual consistency */
+.supported-platforms-logo-image.binance,
+.supported-platforms-logo-image.medium,
+.supported-platforms-logo-image.coinpress,
+.supported-platforms-logo-image.barchart,
 .supported-platforms-logo-image.journal {
-  max-height: 22px;
+  max-height: 26px;
 }
 
 /* Phase 24-30: Connecting lines */
@@ -18683,4 +18669,17 @@ textarea::-webkit-resizer {
   .card-title {
     font-size: 16px;
   }
+}
+
+/* ==========================================================================
+   FIX: Ensure consistent opaque backgrounds for platform logos
+   This overrides any backdrop-filter transparency issues
+   ========================================================================== */
+.supported-platforms-logo-item,
+a.supported-platforms-logo-item,
+.supported-platforms-logos-row .supported-platforms-logo-item,
+.supported-platforms-logos-row a.supported-platforms-logo-item {
+  background-color: #0d1614 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
