@@ -878,19 +878,19 @@
               <h2 class="section-heading center"><span class="highlighted-word">Handpicked</span> News</h2>
             </div>
             <div class="web-news-items-new">
-              <a href="https://decrypt.co/resources/crypto-recovery-guide" target="_blank" rel="noopener" data-w-id="cecc7906-7182-8801-567b-221ae316f7d4" class="item"><img width="Auto" id="w-node-cecc7906-7182-8801-567b-221ae316f7d5-e316f7cd" alt="Crypto Recovery Guide" src="images/news-crypto-recovery.webp" loading="lazy" class="news-image-new">
+              <a href="https://decrypt.co/resources/crypto-recovery-guide" target="_blank" rel="noopener" data-w-id="cecc7906-7182-8801-567b-221ae316f7d4" class="item"><img width="Auto" id="w-node-cecc7906-7182-8801-567b-221ae316f7d5-e316f7cd" alt="Crypto Recovery Guide" src="images/news-crypto-recovery.svg" loading="lazy" class="news-image-new">
                 <div class="handpicked-news-info-wrapper">
                   <div class="source-name-web-new">Decrypt</div>
                   <div class="title-link-web-new">Guide to Recovering Lost Cryptocurrency</div>
                 </div>
               </a>
-              <a href="https://www.coindesk.com/learn/what-to-do-if-crypto-stolen" target="_blank" rel="noopener" data-w-id="cecc7906-7182-8801-567b-221ae316f7db" class="item mob"><img width="Auto" id="w-node-cecc7906-7182-8801-567b-221ae316f7dc-e316f7cd" alt="Crypto Theft Prevention" src="images/news-crypto-stolen.webp" loading="lazy" class="news-image-new">
+              <a href="https://www.coindesk.com/learn/what-to-do-if-crypto-stolen" target="_blank" rel="noopener" data-w-id="cecc7906-7182-8801-567b-221ae316f7db" class="item mob"><img width="Auto" id="w-node-cecc7906-7182-8801-567b-221ae316f7dc-e316f7cd" alt="Crypto Theft Prevention" src="images/news-crypto-stolen.svg" loading="lazy" class="news-image-new">
                 <div class="handpicked-news-info-wrapper">
                   <div class="source-name-web-new">CoinDesk</div>
                   <div class="title-link-web-new">What to Do If Your Crypto Was Stolen</div>
                 </div>
               </a>
-              <a href="https://www.theblock.co/learn/blockchain-forensics" target="_blank" rel="noopener" data-w-id="cecc7906-7182-8801-567b-221ae316f7e2" class="item mob"><img width="Auto" id="w-node-cecc7906-7182-8801-567b-221ae316f7e3-e316f7cd" alt="Blockchain Forensics" src="images/news-blockchain-forensics.webp" loading="lazy" class="news-image-new">
+              <a href="https://www.theblock.co/learn/blockchain-forensics" target="_blank" rel="noopener" data-w-id="cecc7906-7182-8801-567b-221ae316f7e2" class="item mob"><img width="Auto" id="w-node-cecc7906-7182-8801-567b-221ae316f7e3-e316f7cd" alt="Blockchain Forensics" src="images/news-blockchain-forensics.svg" loading="lazy" class="news-image-new">
                 <div class="handpicked-news-info-wrapper">
                   <div class="source-name-web-new">The Block</div>
                   <div class="title-link-web-new">Blockchain Forensics: Tracing Digital Assets</div>
@@ -1325,12 +1325,9 @@ if (data.next === null) {
   nextButton.classList.remove('disabled-link');
 }
   } catch (error) {
-    console.error('Error:', error.message);
-    newsItems.forEach(item => {
-      const titleLink = item.querySelector('.title-link');
-      titleLink.textContent = 'Cannot load link';
-      titleLink.href = '#';
-    });
+    console.error('Error fetching social news:', error.message);
+    // Keep static fallback content visible - no DOM manipulation needed
+    // The static HTML content will remain displayed when API fails
   }
 }
 nextButton.addEventListener('click', (event) => {

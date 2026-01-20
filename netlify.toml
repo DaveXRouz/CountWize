@@ -90,7 +90,8 @@
         https://player.vimeo.com
         https://vimeo.com
         https://fresnel.vimeocdn.com
-        https://collector.vimeocdn.com;
+        https://collector.vimeocdn.com
+        https://unpkg.com;
       frame-ancestors 'self';
       base-uri 'self';
       form-action 'self' https://countwiseapi.space https://telegram-vercel-seven.vercel.app;
