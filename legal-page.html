@@ -17,6 +17,7 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/custom.css" rel="stylesheet" type="text/css">
   <style>@media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="178b1b8d-e383-3f5c-91f9-660fa0d1679a"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="0d28365a-84e7-036e-4dcc-019cc7f5d537"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="0d28365a-84e7-036e-4dcc-019cc7f5d546"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="4db813ed-6193-c5cc-d464-4625726cd9a9"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="923a19fe-6d4b-aac2-e6c7-e537e9b1c949"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="923a19fe-6d4b-aac2-e6c7-e537e9b1c952"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="923a19fe-6d4b-aac2-e6c7-e537e9b1c961"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="3a18469e-583d-6c7e-fa75-46985e769f0e"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="3a18469e-583d-6c7e-fa75-46985e769f17"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="3a18469e-583d-6c7e-fa75-46985e769f26"] {opacity:0;}}@media (max-width:991px) and (min-width:768px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="0d28365a-84e7-036e-4dcc-019cc7f5d537"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="0d28365a-84e7-036e-4dcc-019cc7f5d546"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="4db813ed-6193-c5cc-d464-4625726cd9a9"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="923a19fe-6d4b-aac2-e6c7-e537e9b1c949"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="923a19fe-6d4b-aac2-e6c7-e537e9b1c952"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="923a19fe-6d4b-aac2-e6c7-e537e9b1c961"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="3a18469e-583d-6c7e-fa75-46985e769f0e"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="3a18469e-583d-6c7e-fa75-46985e769f17"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="3a18469e-583d-6c7e-fa75-46985e769f26"] {opacity:0;}}</style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -49,32 +50,6 @@
 <body class="body-4">
   <div class="wrapper-page">
     <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a4a" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-2 w-nav">
-      <div class="navbar-code w-embed w-script">
-        <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.querySelector(".menu-button");
-    const disableScroll = () => {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
-    };
-    const enableScroll = () => {
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-    };
-    const toggleScroll = () => {
-      if (menuButton.classList.contains("w--open")) {
-        disableScroll();
-      } else {
-        enableScroll();
-      }
-    };
-    menuButton.addEventListener("click", () => {
-      // трішки зачекаємо, бо клас додається з затримкою
-      setTimeout(toggleScroll, 50);
-    });
-  });
-</script>
-      </div>
       <div class="navbar-wrapper">
         <a href="index.html" class="navbar-logo-link w-inline-block"><img src="images/group_3.svg" loading="lazy" alt="Logo" height="25" class="navbar-logo-image"></a>
         <nav role="navigation" class="navbar-menu w-nav-menu">
@@ -757,5 +732,6 @@
       });
   });
 </script>
+<script src="js/mobile-menu.js"></script>
 </body>
 </html>

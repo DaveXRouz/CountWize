@@ -17,6 +17,7 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/custom.css" rel="stylesheet" type="text/css">
   <style>@media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="178b1b8d-e383-3f5c-91f9-660fa0d1679a"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="df040808-25c6-facb-813d-af1158acea1b"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="df040808-25c6-facb-813d-af1158acea28"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="e95cce82-8680-d054-ab92-a9060ce3402d"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="e95cce82-8680-d054-ab92-a9060ce34034"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="e95cce82-8680-d054-ab92-a9060ce3403b"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="57830fb4-edfb-5227-9589-d7a93b60739c"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="57830fb4-edfb-5227-9589-d7a93b6073a1"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="b5228725-2276-5900-ae5e-d7f46ef91933"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="229a3f15-1923-78b6-63f7-6e8619a7769c"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="1c742671-6806-4fed-20ce-8e2ada4f2294"] {opacity:0;}}</style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -56,32 +57,6 @@
 <body class="body-4">
   <div class="wrapper-page">
     <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a4a" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-2 w-nav">
-      <div class="navbar-code w-embed w-script">
-        <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.querySelector(".menu-button");
-    const disableScroll = () => {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
-    };
-    const enableScroll = () => {
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-    };
-    const toggleScroll = () => {
-      if (menuButton.classList.contains("w--open")) {
-        disableScroll();
-      } else {
-        enableScroll();
-      }
-    };
-    menuButton.addEventListener("click", () => {
-      // трішки зачекаємо, бо клас додається з затримкою
-      setTimeout(toggleScroll, 50);
-    });
-  });
-</script>
-      </div>
       <div class="navbar-wrapper">
         <a href="index.html" class="navbar-logo-link w-inline-block"><img src="images/group_3.svg" loading="lazy" alt="Logo" height="25" class="navbar-logo-image"></a>
         <nav role="navigation" class="navbar-menu w-nav-menu">
@@ -911,5 +886,6 @@ prevButtonList.addEventListener('click', (event) => {
 // Стартова загрузка
 fetchListNews(currentPageList);
 </script>
+<script src="js/mobile-menu.js"></script>
 </body>
 </html>
