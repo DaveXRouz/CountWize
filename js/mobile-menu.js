@@ -22,11 +22,14 @@
     };
 
     var toggleScroll = function() {
-      if (menuButton.classList.contains('w--open')) {
+      var isOpen = menuButton.classList.contains('w--open');
+      if (isOpen) {
         disableScroll();
       } else {
         enableScroll();
       }
+      // Update aria-expanded state for accessibility
+      menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     };
 
     menuButton.addEventListener('click', function() {

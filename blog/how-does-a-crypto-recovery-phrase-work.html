@@ -35,6 +35,33 @@
   gtag('js', new Date());
   gtag('config', 'AW-447543988');
 </script>
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://countwize.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://countwize.com/blog.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How Does a Crypto Recovery Phrase Work?",
+        "item": "https://countwize.com/blog/how-does-a-crypto-recovery-phrase-work"
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="body-4">
   <div class="wrapper-page">
@@ -73,7 +100,7 @@
             </a>
           </div>
         </nav>
-        <div class="navbar-menu-button w-nav-button">
+        <div class="navbar-menu-button w-nav-button" aria-expanded="false" aria-label="Toggle navigation menu">
           <div class="navbar-menu-button-wrapper">
             <div class="navbar-menu-button-lines">
               <div data-w-id="cdd24c37-6b1d-2f63-06f3-673ef6da3a75" class="navbar-menu-button-line"></div>
