@@ -7225,11 +7225,10 @@ blockquote {
 }
 
 .footer-contact-groups-wrapper {
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  flex-flow: wrap;
-  justify-content: space-between;
-  display: flex;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .footer-item {
@@ -7278,6 +7277,7 @@ blockquote {
   justify-content: flex-start;
   align-items: center;
   display: flex;
+  margin-top: 1rem;
 }
 
 .footer-certificates-wrapper {
@@ -9046,17 +9046,19 @@ blockquote {
 }
 
 .core-values-heading-wrapper {
-  grid-column-gap: 100px;
-  grid-row-gap: 100px;
-  justify-content: space-between;
-  align-items: flex-end;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   display: flex;
 }
 
 .core-values-description {
-  text-align: left;
+  text-align: center;
   font-size: 17px;
   line-height: 140%;
+  max-width: 600px;
 }
 
 .core-values-cards-wrapper {
@@ -9172,13 +9174,11 @@ blockquote {
 }
 
 .blog-insights-wrapper {
-  grid-column-gap: 75px;
-  grid-row-gap: 30px;
-  grid-template-rows: auto auto;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-columns: 1fr;
+  gap: 30px 75px;
   width: 100%;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .blog-article-card, .blog-article-description-wrapper {
@@ -9186,6 +9186,11 @@ blockquote {
   grid-row-gap: 16px;
   flex-flow: column;
   display: flex;
+}
+
+.blog-article-card {
+  flex: 0 0 calc(50% - 37.5px);
+  max-width: 500px;
 }
 
 .blog-article-title {
@@ -11819,9 +11824,8 @@ blockquote {
   }
 
   .hero-button-wrapper {
-    position: absolute;
-    bottom: 10px;
-    right: -360px;
+    position: relative;
+    margin-top: 1.5rem;
   }
 
   .div-block-242 {

@@ -1,0 +1,10 @@
+{
+  "messages": [
+    {
+      "id": 1,
+      "timestamp": "2026-01-20T23:00:05.989389",
+      "message": "PLAN_READY: New plan available at planning.md. Press Enter to start implementation.",
+      "acknowledged": false
+    }
+  ]
+}

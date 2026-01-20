@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workflow Dashboard v3.1</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-hover: #30363d;
+            --border-color: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-green: #3fb950;
+            --accent-blue: #58a6ff;
+            --accent-yellow: #d29922;
+            --accent-red: #f85149;
+            --accent-purple: #a371f7;
+            --accent-orange: #f0883e;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        
+        /* Layout */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .logo-version {
+            font-size: 11px;
+            color: var(--text-secondary);
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+        
+        .status-dot.disconnected {
+            background: var(--accent-red);
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Quick Actions Bar */
+        .quick-actions {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .action-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .action-group-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        /* Buttons */
+        button {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        
+        button:hover:not(:disabled) {
+            transform: translateY(-1px);
+            filter: brightness(1.1);
+        }
+        
+        button:active:not(:disabled) {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .btn-primary { background: var(--accent-blue); color: white; }
+        .btn-success { background: var(--accent-green); color: white; }
+        .btn-warning { background: var(--accent-yellow); color: black; }
+        .btn-danger { background: var(--accent-red); color: white; }
+        .btn-purple { background: var(--accent-purple); color: white; }
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 8px 12px;
+        }
+        .btn-ghost:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+        
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        
+        .btn-icon {
+            padding: 8px;
+            width: 36px;
+            height: 36px;
+            justify-content: center;
+        }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .grid-wide {
+            grid-column: span 2;
+        }
+        
+        @media (max-width: 800px) {
+            .grid-wide { grid-column: span 1; }
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-title .icon {
+            font-size: 16px;
+        }
+        
+        .card-badge {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 10px;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        /* Status Display */
+        .status-display {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        
+        .status-idle { background: var(--bg-tertiary); color: var(--text-secondary); }
+        .status-ready { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); }
+        .status-running { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+        .status-paused { background: rgba(240, 136, 62, 0.15); color: var(--accent-orange); }
+        .status-testing { background: rgba(210, 153, 34, 0.15); color: var(--accent-yellow); }
+        .status-fixing_errors { background: rgba(248, 81, 73, 0.15); color: var(--accent-red); }
+        .status-verifying { background: rgba(163, 113, 247, 0.15); color: var(--accent-purple); }
+        .status-complete { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+        
+        .status-description {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        
+        /* Progress */
+        .progress-section {
+            margin-top: 20px;
+        }
+        
+        .progress-bar-container {
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            height: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            transition: width 0.5s ease;
+            border-radius: 6px;
+        }
+        
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* Phase Cards */
+        .phases-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .phase-card {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.15s;
+        }
+        
+        .phase-card:hover {
+            background: var(--bg-hover);
+        }
+        
+        .phase-letter {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            background: var(--bg-secondary);
+            flex-shrink: 0;
+        }
+        
+        .phase-letter.pending { color: var(--text-secondary); }
+        .phase-letter.running { color: var(--accent-green); background: rgba(63, 185, 80, 0.1); border: 2px solid var(--accent-green); }
+        .phase-letter.testing { color: var(--accent-yellow); background: rgba(210, 153, 34, 0.1); }
+        .phase-letter.complete { color: var(--accent-purple); background: rgba(163, 113, 247, 0.1); }
+        .phase-letter.failed { color: var(--accent-red); background: rgba(248, 81, 73, 0.1); }
+        .phase-letter.skipped { color: var(--text-secondary); opacity: 0.5; }
+        
+        .phase-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .phase-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .phase-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .phase-actions {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .phase-status-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        
+        /* Error Queue */
+        .error-list {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        
+        .error-item {
+            padding: 12px 15px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 3px solid var(--accent-red);
+            font-size: 13px;
+        }
+        
+        .error-item.fixed {
+            border-left-color: var(--accent-green);
+            opacity: 0.6;
+        }
+        
+        .error-phase {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+        
+        /* Activity Log */
+        .activity-log {
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            font-size: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .log-entry {
+            padding: 4px 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .log-time {
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+        
+        .log-message { flex: 1; }
+        .log-message.info { color: var(--accent-blue); }
+        .log-message.success { color: var(--accent-green); }
+        .log-message.warn { color: var(--accent-yellow); }
+        .log-message.error { color: var(--accent-red); }
+        
+        /* Settings Panel */
+        .settings-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .setting-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .setting-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .setting-input {
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 13px;
+            width: 100%;
+        }
+        
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        
+        .setting-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* Toggle Switch */
+        .toggle {
+            position: relative;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-tertiary);
+            border-radius: 24px;
+            transition: 0.2s;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.2s;
+        }
+        
+        .toggle input:checked + .toggle-slider {
+            background: var(--accent-green);
+        }
+        
+        .toggle input:checked + .toggle-slider:before {
+            transform: translateX(20px);
+        }
+        
+        /* Modified Files */
+        .files-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .file-item {
+            padding: 8px 12px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            margin-bottom: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .file-icon {
+            color: var(--accent-blue);
+        }
+        
+        /* Plan Viewer */
+        .plan-preview {
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        
+        /* Empty States */
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+        }
+        
+        .empty-state .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            opacity: 0.5;
+        }
+        
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 60vh;
+        }
+        
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .quick-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .action-group {
+                justify-content: center;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">🤖</div>
+                <div>
+                    <h1>AI Workflow Dashboard</h1>
+                </div>
+                <span class="logo-version">v3.1</span>
+            </div>
+            <div class="header-right">
+                <div class="connection-status">
+                    <div class="status-dot" id="connection-dot"></div>
+                    <span id="connection-text">Connected</span>
+                </div>
+                <button class="btn-ghost btn-icon" onclick="refreshAll()" title="Refresh">🔄</button>
+                <button class="btn-ghost btn-icon" onclick="openSettings()" title="Settings">⚙️</button>
+            </div>
+        </header>
+        
+        <main>
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <div class="action-group">
+                    <button class="btn-primary" id="btn-analyze" onclick="analyzePlan()">
+                        📋 Analyze Plan
+                    </button>
+                    <button class="btn-success" id="btn-start" onclick="startWorkflow()" disabled>
+                        🚀 Start Workflow
+                    </button>
+                    <button class="btn-warning" id="btn-pause" onclick="togglePause()" disabled>
+                        ⏸️ Pause
+                    </button>
+                </div>
+                
+                <div class="action-group">
+                    <button class="btn-secondary" onclick="openPreview()">
+                        🌐 Open Preview
+                    </button>
+                    <button class="btn-secondary" onclick="openFolder()">
+                        📁 Open Folder
+                    </button>
+                    <button class="btn-secondary" onclick="openAntigravity()">
+                        🔮 Antigravity
+                    </button>
+                </div>
+                
+                <div class="action-group">
+                    <button class="btn-purple" id="btn-fix" onclick="fixErrors()" disabled>
+                        🔧 Fix Errors
+                    </button>
+                    <button class="btn-secondary" id="btn-verify" onclick="runVerify()" disabled>
+                        ✅ Verify
+                    </button>
+                    <button class="btn-danger btn-sm" onclick="confirmReset()">
+                        🔄 Reset
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <!-- Status Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><span class="icon">📊</span> Workflow Status</span>
+                        <span class="card-badge" id="elapsed-time">0:00</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="status-display">
+                            <div class="status-badge status-idle" id="status-badge">IDLE</div>
+                            <p class="status-description" id="status-description">Waiting for plan...</p>
+                        </div>
+                        
+                        <div class="progress-section" id="progress-section" style="display: none;">
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="progress-stats">
+                                <span id="progress-text">Phase 0 of 0</span>
+                                <span id="progress-percent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phases Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><span class="icon">📦</span> Phases</span>
+                        <span class="card-badge" id="phases-count">0 phases</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="phases-list" id="phases-list">
+                            <div class="empty-state">
+                                <div class="icon">📋</div>
+                                <p>No phases yet</p>
+                                <p style="font-size: 12px; margin-top: 5px;">
+                                    Add planning.md and click "Analyze Plan"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Error Queue Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><span class="icon">⚠️</span> Error Queue</span>
+                        <span class="card-badge" id="errors-count">0 errors</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="error-list" id="error-list">
+                            <div class="empty-state">
+                                <div class="icon">✅</div>
+                                <p>No errors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modified Files Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><span class="icon">📝</span> Modified Files</span>
+                        <span class="card-badge" id="files-count">0 files</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="files-list" id="files-list">
+                            <div class="empty-state">
+                                <div class="icon">📄</div>
+                                <p>No files modified yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity Log Card -->
+                <div class="card grid-wide">
+                    <div class="card-header">
+                        <span class="card-title"><span class="icon">📜</span> Activity Log</span>
+                        <button class="btn-ghost btn-sm" onclick="clearActivity()">Clear</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-log" id="activity-log">
+                            <div class="log-entry">
+                                <span class="log-time">--:--:--</span>
+                                <span class="log-message info">Dashboard loaded. Waiting for commands...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>⚙️ Settings</h3>
+                <button class="btn-ghost btn-icon" onclick="closeSettings()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label class="setting-label">TestSprite API Key</label>
+                        <input type="password" class="setting-input" id="testsprite-key" placeholder="Enter your TestSprite API key...">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label class="setting-label">Local Server Port</label>
+                        <input type="number" class="setting-input" id="local-port" value="8000">
+                    </div>
+                    
+                    <div class="setting-item setting-row">
+                        <span class="setting-label">Auto-cascade Phases</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="auto-cascade" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item setting-row">
+                        <span class="setting-label">Sound Notifications</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="sound-enabled" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeSettings()">Cancel</button>
+                <button class="btn-primary" onclick="saveSettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- View Plan Modal -->
+    <div class="modal-overlay" id="plan-modal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>📋 Planning Document</h3>
+                <button class="btn-ghost btn-icon" onclick="closePlanModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="plan-preview" id="plan-content">
+                    Loading...
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePlanModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // API Configuration
+        const API_BASE = '';
+        let pollInterval = null;
+        let isConnected = true;
+        let startTime = null;
+        
+        // Status descriptions
+        const STATUS_DESCRIPTIONS = {
+            'idle': 'Waiting for planning.md file...',
+            'analyzing': 'Analyzing plan and splitting into phases...',
+            'ready': 'Plan analyzed! Click "Start Workflow" to begin.',
+            'running': 'Executing phases...',
+            'paused': 'Workflow paused. Click "Resume" to continue.',
+            'testing': 'Running TestSprite tests...',
+            'fixing_errors': 'Fixing errors from test queue...',
+            'verifying': 'Running final verification...',
+            'complete': '🎉 Workflow complete! All phases done.',
+            'error': 'An error occurred. Check logs for details.'
+        };
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadConfig();
+            loadState();
+            startPolling();
+            startTimeTracking();
+        });
+        
+        // Polling
+        function startPolling() {
+            pollInterval = setInterval(() => {
+                loadState();
+                loadActivity();
+            }, 2000);
+        }
+        
+        function startTimeTracking() {
+            setInterval(updateElapsedTime, 1000);
+        }
+        
+        // API Functions
+        async function apiGet(endpoint) {
+            try {
+                const response = await fetch(`${API_BASE}${endpoint}`);
+                if (!response.ok) throw new Error('Network error');
+                setConnected(true);
+                return await response.json();
+            } catch (error) {
+                setConnected(false);
+                console.error('API Error:', error);
+                return null;
+            }
+        }
+        
+        async function apiPost(endpoint, data = {}) {
+            try {
+                const response = await fetch(`${API_BASE}${endpoint}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (!response.ok) throw new Error('Network error');
+                setConnected(true);
+                return await response.json();
+            } catch (error) {
+                setConnected(false);
+                console.error('API Error:', error);
+                return null;
+            }
+        }
+        
+        function setConnected(connected) {
+            isConnected = connected;
+            const dot = document.getElementById('connection-dot');
+            const text = document.getElementById('connection-text');
+            
+            if (connected) {
+                dot.classList.remove('disconnected');
+                text.textContent = 'Connected';
+            } else {
+                dot.classList.add('disconnected');
+                text.textContent = 'Disconnected';
+            }
+        }
+        
+        // Load State
+        async function loadState() {
+            const state = await apiGet('/api/state');
+            if (state) {
+                updateStatusDisplay(state);
+                updateButtons(state);
+                updateProgress(state);
+                updateErrors(state.error_queue || []);
+                updateModifiedFiles(state.modified_files || []);
+                
+                if (state.started_at) {
+                    startTime = new Date(state.started_at);
+                }
+            }
+            
+            const phasesData = await apiGet('/api/phases');
+            if (phasesData && phasesData.phases) {
+                updatePhases(phasesData.phases);
+            }
+        }
+        
+        async function loadActivity() {
+            const data = await apiGet('/api/activity');
+            if (data && data.activities) {
+                updateActivityLog(data.activities);
+            }
+        }
+        
+        async function loadConfig() {
+            const config = await apiGet('/api/config');
+            if (config) {
+                document.getElementById('local-port').value = config.local_server_port || 8000;
+                document.getElementById('auto-cascade').checked = config.auto_cascade !== false;
+                document.getElementById('sound-enabled').checked = config.sound_enabled !== false;
+            }
+        }
+        
+        // Update UI
+        function updateStatusDisplay(state) {
+            const badge = document.getElementById('status-badge');
+            const desc = document.getElementById('status-description');
+            const status = state.status || 'idle';
+            
+            badge.textContent = status.toUpperCase().replace('_', ' ');
+            badge.className = 'status-badge status-' + status;
+            desc.textContent = STATUS_DESCRIPTIONS[status] || 'Unknown status';
+        }
+        
+        function updateButtons(state) {
+            const status = state.status;
+            
+            document.getElementById('btn-start').disabled = status !== 'ready';
+            document.getElementById('btn-pause').disabled = !['running', 'paused'].includes(status);
+            document.getElementById('btn-pause').innerHTML = state.paused ? '▶️ Resume' : '⏸️ Pause';
+            document.getElementById('btn-fix').disabled = (state.error_queue || []).length === 0;
+            document.getElementById('btn-verify').disabled = !['fixing_errors', 'ready'].includes(status);
+        }
+        
+        function updateProgress(state) {
+            const section = document.getElementById('progress-section');
+            const bar = document.getElementById('progress-bar');
+            const text = document.getElementById('progress-text');
+            const percent = document.getElementById('progress-percent');
+            
+            const total = state.total_phases || 0;
+            const complete = (state.phases_complete || []).length;
+            
+            if (total > 0) {
+                section.style.display = 'block';
+                const pct = Math.round((complete / total) * 100);
+                bar.style.width = pct + '%';
+                text.textContent = `Phase ${complete} of ${total}`;
+                percent.textContent = pct + '%';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+        
+        function updatePhases(phases) {
+            const container = document.getElementById('phases-list');
+            document.getElementById('phases-count').textContent = `${phases.length} phases`;
+            
+            if (!phases.length) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">📋</div>
+                        <p>No phases yet</p>
+                        <p style="font-size: 12px; margin-top: 5px;">
+                            Add planning.md and click "Analyze Plan"
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = phases.map(phase => {
+                const status = phase.status || 'pending';
+                const statusBadgeClass = {
+                    'pending': 'status-idle',
+                    'running': 'status-running',
+                    'testing': 'status-testing',
+                    'complete': 'status-complete',
+                    'failed': 'status-fixing_errors',
+                    'skipped': 'status-idle'
+                }[status] || 'status-idle';
+                
+                return `
+                    <div class="phase-card">
+                        <div class="phase-letter ${status}">${phase.id}</div>
+                        <div class="phase-info">
+                            <div class="phase-name">${phase.name}</div>
+                            <div class="phase-meta">${phase.task_count || 0} tasks • ~${Math.round((phase.estimated_tokens || 0) / 1000)}k tokens</div>
+                        </div>
+                        <div class="phase-actions">
+                            ${status === 'pending' ? `<button class="btn-secondary btn-sm" onclick="startPhase('${phase.id}')">Start</button>` : ''}
+                            ${status === 'failed' ? `<button class="btn-warning btn-sm" onclick="retryPhase('${phase.id}')">Retry</button>` : ''}
+                            ${status === 'pending' || status === 'running' ? `<button class="btn-ghost btn-sm" onclick="skipPhase('${phase.id}')">Skip</button>` : ''}
+                        </div>
+                        <span class="phase-status-badge ${statusBadgeClass}">${status}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function updateErrors(errors) {
+            const container = document.getElementById('error-list');
+            document.getElementById('errors-count').textContent = `${errors.length} errors`;
+            
+            if (!errors.length) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">✅</div>
+                        <p>No errors</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = errors.map(error => `
+                <div class="error-item ${error.fixed ? 'fixed' : ''}">
+                    <div class="error-phase">Phase ${error.phase}</div>
+                    <div>${error.error}</div>
+                </div>
+            `).join('');
+        }
+        
+        function updateModifiedFiles(files) {
+            const container = document.getElementById('files-list');
+            document.getElementById('files-count').textContent = `${files.length} files`;
+            
+            if (!files.length) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">📄</div>
+                        <p>No files modified yet</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = files.map(file => `
+                <div class="file-item">
+                    <span class="file-icon">📄</span>
+                    ${file}
+                </div>
+            `).join('');
+        }
+        
+        function updateActivityLog(activities) {
+            const container = document.getElementById('activity-log');
+            
+            if (!activities.length) {
+                container.innerHTML = `
+                    <div class="log-entry">
+                        <span class="log-time">--:--:--</span>
+                        <span class="log-message info">No activity yet</span>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = activities.slice(0, 50).map(a => {
+                const time = new Date(a.time).toLocaleTimeString();
+                return `
+                    <div class="log-entry">
+                        <span class="log-time">${time}</span>
+                        <span class="log-message ${a.level}">${a.message}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function updateElapsedTime() {
+            if (startTime) {
+                const now = new Date();
+                const elapsed = Math.floor((now - startTime) / 1000);
+                const mins = Math.floor(elapsed / 60);
+                const secs = elapsed % 60;
+                document.getElementById('elapsed-time').textContent = 
+                    `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+        }
+        
+        // Actions
+        async function analyzePlan() {
+            addLocalLog('Analyzing plan...', 'info');
+            const result = await apiPost('/api/analyze');
+            if (result && !result.error) {
+                addLocalLog(`Plan analyzed: ${result.total_tasks} tasks → ${result.total_phases} phases`, 'success');
+            } else if (result && result.error) {
+                addLocalLog(`Error: ${result.error}`, 'error');
+            }
+            loadState();
+        }
+        
+        async function startWorkflow() {
+            addLocalLog('Starting workflow...', 'info');
+            startTime = new Date();
+            const result = await apiPost('/api/start');
+            if (result && result.message) {
+                addLocalLog(result.message, 'success');
+            }
+            loadState();
+        }
+        
+        async function togglePause() {
+            const state = await apiGet('/api/state');
+            if (state && state.paused) {
+                const result = await apiPost('/api/resume');
+                addLocalLog('Workflow resumed', 'info');
+            } else {
+                const result = await apiPost('/api/pause');
+                addLocalLog('Workflow paused', 'warn');
+            }
+            loadState();
+        }
+        
+        async function startPhase(phaseId) {
+            addLocalLog(`Starting Phase ${phaseId}...`, 'info');
+            await apiPost('/api/start-phase', { phase_id: phaseId });
+            loadState();
+        }
+        
+        async function skipPhase(phaseId) {
+            if (!confirm(`Skip Phase ${phaseId}?`)) return;
+            addLocalLog(`Skipping Phase ${phaseId}`, 'warn');
+            await apiPost('/api/skip-phase', { phase_id: phaseId });
+            loadState();
+        }
+        
+        async function retryPhase(phaseId) {
+            addLocalLog(`Retrying Phase ${phaseId}...`, 'info');
+            await apiPost('/api/retry-phase', { phase_id: phaseId });
+            loadState();
+        }
+        
+        async function fixErrors() {
+            addLocalLog('Starting error fix session...', 'info');
+            await apiPost('/api/fix-errors');
+            loadState();
+        }
+        
+        async function runVerify() {
+            addLocalLog('Running final verification...', 'info');
+            await apiPost('/api/verify');
+            loadState();
+        }
+        
+        async function confirmReset() {
+            if (!confirm('Reset the entire workflow? This cannot be undone.')) return;
+            addLocalLog('Resetting workflow...', 'warn');
+            startTime = null;
+            document.getElementById('elapsed-time').textContent = '0:00';
+            await apiPost('/api/reset');
+            loadState();
+        }
+        
+        // Quick Actions
+        async function openPreview() {
+            addLocalLog('Opening preview in browser...', 'info');
+            await apiPost('/api/open-browser', { page: '' });
+        }
+        
+        async function openFolder() {
+            addLocalLog('Opening project folder...', 'info');
+            await apiPost('/api/open-folder');
+        }
+        
+        async function openAntigravity() {
+            addLocalLog('Opening Antigravity...', 'info');
+            await apiPost('/api/open-antigravity');
+        }
+        
+        function refreshAll() {
+            addLocalLog('Refreshing...', 'info');
+            loadState();
+            loadActivity();
+            loadConfig();
+        }
+        
+        // Settings
+        function openSettings() {
+            document.getElementById('settings-modal').classList.add('active');
+        }
+        
+        function closeSettings() {
+            document.getElementById('settings-modal').classList.remove('active');
+        }
+        
+        async function saveSettings() {
+            const settings = {
+                testsprite_api_key: document.getElementById('testsprite-key').value,
+                local_server_port: parseInt(document.getElementById('local-port').value),
+                auto_cascade: document.getElementById('auto-cascade').checked,
+                sound_enabled: document.getElementById('sound-enabled').checked
+            };
+            
+            const result = await apiPost('/api/config', settings);
+            if (result && result.message) {
+                addLocalLog('Settings saved', 'success');
+                closeSettings();
+            }
+        }
+        
+        // Plan Modal
+        async function viewPlan() {
+            document.getElementById('plan-modal').classList.add('active');
+            const data = await apiGet('/api/plan');
+            document.getElementById('plan-content').textContent = 
+                data && data.content ? data.content : 'No planning.md found';
+        }
+        
+        function closePlanModal() {
+            document.getElementById('plan-modal').classList.remove('active');
+        }
+        
+        // Activity
+        function addLocalLog(message, level = 'info') {
+            const container = document.getElementById('activity-log');
+            const time = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `
+                <span class="log-time">${time}</span>
+                <span class="log-message ${level}">${message}</span>
+            `;
+            container.insertBefore(entry, container.firstChild);
+        }
+        
+        function clearActivity() {
+            document.getElementById('activity-log').innerHTML = `
+                <div class="log-entry">
+                    <span class="log-time">${new Date().toLocaleTimeString()}</span>
+                    <span class="log-message info">Logs cleared</span>
+                </div>
+            `;
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSettings();
+                closePlanModal();
+            }
+        });
+    </script>
+</body>
+</html>
