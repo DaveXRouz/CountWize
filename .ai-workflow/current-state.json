@@ -1,38 +1,10 @@
 {
-  "status": "complete",
-  "current_phase": "D",
-  "total_phases": 4,
-  "phases": [
-    "A",
-    "B",
-    "C",
-    "D"
-  ],
-  "phases_complete": [
-    "A",
-    "B",
-    "C",
-    "D"
-  ],
-  "phases_failed": [],
-  "error_queue": [],
-  "modified_files": [
-    "crypto-recovery-guide.html",
-    "faq-crypto-recovery.html",
-    "crypto-insights.html",
-    "index.html",
-    "about-us.html",
-    "news.html",
-    "blog.html",
-    "crypto-recovery.html",
-    "legal-page.html",
-    "crypto-education.html",
-    "privacy-policy.html",
-    "cookie-policy.html"
-  ],
-  "started_at": "2026-01-21T01:04:55.891811",
-  "completed_at": "2026-01-21T01:28:27.418301",
-  "updated_at": "2026-01-21T01:28:27.418333",
+  "status": "running",
+  "current_phase": "A",
+  "phases": [],
+  "errors": [],
+  "modified_files": [],
+  "start_time": "2026-01-21T03:36:44.247622",
   "paused": false,
-  "elapsed_seconds": 0
+  "workflow_complete": false
 }

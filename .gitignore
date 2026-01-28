@@ -51,3 +51,10 @@ build/
 *.zip
 *.tar.gz
 *.rar
+# AI Workflow System
+.ai-workflow/logs/
+.ai-workflow/session.json
+.ai-workflow/session-history/
+.ai-workflow/test-results/
+.ai-workflow/current-command.md
+.ai-workflow/status.json

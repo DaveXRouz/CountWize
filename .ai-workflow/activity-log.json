@@ -1,182 +1,152 @@
 [
   {
-    "time": "2026-01-21T01:44:25.412187",
-    "message": "Opened browser: http://localhost:8000/",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:28:30.377220",
-    "message": "Tests complete for Phase D: PASSED",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:28:27.510257",
-    "message": "WORKFLOW COMPLETE!",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:28:25.412836",
-    "message": "Starting final verification...",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:28:25.412295",
-    "message": "Starting TestSprite tests for Phase D",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:28:25.411251",
-    "message": "Phase D completed",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:28:23.403261",
-    "message": "Detected Phase D completion via state file",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:26:14.946306",
-    "message": "Tests complete for Phase C: PASSED",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:26:13.085593",
-    "message": "Phase D started",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:26:10.071782",
-    "message": "Auto-cascading to Phase D",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:26:10.071457",
-    "message": "Starting TestSprite tests for Phase C",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:26:10.070242",
-    "message": "Phase C completed",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:26:08.061795",
-    "message": "Detected Phase C completion via state file",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:20:59.472700",
-    "message": "Tests complete for Phase B: PASSED",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:20:57.317352",
-    "message": "Phase C started",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:20:54.584539",
-    "message": "Auto-cascading to Phase C",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:20:54.584103",
-    "message": "Starting TestSprite tests for Phase B",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:20:54.582782",
-    "message": "Phase B completed",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:20:52.563249",
-    "message": "Detected Phase B completion via state file",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:20:38.866655",
-    "message": "Opened browser: http://localhost:8000/",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:11:57.150021",
-    "message": "Tests complete for Phase A: PASSED",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:11:55.270258",
-    "message": "Phase B started",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:11:52.245598",
-    "message": "Auto-cascading to Phase B",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:11:52.245424",
-    "message": "Starting TestSprite tests for Phase A",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:11:52.244534",
-    "message": "Phase A completed",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:11:50.236908",
-    "message": "Detected Phase A completion via state file",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:04:59.604761",
-    "message": "Phase A started",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:04:58.000201",
-    "message": "Workflow started with Phase A",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:04:41.229737",
-    "message": "Opened browser: http://localhost:8000/",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:04:21.132886",
-    "message": "Plan analyzed: 17 tasks \u2192 4 phases",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:04:21.127975",
-    "message": "Analyzing planning.md...",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:03:12.858256",
-    "message": "Local server: http://localhost:8000",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:03:12.858134",
-    "message": "New planning.md detected!",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:03:12.858008",
-    "message": "Dashboard: http://localhost:3000",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:03:12.857725",
-    "message": "Starting Orchestrator v3.1 for: /Users/hamzeh/Desktop/GitHub/CountWize  - Website",
-    "level": "info"
-  },
-  {
-    "time": "2026-01-21T01:03:12.857378",
+    "timestamp": "2026-01-21T03:20:14.657376",
+    "time": "03:20:14",
     "message": "Local server started on port 8000",
-    "level": "info"
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:20:14.658828",
+    "time": "03:20:14",
+    "message": "File watcher started",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:20:14.664668",
+    "time": "03:20:14",
+    "message": "Dashboard: http://localhost:3000",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:20:14.664967",
+    "time": "03:20:14",
+    "message": "Existing planning.md found",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:21:22.929125",
+    "time": "03:21:22",
+    "message": "Local server started on port 8000",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:21:22.930364",
+    "time": "03:21:22",
+    "message": "File watcher started",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:21:22.938027",
+    "time": "03:21:22",
+    "message": "Dashboard: http://localhost:3000",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:21:22.938300",
+    "time": "03:21:22",
+    "message": "Existing planning.md found",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:24:59.053602",
+    "time": "03:24:59",
+    "message": "Resetting workflow...",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:24:59.057271",
+    "time": "03:24:59",
+    "message": "Workflow reset complete",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:25:02.377503",
+    "time": "03:25:02",
+    "message": "Found 48 tasks in planning.md",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:25:02.387700",
+    "time": "03:25:02",
+    "message": "Created 8 phases from 48 tasks",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:36:39.349136",
+    "time": "03:36:39",
+    "message": "Found 48 tasks in planning.md",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:36:39.356093",
+    "time": "03:36:39",
+    "message": "Created 8 phases from 48 tasks",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:36:44.248473",
+    "time": "03:36:44",
+    "message": "Workflow started",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:36:46.269767",
+    "time": "03:36:46",
+    "message": "Phase A started",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:36:46.276956",
+    "time": "03:36:46",
+    "message": "Command file written for Phase A",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:36:46.783416",
+    "time": "03:36:46",
+    "message": "Triggering Claude Code for Phase A...",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:36:46.966702",
+    "time": "03:36:46",
+    "message": "Sent trigger to Claude Code for Phase A",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:41:45.957851",
+    "time": "03:41:45",
+    "message": "Opened preview: http://localhost:8000/",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T03:50:20.967941",
+    "time": "03:50:20",
+    "message": "Opened preview: http://localhost:8000/",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T05:07:40.153940",
+    "time": "05:07:40",
+    "message": "Local server started on port 8000",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T05:07:40.155296",
+    "time": "05:07:40",
+    "message": "File watcher started",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T05:07:40.160596",
+    "time": "05:07:40",
+    "message": "Dashboard: http://localhost:3000",
+    "level": "INFO"
+  },
+  {
+    "timestamp": "2026-01-21T05:07:40.160836",
+    "time": "05:07:40",
+    "message": "Existing planning.md found",
+    "level": "INFO"
   }
 ]

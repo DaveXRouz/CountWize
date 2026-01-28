@@ -1,207 +1,47 @@
 {
-  "total_tasks": 17,
-  "total_phases": 4,
-  "max_tokens_per_phase": 89600,
+  "total_tasks": 48,
+  "total_phases": 8,
   "phases": [
     {
       "id": "A",
-      "name": "Phase A",
-      "status": "complete",
-      "task_count": 5,
-      "estimated_tokens": 86333,
-      "tasks": [
-        {
-          "title": "Task 1.1: Fix Embedded Content Failures",
-          "content": "**Issues:** #005, #039  \n**Complexity:** Complex\n\n**Files to Modify:**\n- `about-us.html` \u2014 Line ~295\n- `index.html` \u2014 Line ~337 (lightbox JSON)\n- `netlify.toml` \u2014 CSP headers (if needed)\n\n**What to Change:**\n\nReplace Embedly wrapper iframes with direct Vimeo embeds:\n\n```html\n<!-- BEFORE (broken): -->\n<iframe class=\"embedly-embed\" src=\"https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com...\" ...></iframe>\n\n<!-- AFTER (fixed): -->\n<iframe \n  src=\"https://player.vimeo.com/video/1061354345?title=0&byline=0&portrait=0&dnt=1&badge=0&controls=1&color=07B96A\" \n  style=\"border: none; background-color: #000;\"\n  allow=\"autoplay; fullscreen; picture-in-picture; encrypted-media\"\n  allowfullscreen\n  title=\"CountWize\"\n></iframe>\n```\n\n**Acceptance Criteria:**\n- [ ] Embedded content loads without error on About page\n- [ ] Embedded content loads without error on Home page\n- [ ] No \"content blocked\" message visible to users\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17237
-        },
-        {
-          "title": "Task 1.2: Fix Video Player Integration",
-          "content": "**Issues:** #022, #037, #040  \n**Complexity:** Complex\n\n**Files to Modify:**\n- `index.html` \u2014 Hero video button (~line 327), Lessons section\n- `crypto-education.html` \u2014 Lessons For You section\n\n**What to Change:**\n\n**Fix #037 (Hero video button redirects to registration):**\n```html\n<!-- BEFORE (deceptive): -->\n<a href=\"/recovery-questionnaire.html\" class=\"watch-video-btn\">Watch video</a>\n\n<!-- AFTER option A - actual video link: -->\n<a href=\"https://vimeo.com/1061354345\" class=\"watch-video-btn\" target=\"_blank\">Watch video</a>\n\n<!-- AFTER option B - remove if no video exists: -->\n<!-- Delete the entire watch-video element -->\n```\n\n**Fix #022, #040 (Video cards non-functional):**\nVerify lesson cards have proper click handlers - they already have `data-video-url` attributes, ensure JavaScript is switching the player iframe src.\n\n**Acceptance Criteria:**\n- [ ] \"Watch video\" hero button plays a video (not registration redirect)\n- [ ] OR hero \"Watch video\" button is removed if no video exists\n- [ ] Lesson cards on Home and Education pages play videos when clicked\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17270
-        },
-        {
-          "title": "Task 1.3: Fix News Feed Integration",
-          "content": "**Issues:** #030, #031, #032, #033, #034, #041  \n**Complexity:** Complex\n\n**Files to Modify:**\n- `index.html` \u2014 Social News section (~line 1160+)\n- `news.html` \u2014 All news sections\n\n**What to Change:**\n\nReplace placeholder cards with curated static content:\n\n```html\n<!-- BEFORE (placeholder): -->\n<div id=\"source-name1\" class=\"source-name-new\">Binance Twitter</div>\n<div id=\"time-since1\" class=\"time-since-new\">3h ago</div>\n<div id=\"title-link1\" class=\"title-link-new\">Text Link</div>\n<a id=\"buttonLink1\" href=\"#\">...</a>\n\n<!-- AFTER (real content): -->\n<div id=\"source-name1\" class=\"source-name-new\">CoinDesk</div>\n<div id=\"time-since1\" class=\"time-since-new\">Jan 15, 2026</div>\n<div id=\"title-link1\" class=\"title-link-new\">Bitcoin Hits New All-Time High Amid ETF Inflows</div>\n<a id=\"buttonLink1\" href=\"https://coindesk.com/article-url\" target=\"_blank\" rel=\"noopener\">...</a>\n```\n\n**For duplicate articles (#033):** Ensure each Trending card has unique content.\n\n**Acceptance Criteria:**\n- [ ] No \"Cannot load link\" errors visible\n- [ ] No identical placeholder cards (\"Binance Twitter\", \"3h ago\")\n- [ ] All news links work and open external articles\n- [ ] No duplicate articles in Trending section\n\n---\n\n## Phase 2: Content Integrity (Days 4-7)\n\n> **IMPORTANT:** Fix broken images and misplaced content affecting visual quality.\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17334
-        },
-        {
-          "title": "Task 2.1: Fix Missing/Broken Images",
-          "content": "**Issues:** #002, #009, #011, #014, #023  \n**Complexity:** Medium\n\n**Files to Modify:**\n- `about-us.html` \u2014 Mission & Vision icons (~line 168, 173)\n- `crypto-recovery-guide.html` \u2014 Multiple broken images\n- `crypto-education.html` \u2014 Book covers\n- `images/` \u2014 May need new assets\n\n**What to Change:**\n\n**#002 (Mission & Vision use same icon):**\n```html\n<!-- BEFORE: -->\n<img src=\"images/vector_2.svg\" loading=\"lazy\" alt=\"icon\"> <!-- Used for both -->\n\n<!-- AFTER: -->\n<!-- Mission: Use target/compass icon -->\n<img src=\"images/mission-icon.svg\" loading=\"lazy\" alt=\"Our Mission\">\n<!-- Vision: Use telescope/eye icon -->\n<img src=\"images/vision-icon.svg\" loading=\"lazy\" alt=\"Our Vision\">\n```\n\n**#009 (5 recovery reason cards missing icons):**\nCreate/upload icons for:\n1. Loss of recovery phrase \u2192 key icon\n2. Phishing \u2192 hook icon\n3. Erroneous translation \u2192 wrong arrow icon\n4. Malicious software \u2192 bug icon\n5. Unreliable network \u2192 broken wifi icon\n\n**#011, #014:** Search for `alt=\"bitcoin\"` and `alt=\"crypto-recovery\"` and fix image paths.\n\n**Acceptance Criteria:**\n- [ ] Mission and Vision show distinct, contextual icons\n- [ ] All 5 recovery reason cards show relevant icons\n- [ ] All section images display properly\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17305
-        },
-        {
-          "title": "Task 2.2: Remove Misplaced Images from Text",
-          "content": "**Issues:** #016, #020  \n**Complexity:** Simple\n\n**Files to Modify:**\n- `crypto-recovery-guide.html` \u2014 Real Case Example section\n- `crypto-education.html` \u2014 EBooks description\n\n**What to Change:**\n\n**#016:**\n```html\n<!-- BEFORE: -->\n<p>If your crypto is compromised<img src=\"...\" alt=\"using an unreliable network\">lost...</p>\n\n<!-- AFTER: -->\n<p>If your crypto is compromised or access is lost, contact us immediately.</p>\n```\n\n**#020:**\n```html\n<!-- BEFORE: -->\n<p>...to s<img alt=\"lesson cover\">ahead in the world...</p>\n\n<!-- AFTER: -->\n<p>...to stay ahead in the world of crypto, blockchain, and finance.</p>\n```\n\n**Acceptance Criteria:**\n- [ ] No alt text visible within paragraph content\n- [ ] Text reads smoothly without embedded images\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17187
-        }
-      ],
-      "started_at": "2026-01-21T01:04:58.000416",
-      "completed_at": "2026-01-21T01:11:50.237209",
-      "elapsed_seconds": 0
+      "task_count": 6,
+      "tokens": 1728
     },
     {
       "id": "B",
-      "name": "Phase B",
-      "status": "complete",
-      "task_count": 5,
-      "estimated_tokens": 85777,
-      "tasks": [
-        {
-          "title": "Task 2.3: Fix Empty Team Section",
-          "content": "**Issues:** #004  \n**Complexity:** Medium\n\n**Files to Modify:**\n- `about-us.html` \u2014 Experts section\n\n**What to Change:**\n\nOption A: The team content already exists (~line 264-283). Verify it's rendering.\n\nOption B: Add link to team.html:\n```html\n<a href=\"team.html\" class=\"btn\">Meet Our Full Team \u2192</a>\n```\n\nOption C: Remove empty section heading if no content planned.\n\n**Acceptance Criteria:**\n- [ ] Section shows team members, links to team.html, or is removed\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17117
-        },
-        {
-          "title": "Task 2.4: Fix Wrong Video in EBooks",
-          "content": "**Issues:** #021  \n**Complexity:** Simple\n\n**Files to Modify:**\n- `crypto-education.html` \u2014 EBooks section\n\n**What to Change:**\n```html\n<!-- Option A: Replace with correct video -->\n<button onclick=\"playVideo('CORRECT_EBOOK_VIDEO_ID')\">Play video</button>\n\n<!-- Option B: Change CTA to match section -->\n<a href=\"#books-section\" class=\"btn\">Browse eBooks</a>\n```\n\n**Acceptance Criteria:**\n- [ ] Video button plays eBook-related content OR CTA matches section purpose\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17118
-        },
-        {
-          "title": "Task 2.5: Fix Platform Links",
-          "content": "**Issues:** #038  \n**Complexity:** Simple\n\n**Files to Modify:**\n- `index.html` \u2014 Supported Platforms section (~line 387-395)\n\n**What to Change:**\n\nVerify links work (they appear to already have real URLs):\n```html\n<a href=\"https://www.binance.com/en/square/post/22994522805130\" target=\"_blank\">\n  <img src=\"images/binance_logo-1.svg\" alt=\"Binance\">\n</a>\n```\n\nIf any platform link is dead, either update URL or remove logo.\n\n**Acceptance Criteria:**\n- [ ] Each platform logo links to actual CountWize content\n- [ ] OR misleading logos removed if no actual presence\n\n---\n\n## Phase 3: Brand Consistency (Days 8-10)\n\n> **WARNING:** Brand name must be \"CountWize\" everywhere. No variations.\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17173
-        },
-        {
-          "title": "Task 3.1: Fix \"Count Wise\" \u2192 \"CountWize\" (Site-wide)",
-          "content": "**Issues:** #003, #018, #019 + many more  \n**Complexity:** Simple (bulk find/replace)\n\n**Files to Modify:**\n- `about-us.html` \u2014 Line 186\n- `faq-crypto-recovery.html` \u2014 Lines 242, 248, 274, 282, 287, 300, 313, 352\n- `crypto-tax.html` \u2014 Lines 361, 367, 372, 378, 383, 400, 427\n- `crypto-recovery.html` \u2014 Lines 356, 361, 387, 395, 400, 413, 426, 465\n- `crypto-recovery-guide.html` \u2014 Line 449+\n- `team.html` \u2014 Lines 115, 182, 188, 193, 199, 204, 221, 248\n- `recovery.html` \u2014 Lines 264, 628, 661, 672, 677, 685, 707, 718\n- `blog.html` \u2014 Lines 249, 254, 280, 288, 293, 306, 319, 358\n\n**What to Change:**\n```bash\n# Bulk replacement:\nsed -i 's/Count Wise/CountWize/g' *.html\n```\n\n```html\n<!-- BEFORE: -->\n<h2>Core Values Guiding Count Wise</h2>\n<div class=\"faq-question\">What services does Count Wise offer?</div>\n\n<!-- AFTER: -->\n<h2>Core Values Guiding CountWize</h2>\n<div class=\"faq-question\">What services does CountWize offer?</div>\n```\n\n**Acceptance Criteria:**\n- [ ] Zero instances of \"Count Wise\" (two words) in codebase\n- [ ] `grep -r \"Count Wise\" *.html` returns empty\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17269
-        },
-        {
-          "title": "Task 3.2: Fix \"Count Wize\" \u2192 \"CountWize\"",
-          "content": "**Issues:** #026  \n**Complexity:** Simple\n\n**Files to Modify:**\n- `blog.html` \u2014 Line 139\n\n**What to Change:**\n```html\n<!-- BEFORE: -->\n<h1 class=\"hero-heading\"><span class=\"highlighted-word\">Blog</span> Count Wize</h1>\n\n<!-- AFTER: -->\n<h1 class=\"hero-heading\"><span class=\"highlighted-word\">Blog</span> CountWize</h1>\n```\n\n**Acceptance Criteria:**\n- [ ] Blog page header reads \"Blog CountWize\"\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17100
-        }
-      ],
-      "started_at": "2026-01-21T01:11:53.250877",
-      "completed_at": "2026-01-21T01:20:52.563754",
-      "elapsed_seconds": 0
+      "task_count": 6,
+      "tokens": 1079
     },
     {
       "id": "C",
-      "name": "Phase C",
-      "status": "complete",
-      "task_count": 5,
-      "estimated_tokens": 85754,
-      "tasks": [
-        {
-          "title": "Task 3.3: Remove Dashes from Content (Site-wide)",
-          "content": "**Issues:** #001, #007, #008, #010, #012, #013, #015, #017, #028, #029, #035  \n**Complexity:** Medium (requires judgment)\n\n**Files to Modify:**\n- `about-us.html` \u2014 Hero headline (line 139)\n- `index.html` \u2014 Hero headline (line 245)\n- `crypto-recovery.html` \u2014 Multiple sections\n- `crypto-recovery-guide.html` \u2014 Multiple sections\n- `blog/` \u2014 Blog posts\n\n**What to Change:**\n\n| Pattern | Replacement |\n|---------|-------------|\n| `Services\u2014Handled` | `Services. Handled.` |\n| `-Your Assets` | `Your Assets` |\n| `Crypto Recovery - Lost` | `Crypto Recovery: Lost` |\n| `happens - don't` | `happens, don't` |\n| `consultation-just` | `consultation. Just` |\n\n```html\n<!-- BEFORE (#035): -->\n<h1>Crypto Recovery <br>Services\u2014Handled</h1>\n\n<!-- AFTER: -->\n<h1>Crypto Recovery <br>Services. Handled.</h1>\n```\n\n```html\n<!-- BEFORE (#001): -->\n<h1>Your Trusted Tool Recovery Services<br>-Your Assets, Our Expertise</h1>\n\n<!-- AFTER: -->\n<h1>Your Trusted Tool Recovery Services<br>Your Assets, Our Expertise</h1>\n```\n\n> **Note:** \"two-factor\" and \"step-by-step\" are acceptable compound words.\n\n**Acceptance Criteria:**\n- [ ] No em-dashes (\u2014) in headlines\n- [ ] No spaced hyphens ( - ) used as punctuation\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17298
-        },
-        {
-          "title": "Task 3.4: Regenerate Book Cover Images",
-          "content": "**Issues:** #024  \n**Complexity:** Complex (requires design work)\n\n**Files to Modify:**\n- Book cover image files in `images/`\n\n**What to Change:**\n\nThis is a design task, not code:\n1. Identify all book cover image files\n2. Re-export with corrected \"CountWize\" spelling (not \"CountWise\")\n3. Replace files in `images/` folder\n\n**Acceptance Criteria:**\n- [ ] All book cover images show \"CountWize\" (with 'z')\n\n---\n\n## Phase 4: Layout Polish (Days 11-14)\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17114
-        },
-        {
-          "title": "Task 4.1: Fix Core Values Layout",
-          "content": "**Issues:** #003 (layout aspect)  \n**Complexity:** Simple\n\n**Files to Modify:**\n- `css/main.css` \u2014 Core values section styles\n- Or inline in `about-us.html`\n\n**What to Change:**\n```css\n/* Find .core-values-heading-wrapper and change: */\n.core-values-heading-wrapper {\n  display: flex;\n  flex-direction: column; /* Changed from row */\n  align-items: center;\n  text-align: center;\n}\n```\n\n**Acceptance Criteria:**\n- [ ] Section heading appears above description text (not beside)\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17120
-        },
-        {
-          "title": "Task 4.2: Fix Footer Layout",
-          "content": "**Issues:** #006  \n**Complexity:** Medium\n\n**Files to Modify:**\n- `css/main.css` \u2014 Footer styles\n\n**What to Change:**\n```css\n.footer-contact-groups-wrapper {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 2rem;\n}\n\n.footer-social-wrapper {\n  /* Associate with contact section, not floating */\n  margin-top: 1rem;\n}\n```\n\n**Acceptance Criteria:**\n- [ ] Phone, email, social grouped together\n- [ ] Location clearly separated\n- [ ] Social icons not floating disconnected\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17128
-        },
-        {
-          "title": "Task 4.3: Fix Blog Grid Centering",
-          "content": "**Issues:** #027  \n**Complexity:** Simple\n\n**Files to Modify:**\n- `css/main.css` or `blog.html`\n\n**What to Change:**\n```css\n.blog-articles-grid {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  gap: 2rem;\n}\n\n.blog-article-card {\n  flex: 0 0 calc(50% - 1rem);\n  max-width: 500px;\n}\n```\n\n**Acceptance Criteria:**\n- [ ] Odd-numbered last article is centered\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17094
-        }
-      ],
-      "started_at": "2026-01-21T01:20:55.586465",
-      "completed_at": "2026-01-21T01:26:08.062222",
-      "elapsed_seconds": 0
+      "task_count": 6,
+      "tokens": 1066
     },
     {
       "id": "D",
-      "name": "Phase D",
-      "status": "complete",
-      "task_count": 2,
-      "estimated_tokens": 32446,
-      "tasks": [
-        {
-          "title": "Task 4.4: Fix Hero CTA Button Position",
-          "content": "**Issues:** #036  \n**Complexity:** Simple\n\n**Files to Modify:**\n- `css/main.css` \u2014 Hero section styles\n\n**What to Change:**\n```css\n.hero-content-wrapper {\n  display: flex;\n  flex-direction: column; /* Stack vertically */\n  align-items: flex-start;\n  gap: 1.5rem;\n}\n```\n\n**Acceptance Criteria:**\n- [ ] Hero layout: Headline \u2192 Subtext \u2192 CTA (stacked vertically)\n\n---\n\n",
-          "complexity": "medium",
-          "files": [
-            "**"
-          ],
-          "estimated_tokens": 17091
-        },
-        {
-          "title": "Task 4.5: Improve Book Cover Designs",
-          "content": "**Issues:** #025  \n**Complexity:** Complex (design work)\n\n**What to Change:**\n\nDesign task - create unique covers for each book:\n- Legal Framework: Gavel, scales\n- Wallet Recovery: Key, lock\n- Blockchain Forensics: Magnifying glass\n- Beware of Scams: Warning signs\n- Case Studies: Success icons\n\n**Acceptance Criteria:**\n- [ ] Each book has visually distinct cover\n\n---\n\n## Verification Commands\n\n```bash\n# Check for remaining brand name issues:\ngrep -r \"Count Wise\" *.html\ngrep -r \"Count Wize\" *.html\n\n# Check for obvious dash punctuation:\ngrep -r \" - \" *.html | head -20\ngrep -r \"\u2014\" *.html | head -20\n\n# Start local server for testing:\ncd \"/Users/hamzeh/Desktop/GitHub/CountWize  - Website\"\npython3 -m http.server 8000\n# Visit http://localhost:8000\n```\n\n---\n\n## Manual Testing Checklist\n\n| Page | What to Check |\n|------|---------------|\n| `/` (Home) | Hero CTA below headline; Video button works; Lessons play; News functional |\n| `/about-us.html` | Embed works; Icons distinct; Team visible; Core Values vertical |\n| `/crypto-recovery-guide.html` | All images display; No misplaced images in text |\n| `/crypto-education.html` | Book covers display; EBooks text clean |\n| `/news.html` | All sections load; No placeholders; Links work |\n| `/blog.html` | Brand name correct; Grid centers odd items |\n| **All pages** | \"CountWize\" consistent; No dashes in copy |\n\n---\n\n*Generated from 41-issue QA report \u2014 January 2026*\n\n",
-          "complexity": "medium",
-          "files": [],
-          "estimated_tokens": 15355
-        }
-      ],
-      "started_at": "2026-01-21T01:26:11.077218",
-      "completed_at": "2026-01-21T01:28:23.403652",
-      "elapsed_seconds": 0
+      "task_count": 6,
+      "tokens": 1764
+    },
+    {
+      "id": "E",
+      "task_count": 6,
+      "tokens": 559
+    },
+    {
+      "id": "F",
+      "task_count": 6,
+      "tokens": 64
+    },
+    {
+      "id": "G",
+      "task_count": 6,
+      "tokens": 75
+    },
+    {
+      "id": "H",
+      "task_count": 6,
+      "tokens": 94
     }
   ],
-  "analyzed_at": "2026-01-21T01:04:21.128871"
+  "analyzed_at": "2026-01-21T03:36:39.349868"
 }

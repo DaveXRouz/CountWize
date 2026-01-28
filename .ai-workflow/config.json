@@ -1,6 +1,19 @@
 {
-  "testsprite_api_key": "sk-user-uMMcLNdCcZvvIeg4YwSm1G_sLxtGbpZyJGQFsbnck-Y3MKcQW5eMXSqb5RzbNVeAwAAbx59ZMgO2MAKBcRs8JEkLh1Hl3y2kwn6uKX7bshzhsHFPFir98XjzxfGkctZjYno",
+  "dashboard_port": 3000,
+  "preview_port": 8000,
   "auto_cascade": true,
-  "sound_enabled": true,
-  "local_server_port": 8000
+  "auto_cascade_delay": 5,
+  "auto_trigger_claude": true,
+  "auto_commit": true,
+  "auto_push": true,
+  "sound_notifications": true,
+  "max_retries": 3,
+  "retry_delay": 10,
+  "run_tests": true,
+  "max_tasks_per_phase": 6,
+  "target_tokens_per_phase": 90000,
+  "log_level": "INFO",
+  "max_log_entries": 1000,
+  "websocket_port": 3001,
+  "testsprite_api_key": ""
 }

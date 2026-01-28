@@ -1,241 +1,250 @@
-# AI Workflow Integration Guide for Claude Code v3.1
+# AI Workflow System v4.1 - Claude Code Instructions
 
-## Overview
-
-You are the **implementation agent** in a 3-agent automated workflow:
-
-```
-ANTIGRAVITY (Plan) → YOU (Implement) → TESTSPRITE (Test)
-```
-
-The orchestrator automatically:
-- Splits plans into phases based on 70% context limit
-- Cascades phases automatically (B starts when A finishes)
-- Runs tests in parallel
-- Queues errors for batch fixing
-
-## Your Role
-
-1. **Read** the current phase tasks
-2. **Execute** each task using `/plan` mode
-3. **Log** your work to session history
-4. **Signal completion** by updating phase state
-
-## Directory Structure
-
-```
-.ai-workflow/
-├── planning.md              # Master plan (from Antigravity)
-├── current-state.json       # Workflow status (read-only for you)
-├── current-command.md       # Your current instructions
-├── config.json              # Settings
-├── phases/
-│   ├── phase-analysis.json  # Auto-generated phase breakdown
-│   ├── phase-a-tasks.md     # 📖 READ: Your tasks for Phase A
-│   ├── phase-a-state.json   # 📝 WRITE: Update when done
-│   ├── phase-b-tasks.md     # Tasks for Phase B
-│   └── ...
-├── session-history/
-│   ├── session-1.md         # 📝 WRITE: Log Phase A work
-│   ├── session-2.md         # Log Phase B work
-│   └── ...
-├── test-results/            # TestSprite writes here
-├── errors-to-fix.md         # Error queue
-└── CLAUDE.md                # This file
-```
-
-## Execution Protocol
-
-### Starting a Phase
-
-```bash
-# 1. Read your tasks
-cat .ai-workflow/phases/phase-a-tasks.md
-
-# 2. Enable planning mode
-/plan
-
-# 3. Execute tasks in order
-```
-
-### During Execution
-
-1. **Complete tasks in order** - don't skip ahead
-2. **Make atomic changes** - one task = one logical change
-3. **Verify each change** - test it works before moving on
-4. **Track modified files** - note which files you changed
-
-### Completing a Phase
-
-**Step 1: Update phase state file**
-
-```json
-// .ai-workflow/phases/phase-a-state.json
-{
-  "phase_id": "A",
-  "status": "complete",
-  "completed_at": "2026-01-21T12:00:00Z",
-  "tasks_completed": 5,
-  "modified_files": [
-    "index.html",
-    "about-us.html",
-    "css/main.css"
-  ],
-  "notes": "All tasks completed successfully"
-}
-```
-
-**Step 2: Write session log**
-
-```markdown
-// .ai-workflow/session-history/session-1.md
-# Session 1 - Phase A
-
-**Started:** 2026-01-21T11:30:00Z
-**Completed:** 2026-01-21T12:00:00Z
-**Status:** ✅ Complete
-
-## Summary
-Brief description of what was accomplished.
-
-## Tasks Completed
-
-### Task A.1: Fix Video Embeds
-- **Files:** index.html, about-us.html
-- **Changes:** Replaced Embedly iframes with direct Vimeo
-- **Status:** ✅ Complete
-
-### Task A.2: Update News Section
-- **Files:** news.html, js/news.js
-- **Changes:** Added static content, removed API dependency
-- **Status:** ✅ Complete
-
-## Modified Files
-- index.html
-- about-us.html
-- news.html
-- js/news.js
-
-## Issues Encountered
-- None
-
-## Notes for Next Session
-- Video lightbox JSON needs verification
-- Consider adding lazy loading for images
-```
-
-### The orchestrator will automatically:
-1. Detect your phase-a-state.json update
-2. Start TestSprite tests in parallel
-3. Begin Phase B (auto-cascade)
-
-## Error Handling
-
-### If a task fails:
-
-1. **Document it** in errors-to-fix.md:
-```markdown
-## Error from Phase A - Task A.3
-
-**Error:** Image not found: team-photo.jpg
-**File:** about-us.html, line 145
-**Attempted:** Looked for alternative images
-**Suggested Fix:** Upload image or use placeholder
-
-**Added:** 2026-01-21T12:00:00Z
-```
-
-2. **Continue with next task** - don't block the phase
-
-3. **Complete the phase** - errors will be fixed later
-
-### Error Queue
-Errors are collected and fixed in a dedicated session after all phases complete. This keeps the main workflow moving.
-
-## Context Management
-
-### Session Limits
-- **Target:** 70% of context (~90,000 tokens)
-- **If approaching limit:** Wrap up current task, complete phase
-
-### Between Phases
-- Each phase starts with **clean context**
-- Read previous session logs if you need continuity
-- The phase-X-tasks.md file has all you need
-
-## Quick Commands
-
-### Start Phase A
-```
-Read .ai-workflow/phases/phase-a-tasks.md
-Use /plan mode
-Execute all tasks
-Log to .ai-workflow/session-history/session-1.md
-Update .ai-workflow/phases/phase-a-state.json with status "complete"
-```
-
-### Check Status
-```bash
-cat .ai-workflow/current-state.json
-```
-
-### View Phase Tasks
-```bash
-cat .ai-workflow/phases/phase-a-tasks.md
-```
-
-### Fix Errors
-```
-Read .ai-workflow/errors-to-fix.md
-Fix each error
-Mark as fixed in the file
-Run tests to verify
-```
-
-## Best Practices
-
-✅ **DO:**
-- Use `/plan` mode for complex changes
-- Make incremental, testable changes
-- Document everything in session logs
-- Track all modified files
-- Test changes at http://localhost:8000
-
-❌ **DON'T:**
-- Skip tasks without documenting why
-- Make changes outside your phase scope
-- Leave incomplete work without notes
-- Forget to update phase state file
-
-## Project: CountWize Website
-
-### Technical Details
-- **Type:** Static HTML/CSS/JS site
-- **Server:** http://localhost:8000
-- **No build process** - edit files directly
-
-### Brand Guidelines
-- **Name:** "CountWize" (one word, capital W, ends in 'ize')
-- **Primary Color:** #07B96A (green)
-- **Font:** Inter, system fonts
-- **Tone:** Professional, trustworthy
-
-### Key Files
-- `index.html` - Homepage
-- `about-us.html` - About page with video
-- `crypto-education.html` - Education section
-- `news.html` - News section
-- `css/main.css` - Main styles
-- `js/` - JavaScript files
-
-## Support
-
-If you're stuck:
-1. Read the phase tasks file again
-2. Check session history for context
-3. Review the original planning.md
-4. Document the blocker and move on
+> **CRITICAL:** Read this entire document before starting any phase.
 
 ---
 
-*AI Workflow System v3.1 - Claude Code Integration*
+## 📋 Overview
+
+You are executing tasks as part of an automated AI workflow system. The orchestrator monitors your progress via a **status file protocol**. After completing each phase, you **MUST** update the status file to signal completion.
+
+---
+
+## 🚨 CRITICAL: Status File Protocol
+
+The orchestrator watches `.ai-workflow/status.json` for changes. This is how you communicate completion or errors.
+
+### File Location
+```
+.ai-workflow/status.json
+```
+
+### After COMPLETING a Phase Successfully
+
+Update the file with:
+
+```json
+{
+  "state": "completed",
+  "current_phase": "A",
+  "phases_completed": ["A"],
+  "files_modified": ["index.html", "css/styles.css", "js/main.js"],
+  "errors": [],
+  "last_updated": "2026-01-21T12:00:00.000Z"
+}
+```
+
+**Quick command to update status:**
+```bash
+cat > .ai-workflow/status.json << 'EOF'
+{
+  "state": "completed",
+  "current_phase": "A",
+  "phases_completed": ["A"],
+  "files_modified": ["file1.html", "file2.css"],
+  "errors": []
+}
+EOF
+```
+
+### If You Encounter an ERROR
+
+```json
+{
+  "state": "error",
+  "current_phase": "A",
+  "phases_completed": [],
+  "files_modified": [],
+  "errors": ["Description of what went wrong"],
+  "last_updated": "2026-01-21T12:00:00.000Z"
+}
+```
+
+---
+
+## 📝 Workflow Process
+
+### Step 1: Read Your Tasks
+
+```bash
+cat .ai-workflow/current-command.md
+```
+
+This file contains:
+- Phase identifier
+- List of tasks to complete
+- Specific files to modify
+- Completion instructions
+
+### Step 2: Execute Tasks in Order
+
+Work through each task methodically:
+1. Understand the requirement
+2. Make the necessary changes
+3. Test the changes work
+4. Move to next task
+
+### Step 3: Commit and Push
+
+After completing ALL tasks in the phase:
+
+```bash
+# Stage all changes
+git add -A
+
+# Commit with semantic message
+git commit -m "fix: Phase A - [brief description of changes]"
+
+# Push to remote
+git push
+```
+
+**Commit message format:**
+- `fix: Phase X - description` for bug fixes
+- `feat: Phase X - description` for new features
+- `refactor: Phase X - description` for code improvements
+
+### Step 4: Update Status File (CRITICAL!)
+
+This is the most important step. Without this, the orchestrator won't know you're done.
+
+```bash
+cat > .ai-workflow/status.json << 'EOF'
+{
+  "state": "completed",
+  "current_phase": "A",
+  "phases_completed": ["A"],
+  "files_modified": ["list", "all", "modified", "files"],
+  "errors": []
+}
+EOF
+```
+
+---
+
+## ✅ Completion Checklist
+
+Before signaling completion, verify:
+
+- [ ] All tasks in `current-command.md` are complete
+- [ ] Changes have been tested and work correctly
+- [ ] Git commit has been created with semantic message
+- [ ] Git push has been completed
+- [ ] **`status.json` has been updated** ← MOST IMPORTANT!
+
+---
+
+## 📁 File Structure
+
+```
+project/
+├── .ai-workflow/
+│   ├── current-command.md  ← READ THIS - your tasks for current phase
+│   ├── status.json         ← UPDATE THIS - signal completion/error
+│   ├── planning.md         ← Full task plan (reference only)
+│   ├── config.json         ← Configuration settings
+│   ├── session.json        ← Session state (don't modify)
+│   ├── orchestrator.py     ← Main orchestrator (don't modify)
+│   ├── dashboard.html      ← Dashboard UI (don't modify)
+│   ├── CLAUDE.md           ← This file
+│   ├── logs/               ← Log files
+│   ├── phases/             ← Individual phase files
+│   └── test-results/       ← Test output
+└── [your project files]
+```
+
+---
+
+## 🔧 Quick Commands Reference
+
+```bash
+# Read current tasks
+cat .ai-workflow/current-command.md
+
+# Check current status
+cat .ai-workflow/status.json
+
+# View session state
+cat .ai-workflow/session.json
+
+# Complete a phase (update status)
+cat > .ai-workflow/status.json << 'EOF'
+{
+  "state": "completed",
+  "current_phase": "A",
+  "phases_completed": ["A"],
+  "files_modified": ["file1.html"],
+  "errors": []
+}
+EOF
+
+# Report an error
+cat > .ai-workflow/status.json << 'EOF'
+{
+  "state": "error",
+  "current_phase": "A",
+  "phases_completed": [],
+  "files_modified": [],
+  "errors": ["Error description here"]
+}
+EOF
+```
+
+---
+
+## ⚠️ Common Mistakes to Avoid
+
+1. **Forgetting to update status.json** - The orchestrator will wait forever
+2. **Not listing modified files** - Track all files you changed
+3. **Forgetting to push** - Commit locally is not enough
+4. **Wrong status format** - Use exact JSON format shown above
+5. **Skipping tasks** - Complete all tasks before signaling done
+
+---
+
+## 🆘 Troubleshooting
+
+### Orchestrator not detecting completion?
+1. Check `.ai-workflow/status.json` exists
+2. Verify JSON is valid (no syntax errors)
+3. Ensure `"state": "completed"` is set
+4. Make sure you saved the file
+
+### Need to skip remaining tasks?
+Update status.json with `"state": "completed"` anyway - the orchestrator will move on.
+
+### Made a mistake in a completed phase?
+The orchestrator supports retrying phases from the dashboard.
+
+---
+
+## 📞 Communication Protocol Summary
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    COMMUNICATION FLOW                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ORCHESTRATOR                          CLAUDE CODE              │
+│  ────────────                          ──────────               │
+│       │                                     │                   │
+│       │  writes current-command.md          │                   │
+│       │ ──────────────────────────────────► │                   │
+│       │                                     │                   │
+│       │                                     │  reads tasks      │
+│       │                                     │  executes work    │
+│       │                                     │  commits & pushes │
+│       │                                     │                   │
+│       │         updates status.json         │                   │
+│       │ ◄────────────────────────────────── │                   │
+│       │                                     │                   │
+│       │  detects change                     │                   │
+│       │  runs tests                         │                   │
+│       │  starts next phase                  │                   │
+│       │                                     │                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+**Remember:** The status.json update is how you "talk" to the orchestrator. Without it, nothing happens!
